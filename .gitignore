@@ -20,3 +20,9 @@ wp-content/plugins/hello.php
 Thumbs.db
 node_modules/
 vendor/
+
+# WordPress Root PHP Core Files
+/*.php
+/*.html
+/*.txt
+.vscode/
