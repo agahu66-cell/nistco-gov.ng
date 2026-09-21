@@ -26,3 +26,8 @@ vendor/
 /*.html
 /*.txt
 .vscode/
+
+# WordPress Directory Guards & Content Placeholders
+wp-content/index.php
+wp-content/plugins/
+wp-content/themes/index.php
