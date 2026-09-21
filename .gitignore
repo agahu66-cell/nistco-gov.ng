@@ -1,0 +1,22 @@
+﻿# WordPress Core & Local Environment
+wp-admin/
+wp-includes/
+wp-config.php
+*.log
+.htaccess
+
+# Uploads & Large Assets
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/blogs.dir/
+
+# Default Themes & Non-Target Plugins
+wp-content/themes/twentytwenty*
+wp-content/plugins/akismet/
+wp-content/plugins/hello.php
+
+# System & OS Files
+.DS_Store
+Thumbs.db
+node_modules/
+vendor/

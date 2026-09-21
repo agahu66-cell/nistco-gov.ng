@@ -1,0 +1,9 @@
+<svg width="360" height="420" viewBox="0 0 360 420" fill="#042416">'
+         . '<rect width="360" height="420" fill="#042416" />'
+         . '<circle cx="180" cy="150" r="58" fill="none" stroke="#86efac" stroke-width="2.5" stroke-dasharray="6 4" />'
+         . '<circle cx="180" cy="150" r="45" fill="#0d5c3a" />'
+         . '<text x="50%" y="162" dominant-baseline="middle" text-anchor="middle" fill="#fde047" font-size="36">🏛️</text>'
+         . '<path d="M 90,285 C 90,225 270,225 270,285 L 270,330 L 90,330 Z" fill="#0d5c3a" />'
+         . '<rect x="75" y="348" width="210" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" />'
+         . '<text x="50%" y="366" dominant-baseline="middle" text-anchor="middle" fill="#86efac" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="bold">OFFICIAL PORTRAIT</text>'
+         . '</svg>

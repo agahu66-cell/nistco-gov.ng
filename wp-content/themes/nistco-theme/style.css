@@ -1,0 +1,4124 @@
+/*
+Theme Name: Nigeria Innovation, Science, and Technology Complex (NISTCO)
+Theme URI: https://nistco.gov.ng
+Author: ICT Unit, Works and Services
+Description: Modern Classic institutional theme for the Nigeria Innovation, Science, and Technology Complex (Federal Ministry of Innovation, Science and Technology).
+Version: 2.5.0
+License: GNU General Public License v2 or later
+Text Domain: nistco-theme
+*/
+
+/* =========================================================================
+   1. DESIGN TOKENS, CSS CUSTOM PROPERTIES & BASE RESETS
+   ========================================================================= */
+
+:root {
+  /* Institutional Brand Palette */
+  --primary-dark: #042416;
+  --primary-color: #0d5c3a;
+  --primary-light: #e8f5ee;
+  --accent-gold: #c59b27;
+  --accent-gold-light: #fef9c3;
+
+  /* Modern Classic Aliases */
+  --mc-dark: var(--primary-dark);
+  --mc-green: var(--primary-color);
+  --mc-green-light: var(--primary-light);
+  --mc-gold: var(--accent-gold);
+  --mc-gold-light: var(--accent-gold-light);
+
+  /* Backgrounds & Neutrals */
+  --mc-parchment: #fbfcfb;
+  --mc-parchment-alt: #f4f6f4;
+  --bg-light: #f8fafc;
+  --border-color: #e2e8f0;
+  --mc-border: #e2e8f0;
+  --mc-border-light: rgba(13, 92, 58, 0.12);
+
+  /* Typography */
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --mc-text-main: #1e293b;
+  --mc-text-muted: #64748b;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(4, 36, 22, 0.08);
+  --shadow-lg: 0 12px 24px -4px rgba(4, 36, 22, 0.12);
+  --mc-shadow-sm: var(--shadow-sm);
+  --mc-shadow-md: var(--shadow-md);
+  --mc-shadow-lg: var(--shadow-lg);
+
+  /* Geometry & Transitions */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-full: 9999px;
+  --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
+  color: var(--mc-text-main);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-main,
+.mc-homepage,
+.nistco-main {
+  width: 100%;
+  overflow-x: hidden;
+  color: var(--mc-text-main);
+  background: #ffffff;
+}
+
+/* Master Responsive Containers */
+.container,
+.nistco-container {
+  width: 100%;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Base Section Containers & Layout Classes */
+.mc-section,
+.nistco-section {
+  padding: clamp(4rem, 6.5vw, 5.75rem) 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.mc-bg-parchment,
+.nistco-bg-parchment {
+  background: var(--mc-parchment);
+}
+.mc-bg-white,
+.nistco-bg-white {
+  background: #ffffff;
+}
+.mc-border-top,
+.nistco-border-top {
+  border-top: 1px solid var(--mc-border);
+}
+.mc-border-bottom,
+.nistco-border-bottom {
+  border-bottom: 1px solid var(--mc-border);
+}
+.mc-text-center {
+  text-align: center;
+}
+
+.mc-section-header,
+.nistco-section-header {
+  max-width: 820px;
+  margin-bottom: 3.25rem;
+}
+
+.mc-section-header.mc-text-center,
+.nistco-section-header.mc-text-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nistco-section-header-flex,
+.mc-pubs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.75rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.mc-section-kicker,
+.nistco-section-kicker {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: var(--mc-green);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.mc-section-title,
+.nistco-section-title {
+  font-size: clamp(1.85rem, 3.8vw, 2.35rem);
+  color: var(--mc-dark);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 0.65rem 0;
+  letter-spacing: -0.4px;
+}
+
+.mc-section-lead,
+.nistco-section-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mc-text-muted);
+  margin: 0;
+}
+
+/* =========================================================================
+   2. SCROLL REVEAL & NUMBER COUNTER ENGINE
+   ========================================================================= */
+
+.reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html.js-ready .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+html.js-ready .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-0 {
+  transition-delay: 0s;
+}
+.delay-100 {
+  transition-delay: 0.1s;
+}
+.delay-200 {
+  transition-delay: 0.2s;
+}
+.delay-300 {
+  transition-delay: 0.3s;
+}
+
+/* =========================================================================
+   3. HERO BANNER, ACTIONS & PILLS
+   ========================================================================= */
+
+.mc-hero-section,
+.nistco-hero-section {
+  background: linear-gradient(135deg, #042416 0%, #083822 60%, #042416 100%);
+  color: #ffffff;
+  padding: clamp(4.5rem, 8vw, 6.5rem) 0 5.5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--mc-gold);
+}
+
+.mc-hero-ambient-1,
+.nistco-hero-ambient-1 {
+  position: absolute;
+  top: -15%;
+  right: 15%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(
+    circle,
+    rgba(13, 92, 58, 0.45) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mc-hero-ambient-2,
+.nistco-hero-ambient-2 {
+  position: absolute;
+  bottom: -15%;
+  right: 30%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(197, 155, 39, 0.22) 0%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mc-hero-pattern,
+.nistco-hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: radial-gradient(#86efac 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mc-hero-grid,
+.nistco-hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.mc-hero-badges,
+.nistco-hero-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.mc-pill,
+.nistco-pill {
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mc-pill-green,
+.nistco-pill-green {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #86efac;
+}
+
+.mc-pill-gold,
+.nistco-pill-gold {
+  background: var(--mc-gold);
+  color: #042416;
+}
+
+.mc-hero-title,
+.nistco-hero-title {
+  font-size: clamp(2.2rem, 5.2vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 1.35rem 0;
+  letter-spacing: -0.5px;
+}
+
+.mc-hero-subtitle,
+.nistco-hero-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  line-height: 1.75;
+  color: #e2e8f0;
+  margin: 0 0 2.25rem 0;
+  max-width: 780px;
+}
+
+/* Master Action Buttons */
+.mc-hero-actions,
+.nistco-hero-actions {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.mc-btn,
+.nistco-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.82rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none !important;
+  transition: var(--transition);
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+
+.mc-btn-primary,
+.nistco-btn-primary {
+  background: var(--mc-green);
+  color: #ffffff !important;
+  border: 1.5px solid #86efac;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.mc-btn-primary:hover,
+.nistco-btn-primary:hover {
+  background: #09442a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 92, 58, 0.45);
+}
+
+.mc-btn-secondary,
+.nistco-btn-secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.mc-btn-secondary:hover,
+.nistco-btn-secondary:hover {
+  background: #ffffff;
+  color: var(--mc-dark) !important;
+  transform: translateY(-2px);
+}
+
+.mc-btn-gold,
+.nistco-btn-gold {
+  background: rgba(197, 155, 39, 0.15);
+  color: #fde047 !important;
+  border: 1.5px solid var(--mc-gold);
+}
+
+.mc-btn-gold:hover,
+.nistco-btn-gold:hover {
+  background: var(--mc-gold);
+  color: #042416 !important;
+  transform: translateY(-2px);
+}
+
+.mc-btn-outline,
+.nistco-btn-outline {
+  background: #ffffff;
+  color: var(--mc-dark) !important;
+  border: 1.5px solid var(--mc-border);
+  box-shadow: var(--mc-shadow-sm);
+}
+
+.mc-btn-outline:hover,
+.nistco-btn-outline:hover {
+  border-color: var(--mc-green);
+  color: var(--mc-green) !important;
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   4. 3D VIEWPORT, GEAR SYSTEM & DUAL QUANTUM CROSSING ORBITS
+   ========================================================================= */
+
+.mc-3d-viewport,
+.nistco-3d-viewport,
+.about-3d-viewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  perspective-origin: center center;
+  position: relative;
+  min-height: 420px;
+}
+
+.mc-3d-stage,
+.nistco-3d-stage,
+.about-3d-stage {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  transform-style: preserve-3d;
+  transform: rotateX(22deg) rotateY(-16deg) rotateZ(0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mc-3d-stage:hover,
+.nistco-3d-stage:hover,
+.about-3d-stage:hover {
+  transform: rotateX(14deg) rotateY(-8deg) scale(1.04);
+}
+
+/* Crossing Field Horizon */
+.crossing-resonance-field {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transform: translateZ(-20px) rotateX(65deg) rotateY(15deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.crossing-field-line {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(134, 239, 172, 0.25);
+  box-shadow: 0 0 15px rgba(13, 92, 58, 0.2);
+  animation: rotateField 35s linear infinite;
+}
+
+@keyframes rotateField {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3D Mechanical Gears (Optional Background Integration) */
+.gear-system-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(5px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gear-wrap {
+  position: absolute;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65));
+}
+
+.gear-main-wrap {
+  width: 250px;
+  height: 250px;
+  top: 55px;
+  left: 20px;
+  animation: gearSpinClockwise 32s linear infinite;
+}
+
+.gear-secondary-wrap {
+  width: 155px;
+  height: 155px;
+  top: -10px;
+  right: 10px;
+  animation: gearSpinCounterClockwise 22s linear infinite;
+}
+
+.gear-3d-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes gearSpinClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gearSpinCounterClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Quantum Flux Bridge */
+.quantum-flux-bridge {
+  position: absolute;
+  width: 180px;
+  height: 3px;
+  top: 120px;
+  left: 135px;
+  transform-style: preserve-3d;
+  transform: rotate(-42deg) translateZ(35px);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.flux-beam {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(134, 239, 172, 0.9),
+    rgba(253, 224, 71, 0.95),
+    rgba(56, 189, 248, 0.9)
+  );
+  box-shadow:
+    0 0 12px rgba(134, 239, 172, 0.8),
+    0 0 20px rgba(56, 189, 248, 0.6);
+  border-radius: var(--radius-full);
+  animation: fluxPulse 2.5s ease-in-out infinite alternate;
+}
+
+.flux-particle {
+  position: absolute;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 18px #fde047;
+}
+
+.flux-p1 {
+  animation: fluxTravelForward 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.flux-p2 {
+  animation: fluxTravelBackward 3s cubic-bezier(0.4, 0, 0.2, 1) infinite 1.5s;
+}
+
+@keyframes fluxPulse {
+  0% {
+    opacity: 0.5;
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(1.5px);
+  }
+}
+
+@keyframes fluxTravelForward {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes fluxTravelBackward {
+  0% {
+    left: 100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 0%;
+    opacity: 0;
+  }
+}
+
+/* Primary Quantum Atom */
+.atom-form-primary {
+  position: absolute;
+  top: 85px;
+  left: 45px;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: translateZ(55px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.nucleus-primary {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+.core-emerald-gold {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(
+    circle at 35% 35%,
+    #ffffff 0%,
+    #fef08a 30%,
+    #10b981 70%,
+    #042416 100%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 0 24px rgba(253, 224, 71, 0.95),
+    0 0 50px rgba(52, 211, 153, 0.85);
+  animation: pulsePrimaryCore 2.6s ease-in-out infinite alternate;
+}
+
+.corona-emerald {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(134, 239, 172, 0.4) 0%,
+    transparent 70%
+  );
+  animation: coronaPulse 2.6s ease-in-out infinite alternate;
+}
+
+/* Secondary Quantum Atom */
+.atom-form-secondary {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+  transform: translateZ(75px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.nucleus-secondary {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  z-index: 10;
+}
+
+.core-cyan-amber {
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #ffffff 0%,
+    #7dd3fc 35%,
+    #0284c7 70%,
+    #082f49 100%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 0 18px rgba(56, 189, 248, 0.95),
+    0 0 35px rgba(253, 224, 71, 0.75);
+  animation: pulseSecondaryCore 2s ease-in-out infinite alternate;
+}
+
+.corona-cyan {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.45) 0%,
+    transparent 70%
+  );
+  animation: coronaPulse 2s ease-in-out infinite alternate;
+}
+
+/* Orbit Rings & Electrons */
+.quantum-orbit {
+  position: absolute;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.orbit-glow-line {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border-width: 1.8px;
+  border-style: solid;
+}
+
+.border-emerald {
+  border-color: rgba(134, 239, 172, 0.7);
+  box-shadow:
+    0 0 12px rgba(134, 239, 172, 0.4),
+    inset 0 0 8px rgba(134, 239, 172, 0.2);
+}
+.border-gold {
+  border-color: rgba(253, 224, 71, 0.75);
+  box-shadow:
+    0 0 14px rgba(253, 224, 71, 0.45),
+    inset 0 0 8px rgba(253, 224, 71, 0.25);
+}
+.border-emerald-soft {
+  border-color: rgba(52, 211, 153, 0.6);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.35);
+}
+.border-cyan {
+  border-color: rgba(56, 189, 248, 0.8);
+  box-shadow:
+    0 0 14px rgba(56, 189, 248, 0.5),
+    inset 0 0 6px rgba(56, 189, 248, 0.25);
+}
+.border-amber {
+  border-color: rgba(251, 191, 36, 0.75);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
+}
+
+.quantum-electron {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 14px #ffffff,
+    0 0 22px currentColor;
+}
+
+.electron-emerald {
+  background: #ffffff;
+  border: 2px solid #86efac;
+  color: #34d399;
+}
+.electron-gold {
+  background: #ffffff;
+  border: 2px solid #fde047;
+  color: #facc15;
+}
+.electron-white {
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  color: #86efac;
+}
+.electron-cyan {
+  background: #ffffff;
+  border: 2px solid #7dd3fc;
+  color: #38bdf8;
+  width: 9px;
+  height: 9px;
+  top: -5px;
+}
+.electron-amber {
+  background: #ffffff;
+  border: 2px solid #fef08a;
+  color: #f59e0b;
+  width: 9px;
+  height: 9px;
+  top: -5px;
+}
+
+.orbit-primary-1 {
+  width: 200px;
+  height: 72px;
+  transform: rotateX(72deg) rotateY(15deg);
+  animation: orbitSpinP1 8.5s linear infinite;
+}
+.orbit-primary-2 {
+  width: 200px;
+  height: 72px;
+  transform: rotateX(72deg) rotateY(-50deg);
+  animation: orbitSpinP2 11s linear infinite;
+}
+.orbit-primary-crossing {
+  width: 260px;
+  height: 92px;
+  transform: rotateX(60deg) rotateY(-35deg);
+  animation: orbitSpinCrossingP 12.5s linear infinite;
+}
+.orbit-secondary-1 {
+  width: 120px;
+  height: 44px;
+  transform: rotateX(68deg) rotateY(-25deg);
+  animation: orbitSpinS1 5.5s linear infinite;
+}
+.orbit-secondary-crossing {
+  width: 220px;
+  height: 78px;
+  transform: rotateX(55deg) rotateY(45deg);
+  animation: orbitSpinCrossingS 9.5s linear infinite;
+}
+
+@keyframes pulsePrimaryCore {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.15);
+    box-shadow:
+      0 0 32px rgba(253, 224, 71, 1),
+      0 0 60px rgba(52, 211, 153, 0.95);
+  }
+}
+
+@keyframes pulseSecondaryCore {
+  0% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1.2);
+    box-shadow:
+      0 0 28px rgba(56, 189, 248, 1),
+      0 0 45px rgba(253, 224, 71, 0.85);
+  }
+}
+
+@keyframes coronaPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0.95;
+  }
+}
+
+@keyframes orbitSpinP1 {
+  0% {
+    transform: rotateX(72deg) rotateY(15deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(72deg) rotateY(15deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitSpinP2 {
+  0% {
+    transform: rotateX(72deg) rotateY(-50deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(72deg) rotateY(-50deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes orbitSpinCrossingP {
+  0% {
+    transform: rotateX(60deg) rotateY(-35deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(-35deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitSpinS1 {
+  0% {
+    transform: rotateX(68deg) rotateY(-25deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(68deg) rotateY(-25deg) rotateZ(360deg);
+  }
+}
+
+@keyframes orbitSpinCrossingS {
+  0% {
+    transform: rotateX(55deg) rotateY(45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(55deg) rotateY(45deg) rotateZ(-360deg);
+  }
+}
+
+/* =========================================================================
+   5. SEPARATE 6-CENTRE INTERACTIVE LAUNCHPAD DOCK
+   ========================================================================= */
+
+.mc-centre-launchpad,
+.nistco-centre-launchpad {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.launchpad-heading {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #86efac;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.launchpad-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.launchpad-pill {
+  background: rgba(4, 36, 22, 0.85);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.launchpad-pill:hover {
+  transform: translateY(-2px);
+  border-color: #fde047;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(253, 224, 71, 0.3);
+  color: #fde047 !important;
+}
+
+.launchpad-pill .pill-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.launchpad-pill .pill-code {
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================================
+   6. GLOBAL ACTIVE SVG KINETIC ANIMATIONS
+   ========================================================================= */
+
+.mc-active-svg-canvas {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-3d-stage:hover .mc-active-svg-canvas,
+.mc-3d-stage:hover .mc-active-svg-canvas,
+.nistco-3d-stage:hover .mc-active-svg-canvas {
+  transform: scale(1.04) rotateX(4deg) rotateY(-4deg);
+}
+
+@keyframes nistcoRotClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nistcoRotCounter {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes nistcoPulseGlow {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 18px var(--mc-gold));
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+}
+
+@keyframes nistcoRadarSweep {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes nistcoWaveOscillate {
+  0%,
+  100% {
+    transform: translateY(0px) scaleY(1);
+  }
+  50% {
+    transform: translateY(-8px) scaleY(1.15);
+  }
+}
+
+@keyframes nistcoScanline {
+  0% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+}
+
+.svg-rot-cw-slow {
+  transform-origin: center;
+  animation: nistcoRotClockwise 48s linear infinite;
+}
+.svg-rot-cw-mid {
+  transform-origin: center;
+  animation: nistcoRotClockwise 26s linear infinite;
+}
+.svg-rot-cw-fast {
+  transform-origin: center;
+  animation: nistcoRotClockwise 14s linear infinite;
+}
+
+.svg-rot-ccw-slow {
+  transform-origin: center;
+  animation: nistcoRotCounter 42s linear infinite;
+}
+.svg-rot-ccw-mid {
+  transform-origin: center;
+  animation: nistcoRotCounter 22s linear infinite;
+}
+.svg-rot-ccw-fast {
+  transform-origin: center;
+  animation: nistcoRotCounter 12s linear infinite;
+}
+
+.svg-pulse-core {
+  transform-origin: center;
+  animation: nistcoPulseGlow 3.2s ease-in-out infinite;
+}
+.svg-radar-arm {
+  transform-origin: center;
+  animation: nistcoRadarSweep 7s linear infinite;
+}
+.svg-wave-bar {
+  transform-origin: bottom;
+  animation: nistcoWaveOscillate 2.8s ease-in-out infinite;
+}
+.svg-scanline-beam {
+  animation: nistcoScanline 3.5s ease-in-out infinite;
+}
+
+/* =========================================================================
+   7. BREADCRUMBS, FACTLET BAR & ALERT BAR
+   ========================================================================= */
+
+.about-breadcrumb {
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: #86efac;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.about-breadcrumb a {
+  color: #86efac;
+  text-decoration: none;
+}
+
+.about-breadcrumb .breadcrumb-current {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.about-nav-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.jump-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #86efac;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  margin-right: 0.35rem;
+}
+
+.about-nav-pill {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about-nav-pill:hover {
+  background: #ffffff;
+  color: var(--primary-dark) !important;
+  transform: translateY(-2px);
+}
+
+.about-factlet-bar {
+  background: rgba(3, 28, 17, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 3.5rem;
+  padding: 1.35rem 1.5rem;
+}
+
+.about-factlet-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.factlet-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.factlet-kicker {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #86efac;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.factlet-value {
+  font-size: 0.92rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Alert Notice Bar */
+.mc-alert-bar,
+.nistco-alert-bar {
+  background: #031c11;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.85rem 0;
+}
+
+.mc-alert-container,
+.nistco-alert-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.mc-alert-left,
+.nistco-alert-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mc-badge-danger,
+.nistco-badge-danger {
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.mc-alert-title,
+.nistco-alert-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mc-alert-ref,
+.nistco-alert-ref {
+  color: #86efac;
+  font-size: 0.82rem;
+  font-family: monospace;
+}
+
+.mc-alert-closing,
+.nistco-alert-closing {
+  color: #9ca3af;
+  font-size: 0.82rem;
+}
+
+.mc-alert-right,
+.nistco-alert-right {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.mc-btn-sm-ghost,
+.nistco-btn-sm-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.mc-btn-sm-ghost:hover,
+.nistco-btn-sm-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mc-alert-link,
+.nistco-alert-link {
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mc-alert-link:hover,
+.nistco-alert-link:hover {
+  color: #86efac;
+}
+
+/* =========================================================================
+   8. STATUTORY METRICS (ANIMATED TILES)
+   ========================================================================= */
+
+.mc-metrics-grid,
+.nistco-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.mc-metric-card,
+.nistco-metric-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 8px;
+  padding: 1.85rem 1.35rem;
+  text-align: center;
+  box-shadow: var(--mc-shadow-sm);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mc-metric-card:hover,
+.nistco-metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--mc-shadow-md);
+}
+
+.mc-metric-number,
+.nistco-metric-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--mc-green);
+  display: block;
+  line-height: 1;
+}
+
+.mc-metric-label,
+.nistco-metric-label {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-top: 0.65rem;
+}
+
+.mc-metric-sub,
+.nistco-metric-sub {
+  font-size: 0.82rem;
+  color: var(--mc-text-muted);
+  margin-top: 0.35rem;
+  display: block;
+  line-height: 1.4;
+}
+
+/* =========================================================================
+   9. RESEARCH CENTRES & DIVISION CARDS
+   ========================================================================= */
+
+.mc-centres-grid,
+.nistco-centres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.mc-centre-card,
+.nistco-centre-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  box-shadow: var(--mc-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mc-centre-card:hover,
+.nistco-centre-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mc-shadow-md);
+}
+
+.mc-centre-icon-wrap,
+.nistco-centre-icon-wrap {
+  font-size: 2.3rem;
+  line-height: 1;
+  margin-bottom: 0.85rem;
+}
+
+.mc-centre-code,
+.nistco-centre-code {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--mc-green);
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-bottom: 0.25rem;
+}
+
+.mc-centre-title,
+.nistco-centre-title {
+  font-size: 1.25rem;
+  color: var(--mc-dark);
+  font-weight: 800;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.35;
+}
+
+.mc-centre-desc,
+.nistco-centre-desc {
+  font-size: 0.92rem;
+  color: var(--mc-text-muted);
+  line-height: 1.65;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.mc-card-action,
+.nistco-card-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--mc-border);
+  padding: 1rem 0 0 0;
+  margin: 0;
+  color: var(--mc-green);
+  font-weight: 800;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.mc-card-action:hover,
+.nistco-card-action:hover {
+  color: var(--mc-dark);
+  padding-left: 4px;
+}
+
+/* =========================================================================
+   10. PRESIDENTIAL BANNER, DG VISION & LEADERSHIP
+   ========================================================================= */
+
+.mc-presidential-banner {
+  background: linear-gradient(135deg, #042416 0%, #073822 60%, #042416 100%);
+  border: 2px solid var(--mc-gold);
+  border-radius: 12px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px -5px rgba(4, 36, 22, 0.25);
+}
+
+.mc-presidential-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: radial-gradient(#86efac 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.mc-presidential-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.mc-presidential-portrait-wrap {
+  background: #ffffff;
+  border: 1px solid var(--mc-gold);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.mc-presidential-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background: #021a10;
+  overflow: hidden;
+}
+
+.mc-presidential-photo-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(4, 36, 22, 0.95), transparent);
+  color: #fde047;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+}
+
+.mc-presidential-caption {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: #ffffff;
+}
+
+.mc-presidential-title-kicker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--mc-green);
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.mc-presidential-name {
+  color: var(--mc-dark);
+  font-size: 1.15rem;
+  font-weight: 800;
+  display: block;
+}
+
+.mc-presidential-rank {
+  color: var(--mc-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.mc-presidential-pills {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.mc-presidential-heading {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: #ffffff;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.3px;
+}
+
+.mc-presidential-quote {
+  margin: 0 0 2rem 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 4px solid var(--mc-gold);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.05rem;
+  color: #f1f5f9;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.mc-presidential-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.mc-presidential-pillar-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.mc-presidential-pillar-item .pillar-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.mc-presidential-pillar-item strong {
+  display: block;
+  font-size: 0.88rem;
+  color: #86efac;
+  margin-bottom: 0.25rem;
+}
+
+.mc-presidential-pillar-item p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+/* Executive Leadership (DG / CEO) */
+.mc-exec-grid,
+.nistco-exec-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.mc-exec-portrait-card,
+.nistco-exec-portrait-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px -2px rgba(4, 36, 22, 0.08);
+}
+
+.mc-exec-photo-wrap,
+.nistco-exec-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  background: var(--mc-dark);
+}
+
+.mc-exec-photo-badge,
+.nistco-exec-photo-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(4, 36, 22, 0.95), transparent);
+  color: #86efac;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 1.25rem 1rem 0.5rem 1rem;
+}
+
+.mc-exec-caption,
+.nistco-exec-caption {
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.mc-exec-name,
+.nistco-exec-name {
+  color: var(--mc-dark);
+  font-size: 1.05rem;
+  display: block;
+}
+
+.mc-exec-designation,
+.nistco-exec-designation {
+  color: var(--mc-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.mc-exec-headline,
+.nistco-exec-headline {
+  font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+  color: var(--mc-dark);
+  margin: 0 0 1.25rem 0;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.mc-exec-quote,
+.nistco-exec-quote {
+  margin: 0 0 2rem 0;
+  background: #ffffff;
+  border-left: 5px solid var(--mc-green);
+  padding: 1.5rem 1.75rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 1.08rem;
+  color: var(--mc-dark);
+  font-style: italic;
+  line-height: 1.75;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.mc-exec-actions,
+.nistco-exec-actions {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* =========================================================================
+   11. SUPERVISORY DIGNITARIES GRID (MINISTRY & BOARD)
+   ========================================================================= */
+
+.dignitaries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.dignitary-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.dignitary-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--mc-gold);
+}
+
+.dignitary-photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: var(--mc-dark);
+  overflow: hidden;
+}
+
+.dignitary-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.dignitary-card:hover .dignitary-photo {
+  transform: scale(1.03);
+}
+
+.dignitary-badge-stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(4, 36, 22, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #86efac;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dignitary-info {
+  padding: 1.5rem;
+}
+
+.dignitary-role {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--mc-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dignitary-name {
+  font-size: 1.15rem;
+  color: var(--mc-dark);
+  margin: 0.35rem 0 0.25rem 0;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.dignitary-org {
+  font-size: 0.85rem;
+  color: var(--mc-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =========================================================================
+   12. PRINCIPAL OFFICERS & ORGANOGRAM TREE
+   ========================================================================= */
+
+.admin-roster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.admin-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    border-top-color 0.25s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px -4px rgba(4, 36, 22, 0.12);
+  border-top-color: var(--mc-gold);
+}
+
+.admin-card-lead {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  border-top: 5px solid var(--mc-gold);
+  background: linear-gradient(135deg, #ffffff 0%, #fbfcfb 100%);
+}
+
+.admin-photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: var(--mc-dark);
+  overflow: hidden;
+}
+
+.admin-card-lead .admin-photo-wrapper {
+  height: 100%;
+  min-height: 340px;
+}
+
+.admin-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.admin-card:hover .admin-photo {
+  transform: scale(1.03);
+}
+
+.admin-photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(4, 36, 22, 0.92) 0%,
+    transparent 100%
+  );
+  padding: 1.25rem 1rem 0.65rem 1rem;
+  display: flex;
+  align-items: flex-end;
+}
+
+.admin-cadre-tag {
+  color: #86efac;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin-details {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.admin-card-lead .admin-details {
+  padding: 2.5rem;
+  justify-content: center;
+}
+
+.admin-rank-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.admin-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  margin: 0 0 0.35rem 0;
+  line-height: 1.3;
+}
+
+.admin-card-lead .admin-name {
+  font-size: 1.75rem;
+}
+
+.admin-division {
+  font-size: 0.9rem;
+  color: var(--mc-text-muted);
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-top: 1px solid var(--mc-border);
+  padding-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--mc-green);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.admin-contact-btn:hover {
+  color: var(--mc-dark);
+  text-decoration: underline;
+}
+
+.admin-mandate-btn {
+  background: var(--mc-parchment);
+  border: 1px solid var(--mc-border);
+  color: var(--mc-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.admin-mandate-btn:hover {
+  background: var(--mc-green);
+  color: #ffffff;
+  border-color: var(--mc-green);
+}
+
+/* Organogram Tree Hierarchy */
+.organogram-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.org-node {
+  width: 100%;
+  max-width: 580px;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.org-node:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.org-node-ministry {
+  background: linear-gradient(135deg, #042416 0%, #0d5c3a 100%);
+  color: #ffffff;
+  border-color: var(--accent-gold);
+}
+
+.org-node-board {
+  background: #ffffff;
+  border-color: var(--primary-color);
+  color: var(--primary-dark);
+}
+
+.org-node-dg {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.org-connector {
+  width: 2px;
+  height: 28px;
+  background-color: var(--border-color);
+  margin: 0 auto;
+}
+
+.org-grid-level {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.org-branch-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.org-branch-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-top-color: var(--accent-gold);
+}
+
+.org-branch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-grow: 1;
+}
+
+.org-branch-list li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.org-branch-list li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* =========================================================================
+   13. INSTITUTIONAL RATINGS & FEEDBACK CAROUSEL
+   ========================================================================= */
+
+.mc-rating-summary-ribbon,
+.nistco-rating-summary-ribbon {
+  background: linear-gradient(135deg, #042416 0%, #083822 100%);
+  border: 1px solid var(--mc-gold);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 15px rgba(4, 36, 22, 0.15);
+}
+
+.rating-stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.rating-score {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+.rating-score span {
+  font-size: 1.1rem;
+  color: #86efac;
+  font-weight: 600;
+}
+.rating-stars {
+  color: #fde047;
+  font-size: 1.15rem;
+  letter-spacing: 2px;
+}
+.rating-count {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+.rating-divider {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+}
+.rating-metrics-grid {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.metric-pill {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+}
+.metric-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #86efac;
+}
+.metric-lbl {
+  font-size: 0.75rem;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rating-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+.rating-carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
+}
+.rating-carousel-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rating-slide {
+  flex: 0 0 50%;
+  min-width: 50%;
+  max-width: 50%;
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+}
+.rating-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 10px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.rating-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -2px rgba(4, 36, 22, 0.1);
+  border-top-color: var(--mc-gold);
+}
+.rating-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.rating-verified-tag {
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(13, 92, 58, 0.15);
+}
+.rating-quote {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--mc-text-main);
+  margin: 0 0 1.75rem 0;
+  font-style: italic;
+  flex-grow: 1;
+}
+.rating-author-box {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-top: 1px solid var(--mc-border);
+  padding-top: 1.25rem;
+}
+.rating-avatar {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  background: var(--mc-parchment-alt);
+  border: 1px solid var(--mc-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rating-author-info {
+  display: flex;
+  flex-direction: column;
+}
+.author-name {
+  font-size: 1.05rem;
+  color: var(--mc-dark);
+  font-weight: 800;
+}
+.author-role {
+  font-size: 0.82rem;
+  color: var(--mc-green);
+  font-weight: 700;
+}
+.author-inst {
+  font-size: 0.78rem;
+  color: var(--mc-text-muted);
+}
+.rating-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+}
+.rating-nav-btn {
+  background: #ffffff;
+  border: 1.5px solid var(--mc-border);
+  color: var(--mc-dark);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+.rating-nav-btn:hover {
+  background: var(--mc-green);
+  color: #ffffff;
+  border-color: var(--mc-green);
+  transform: translateY(-2px);
+}
+.rating-carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rating-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+.rating-dot.is-active {
+  background: var(--mc-green);
+  width: 24px;
+  border-radius: 9999px;
+}
+
+/* =========================================================================
+   14. SCIENTIFIC REPOSITORY & PUBLICATIONS
+   ========================================================================= */
+
+.mc-header-link,
+.nistco-header-link {
+  color: var(--mc-green);
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.mc-header-link:hover,
+.nistco-header-link:hover {
+  color: var(--mc-dark);
+  text-decoration: underline;
+}
+
+.mc-pubs-grid,
+.nistco-pubs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.mc-pub-card,
+.nistco-pub-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  box-shadow: var(--mc-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mc-pub-card:hover,
+.nistco-pub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mc-shadow-md);
+}
+
+.mc-pub-pills,
+.nistco-pub-pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mc-pub-year,
+.nistco-pub-year {
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.mc-pub-centre,
+.nistco-pub-centre {
+  background: #f1f5f9;
+  color: var(--mc-text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.mc-pub-title,
+.nistco-pub-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.35;
+}
+
+.mc-pub-title a,
+.nistco-pub-title a {
+  color: var(--mc-dark);
+  text-decoration: none;
+}
+
+.mc-pub-title a:hover,
+.nistco-pub-title a:hover {
+  color: var(--mc-green);
+}
+
+.mc-pub-authors,
+.nistco-pub-authors {
+  color: var(--mc-green);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.mc-pub-excerpt,
+.nistco-pub-excerpt {
+  color: var(--mc-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.mc-pub-footer,
+.nistco-pub-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--mc-border);
+  padding-top: 1.15rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.mc-btn-cite,
+.nistco-btn-cite {
+  background: #ffffff;
+  border: 1.5px solid var(--mc-border);
+  color: var(--mc-dark);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mc-btn-cite:hover,
+.nistco-btn-cite:hover {
+  border-color: var(--mc-green);
+  color: var(--mc-green);
+}
+
+.mc-btn-preview,
+.nistco-btn-preview {
+  background: var(--mc-green);
+  border: 1.5px solid var(--mc-green);
+  color: #ffffff;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mc-btn-preview:hover,
+.nistco-btn-preview:hover {
+  background: #09442a;
+}
+
+/* =========================================================================
+   15. INNOVATION, PATENTS & TRL PIPELINE
+   ========================================================================= */
+
+.inno-trl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.inno-trl-phase-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 10px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.inno-trl-phase-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px -4px rgba(4, 36, 22, 0.12);
+}
+
+.inno-trl-badge {
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.phase-research {
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+  border: 1px solid rgba(13, 92, 58, 0.2);
+}
+
+.phase-pilot {
+  background: var(--mc-gold-light);
+  color: #854d0e;
+  border: 1px solid rgba(197, 155, 39, 0.3);
+}
+
+.phase-market {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.inno-phase-kicker {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--mc-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inno-phase-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  margin: 0.25rem 0 0.85rem 0;
+}
+
+.inno-phase-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--mc-text-main);
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.inno-phase-deliverables {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--mc-border);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--mc-text-muted);
+  font-weight: 600;
+}
+
+.inno-phase-deliverables li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.inno-phase-deliverables li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--mc-green);
+  font-weight: 800;
+}
+
+/* Patent Filter Toolbar */
+.inno-filter-toolbar {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 12px -2px rgba(4, 36, 22, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inno-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inno-search-box .search-icon {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.inno-search-box input {
+  width: 100%;
+  padding: 0.85rem 2.75rem 0.85rem 2.85rem;
+  border: 1.5px solid var(--mc-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--mc-parchment);
+  color: var(--mc-dark);
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.inno-search-box input:focus {
+  outline: none;
+  border-color: var(--mc-green);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 92, 58, 0.12);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.85rem;
+  background: #e2e8f0;
+  border: none;
+  color: #475569;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.search-clear-btn:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.inno-filter-pills {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-pill {
+  background: var(--mc-parchment-alt);
+  color: var(--mc-text-main);
+  border: 1px solid var(--mc-border);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.filter-pill:hover {
+  border-color: var(--mc-green);
+  color: var(--mc-green);
+  transform: translateY(-1px);
+}
+
+.filter-pill.is-active {
+  background: var(--mc-green);
+  color: #ffffff;
+  border-color: var(--mc-green);
+  box-shadow: 0 2px 8px rgba(13, 92, 58, 0.3);
+}
+
+.inno-filter-status {
+  font-size: 0.82rem;
+  color: var(--mc-text-muted);
+  border-top: 1px solid var(--mc-border);
+  padding-top: 0.75rem;
+}
+
+.inno-no-results-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--mc-text-muted);
+  grid-column: 1 / -1;
+}
+
+.inno-no-results-card .no-results-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.inno-no-results-card h3 {
+  color: var(--mc-dark);
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+}
+
+/* Patent Cards */
+.mc-patents-grid,
+.nistco-patents-grid,
+.inno-patents-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.mc-patent-card,
+.nistco-patent-card,
+.inno-patent-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 10px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mc-patent-card:hover,
+.nistco-patent-card:hover,
+.inno-patent-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mc-green);
+  box-shadow: 0 10px 20px -2px rgba(4, 36, 22, 0.1);
+}
+
+.inno-patent-header,
+.nistco-patent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.inno-tag-pill,
+.nistco-tag-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.tag-biotech {
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+}
+.tag-chem {
+  background: var(--mc-gold-light);
+  color: #854d0e;
+}
+.tag-sim {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.inno-trl-pill,
+.nistco-trl-pill {
+  background: #f1f5f9;
+  color: var(--mc-text-muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.inno-patent-title,
+.nistco-patent-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  margin: 0 0 0.65rem 0;
+  line-height: 1.35;
+}
+
+.inno-patent-excerpt,
+.nistco-patent-excerpt {
+  font-size: 0.88rem;
+  color: var(--mc-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1.25rem 0;
+  flex-grow: 1;
+}
+
+.inno-patent-meta-box,
+.nistco-patent-meta-box {
+  background: var(--mc-parchment);
+  border: 1px solid var(--mc-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  margin-bottom: 1.25rem;
+}
+
+.meta-label {
+  display: block;
+  color: var(--mc-text-muted);
+}
+.meta-val {
+  color: var(--mc-dark);
+  font-weight: 700;
+}
+
+.inno-patent-footer,
+.nistco-patent-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--mc-border);
+  padding-top: 1rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-indicator {
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.status-indicator.ready {
+  color: #0d5c3a;
+}
+.status-indicator.deployed {
+  color: #0284c7;
+}
+
+.inno-btn-license,
+.nistco-btn-license {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--mc-green);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.inno-btn-license:hover,
+.nistco-btn-license:hover {
+  color: var(--mc-dark);
+  text-decoration: underline;
+}
+
+/* Pilot Plants Grid */
+.inno-plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.inno-plant-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.inno-plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px -2px rgba(4, 36, 22, 0.1);
+  border-top-color: var(--mc-gold);
+}
+
+.plant-icon-wrap {
+  font-size: 2.3rem;
+  line-height: 1;
+  margin-bottom: 0.85rem;
+}
+.plant-division {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--mc-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+.plant-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+}
+.plant-desc {
+  font-size: 0.88rem;
+  color: var(--mc-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+.plant-capacity {
+  background: var(--mc-parchment-alt);
+  color: var(--mc-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--mc-border);
+}
+
+/* Steps & Dispatch Callouts */
+.inno-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.inno-step-item {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.step-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #86efac;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.step-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  margin: 0 0 0.5rem 0;
+}
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--mc-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.inno-dispatch-box {
+  background: linear-gradient(135deg, #042416 0%, #083822 100%);
+  border: 1.5px solid var(--mc-gold);
+  border-radius: 10px;
+  padding: 2.25rem 2.5rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  box-shadow: 0 10px 25px -4px rgba(4, 36, 22, 0.2);
+}
+
+.dispatch-left {
+  max-width: 650px;
+}
+.dispatch-kicker {
+  color: #86efac;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.dispatch-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0.35rem 0 0.5rem 0;
+}
+.dispatch-desc {
+  font-size: 0.92rem;
+  color: #e2e8f0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.inno-cta-banner {
+  background: radial-gradient(circle at 80% 20%, #083822 0%, #042416 100%);
+  border: 1px solid var(--mc-border);
+  border-radius: 12px;
+  padding: clamp(2.5rem, 5vw, 4rem) 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cta-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.cta-kicker {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #fde047;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+}
+.cta-heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.3rem);
+  font-weight: 800;
+  margin: 0.5rem 0 1rem 0;
+  color: #ffffff;
+}
+.cta-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin: 0 0 2rem 0;
+}
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* =========================================================================
+   16. STRATEGIC ALLIANCES & PARTNERS
+   ========================================================================= */
+
+.mc-partners-grid,
+.nistco-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.mc-partner-card,
+.nistco-partner-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-radius: 8px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--mc-shadow-sm);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mc-partner-card:hover,
+.nistco-partner-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mc-green);
+  box-shadow: var(--mc-shadow-md);
+}
+
+.mc-partner-icon,
+.nistco-partner-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.mc-partner-name,
+.nistco-partner-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  margin: 0 0 0.35rem 0;
+}
+.mc-partner-desc,
+.nistco-partner-desc {
+  font-size: 0.88rem;
+  color: var(--mc-text-muted);
+  line-height: 1.5;
+  margin: 0 0 1.25rem 0;
+  flex-grow: 1;
+}
+.mc-partner-tag,
+.nistco-partner-tag {
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(13, 92, 58, 0.15);
+}
+
+/* =========================================================================
+   17. UNIVERSAL FORMS & SERVICOM CITIZEN UI
+   ========================================================================= */
+
+.mc-form-card {
+  background: #ffffff;
+  border: 1px solid var(--mc-border);
+  border-top: 4px solid var(--mc-green);
+  border-radius: 12px;
+  padding: 2.25rem;
+  box-shadow: var(--mc-shadow-md);
+}
+
+.mc-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.mc-form-full {
+  grid-column: 1 / -1;
+}
+
+.mc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.mc-input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--mc-dark);
+}
+
+.mc-input-group input,
+.mc-input-group select,
+.mc-input-group textarea {
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--mc-border);
+  border-radius: 6px;
+  background: var(--mc-parchment);
+  color: var(--mc-text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.mc-input-group input:focus,
+.mc-input-group select:focus,
+.mc-input-group textarea:focus {
+  outline: none;
+  border-color: var(--mc-green);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 92, 58, 0.12);
+}
+
+.mc-servicom-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================================
+   18. UNIVERSAL MODAL SYSTEMS (ORGANOGRAM, PDF, CITATIONS, EOI)
+   ========================================================================= */
+
+.inno-modal-backdrop,
+.org-modal-backdrop,
+.pdf-modal-backdrop,
+.cite-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 36, 22, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.inno-modal-container,
+.org-modal-container,
+.pdf-modal-container,
+.cite-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.inno-modal-header,
+.org-modal-header,
+.pdf-modal-header,
+.cite-modal-header {
+  padding: 1.5rem 1.75rem;
+  background: #042416;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 3px solid var(--mc-gold);
+}
+
+.inno-modal-badge,
+.org-modal-badge,
+.pdf-modal-badge,
+.cite-modal-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #86efac;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.35rem;
+}
+
+.inno-modal-title,
+.org-modal-title,
+.pdf-modal-title,
+.cite-modal-paper-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.inno-modal-ref {
+  font-size: 0.8rem;
+  color: #fde047;
+  font-family: monospace;
+}
+
+.inno-modal-btn-close,
+.org-modal-btn-close,
+.pdf-modal-btn-close,
+.cite-modal-btn-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.inno-modal-btn-close:hover,
+.org-modal-btn-close:hover,
+.pdf-modal-btn-close:hover,
+.cite-modal-btn-close:hover {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Organogram Dossier Modal Specific Body Styles */
+.org-modal-body {
+  padding: 1.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.org-section-heading {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--mc-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.4rem 0;
+}
+
+.org-modal-description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.org-modal-units-list {
+  padding-left: 1.25rem;
+  margin: 0;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.org-modal-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.org-capability-pill {
+  background: #e8f5ee;
+  border: 1px solid rgba(13, 92, 58, 0.2);
+  color: #0d5c3a;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-block;
+  white-space: normal;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.org-modal-footer {
+  padding: 1.25rem 1.75rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Innovation Licensing EOI Modal Form */
+.inno-modal-form {
+  padding: 1.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inno-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.inno-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inno-form-full {
+  grid-column: 1 / -1;
+}
+.inno-form-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mc-dark);
+}
+.inno-form-group label .req {
+  color: #dc2626;
+}
+
+.inno-form-group input,
+.inno-form-group select,
+.inno-form-group textarea {
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--mc-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: var(--mc-parchment);
+  color: var(--mc-text-main);
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.inno-form-group input:focus,
+.inno-form-group select:focus,
+.inno-form-group textarea:focus {
+  outline: none;
+  border-color: var(--mc-green);
+  background: #ffffff;
+}
+
+.inno-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--mc-border);
+  padding-top: 1.25rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.inno-form-feedback {
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.inno-form-feedback.success {
+  background: var(--mc-green-light);
+  color: var(--mc-green);
+  border: 1px solid rgba(13, 92, 58, 0.3);
+}
+
+.inno-form-feedback.error {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+/* PDF Modal Frame & Loader */
+.pdf-modal-container {
+  max-width: 960px;
+  height: 90vh;
+}
+
+.pdf-modal-body {
+  position: relative;
+  flex: 1;
+  background: #334155;
+}
+
+.pdf-modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pdf-modal-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0f172a;
+  color: #ffffff;
+  gap: 1rem;
+}
+
+.pdf-modal-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #86efac;
+  border-radius: 50%;
+  animation: spinLoader 0.8s linear infinite;
+}
+
+@keyframes spinLoader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Citation Export Tabs & Code Box */
+.cite-modal-tabs {
+  display: flex;
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cite-tab-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cite-tab-btn.is-active {
+  background: #ffffff;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.cite-modal-body {
+  padding: 1.25rem 1.5rem;
+  background: #0f172a;
+}
+
+.cite-code-pre {
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.cite-code-display {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #86efac;
+  line-height: 1.5;
+}
+
+.cite-modal-footer {
+  padding: 1rem 1.5rem;
+  background: #f8fafc;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cite-toast-msg {
+  font-size: 0.82rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cite-toast-msg.is-active {
+  opacity: 1;
+}
+
+.cite-modal-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cite-btn-copy {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cite-btn-download {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* =========================================================================
+   19. RESPONSIVE MEDIA QUERIES
+   ========================================================================= */
+
+@media screen and (max-width: 992px) {
+  .mc-hero-grid,
+  .nistco-hero-grid,
+  .mc-exec-grid,
+  .nistco-exec-grid,
+  .mc-presidential-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+  .mc-3d-viewport,
+  .nistco-3d-viewport,
+  .about-3d-viewport {
+    min-height: 340px;
+  }
+  .mc-3d-stage,
+  .nistco-3d-stage,
+  .about-3d-stage {
+    transform: rotateX(20deg) rotateY(-12deg) scale(0.85);
+  }
+  .rating-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .rating-divider {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .admin-card-lead {
+    grid-template-columns: 1fr;
+  }
+  .admin-card-lead .admin-photo-wrapper {
+    height: 360px;
+  }
+  .admin-card-lead .admin-details {
+    padding: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .inno-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .inno-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .inno-modal-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .mc-hero-actions,
+  .nistco-hero-actions,
+  .mc-exec-actions,
+  .nistco-exec-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mc-hero-actions .mc-btn,
+  .nistco-hero-actions .nistco-btn,
+  .mc-exec-actions .mc-btn,
+  .nistco-exec-actions .nistco-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .mc-3d-viewport,
+  .nistco-3d-viewport,
+  .about-3d-viewport {
+    min-height: 290px;
+  }
+  .mc-3d-stage,
+  .nistco-3d-stage,
+  .about-3d-stage {
+    transform: rotateX(15deg) rotateY(-8deg) scale(0.7);
+  }
+  .mc-rating-summary-ribbon,
+  .nistco-rating-summary-ribbon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rating-metrics-grid,
+  .metric-pill {
+    width: 100%;
+  }
+  .pdf-modal-container {
+    height: 95vh;
+  }
+  .inno-dispatch-box {
+    padding: 1.75rem;
+  }
+}
+
+/* =========================================================================
+   3D STATUTORY PROCUREMENT SCALES & COMPLIANCE SHIELD ENGINE
+   ========================================================================= */
+
+.procure-3d-viewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  perspective-origin: center center;
+  position: relative;
+  min-height: 420px;
+}
+
+.procure-3d-stage {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(-14deg) rotateZ(0deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.procure-3d-stage:hover {
+  transform: rotateX(12deg) rotateY(-6deg) scale(1.04);
+}
+
+/* Layer 1: Hexagonal Shield (Z: -35px) */
+.procure-shield-wrap {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  transform-style: preserve-3d;
+  transform: translateZ(-35px);
+  animation: rotateShieldCW 45s linear infinite;
+  will-change: transform;
+}
+
+.procure-shield-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes rotateShieldCW {
+  from {
+    transform: translateZ(-35px) rotate(0deg);
+  }
+  to {
+    transform: translateZ(-35px) rotate(360deg);
+  }
+}
+
+/* Layer 2: Concentric Audit Rings (Z: -10px) */
+.procure-audit-rings {
+  position: absolute;
+  width: 270px;
+  height: 270px;
+  transform-style: preserve-3d;
+  transform: translateZ(-10px);
+  pointer-events: none;
+}
+
+.audit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border-style: dashed;
+}
+
+.audit-ring-outer {
+  border-width: 1.5px;
+  border-color: rgba(197, 155, 39, 0.45);
+  animation: spinAuditRingCCW 28s linear infinite;
+}
+
+.audit-ring-inner {
+  inset: 22px;
+  border-width: 1.5px;
+  border-color: rgba(134, 239, 172, 0.4);
+  animation: spinAuditRingCW 20s linear infinite;
+}
+
+@keyframes spinAuditRingCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinAuditRingCCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Layer 3: 3D Volumetric Scales of Equity (Z: +30px) */
+.procure-scales-3d {
+  position: absolute;
+  width: 250px;
+  height: 230px;
+  transform-style: preserve-3d;
+  transform: translateZ(30px);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Central Pillar & Solid Base */
+.scale-pillar {
+  position: absolute;
+  top: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 135px;
+  background: linear-gradient(180deg, #fef08a 0%, #c59b27 60%, #713f12 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(197, 155, 39, 0.5);
+}
+
+.scale-base {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 12px;
+  background: linear-gradient(90deg, #713f12 0%, #c59b27 50%, #713f12 100%);
+  border-radius: 6px;
+  border: 1px solid #fde047;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Articulating Crossbeam with Continuous Gravitational Oscillation */
+.scale-crossbeam {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  width: 200px;
+  height: 6px;
+  margin-left: -100px;
+  background: linear-gradient(90deg, #fde047 0%, #c59b27 50%, #fde047 100%);
+  border-radius: 4px;
+  transform-origin: center center;
+  box-shadow: 0 0 10px rgba(253, 224, 71, 0.6);
+  animation: scaleTiltMotion 6s ease-in-out infinite alternate;
+}
+
+@keyframes scaleTiltMotion {
+  0% {
+    transform: rotate(-5.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(5.5deg);
+  }
+}
+
+/* Balance Pan Assemblies (Left & Right) */
+.scale-pan-assembly {
+  position: absolute;
+  top: 6px;
+  width: 60px;
+  height: 80px;
+  transform-style: preserve-3d;
+}
+
+.scale-pan-left {
+  left: -12px;
+  animation: panCounterTilt 6s ease-in-out infinite alternate;
+}
+
+.scale-pan-right {
+  right: -12px;
+  animation: panCounterTilt 6s ease-in-out infinite alternate;
+}
+
+/* Counter-tilt keeps the scale pans horizontal while the beam tilts */
+@keyframes panCounterTilt {
+  0% {
+    transform: rotate(5.5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-5.5deg);
+  }
+}
+
+.pan-string {
+  position: absolute;
+  top: 0;
+  width: 1.5px;
+  height: 52px;
+  background: rgba(253, 224, 71, 0.85);
+  box-shadow: 0 0 4px rgba(253, 224, 71, 0.4);
+}
+
+.string-l {
+  left: 16px;
+  transform: rotate(14deg);
+  transform-origin: top left;
+}
+.string-r {
+  right: 16px;
+  transform: rotate(-14deg);
+  transform-origin: top right;
+}
+
+.scale-pan-dish {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 14px;
+  background: linear-gradient(180deg, #0d5c3a 0%, #042416 100%);
+  border: 1.5px solid #86efac;
+  border-radius: 0 0 28px 28px;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    inset 0 2px 4px rgba(134, 239, 172, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pan-label {
+  font-size: 0.58rem;
+  font-weight: 900;
+  color: #fde047;
+  letter-spacing: 0.5px;
+  transform: translateY(-2px);
+}
+
+/* Layer 4: Central BPP Statutory Seal (Z: +65px) */
+.procure-bpp-seal {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  transform-style: preserve-3d;
+  transform: translateZ(65px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.seal-core {
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at 35% 35%, #0d5c3a 0%, #042416 100%);
+  border: 2px solid var(--mc-gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 20px rgba(197, 155, 39, 0.7),
+    0 0 40px rgba(13, 92, 58, 0.8);
+  animation: pulseBppSeal 3s ease-in-out infinite alternate;
+}
+
+.seal-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.seal-text {
+  font-size: 0.55rem;
+  font-weight: 900;
+  color: #fde047;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+
+.seal-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(134, 239, 172, 0.35) 0%,
+    transparent 70%
+  );
+  animation: coronaPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBppSeal {
+  0% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1.08);
+    box-shadow:
+      0 0 28px rgba(197, 155, 39, 0.95),
+      0 0 50px rgba(13, 92, 58, 0.9);
+  }
+}
+
+/* Layer 5: Floating Governance Satellite Pills */
+.procure-satellites {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.procure-sat {
+  position: absolute;
+  background: rgba(4, 36, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.procure-sat.sat-1 {
+  top: 25px;
+  right: 15px;
+  transform: translateZ(40px);
+  color: #86efac;
+  border-color: #86efac;
+  animation: floatSat1 4s ease-in-out infinite alternate;
+}
+
+.procure-sat.sat-2 {
+  bottom: 35px;
+  left: 20px;
+  transform: translateZ(45px);
+  color: #fde047;
+  border-color: #c59b27;
+  animation: floatSat2 4.5s ease-in-out infinite alternate;
+}
+
+.procure-sat.sat-3 {
+  bottom: 25px;
+  right: 30px;
+  transform: translateZ(35px);
+  color: #7dd3fc;
+  border-color: #38bdf8;
+  animation: floatSat3 5s ease-in-out infinite alternate;
+}
+
+@keyframes floatSat1 {
+  from {
+    transform: translateZ(40px) translateY(0px);
+  }
+  to {
+    transform: translateZ(40px) translateY(-8px);
+  }
+}
+
+@keyframes floatSat2 {
+  from {
+    transform: translateZ(45px) translateY(0px);
+  }
+  to {
+    transform: translateZ(45px) translateY(8px);
+  }
+}
+
+@keyframes floatSat3 {
+  from {
+    transform: translateZ(35px) translateY(0px);
+  }
+  to {
+    transform: translateZ(35px) translateY(-6px);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+  .procure-3d-viewport {
+    min-height: 330px;
+  }
+  .procure-3d-stage {
+    transform: rotateX(18deg) rotateY(-10deg) scale(0.85);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .procure-3d-viewport {
+    min-height: 290px;
+  }
+  .procure-3d-stage {
+    transform: rotateX(14deg) rotateY(-6deg) scale(0.72);
+  }
+}
