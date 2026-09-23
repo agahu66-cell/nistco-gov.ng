@@ -7,11 +7,21 @@
  * @package NistcoTheme
  */
 
+
+
 // ===============================
 // 1. Register AJAX actions
 // ===============================
 add_action('wp_ajax_nistco_get_citation', 'nistco_get_citation_handler');
 add_action('wp_ajax_nopriv_nistco_get_citation', 'nistco_get_citation_handler');
+
+// Prevent redirect_canonical from guessing tenders when visiting /procurement/
+add_filter( 'redirect_canonical', function( $redirect_url, $requested_url ) {
+    if ( strpos( $requested_url, '/procurement' ) !== false ) {
+        return false;
+    }
+    return $redirect_url;
+}, 10, 2 );
 
 // ===============================
 // 2. Define the handler function
@@ -156,4 +166,21 @@ add_action("wp_enqueue_scripts", function() {
             true
         );
     }
-});
+});// Auto-provision Procurement Desk Page
+add_action( 'init', function() {
+    if ( ! get_page_by_path( 'procurement' ) ) {
+        $page_id = wp_insert_post( array(
+            'post_title'     => 'Procurement & BPP Compliance Desk',
+            'post_name'      => 'procurement',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+        ) );
+        if ( $page_id && ! is_wp_error( $page_id ) ) {
+            update_post_meta( $page_id, '_wp_page_template', 'page-procurement.php' );
+            delete_option( 'rewrite_rules' );
+            flush_rewrite_rules( true );
+        }
+    }
+} );

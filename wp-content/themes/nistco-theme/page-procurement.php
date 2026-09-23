@@ -22,6 +22,8 @@ $tenders_query = new WP_Query( array(
     'orderby'        => 'meta_value',
     'order'          => 'ASC',
 ) );
+
+
 ?>
 
 <main class="site-main mc-homepage nistco-main">
