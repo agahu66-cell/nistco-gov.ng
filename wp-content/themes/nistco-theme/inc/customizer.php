@@ -154,5 +154,33 @@ add_action( 'customize_register', 'nistco_customize_register' );
 if ( ! function_exists( 'shestco_customize_register' ) ) {
     function shestco_customize_register( $wp_customize ) {
         nistco_customize_register( $wp_customize );
+ 
+        }
+}function nistco_customize_social_register( $wp_customize ) {
+    $wp_customize->add_section( 'nistco_social_section', array(
+        'title'       => __( 'NISTCO Social Media Handles', 'nistco' ),
+        'priority'    => 35,
+        'description' => __( 'Configure official social profiles for statutory communications.', 'nistco' ),
+    ) );
+
+    $channels = array(
+        'linkedin' => 'LinkedIn Profile URL',
+        'twitter'  => 'X (Twitter) Profile URL',
+        'youtube'  => 'YouTube Channel URL',
+        'facebook' => 'Facebook Page URL',
+    );
+
+    foreach ( $channels as $key => $label ) {
+        $wp_customize->add_setting( "nistco_social_{$key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ) );
+
+        $wp_customize->add_control( "nistco_social_{$key}", array(
+            'label'    => $label,
+            'section'  => 'nistco_social_section',
+            'type'     => 'url',
+        ) );
     }
 }
+add_action( 'customize_register', 'nistco_customize_social_register' );
