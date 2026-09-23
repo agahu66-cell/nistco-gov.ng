@@ -737,8 +737,11 @@ document.addEventListener('DOMContentLoaded', function() {
             closePdfModal();
         }
     });
+
 });
 </script>
+
+
 
 <?php
 get_footer();
