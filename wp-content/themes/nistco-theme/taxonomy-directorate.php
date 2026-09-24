@@ -34,11 +34,11 @@ $total_papers      = 0;
 
 foreach ( $dir_centre_ids as $cid ) {
     $equip = get_post_meta( $cid, '_shestco_lab_equipment', true );
-    if ( is_array( $equip ) ) {
+   if ( is_array( $equip ) ) {
         $total_instruments += count( $equip );
     } else {
         $facilities = get_post_meta( $cid, '_centre_facilities', true );
-        if ( ! empty( $facilities ) ) {
+        if ( is_array( \(equip ) && ! empty(\)equip ) ) {
             $total_instruments += count( array_filter( array_map( 'trim', explode( ',', $facilities ) ) ) );
         }
     }
