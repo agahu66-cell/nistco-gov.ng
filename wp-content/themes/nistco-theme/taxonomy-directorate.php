@@ -32,14 +32,17 @@ $total_centres     = count( $dir_centre_ids );
 $total_instruments = 0;
 $total_papers      = 0;
 
-if ( ! empty( $dir_centre_ids ) ) {
-    foreach ( $dir_centre_ids as $cid ) {
-        $equip = get_post_meta( $cid, '_shestco_lab_equipment', true );
-        if ( is_array( $equip ) ) {
-            $total_instruments += count( $equip );
+foreach ( $dir_centre_ids as $cid ) {
+    $equip = get_post_meta( $cid, '_shestco_lab_equipment', true );
+    if ( is_array( $equip ) ) {
+        $total_instruments += count( $equip );
+    } else {
+        $facilities = get_post_meta( $cid, '_centre_facilities', true );
+        if ( ! empty( $facilities ) ) {
+            $total_instruments += count( array_filter( array_map( 'trim', explode( ',', $facilities ) ) ) );
         }
     }
-
+}
     $total_papers = count( get_posts( array(
         'post_type'      => 'publication',
         'post_status'    => 'publish',
@@ -53,7 +56,6 @@ if ( ! empty( $dir_centre_ids ) ) {
             ),
         ),
     ) ) );
-}
 
 // Fetch other active Directorates for bottom switching
 $sister_directorates = get_terms( array(
@@ -154,9 +156,15 @@ $sister_directorates = get_terms( array(
             <?php while ( have_posts() ) : the_post(); 
                     $cid            = get_the_ID();
                     $directorates   = get_the_terms( $cid, 'directorate' );
-                    $director_name  = get_post_meta( $cid, '_shestco_director_name', true );
-                    $equipment_list = get_post_meta( $cid, '_shestco_lab_equipment', true );
-                    $equip_count    = is_array( $equipment_list ) ? count( $equipment_list ) : 0;
+                    $director_name  = get_post_meta( $cid, '_centre_director', true ) ?: get_post_meta( $cid, '_shestco_director_name', true );
+$equipment_list = get_post_meta($cid, '_shestco_lab_equipment', true );
+ 
+if ( is_array( $equipment_list ) ) {
+    $equip_count = count( $equipment_list );
+} else {
+    $facilities  = get_post_meta( $cid, '_centre_facilities', true );
+    $equip_count = ! empty( $facilities ) ? count( array_filter( array_map( 'trim', explode( ',', $facilities ) ) ) ) : 0;
+}
 
                     // Query publications count for this single centre
                     $pub_count = count( get_posts( array(

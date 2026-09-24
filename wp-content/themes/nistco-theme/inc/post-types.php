@@ -150,7 +150,7 @@ register_taxonomy( 'directorate', array( 'research_centre', 'post', 'publication
 'show_ui' => true,
 'show_admin_column' => true,
 'query_var' => true,
-'rewrite' => array( 'slug' => 'directorates', 'with_front' => false ),
+'rewrite' => array( 'slug' => 'directorate', 'with_front' => false ),
 'show_in_rest' => true,
 ) );
 }

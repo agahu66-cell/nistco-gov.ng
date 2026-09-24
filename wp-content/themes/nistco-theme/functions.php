@@ -184,3 +184,12 @@ add_action( 'init', function() {
         }
     }
 } );
+/**
+ * Filter main query on Directorate taxonomy archives to load research centres.
+ */
+add_action( 'pre_get_posts', function( $query ) {
+    if ( ! is_admin() && $query->is_main_query() && $query->is_tax( 'directorate' ) ) {
+        $query->set( 'post_type', array( 'research_centre' ) );
+        $query->set( 'posts_per_page', -1 );
+    }
+} );
