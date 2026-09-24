@@ -355,57 +355,7 @@ $centres    = get_posts( array( 'post_type' => 'research_centre', 'posts_per_pag
     </div>
 </div>
 
-<!-- =========================================================================
-     2. CITATION EXPORT MODAL CONTAINER
-     ========================================================================= -->
-<div id="citation-export-modal" class="cite-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
-    style="display: none;">
-    <div class="cite-modal-container">
 
-        <div class="cite-modal-header">
-            <div class="cite-modal-title-wrap">
-                <span class="cite-modal-badge">Citation Export</span>
-                <h3 id="cite-modal-paper-title" class="cite-modal-paper-title">Publication Citation</h3>
-            </div>
-            <button type="button" id="cite-modal-close-btn" class="cite-modal-btn-close"
-                aria-label="Close Modal">&times;</button>
-        </div>
-
-        <div class="cite-modal-tabs">
-            <button type="button" class="cite-tab-btn is-active" data-format="bibtex">BibTeX (.bib)</button>
-            <button type="button" class="cite-tab-btn" data-format="ris">RIS / EndNote (.ris)</button>
-        </div>
-
-        <div class="cite-modal-body">
-            <pre class="cite-code-pre"><code id="cite-code-display" class="cite-code-display"></code></pre>
-        </div>
-
-        <div class="cite-modal-footer">
-            <div class="cite-toast-msg" id="cite-toast-msg">Copied to clipboard!</div>
-            <div class="cite-modal-actions">
-                <button type="button" id="btn-copy-citation" class="cite-btn-copy">
-                    📋 Copy to Clipboard
-                </button>
-                <button type="button" id="btn-download-citation" class="cite-btn-download">
-                    📥 Download File
-                </button>
-            </div>
-        </div>
-
-    </div>
-</div>
-<button type="button" class="btn-cite-trigger btn-modern-secondary"
-    data-title="<?php echo esc_attr( get_the_title() ); ?>" data-bibtex="<?php echo esc_attr( $bibtex_citation ); ?>"
-    data-ris="<?php echo esc_attr( $ris_citation ); ?>">
-    💬 Cite
-</button>
-
-<?php if ( ! empty( $pdf_url ) ) : ?>
-<button type="button" class="btn-pdf-preview btn-modern-primary" data-pdf-url="<?php echo esc_url( $pdf_url ); ?>"
-    data-pdf-title="<?php echo esc_attr( get_the_title() ); ?>">
-    👁️ Preview Paper
-</button>
-<?php endif; ?>
 
 <?php
 get_footer();

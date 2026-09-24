@@ -401,7 +401,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     <h3 class="nistco-centre-title">Biotechnology Centre</h3>
                     <p class="nistco-centre-desc">Plant genomics, micropropagation bioreactors, molecular disease
                         diagnostics, tissue culture, and bio-fertilizer synthesis.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/biotechnology-advanced-research-centre/" ) ); ?>" class="nistco-card-action"><span>Explore Facilities</span> <span>&rarr;</span></a>
+                    <a href="<?php echo esc_url( home_url( "/research-centres/biotechnology-advanced-research-centre/" ) ); ?>"
+                        class="nistco-card-action"><span>Explore Facilities</span> <span>&rarr;</span></a>
                 </div>
 
                 <!-- 2. AMSARC -->
@@ -411,7 +412,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     <h3 class="nistco-centre-title">Simulation Sciences</h3>
                     <p class="nistco-centre-desc">High-performance supercomputing cluster (HPC), quantum cryptographic
                         algorithms, and predictive modeling.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/applied-mathematics-and-simulation-advanced-research-centre/" ) ); ?>" class="nistco-card-action"><span>Explore Supercomputing</span> <span>&rarr;</span></a>
+                    <a href="<?php echo esc_url( home_url( "/research-centres/applied-mathematics-and-simulation-advanced-research-centre/" ) ); ?>"
+                        class="nistco-card-action"><span>Explore Supercomputing</span> <span>&rarr;</span></a>
                 </div>
 
                 <!-- 3. CARC -->
@@ -421,7 +423,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     <h3 class="nistco-centre-title">Chemical Sciences</h3>
                     <p class="nistco-centre-desc">Natural products chemistry, high-field multi-nuclear NMR, industrial
                         process catalysis, and CNSL polymer resin synthesis.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/chemistry-advanced-research-centre/" ) ); ?>" class="nistco-card-action"><span>Explore Chemical Core</span> <span>&rarr;</span></a>
+                    <a href="<?php echo esc_url( home_url( "/research-centres/chemistry-advanced-research-centre/" ) ); ?>"
+                        class="nistco-card-action"><span>Explore Chemical Core</span> <span>&rarr;</span></a>
                 </div>
 
                 <!-- 4. PARC -->
@@ -431,7 +434,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     <h3 class="nistco-centre-title">Physical Sciences</h3>
                     <p class="nistco-centre-desc">Semiconductor physics, thin-film photovoltaics characterization,
                         materials crystallography, and applied radiation dosimetry.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/physics-advanced-research-centre/" ) ); ?>" class="nistco-card-action"><span>Explore Physics Labs</span> <span>&rarr;</span></a>
+                    <a href="<?php echo esc_url( home_url( "/research-centres/physics-advanced-research-centre/" ) ); ?>"
+                        class="nistco-card-action"><span>Explore Physics Labs</span> <span>&rarr;</span></a>
                 </div>
 
                 <!-- 5. NTC -->
@@ -441,7 +445,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     <h3 class="nistco-centre-title">Nuclear Technology Centre</h3>
                     <p class="nistco-centre-desc">Gamma irradiation facilities, industrial non-destructive testing
                         (NDT), radiation dosimetry calibration, and crop preservation.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/nuclear-technology-centre/" ) ); ?>" class="nistco-card-action"><span>Explore Nuclear Core</span> <span>&rarr;</span></a>
+                    <a href="<?php echo esc_url( home_url( "/research-centres/nuclear-technology-centre/" ) ); ?>"
+                        class="nistco-card-action"><span>Explore Nuclear Core</span> <span>&rarr;</span></a>
                 </div>
 
                 <!-- 6. Engineering -->
@@ -451,7 +456,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     <h3 class="nistco-centre-title">Precision Engineering &amp; Tooling</h3>
                     <p class="nistco-centre-desc">5-axis CNC machining, mechanical prototype fabrication, scientific
                         equipment calibration, and solar microgrid operations.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/engineering-department/" ) ); ?>" class="nistco-card-action"><span>Explore Workshop</span> <span>&rarr;</span></a>
+                    <a href="<?php echo esc_url( home_url( "/research-centres/engineering-department/" ) ); ?>"
+                        class="nistco-card-action"><span>Explore Workshop</span> <span>&rarr;</span></a>
                 </div>
 
             </div>
@@ -495,7 +501,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     </div>
                     <div class="nistco-patent-footer">
                         <span class="status-indicator ready">● Ready for Production</span>
-                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2024%2F00821%20(Bio-Fertilizer)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20licensing%20terms%20for%20Patent%20NG/P/2024/00821." class="nistco-btn-license">License Technology &rarr;</a>
+                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2024%2F00821%20(Bio-Fertilizer)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20licensing%20terms%20for%20Patent%20NG/P/2024/00821."
+                            class="nistco-btn-license">License Technology &rarr;</a>
                     </div>
                 </article>
 
@@ -515,7 +522,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     </div>
                     <div class="nistco-patent-footer">
                         <span class="status-indicator ready">● Ready for Production</span>
-                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2024%2F01190%20(CNSL%20Polymer)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20joint%20venture%20licensing%20terms%20for%20Patent%20NG/P/2024/01190." class="nistco-btn-license">License Technology &rarr;</a>
+                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2024%2F01190%20(CNSL%20Polymer)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20joint%20venture%20licensing%20terms%20for%20Patent%20NG/P/2024/01190."
+                            class="nistco-btn-license">License Technology &rarr;</a>
                     </div>
                 </article>
 
@@ -535,7 +543,8 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
                     </div>
                     <div class="nistco-patent-footer">
                         <span class="status-indicator ready">● Ready for Integration</span>
-                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2025%2F00094%20(Quantum%20Cipher)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20sovereign%20integration%20licensing%20terms%20for%20Patent%20NG/P/2025/00094." class="nistco-btn-license">License Technology &rarr;</a>
+                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2025%2F00094%20(Quantum%20Cipher)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20sovereign%20integration%20licensing%20terms%20for%20Patent%20NG/P/2025/00094."
+                            class="nistco-btn-license">License Technology &rarr;</a>
                     </div>
                 </article>
 
@@ -896,34 +905,7 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
     </div>
 </div>
 
-<!-- CITATION EXPORT MODAL -->
-<div id="citation-export-modal" class="cite-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
-    style="display: none;">
-    <div class="cite-modal-container">
-        <div class="cite-modal-header">
-            <div class="cite-modal-title-wrap">
-                <span class="cite-modal-badge">Citation Export</span>
-                <h3 id="cite-modal-paper-title" class="cite-modal-paper-title">Publication Citation</h3>
-            </div>
-            <button type="button" id="cite-modal-close-btn" class="cite-modal-btn-close"
-                aria-label="Close Modal">&times;</button>
-        </div>
-        <div class="cite-modal-tabs">
-            <button type="button" class="cite-tab-btn is-active" data-format="bibtex">BibTeX (.bib)</button>
-            <button type="button" class="cite-tab-btn" data-format="ris">RIS / EndNote (.ris)</button>
-        </div>
-        <div class="cite-modal-body">
-            <pre class="cite-code-pre"><code id="cite-code-display" class="cite-code-display"></code></pre>
-        </div>
-        <div class="cite-modal-footer">
-            <div class="cite-toast-msg" id="cite-toast-msg">Copied to clipboard!</div>
-            <div class="cite-modal-actions">
-                <button type="button" id="btn-copy-citation" class="cite-btn-copy">📋 Copy to Clipboard</button>
-                <button type="button" id="btn-download-citation" class="cite-btn-download">📥 Download File</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- RESEARCHER RATING SUBMISSION MODAL -->
 <div id="researcher-rating-modal" class="inno-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
