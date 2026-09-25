@@ -162,3 +162,10 @@ function shestco_register_cpts() {
 nistco_register_cpts();
 }
 }
+// Canonical 301 Redirect: Consolidate legacy tenders archive to procurement desk hub
+add_action( 'template_redirect', function() {
+    if ( is_post_type_archive( 'procurement_tender' ) ) {
+        wp_safe_redirect( home_url( '/procurement/' ), 301 );
+        exit;
+    }
+} );
