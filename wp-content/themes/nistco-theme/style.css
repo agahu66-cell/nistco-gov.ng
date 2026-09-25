@@ -4122,3 +4122,19 @@ html.js-ready .reveal-on-scroll.is-visible {
     transform: rotateX(14deg) rotateY(-6deg) scale(0.72);
   }
 }
+
+/* =========================================================================
+   LEADER PHOTO STYLING FIX
+   ========================================================================= */
+.leader-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.leader-photo.placeholder {
+  object-fit: contain;
+  padding: 3rem;
+  background: var(--mc-dark);
+}

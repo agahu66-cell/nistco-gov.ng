@@ -13,14 +13,15 @@ get_header();
 $theme_uri = get_template_directory_uri();
 
 // Customizer Leadership Settings
-$president_name    = get_theme_mod( 'nistco_president_name', 'His Excellency, The President of the Federal Republic of Nigeria' );
+$president_name    = get_theme_mod( 'nistco_president_name', 'His Excellency, Bola Ahmed Tinubu Nigeria' );
 $president_quote   = get_theme_mod( 'nistco_president_quote', 'Nigeria must build a knowledge-driven economy where indigenous science, domestic patents, and local industrial manufacturing drive our national wealth and global competitiveness.' );
 
-$minister_name     = get_theme_mod( 'nistco_minister_name', 'Honourable Minister of Innovation, Science & Technology' );
-$perm_sec_name     = get_theme_mod( 'nistco_perm_sec_name', 'Permanent Secretary, Federal Ministry of Innovation, Science & Technology' );
+$minister_name     = get_theme_mod( 'nistco_minister_name', 'Dr. Kingsley Tochukwu Ude' );
+$perm_sec_name     = get_theme_mod( 'nistco_perm_sec_name', 'Permanent Secretary, Dr. Mukhtar Yawale Muhammad
+' );
 $board_chair_name  = get_theme_mod( 'nistco_board_chair_name', 'Chairman, Governing Board' );
 
-$dg_name           = get_theme_mod( 'nistco_dg_name', 'Prof. Director-General / CEO' );
+$dg_name           = get_theme_mod( 'nistco_dg_name', 'Hon.(Engr) Magaji Da’u Aliyu' );
 $dg_headline       = get_theme_mod( 'nistco_dg_headline', 'Pioneering Knowledge-Driven Solutions for Indigenous Industrial Transformation' );
 $dg_quote          = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear: to ensure that Nigeria does not merely consume global technology, but actively creates, patents, and deploys high-impact scientific discoveries.' );
 ?>
