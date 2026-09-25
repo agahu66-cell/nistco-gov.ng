@@ -419,7 +419,7 @@
                                     <li><a href="' . esc_url( home_url( '/research-centres/applied-mathematics-and-simulation-advanced-research-centre/' ) ) . '">Applied Maths & Simulation (AMSARC)</a></li>
                                 </ul>
                             </li>
-                            <li><a href="' . esc_url( home_url( '/tenders/' ) ) . '">Procurement</a></li>
+                            <li><a href="' . esc_url( home_url( '/procurement/' ) ) . '">Procurement & BPP Desk</a></li>
                             <li><a href="' . esc_url( get_post_type_archive_link( 'publication' ) ) . '">Publications</a></li>
                             <li><a href="' . esc_url( home_url( '/news/' ) ) . '">News</a></li>
                             <li><a href="' . esc_url( home_url( '/staff-login/' ) ) . '" style="color: var(--primary-color); font-weight: 700;">Staff Login</a></li>
