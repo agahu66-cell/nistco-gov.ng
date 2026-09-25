@@ -183,6 +183,48 @@ function shestco_render_json_ld_graph() {
         $schema['@graph'][] = $centre_schema;
     }
 
+// 4. Procurement & BPP Compliance Desk (Page 132 Hub)
+    if ( is_page( 'procurement' ) || is_page_template( 'page-procurement.php' ) || is_page( 132 ) ) {
+        $desk_schema = array(
+            '@type'        => 'GovernmentService',
+            '@id'          => esc_url( home_url( '/procurement/#service' ) ),
+            'name'         => 'Procurement & BPP Compliance Desk',
+            'serviceType'  => 'Public Procurement, BPP Solicitations & Statutory Bidding',
+            'provider'     => array(
+                '@id' => $org_id,
+            ),
+            'url'          => esc_url( home_url( '/procurement/#service' ) ),
+            'description'  => 'Official statutory procurement portal for NISTCO federal tenders, standard bidding documents (SBD), and Bureau of Public Procurement notices.',
+            'areaServed'   => array(
+                '@type' => 'Country',
+                'name'  => 'Nigeria',
+            ),
+        );
+
+        $schema['@graph'][] = $desk_schema;
+    }
+    // 5. Standard Static Pages Fallback
+    elseif ( is_page() && ! is_front_page() ) {
+        global $post;
+        if ( $post ) {
+            $page_schema = array(
+                '@type'            => 'WebPage',
+                '@id'              => esc_url( get_permalink( $post ) ),
+                'name'             => get_the_title( $post ),
+                'url'              => esc_url( get_permalink( $post ) ),
+                'description'      => wp_strip_all_tags( get_the_excerpt( $post ) ),
+                'inLanguage'       => 'en-NG',
+                'isPartOf'         => array(
+                    '@type' => 'WebSite',
+                    'name'  => get_bloginfo( 'name' ),
+                    'url'   => esc_url( home_url( '/' ) ),
+                ),
+            );
+
+            $schema['@graph'][] = $page_schema;
+        }
+    }
+
     echo "\n<!-- NISTCO JSON-LD Schema Graph -->\n";
     echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . "</script>\n";
 }
