@@ -34,11 +34,11 @@ $total_papers      = 0;
 
 foreach ( $dir_centre_ids as $cid ) {
     $equip = get_post_meta( $cid, '_shestco_lab_equipment', true );
-   if ( is_array( $equip ) ) {
+    if ( is_array( $equip ) && ! empty( $equip ) ) {
         $total_instruments += count( $equip );
     } else {
         $facilities = get_post_meta( $cid, '_centre_facilities', true );
-        if ( is_array( \(equip ) && ! empty(\)equip ) ) {
+       if ( ! empty( $facilities ) ) {
             $total_instruments += count( array_filter( array_map( 'trim', explode( ',', $facilities ) ) ) );
         }
     }
@@ -159,7 +159,7 @@ $sister_directorates = get_terms( array(
                     $director_name  = get_post_meta( $cid, '_centre_director', true ) ?: get_post_meta( $cid, '_shestco_director_name', true );
 $equipment_list = get_post_meta($cid, '_shestco_lab_equipment', true );
  
-if ( is_array( $equipment_list ) ) {
+if ( is_array( $equipment_list ) && ! empty( $equipment_list ) ) {
     $equip_count = count( $equipment_list );
 } else {
     $facilities  = get_post_meta( $cid, '_centre_facilities', true );
