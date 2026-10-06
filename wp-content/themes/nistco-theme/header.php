@@ -427,7 +427,8 @@
                     },
                 ) );
                 ?>
-            </nav>
+                <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-nav-link <?php echo is_page("servicom") ? "active" : ""; ?>" style="color: var(--mc-gold, #d97706); font-weight: 600;">SERVICOM</a>
+</nav>
 
         </div>
     </header>
