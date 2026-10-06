@@ -39,7 +39,7 @@
         </div>
 
         <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-            <nav class="nistco-nav" style="display: flex; gap: 1.1rem; align-items: center; font-size: 0.875rem; font-weight: 600;">
+            <nav class="nistco-nav" style="display: flex; gap: 1.1rem; align-items: center; font-size: 0.85rem; font-weight: 600;">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; padding: 0.25rem 0; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Home</a>
                 <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; padding: 0.25rem 0; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">About</a>
                 <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; padding: 0.25rem 0; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Research Centre</a>
