@@ -15,35 +15,42 @@
 <?php wp_body_open(); ?>
 
 <header class="site-header" style="background: #ffffff; border-bottom: 3px solid #042416; box-shadow: 0 4px 20px rgba(4,36,22,0.06); position: sticky; top: 0; z-index: 1000;">
-    <div class="nistco-container" style="max-width: 1280px; margin: 0 auto; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div class="nistco-container" style="max-width: 1440px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         
-        <div class="site-branding" style="display: flex; align-items: center; gap: 0.85rem;">
+        <div class="site-branding" style="display: flex; align-items: center; gap: 0.75rem;">
             <?php if ( has_custom_logo() ) : ?>
                 <?php the_custom_logo(); ?>
             <?php else : ?>
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" style="text-decoration: none; display: flex; align-items: center; gap: 0.75rem;">
-                    <div style="width: 40px; height: 40px; background: #042416; color: #d97706; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 8px; font-size: 1.2rem; border: 2px solid #d97706;">N</div>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" style="text-decoration: none; display: flex; align-items: center; gap: 0.6rem;">
+                    <div style="width: 38px; height: 38px; background: #042416; color: #d97706; display: flex; align-items: center; justify-content: center; font-weight: 800; border-radius: 6px; font-size: 1.15rem; border: 2px solid #d97706;">N</div>
                     <div>
-                        <span style="display: block; font-size: 1.05rem; font-weight: 800; color: #042416; line-height: 1.2; letter-spacing: -0.5px;">NISTCO</span>
-                        <span style="display: block; font-size: 0.65rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.8px;">Research Complex</span>
+                        <span style="display: block; font-size: 1rem; font-weight: 800; color: #042416; line-height: 1.2; letter-spacing: -0.5px;">NISTCO</span>
+                        <span style="display: block; font-size: 0.6rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px;">Research Complex</span>
                     </div>
                 </a>
             <?php endif; ?>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-            <nav class="nistco-nav" style="display: flex; gap: 1.5rem; align-items: center; font-size: 0.95rem; font-weight: 600;">
+        <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+            <nav class="nistco-nav" style="display: flex; gap: 1rem; align-items: center; font-size: 0.85rem; font-weight: 600;">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Home</a>
                 <a href="<?php echo esc_url( home_url( '/research/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Research</a>
-                <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">About Us</a>
+                <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Publications</a>
+                <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Centres</a>
+                <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Commercial Ventures</a>
+                <a href="<?php echo esc_url( home_url( '/procurement/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Procurement</a>
+                <a href="<?php echo esc_url( home_url( '/media/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Media</a>
+                <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">About</a>
                 <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-nav-link <?php echo is_page('servicom') ? 'active' : ''; ?>" style="color: #d97706; text-decoration: none; transition: color 0.2s; border-bottom: 2px solid #d97706; padding-bottom: 2px;">SERVICOM</a>
+                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="nistco-nav-link" style="color: #374151; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#042416'" onmouseout="this.style.color='#374151'">Contact</a>
+                <a href="<?php echo esc_url( wp_login_url() ); ?>" class="nistco-nav-link" style="background: #042416; color: #ffffff; padding: 0.35rem 0.85rem; border-radius: 4px; text-decoration: none; transition: background 0.2s;" onmouseover="this.style.background='#0d5c36'" onmouseout="this.style.background='#042416'">Login</a>
             </nav>
 
-            <div class="nistco-header-social" style="display: flex; gap: 0.6rem; align-items: center; border-left: 1px solid #e5e7eb; padding-left: 1.5rem;">
-                <a href="https://facebook.com/nistco.ng" target="_blank" rel="noopener" aria-label="Facebook" style="width: 34px; height: 34px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">f</a>
-                <a href="https://twitter.com/nistco_ng" target="_blank" rel="noopener" aria-label="Twitter / X" style="width: 34px; height: 34px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.85rem; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">𝕏</a>
-                <a href="https://linkedin.com/company/nistco-ng" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 34px; height: 34px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.8rem; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">in</a>
-                <a href="https://youtube.com/@nistco_ng" target="_blank" rel="noopener" aria-label="YouTube" style="width: 34px; height: 34px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.75rem; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">▶</a>
+            <div class="nistco-header-social" style="display: flex; gap: 0.4rem; align-items: center; border-left: 1px solid #e5e7eb; padding-left: 1rem;">
+                <a href="https://facebook.com/nistco.ng" target="_blank" rel="noopener" aria-label="Facebook" style="width: 30px; height: 30px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.75rem; font-weight: bold; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">f</a>
+                <a href="https://twitter.com/nistco_ng" target="_blank" rel="noopener" aria-label="Twitter / X" style="width: 30px; height: 30px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.75rem; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">𝕏</a>
+                <a href="https://linkedin.com/company/nistco-ng" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 30px; height: 30px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.7rem; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">in</a>
+                <a href="https://youtube.com/@nistco_ng" target="_blank" rel="noopener" aria-label="YouTube" style="width: 30px; height: 30px; border-radius: 50%; background: #f3f4f6; color: #4b5563; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.65rem; transition: all 0.25s ease;" onmouseover="this.style.background='#042416'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#f3f4f6'; this.style.color='#4b5563'; this.style.transform='translateY(0)';">▶</a>
             </div>
         </div>
 
