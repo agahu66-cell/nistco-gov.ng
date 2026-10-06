@@ -430,6 +430,7 @@
                 <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-nav-link <?php echo is_page("servicom") ? "active" : ""; ?>" style="color: var(--mc-gold, #d97706); font-weight: 600;">SERVICOM</a>
 
     <div class="nistco-header-social" style="display: flex; gap: 1rem; align-items: center; margin-left: 1.5rem;">
+        <a href="https://facebook.com/nistco.ng" target="_blank" rel="noopener" aria-label="Facebook" style="color: #6b7280; font-size: 1.1rem; text-decoration: none; transition: color 0.2s; font-weight: bold;">f</a>
         <a href="https://twitter.com/nistco_ng" target="_blank" rel="noopener" aria-label="Twitter / X" style="color: #6b7280; font-size: 1.1rem; text-decoration: none; transition: color 0.2s;">𝕏</a>
         <a href="https://linkedin.com/company/nistco-ng" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: #6b7280; font-size: 1.1rem; text-decoration: none; transition: color 0.2s;">in</a>
         <a href="https://youtube.com/@nistco_ng" target="_blank" rel="noopener" aria-label="YouTube" style="color: #6b7280; font-size: 1.1rem; text-decoration: none; transition: color 0.2s;">▶</a>
