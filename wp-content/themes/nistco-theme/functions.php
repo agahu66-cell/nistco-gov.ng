@@ -194,3 +194,5 @@ add_action( 'pre_get_posts', function( $query ) {
     }
 } );
 require_once get_template_directory() . '/inc/commercial-ventures.php';
+
+require_once get_template_directory() . '/inc/rest-telemetry.php';
