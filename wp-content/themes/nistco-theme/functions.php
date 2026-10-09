@@ -193,3 +193,4 @@ add_action( 'pre_get_posts', function( $query ) {
         $query->set( 'posts_per_page', -1 );
     }
 } );
+require_once get_template_directory() . '/inc/commercial-ventures.php';
