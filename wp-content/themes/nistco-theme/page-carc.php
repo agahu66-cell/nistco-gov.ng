@@ -15,7 +15,7 @@ get_header();
             
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
                 <span style="background: rgba(217,119,6,0.2); color: #f59e0b; padding: 0.4rem 0.85rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; border: 1px solid rgba(217,119,6,0.4);">
-                    Research Division
+                    Advanced Research Centre
                 </span>
                 <span style="background: rgba(255,255,255,0.08); color: #cbd5e1; padding: 0.4rem 0.85rem; border-radius: 6px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.8px;">
                     NISTCO Complex, Abuja
@@ -27,21 +27,21 @@ get_header();
             </h1>
 
             <p style="font-size: 1.15rem; color: #cbd5e1; max-width: 900px; margin: 0 0 2rem 0; line-height: 1.7;">
-                Pioneering advanced chemical synthesis, analytical instrumentation, pilot-scale production, and industrial material development for national technological self-reliance.
+                Specializes in industrial chemical synthesis, environmental remediation chemistry, extraction of bioactive natural compounds, and material characterization for indigenous manufacturing applications.
             </p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 900px; background: rgba(4,36,22,0.6); padding: 1.25rem; border-radius: 10px; border: 1px solid rgba(217,119,6,0.3); backdrop-filter: blur(10px);">
                 <div>
-                    <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Pilot Synthesis Scale</div>
-                    <div style="font-size: 1.25rem; font-weight: 700; color: #f59e0b;">500 Liters Capacity</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Core Focus</div>
+                    <div style="font-size: 1.25rem; font-weight: 700; color: #f59e0b;">Chemical Synthesis & Bioactives</div>
                 </div>
                 <div>
-                    <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Active Instrumentation</div>
-                    <div style="font-size: 1.25rem; font-weight: 700; color: #fff;">NMR & GC-MS Suite</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Instrumentation Suite</div>
+                    <div style="font-size: 1.25rem; font-weight: 700; color: #fff;">FTIR, UV-Vis, HPLC & GC-MS</div>
                 </div>
                 <div>
-                    <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">TRL Level</div>
-                    <div style="font-size: 1.25rem; font-weight: 700; color: #fff;">TRL 6 - 8 Commercial</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">Application Domain</div>
+                    <div style="font-size: 1.25rem; font-weight: 700; color: #fff;">Indigenous Manufacturing</div>
                 </div>
             </div>
 
@@ -59,8 +59,8 @@ get_header();
                 <h2 style="font-size: 1.75rem; font-weight: 700; color: #042416; margin-top: 0; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem;">
                     <span style="background: rgba(217,119,6,0.1); color: #d97706; padding: 0.5rem; border-radius: 8px; font-size: 1.25rem;">🧪</span> Mandate & Core Research Focus
                 </h2>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #334155; margin: 0 0 1.5rem 0;">
-                    CARC drives cutting-edge research in chemical synthesis, material science, analytical quality control, and pilot-scale chemical processing. The centre collaborates with national industries to substitute raw material imports, scale up indigenous formulations, and ensure rigorous chemical safety standards.
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #334155; margin: 0;">
+                    CARC specializes in industrial chemical synthesis, environmental remediation chemistry, extraction of bioactive natural compounds, and material characterization for indigenous manufacturing applications.
                 </p>
             </div>
 
@@ -73,31 +73,31 @@ get_header();
                 <div style="display: grid; gap: 1.5rem;">
                     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 5px solid #0d5c36; padding: 1.75rem; border-radius: 0 10px 10px 0;">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                            <h3 style="font-weight: 700; color: #042416; font-size: 1.15rem; margin: 0;">Pilot Plant Synthesis Unit (500L)</h3>
-                            <span style="background: #0d5c36; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Scale-Up</span>
+                            <h3 style="font-weight: 700; color: #042416; font-size: 1.15rem; margin: 0;">Spectroscopy Suite (FTIR, UV-Vis)</h3>
+                            <span style="background: #0d5c36; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Active Suite</span>
                         </div>
-                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0 0 1rem 0;">
-                            Multi-ton scale reactors and fractional distillation units for pilot batch production and chemical process optimization.
+                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0;">
+                            High-precision Fourier Transform Infrared and Ultraviolet-Visible spectroscopy for functional group identification and molecular structure verification.
                         </p>
                     </div>
 
                     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 5px solid #d97706; padding: 1.75rem; border-radius: 0 10px 10px 0;">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                            <h3 style="font-weight: 700; color: #042416; font-size: 1.15rem; margin: 0;">Advanced Analytical Instrumentation Lab</h3>
-                            <span style="background: #d97706; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">NMR & GC-MS</span>
+                            <h3 style="font-weight: 700; color: #042416; font-size: 1.15rem; margin: 0;">Chromatography Lab (HPLC, GC-MS)</h3>
+                            <span style="background: #d97706; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Separation & Analysis</span>
                         </div>
-                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0 0 1rem 0;">
-                            High-precision Nuclear Magnetic Resonance (NMR), Gas Chromatography-Mass Spectrometry (GC-MS), and FTIR spectroscopy for molecular profiling.
+                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0;">
+                            Advanced High-Performance Liquid Chromatography and Gas Chromatography-Mass Spectrometry systems for complex compound separation and trace pollutant detection.
                         </p>
                     </div>
 
                     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 5px solid #0d5c36; padding: 1.75rem; border-radius: 0 10px 10px 0;">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
-                            <h3 style="font-weight: 700; color: #042416; font-size: 1.15rem; margin: 0;">Material Science & Polymer Testing Suite</h3>
-                            <span style="background: #0d5c36; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Polymers</span>
+                            <h3 style="font-weight: 700; color: #042416; font-size: 1.15rem; margin: 0;">Material Synthesis and Thermal Analysis Lab</h3>
+                            <span style="background: #0d5c36; color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Synthesis & Testing</span>
                         </div>
-                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0 0 1rem 0;">
-                            Specialized thermal analysis (DSC/TGA) and mechanical stress testing for advanced polymers, composites, and industrial chemicals.
+                        <p style="font-size: 0.95rem; color: #64748b; line-height: 1.6; margin: 0;">
+                            Dedicated reactors and thermal analytical instrumentation for polymer characterization, nanomaterials development, and chemical formulation stress testing.
                         </p>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ get_header();
 
                 <div style="margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
                     <div style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.35rem;">Desk Contact</div>
-                    <a href="mailto:carc@nistco.gov.ng" style="font-size: 1.05rem; font-weight: 600; color: #f59e0b; text-decoration: none; word-break: break-all;">carc@nistco.gov.ng</a>
+                    <a href="mailto:carc@shestco.gov.ng" style="font-size: 1.05rem; font-weight: 600; color: #f59e0b; text-decoration: none; word-break: break-all;">carc@shestco.gov.ng</a>
                 </div>
 
                 <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" style="display: block; background: #d97706; color: #fff; text-align: center; padding: 1rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(217,119,6,0.4);">
