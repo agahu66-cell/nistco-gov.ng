@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for NISTCO Theme - Fixed Mobile Responsive & Hover Header
+ * The header for NISTCO Theme - Classic Professional & Fully Responsive
  */
 ?>
 <html <?php language_attributes(); ?>>
@@ -20,6 +20,23 @@
         .nistco-nav-link:hover {
         }
         
+        .nistco-dropdown {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .nistco-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #042416;
+            min-width: 260px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 6px;
+            border: 1px solid rgba(217,119,6,0.3);
+            padding: 0.5rem 0;
+            z-index: 100;
+        }
         .nistco-dropdown:hover .nistco-dropdown-menu {
         }
 
@@ -42,7 +59,7 @@
             color: #fff;
         }
 
-        /* Mobile Drawer Defaults */
+        /* Mobile Drawer */
         #nistco-mobile-drawer {
             display: none;
             background: #031b10;
@@ -56,7 +73,7 @@
         #nistco-mobile-drawer.open {
         }
 
-        /* Responsive Visibility Switch */
+        /* Responsive Breakpoints */
         @media screen and (max-width: 1200px) {
         }
         @media screen and (min-width: 1201px) {
@@ -83,11 +100,11 @@
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nistco-nav-link">Home</a>
             <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" class="nistco-nav-link">About</a>
             
-            <div class="nistco-dropdown" style="position: relative; padding: 0.5rem 0;">
+            <div class="nistco-dropdown">
                 <button class="nistco-nav-link" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 0.25rem; font-family: inherit;">
                     Centres <span style="font-size: 0.6rem;">▼</span>
                 </button>
-                <div class="nistco-dropdown-menu" style="display: none; position: absolute; top: 100%; left: 0; background: #042416; min-width: 260px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid rgba(217,119,6,0.3); padding: 0.5rem 0; z-index: 100;">
+                <div class="nistco-dropdown-menu">
                     <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" style="display: block; padding: 0.45rem 1rem; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;" onmouseover="this.style.background='#0d5c36'" onmouseout="this.style.background='transparent'">AMSARC (Math & Simulation)</a>
                     <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" style="display: block; padding: 0.45rem 1rem; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;" onmouseover="this.style.background='#0d5c36'" onmouseout="this.style.background='transparent'">BARC (Biotechnology)</a>
                     <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" style="display: block; padding: 0.45rem 1rem; color: #e2e8f0; text-decoration: none; font-size: 0.8rem;" onmouseover="this.style.background='#0d5c36'" onmouseout="this.style.background='transparent'">CARC (Chemical)</a>
