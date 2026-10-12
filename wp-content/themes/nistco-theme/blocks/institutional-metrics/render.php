@@ -1,43 +1,64 @@
 <?php
 /**
- * Block Name: NISTCO Institutional Metrics
+ * Block Name: NISTCO Institutional Metrics with Count-up Animation
  */
 
 $metrics = [
     [
-        "value" => "7",
-        "title" => "Research Centres & Divisions",
-        "desc"  => "Biotech, HPC, Chem, Phys, Nuclear & Tooling"
+        "raw"    => 7,
+        "target" => 7,
+        "suffix" => "",
+        "comma"  => false,
+        "title"  => "Research Centres & Divisions",
+        "desc"   => "Biotech, HPC, Chem, Phys, Nuclear & Tooling"
     ],
     [
-        "value" => "5+",
-        "title" => "Scientific Publications",
-        "desc"  => "Peer-reviewed & indexed research repository"
+        "raw"    => "5+",
+        "target" => 5,
+        "suffix" => "+",
+        "comma"  => false,
+        "title"  => "Scientific Publications",
+        "desc"   => "Peer-reviewed & indexed research repository"
     ],
     [
-        "value" => "2,000",
-        "title" => "Hectares Campus Footprint",
-        "desc"  => "Abuja-Lokoja Technology Corridor sanctuary"
+        "raw"    => "2,000",
+        "target" => 2000,
+        "suffix" => "",
+        "comma"  => true,
+        "title"  => "Hectares Campus Footprint",
+        "desc"   => "Abuja-Lokoja Technology Corridor sanctuary"
     ],
     [
-        "value" => "16+",
-        "title" => "Registered Patents",
-        "desc"  => "NOTAP-certified indigenous technologies"
+        "raw"    => "16+",
+        "target" => 16,
+        "suffix" => "+",
+        "comma"  => false,
+        "title"  => "Registered Patents",
+        "desc"   => "NOTAP-certified indigenous technologies"
     ],
     [
-        "value" => "4",
-        "title" => "Demonstration Pilot Plants",
-        "desc"  => "500L synthesis, tissue culture & precision CNC"
+        "raw"    => 4,
+        "target" => 4,
+        "suffix" => "",
+        "comma"  => false,
+        "title"  => "Demonstration Pilot Plants",
+        "desc"   => "500L synthesis, tissue culture & precision CNC"
     ],
     [
-        "value" => "500 kVA",
-        "title" => "Clean Energy Microgrid",
-        "desc"  => "Dedicated solar hybrid for NMR & HPC compute"
+        "raw"    => "500 kVA",
+        "target" => 500,
+        "suffix" => " kVA",
+        "comma"  => false,
+        "title"  => "Clean Energy Microgrid",
+        "desc"   => "Dedicated solar hybrid for NMR & HPC compute"
     ],
     [
-        "value" => "100%",
-        "title" => "Open Researcher Access",
-        "desc"  => "Shared national laboratory & residency facilities"
+        "raw"    => "100%",
+        "target" => 100,
+        "suffix" => "%",
+        "comma"  => false,
+        "title"  => "Open Researcher Access",
+        "desc"   => "Shared national laboratory & residency facilities"
     ]
 ];
 ?>
@@ -55,7 +76,13 @@ $metrics = [
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
             <?php foreach ( $metrics as $metric ) : ?>
                 <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(217,119,6,0.2); border-radius: 8px; padding: 1.75rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                    <div style="font-size: 2.5rem; font-weight: 800; color: #d97706; line-height: 1; margin-bottom: 0.5rem;"><?php echo esc_html( $metric['value'] ); ?></div>
+                    <div class="nistco-counter" 
+                         data-target="<?php echo esc_attr( $metric['target'] ); ?>" 
+                         data-suffix="<?php echo esc_attr( $metric['suffix'] ); ?>" 
+                         data-comma="<?php echo $metric['comma'] ? 'true' : 'false'; ?>"
+                         style="font-size: 2.5rem; font-weight: 800; color: #d97706; line-height: 1; margin-bottom: 0.5rem;">
+                         0<?php echo esc_html( $metric['suffix'] ); ?>
+                    </div>
                     <div style="font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem;"><?php echo esc_html( $metric['title'] ); ?></div>
                     <div style="font-size: 0.8rem; color: #94a3b8;"><?php echo esc_html( $metric['desc'] ); ?></div>
                 </div>
@@ -64,3 +91,59 @@ $metrics = [
 
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.nistco-counter');
+    
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseFloat(el.getAttribute('data-target'));
+                const suffix = el.getAttribute('data-suffix') || '';
+                const isComma = el.getAttribute('data-comma') === 'true';
+                
+                let startTime = null;
+                const duration = 2000; // 2 seconds animation duration
+
+                function step(currentTime) {
+                    if (!startTime) startTime = currentTime;
+                    const progress = Math.min((currentTime - startTime) / duration, 1);
+                    
+                    // Ease out expo for smooth deceleration
+                    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    const currentVal = target * easeProgress;
+
+                    let formatted = Math.floor(currentVal);
+                    if (isComma) {
+                        formatted = formatted.toLocaleString();
+                    }
+                    
+                    // For decimal or exact targets if needed, else floor
+                    if (target % 1 !== 0) {
+                        formatted = currentVal.toFixed(1);
+                    }
+
+                    el.textContent = formatted + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    } else {
+                        let finalVal = target;
+                        if (isComma) {
+                            finalVal = finalVal.toLocaleString();
+                        }
+                        el.textContent = finalVal + suffix;
+                    }
+                }
+
+                requestAnimationFrame(step);
+                observerInstance.unobserve(el);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    counters.forEach(counter => observer.observe(counter));
+});
+</script>
