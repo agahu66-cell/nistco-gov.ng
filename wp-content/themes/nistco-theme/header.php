@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for NISTCO Theme - Classic Professional & Fully Responsive
+ * The header for NISTCO Theme - Fully Integrated, Sticky, & Mobile Responsive
  */
 ?>
 <html <?php language_attributes(); ?>>
