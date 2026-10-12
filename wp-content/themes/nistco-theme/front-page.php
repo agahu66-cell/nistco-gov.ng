@@ -1,791 +1,347 @@
-﻿<?php
+<?php
 /**
- * Template Name: Institutional Flagship Homepage
- * Description: Clean, modern classic flagship homepage for NISTCO.
- * File: front-page.php
- *
- * @package NistcoTheme
- * @version 2.5.0
+ * Template Name: NISTCO Front Page (Modern Master with Media Carousel)
+ * The modernized homepage template for NISTCO Portal
  */
 
 get_header();
-
-$theme_uri = get_template_directory_uri();
-
-// 1. Dynamic Metric Counts
-$centres_count = (int) ( wp_count_posts( 'research_centre' )->publish ?? 6 );
-$pubs_count    = (int) ( wp_count_posts( 'publication' )->publish ?? 120 );
-
-// 2. Safe Dynamic URL Routing
-$research_centres_url = get_post_type_archive_link( 'research_centre' ) ?: home_url( '/research-centres/' );
-$publications_url     = get_post_type_archive_link( 'publication' ) ?: home_url( '/publications/' );
-$tenders_url          = get_post_type_archive_link( 'procurement_tender' ) ?: home_url( '/tenders/' );
-$innovation_url       = home_url( '/innovation/' );
-$about_url            = home_url( '/about-us/' );
-
-// 3. Query Nearest Active Procurement Tender
-$active_tender_query = new WP_Query( array(
-    'post_type'      => 'procurement_tender',
-    'post_status'    => 'publish',
-    'posts_per_page' => 1,
-    'meta_key'       => '_tender_deadline',
-    'orderby'        => 'meta_value',
-    'order'          => 'ASC',
-    'meta_query'     => array(
-        array(
-            'key'     => '_tender_deadline',
-            'value'   => current_time( 'mysql' ),
-            'compare' => '>=',
-            'type'    => 'DATETIME',
-        ),
-    ),
-) );
-
-// 4. Query Latest 3 Peer-Reviewed Publications
-$latest_pubs_query = new WP_Query( array(
-    'post_type'      => 'publication',
-    'post_status'    => 'publish',
-    'posts_per_page' => 3,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-) );
-
-// 5. Customizer Leadership Settings
-$dg_name     = get_theme_mod( 'nistco_dg_name', 'Prof. Director-General / CEO' );
-$dg_headline = get_theme_mod( 'nistco_dg_headline', 'Pioneering Knowledge-Driven Solutions for Indigenous Industrial Transformation' );
-$dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear: to ensure that Nigeria does not merely consume global technology, but actively creates, patents, and deploys high-impact scientific discoveries.' );
 ?>
 
-<main class="site-main nistco-main">
+<main class="nistco-main">
 
-    <!-- =========================================================================
-         1. HERO SECTION: 3D QUANTUM REACTOR & 6-CENTRE LAUNCHPAD
-         ========================================================================= -->
+    <!-- Hero Section -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
         <div class="nistco-hero-pattern"></div>
-
-        <div class="nistco-container">
-            <div class="nistco-hero-grid">
-
-                <!-- Left Column: Content & Actions -->
-                <div class="nistco-hero-content">
-                    <div class="nistco-hero-badges">
-                        <span class="nistco-pill nistco-pill-green">Federal Republic of Nigeria</span>
-                        <span class="nistco-pill nistco-pill-gold">FMIST Parastatal</span>
-                    </div>
-
-                    <h1 class="nistco-hero-title">
-                        Nigeria Innovation, Science &amp; Technology Complex
-                    </h1>
-
-                    <p class="nistco-hero-subtitle">
-                        Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier
-                        basic and applied research, operate national demonstration pilot plants, and drive indigenous
-                        industrial transformation.
-                    </p>
-
-                    <div class="nistco-hero-actions">
-                        <a href="<?php echo esc_url( $research_centres_url ); ?>" class="nistco-btn nistco-btn-primary">
-                            <span>🔬</span>
-                            <span>Explore Research Centres</span>
-                        </a>
-
-                        <a href="<?php echo esc_url( $innovation_url ); ?>" class="nistco-btn nistco-btn-secondary">
-                            <span>⚡</span>
-                            <span>Innovation &amp; Patents</span>
-                        </a>
-
-                        <a href="<?php echo esc_url( $tenders_url ); ?>" class="nistco-btn nistco-btn-gold">
-                            <span>📋</span>
-                            <span>Public Tenders Desk &rarr;</span>
-                        </a>
-                    </div>
-
-                    <!-- Clean 6-Centre Launchpad -->
-                    <div class="nistco-centre-launchpad">
-                        <span class="launchpad-heading">6 Advanced Directorate Divisions:</span>
-                        <div class="launchpad-pills-row">
-                            <button type="button" class="launchpad-pill org-clickable" data-org-target="biotech">
-                                <span class="pill-icon">🧬</span>
-                                <span class="pill-code">BARC</span>
-                            </button>
-                            <button type="button" class="launchpad-pill org-clickable" data-org-target="simulation">
-                                <span class="pill-icon">💻</span>
-                                <span class="pill-code">AMSARC</span>
-                            </button>
-                            <button type="button" class="launchpad-pill org-clickable" data-org-target="chem_phys">
-                                <span class="pill-icon">🧪</span>
-                                <span class="pill-code">CARC</span>
-                            </button>
-                            <button type="button" class="launchpad-pill org-clickable" data-org-target="chem_phys">
-                                <span class="pill-icon">🔬</span>
-                                <span class="pill-code">PARC</span>
-                            </button>
-                            <button type="button" class="launchpad-pill org-clickable" data-org-target="chem_phys">
-                                <span class="pill-icon">⚛️</span>
-                                <span class="pill-code">NTC</span>
-                            </button>
-                            <button type="button" class="launchpad-pill org-clickable" data-org-target="works_ict">
-                                <span class="pill-icon">⚙️</span>
-                                <span class="pill-code">ENGINEERING</span>
-                            </button>
-                        </div>
-                    </div>
+        
+        <div class="nistco-container nistco-hero-grid">
+            <div>
+                <div class="nistco-hero-badges">
+                    <span class="nistco-pill nistco-pill-green">Federal Republic of Nigeria</span>
+                    <span class="nistco-pill nistco-pill-gold">Innovation & Science Complex</span>
                 </div>
-
-                <!-- Right Column: 3D Gears & Quantum Flux -->
-                <div class="nistco-3d-viewport">
-                    <div class="nistco-3d-stage">
-
-                        <!-- 3D Gears -->
-                        <div class="gear-system-3d">
-                            <!-- Main Gear -->
-                            <div class="gear-wrap gear-main-wrap">
-                                <svg class="gear-3d-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <defs>
-                                        <linearGradient id="mainGearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#34d399" />
-                                            <stop offset="50%" stop-color="#059669" />
-                                            <stop offset="100%" stop-color="#022c22" />
-                                        </linearGradient>
-                                        <radialGradient id="mainHubGrad" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stop-color="#fef08a" />
-                                            <stop offset="70%" stop-color="#c59b27" />
-                                            <stop offset="100%" stop-color="#713f12" />
-                                        </radialGradient>
-                                    </defs>
-                                    <g fill="url(#mainGearGrad)" stroke="#86efac" stroke-width="1.5">
-                                        <rect x="91" y="8" width="18" height="26" rx="3" />
-                                        <rect x="91" y="166" width="18" height="26" rx="3" />
-                                        <rect x="8" y="91" width="26" height="18" rx="3" />
-                                        <rect x="166" y="91" width="26" height="18" rx="3" />
-                                        <rect x="91" y="8" width="18" height="26" rx="3"
-                                            transform="rotate(30 100 100)" />
-                                        <rect x="91" y="166" width="18" height="26" rx="3"
-                                            transform="rotate(30 100 100)" />
-                                        <rect x="91" y="8" width="18" height="26" rx="3"
-                                            transform="rotate(60 100 100)" />
-                                        <rect x="91" y="166" width="18" height="26" rx="3"
-                                            transform="rotate(60 100 100)" />
-                                        <rect x="91" y="8" width="18" height="26" rx="3"
-                                            transform="rotate(120 100 100)" />
-                                        <rect x="91" y="166" width="18" height="26" rx="3"
-                                            transform="rotate(120 100 100)" />
-                                        <rect x="91" y="8" width="18" height="26" rx="3"
-                                            transform="rotate(150 100 100)" />
-                                        <rect x="91" y="166" width="18" height="26" rx="3"
-                                            transform="rotate(150 100 100)" />
-                                    </g>
-                                    <circle cx="100" cy="100" r="76" fill="url(#mainGearGrad)" stroke="#86efac"
-                                        stroke-width="2" />
-                                    <circle cx="100" cy="100" r="56" fill="#032015" stroke="rgba(134,239,172,0.4)"
-                                        stroke-width="2" />
-                                    <g stroke="url(#mainGearGrad)" stroke-width="8" stroke-linecap="round">
-                                        <line x1="100" y1="28" x2="100" y2="172" />
-                                        <line x1="28" y1="100" x2="172" y2="100" />
-                                    </g>
-                                    <circle cx="100" cy="100" r="30" fill="url(#mainHubGrad)" stroke="#fef08a"
-                                        stroke-width="2" />
-                                    <circle cx="100" cy="100" r="12" fill="#042416" stroke="rgba(255,255,255,0.6)"
-                                        stroke-width="1.5" />
-                                </svg>
-                            </div>
-
-                            <!-- Pinion Gear -->
-                            <div class="gear-wrap gear-secondary-wrap">
-                                <svg class="gear-3d-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <defs>
-                                        <linearGradient id="pinionGearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stop-color="#fef08a" />
-                                            <stop offset="50%" stop-color="#ca8a04" />
-                                            <stop offset="100%" stop-color="#451a03" />
-                                        </linearGradient>
-                                    </defs>
-                                    <g fill="url(#pinionGearGrad)" stroke="#fde047" stroke-width="1.5">
-                                        <rect x="72" y="6" width="16" height="22" rx="3" />
-                                        <rect x="72" y="132" width="16" height="22" rx="3" />
-                                        <rect x="6" y="72" width="22" height="16" rx="3" />
-                                        <rect x="132" y="72" width="22" height="16" rx="3" />
-                                        <rect x="72" y="6" width="16" height="22" rx="3" transform="rotate(45 80 80)" />
-                                        <rect x="72" y="132" width="16" height="22" rx="3"
-                                            transform="rotate(45 80 80)" />
-                                        <rect x="72" y="6" width="16" height="22" rx="3"
-                                            transform="rotate(135 80 80)" />
-                                        <rect x="72" y="132" width="16" height="22" rx="3"
-                                            transform="rotate(135 80 80)" />
-                                    </g>
-                                    <circle cx="80" cy="80" r="58" fill="url(#pinionGearGrad)" stroke="#fde047"
-                                        stroke-width="2" />
-                                    <circle cx="80" cy="80" r="40" fill="#201305" stroke="rgba(253,224,71,0.5)"
-                                        stroke-width="1.5" />
-                                    <g stroke="url(#pinionGearGrad)" stroke-width="6" stroke-linecap="round">
-                                        <line x1="80" y1="26" x2="80" y2="134" />
-                                        <line x1="26" y1="80" x2="134" y2="80" />
-                                    </g>
-                                    <circle cx="80" cy="80" r="22" fill="url(#pinionGearGrad)" stroke="#fef08a"
-                                        stroke-width="1.5" />
-                                    <circle cx="80" cy="80" r="9" fill="#042416" stroke="rgba(255,255,255,0.5)"
-                                        stroke-width="1.5" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <!-- Flux Bridge -->
-                        <div class="quantum-flux-bridge">
-                            <div class="flux-beam"></div>
-                            <div class="flux-particle flux-p1"></div>
-                            <div class="flux-particle flux-p2"></div>
-                        </div>
-
-                        <!-- Primary Atom System -->
-                        <div class="atom-form-primary">
-                            <div class="quantum-nucleus nucleus-primary">
-                                <div class="nucleus-core core-emerald-gold"></div>
-                                <div class="nucleus-corona corona-emerald"></div>
-                            </div>
-                            <div class="quantum-orbit orbit-primary-1">
-                                <div class="orbit-glow-line border-emerald"></div>
-                                <div class="quantum-electron electron-emerald"></div>
-                            </div>
-                            <div class="quantum-orbit orbit-primary-2">
-                                <div class="orbit-glow-line border-gold"></div>
-                                <div class="quantum-electron electron-gold"></div>
-                            </div>
-                            <div class="quantum-orbit orbit-primary-crossing">
-                                <div class="orbit-glow-line border-emerald-soft"></div>
-                                <div class="quantum-electron electron-white"></div>
-                            </div>
-                        </div>
-
-                        <!-- Secondary Atom System -->
-                        <div class="atom-form-secondary">
-                            <div class="quantum-nucleus nucleus-secondary">
-                                <div class="nucleus-core core-cyan-amber"></div>
-                                <div class="nucleus-corona corona-cyan"></div>
-                            </div>
-                            <div class="quantum-orbit orbit-secondary-1">
-                                <div class="orbit-glow-line border-cyan"></div>
-                                <div class="quantum-electron electron-cyan"></div>
-                            </div>
-                            <div class="quantum-orbit orbit-secondary-crossing">
-                                <div class="orbit-glow-line border-amber"></div>
-                                <div class="quantum-electron electron-amber"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         2. STATUTORY ALERT BAR
-         ========================================================================= -->
-    <?php if ( $active_tender_query->have_posts() ) : 
-        while ( $active_tender_query->have_posts() ) : $active_tender_query->the_post();
-            $t_id       = get_the_ID();
-            $ref_no     = get_post_meta( $t_id, '_tender_ref_no', true ) ?: 'NISTCO/PROC/' . $t_id;
-            $deadline   = get_post_meta( $t_id, '_tender_deadline', true );
-            $doc_url    = get_post_meta( $t_id, '_tender_doc_url', true );
-    ?>
-    <aside class="nistco-alert-bar" aria-label="Statutory Tender Notice">
-        <div class="nistco-container nistco-alert-container">
-            <div class="nistco-alert-left">
-                <span class="nistco-badge-danger">Active BPP Tender</span>
-                <span class="nistco-alert-title"><?php echo esc_html( wp_trim_words( get_the_title(), 8 ) ); ?></span>
-                <span class="nistco-alert-ref">[<?php echo esc_html( $ref_no ); ?>]</span>
-                <?php if ( $deadline ) : ?>
-                <span class="nistco-alert-closing">Closing:
-                    <?php echo esc_html( date( 'M j, Y - g:i A', strtotime( $deadline ) ) ); ?></span>
-                <?php endif; ?>
-            </div>
-            <div class="nistco-alert-right">
-                <?php if ( ! empty( $doc_url ) ) : ?>
-                <button type="button" class="btn-pdf-preview nistco-btn-sm-ghost"
-                    data-pdf-url="<?php echo esc_url( $doc_url ); ?>"
-                    data-pdf-title="<?php echo esc_attr( '[' . $ref_no . '] ' . get_the_title() ); ?>">
-                    👁️ Preview SBD
-                </button>
-                <?php endif; ?>
-                <a href="<?php echo esc_url( $tenders_url ); ?>" class="nistco-alert-link">View All Solicitations
-                    &rarr;</a>
-            </div>
-        </div>
-    </aside>
-    <?php endwhile; wp_reset_postdata(); endif; ?>
-
-    <!-- =========================================================================
-         3. STATUTORY METRICS (7 ANIMATED TILES)
-         ========================================================================= -->
-    <section class="nistco-section nistco-bg-parchment nistco-border-bottom" id="stats-section">
-        <div class="nistco-container">
-            <div class="nistco-metrics-grid">
-
-                <div class="nistco-metric-card reveal-on-scroll">
-                    <span class="nistco-metric-number stat-counter"
-                        data-target="<?php echo esc_attr( $centres_count ); ?>"
-                        data-suffix=""><?php echo esc_html( $centres_count ); ?></span>
-                    <span class="nistco-metric-label">Research Centres &amp; Divisions</span>
-                    <span class="nistco-metric-sub">Biotech, HPC, Chem, Phys, Nuclear &amp; Tooling</span>
-                </div>
-
-                <div class="nistco-metric-card reveal-on-scroll delay-100">
-                    <span class="nistco-metric-number stat-counter" data-target="<?php echo esc_attr( $pubs_count ); ?>"
-                        data-suffix="+"><?php echo esc_html( $pubs_count ); ?>+</span>
-                    <span class="nistco-metric-label">Scientific Publications</span>
-                    <span class="nistco-metric-sub">Peer-reviewed &amp; indexed research repository</span>
-                </div>
-
-                <div class="nistco-metric-card reveal-on-scroll delay-200">
-                    <span class="nistco-metric-number stat-counter" data-target="2000" data-comma="true"
-                        data-suffix="">2,000</span>
-                    <span class="nistco-metric-label">Hectares Campus Footprint</span>
-                    <span class="nistco-metric-sub">Abuja-Lokoja Technology Corridor sanctuary</span>
-                </div>
-
-                <div class="nistco-metric-card reveal-on-scroll delay-300">
-                    <span class="nistco-metric-number stat-counter" data-target="16" data-suffix="+">16+</span>
-                    <span class="nistco-metric-label">Registered Patents</span>
-                    <span class="nistco-metric-sub">NOTAP-certified indigenous technologies</span>
-                </div>
-
-                <div class="nistco-metric-card reveal-on-scroll delay-100">
-                    <span class="nistco-metric-number stat-counter" data-target="4" data-suffix="">4</span>
-                    <span class="nistco-metric-label">Demonstration Pilot Plants</span>
-                    <span class="nistco-metric-sub">500L synthesis, tissue culture &amp; precision CNC</span>
-                </div>
-
-                <div class="nistco-metric-card reveal-on-scroll delay-200">
-                    <span class="nistco-metric-number stat-counter" data-target="500" data-suffix=" kVA">500 kVA</span>
-                    <span class="nistco-metric-label">Clean Energy Microgrid</span>
-                    <span class="nistco-metric-sub">Dedicated solar hybrid for NMR &amp; HPC compute</span>
-                </div>
-
-                <div class="nistco-metric-card reveal-on-scroll delay-300">
-                    <span class="nistco-metric-number stat-counter" data-target="100" data-suffix="%">100%</span>
-                    <span class="nistco-metric-label">Open Researcher Access</span>
-                    <span class="nistco-metric-sub">Shared national laboratory &amp; residency facilities</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         4. SIX ADVANCED RESEARCH CENTRES & DIVISIONS
-         ========================================================================= -->
-    <section class="nistco-section nistco-bg-white" id="research-centres">
-        <div class="nistco-container">
-
-            <div class="nistco-section-header">
-                <span class="nistco-section-kicker">Multidisciplinary Scientific Infrastructure</span>
-                <h2 class="nistco-section-title">Advanced Research Centres &amp; Engineering Divisions</h2>
-                <p class="nistco-section-lead">
-                    Specialized national research divisions providing core analytical instrumentation, nuclear safety
-                    suites, demonstration pilot plants, and computational power.
+                
+                <h1 class="nistco-hero-title">
+                    Advancing National <span style="color: #fde047;">Science, Technology & Commercialization</span>
+                </h1>
+                
+                <p class="nistco-hero-subtitle">
+                    The Nigeria Innovation, Science and Technology Complex (NISTCO) drives high-performance computing, advanced chemistry synthesis, biotechnology, physics research, and industrial prototyping across strategic national research centres.
                 </p>
+                
+                <div class="nistco-hero-actions">
+                    <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
+                        Explore Research Centres &rarr;
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-btn nistco-btn-gold">
+                        Commercial Ventures & IP
+                    </a>
+                </div>
+
+                <!-- Centre Quick Launchpad Dock -->
+                <div class="nistco-centre-launchpad">
+                    <span class="launchpad-heading">Direct Centre Access</span>
+                    <div class="launchpad-pills-row">
+                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC (HPC)</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC (Chemistry)</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC (Biotech)</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Viewport Atom Animation -->
+            <div class="nistco-3d-viewport">
+                <div class="nistco-3d-stage">
+                    <div class="crossing-resonance-field">
+                        <div class="crossing-field-line"></div>
+                    </div>
+                    <div class="atom-form-primary">
+                        <div class="nucleus-primary">
+                            <div class="core-emerald-gold"></div>
+                            <div class="corona-emerald"></div>
+                        </div>
+                        <div class="quantum-orbit orbit-primary-1 border-emerald">
+                            <div class="quantum-electron electron-emerald"></div>
+                        </div>
+                        <div class="quantum-orbit orbit-primary-2 border-gold">
+                            <div class="quantum-electron electron-gold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statutory Metrics Section with Live Count-up Animation -->
+    <?php 
+    $metrics = [
+        [
+            "target" => 7,
+            "suffix" => "",
+            "comma"  => false,
+            "title"  => "Research Centres & Divisions",
+            "desc"   => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling"
+        ],
+        [
+            "target" => 5,
+            "suffix" => "+",
+            "comma"  => false,
+            "title"  => "Scientific Publications",
+            "desc"   => "Peer-reviewed & indexed research repository"
+        ],
+        [
+            "target" => 2000,
+            "suffix" => "",
+            "comma"  => true,
+            "title"  => "Hectares Campus Footprint",
+            "desc"   => "Abuja-Lokoja Technology Corridor sanctuary"
+        ],
+        [
+            "target" => 16,
+            "suffix" => "+",
+            "comma"  => false,
+            "title"  => "Registered Patents",
+            "desc"   => "NOTAP-certified indigenous technologies"
+        ],
+        [
+            "target" => 4,
+            "suffix" => "",
+            "comma"  => false,
+            "title"  => "Demonstration Pilot Plants",
+            "desc"   => "500L synthesis, tissue culture & precision CNC"
+        ],
+        [
+            "target" => 500,
+            "suffix" => " kVA",
+            "comma"  => false,
+            "title"  => "Clean Energy Microgrid",
+            "desc"   => "Dedicated solar hybrid for NMR & HPC compute"
+        ],
+        [
+            "target" => 100,
+            "suffix" => "%",
+            "comma"  => false,
+            "title"  => "Open Researcher Access",
+            "desc"   => "Shared national laboratory & residency facilities"
+        ]
+    ];
+    ?>
+    <section style="background: #042416; color: #fff; padding: 4.5rem 1.5rem; border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
+        <div style="max-width: 1440px; margin: 0 auto;">
+            
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <div style="color: #fde047; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Institutional Impact</div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; margin: 0; color: #ffffff; letter-spacing: -0.5px;">Nigeria Innovation Science & Technology Complex</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.75rem;">
+                <?php foreach ( $metrics as$metric ) : ?>
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(217,119,6,0.3); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25); backdrop-filter: blur(8px);">
+                        <div class="nistco-counter" 
+                             data-target="<?php echo esc_attr( $metric['target'] ); ?>" 
+                             data-suffix="<?php echo esc_attr( $metric['suffix'] ); ?>" 
+                             data-comma="<?php echo $metric['comma'] ? 'true' : 'false'; ?>"
+                             style="font-size: 2.75rem; font-weight: 800; color: #fde047; line-height: 1; margin-bottom: 0.65rem;">
+                             0<?php echo esc_html( $metric['suffix'] ); ?>
+                        </div>
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;"><?php echo esc_html( $metric['title'] ); ?></div>
+                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;"><?php echo esc_html( $metric['desc'] ); ?></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Dedicated NISTCO Overview Section -->
+    <section class="nistco-section nistco-bg-white">
+        <div class="nistco-container nistco-about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div>
+                <span class="nistco-section-kicker">About NISTCO</span>
+                <h2 class="nistco-section-title">A Premier National Sanctuary for Science & Technological Sovereignty</h2>
+                <p class="nistco-section-lead" style="margin-bottom: 1.5rem;">
+                    The Nigeria Innovation, Science and Technology Complex (NISTCO) serves as the nation’s apex institution for applied R&D, pilot manufacturing, and technology commercialization under the Federal Ministry of Innovation, Science and Technology.
+                </p>
+                <p style="color: var(--text-muted); line-height: 1.75; margin-bottom: 2rem;">
+                    Spanning a 2,000-hectare advanced technology corridor in Abuja, NISTCO bridges academic theory with industrial execution. By housing specialized centres in advanced chemistry synthesis, high-performance computing, biotechnology, physics, nuclear sciences, and precision tooling, the complex accelerates national self-reliance and global competitiveness.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-btn nistco-btn-outline">
+                        Read Full Institutional Mandate &rarr;
+                    </a>
+                </div>
+            </div>
+            <div style="background: linear-gradient(135deg, #042416 0%, #0d5c3a 100%); border-radius: 14px; padding: 3rem; color: #fff; box-shadow: 0 20px 40px rgba(4,36,22,0.2); border-left: 6px solid #d97706;">
+                <h3 style="font-size: 1.5rem; font-weight: 800; color: #fde047; margin-top: 0; margin-bottom: 1.25rem;">Strategic Objectives</h3>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1rem; font-size: 0.98rem; line-height: 1.6;">
+                    <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                        <span style="color: #fde047; font-weight: bold;">✓</span>
+                        <span><strong>Import Substitution:</strong> Scaling indigenous chemical formulations and advanced materials to replace costly industrial imports.</span>
+                    </li>
+                    <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                        <span style="color: #fde047; font-weight: bold;">✓</span>
+                        <span><strong>High-Performance Compute:</strong> Powering national scientific simulation, climate modeling, and AI algorithms.</span>
+                    </li>
+                    <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                        <span style="color: #fde047; font-weight: bold;">✓</span>
+                        <span><strong>Technology Transfer:</strong> Bridging research laboratories with commercial enterprises via NOTAP-certified patents.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Centres & Divisions Grid -->
+    <section class="nistco-section nistco-bg-parchment">
+        <div class="nistco-container">
+            <div class="nistco-section-header">
+                <span class="nistco-section-kicker">Specialized Divisions</span>
+                <h2 class="nistco-section-title">Our Advanced Research Centres</h2>
+                <p class="nistco-section-lead">Explore our world-class scientific laboratories, specialized equipment clusters, and pilot production plants located across our Abuja complex.</p>
             </div>
 
             <div class="nistco-centres-grid">
-
-                <!-- 1. BARC -->
-                <div class="nistco-centre-card reveal-on-scroll">
-                    <div class="nistco-centre-icon-wrap">🧬</div>
-                    <span class="nistco-centre-code">BARC</span>
-                    <h3 class="nistco-centre-title">Biotechnology Centre</h3>
-                    <p class="nistco-centre-desc">Plant genomics, micropropagation bioreactors, molecular disease
-                        diagnostics, tissue culture, and bio-fertilizer synthesis.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/biotechnology-advanced-research-centre/" ) ); ?>"
-                        class="nistco-card-action"><span>Explore Facilities</span> <span>&rarr;</span></a>
+                
+                <!-- AMSARC -->
+                <div class="nistco-centre-card">
+                    <div class="nistco-centre-icon-wrap">⚡</div>
+                    <div class="nistco-centre-code">AMSARC</div>
+                    <h3 class="nistco-centre-title">Applied Mathematics & Simulation</h3>
+                    <p class="nistco-centre-desc">High-performance computing (HPC) cluster, GPU accelerated simulation nodes, and scientific visualization labs.</p>
+                    <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="nistco-card-action">
+                        <span>Access AMSARC Portal</span>
+                        <span>&rarr;</span>
+                    </a>
                 </div>
 
-                <!-- 2. AMSARC -->
-                <div class="nistco-centre-card reveal-on-scroll delay-100">
-                    <div class="nistco-centre-icon-wrap">💻</div>
-                    <span class="nistco-centre-code">AMSARC</span>
-                    <h3 class="nistco-centre-title">Simulation Sciences</h3>
-                    <p class="nistco-centre-desc">High-performance supercomputing cluster (HPC), quantum cryptographic
-                        algorithms, and predictive modeling.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/applied-mathematics-and-simulation-advanced-research-centre/" ) ); ?>"
-                        class="nistco-card-action"><span>Explore Supercomputing</span> <span>&rarr;</span></a>
-                </div>
-
-                <!-- 3. CARC -->
-                <div class="nistco-centre-card reveal-on-scroll delay-200">
+                <!-- CARC (Chemistry) -->
+                <div class="nistco-centre-card">
                     <div class="nistco-centre-icon-wrap">🧪</div>
-                    <span class="nistco-centre-code">CARC</span>
-                    <h3 class="nistco-centre-title">Chemical Sciences</h3>
-                    <p class="nistco-centre-desc">Natural products chemistry, high-field multi-nuclear NMR, industrial
-                        process catalysis, and CNSL polymer resin synthesis.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/chemistry-advanced-research-centre/" ) ); ?>"
-                        class="nistco-card-action"><span>Explore Chemical Core</span> <span>&rarr;</span></a>
+                    <div class="nistco-centre-code">CARC</div>
+                    <h3 class="nistco-centre-title">Chemistry Advanced Research Centre</h3>
+                    <p class="nistco-centre-desc">Industrial chemistry synthesis, 500L pilot plant, NMR & GC-MS instrumentation, and material testing suites.</p>
+                    <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="nistco-card-action">
+                        <span>Access CARC Portal</span>
+                        <span>&rarr;</span>
+                    </a>
                 </div>
 
-                <!-- 4. PARC -->
-                <div class="nistco-centre-card reveal-on-scroll delay-300">
-                    <div class="nistco-centre-icon-wrap">🔬</div>
-                    <span class="nistco-centre-code">PARC</span>
-                    <h3 class="nistco-centre-title">Physical Sciences</h3>
-                    <p class="nistco-centre-desc">Semiconductor physics, thin-film photovoltaics characterization,
-                        materials crystallography, and applied radiation dosimetry.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/physics-advanced-research-centre/" ) ); ?>"
-                        class="nistco-card-action"><span>Explore Physics Labs</span> <span>&rarr;</span></a>
-                </div>
-
-                <!-- 5. NTC -->
-                <div class="nistco-centre-card reveal-on-scroll delay-100" style="border-top-color: #ca8a04;">
-                    <div class="nistco-centre-icon-wrap">⚛️</div>
-                    <span class="nistco-centre-code" style="color: #ca8a04;">NTC</span>
-                    <h3 class="nistco-centre-title">Nuclear Technology Centre</h3>
-                    <p class="nistco-centre-desc">Gamma irradiation facilities, industrial non-destructive testing
-                        (NDT), radiation dosimetry calibration, and crop preservation.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/nuclear-technology-centre/" ) ); ?>"
-                        class="nistco-card-action"><span>Explore Nuclear Core</span> <span>&rarr;</span></a>
-                </div>
-
-                <!-- 6. Engineering -->
-                <div class="nistco-centre-card reveal-on-scroll delay-200" style="border-top-color: #0284c7;">
-                    <div class="nistco-centre-icon-wrap">⚙️</div>
-                    <span class="nistco-centre-code" style="color: #0284c7;">ENGINEERING</span>
-                    <h3 class="nistco-centre-title">Precision Engineering &amp; Tooling</h3>
-                    <p class="nistco-centre-desc">5-axis CNC machining, mechanical prototype fabrication, scientific
-                        equipment calibration, and solar microgrid operations.</p>
-                    <a href="<?php echo esc_url( home_url( "/research-centres/engineering-department/" ) ); ?>"
-                        class="nistco-card-action"><span>Explore Workshop</span> <span>&rarr;</span></a>
+                <!-- BARC -->
+                <div class="nistco-centre-card">
+                    <div class="nistco-centre-icon-wrap">🧬</div>
+                    <div class="nistco-centre-code">BARC</div>
+                    <h3 class="nistco-centre-title">Biotechnology Advanced Research Centre</h3>
+                    <p class="nistco-centre-desc">Molecular biology & PCR suites, plant tissue culture micropropagation, and bioprocess fermentation bioreactors.</p>
+                    <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="nistco-card-action">
+                        <span>Access BARC Portal</span>
+                        <span>&rarr;</span>
+                    </a>
                 </div>
 
             </div>
-
         </div>
     </section>
 
-    <!-- =========================================================================
-         5. INNOVATION & COMMERCIALIZATION SHOWCASE
-         ========================================================================= -->
-    <section class="nistco-section nistco-bg-parchment nistco-border-top nistco-border-bottom">
-        <div class="nistco-container">
-
-            <div class="nistco-section-header-flex">
-                <div>
-                    <span class="nistco-section-kicker">Technology Commercialization</span>
-                    <h2 class="nistco-section-title">Patents &amp; Market-Ready Inventions</h2>
-                    <p class="nistco-section-lead">Transitioning laboratory proof-of-concepts (TRL 1–3) into commercial
-                        manufacturing (TRL 7–9) under Executive Order No. 5.</p>
-                </div>
-                <a href="<?php echo esc_url( home_url( "/patents/" ) ); ?>" class="nistco-btn nistco-btn-primary">
-                    <span>⚡ Explore Innovation Portal &rarr;</span>
-                </a>
-            </div>
-
-            <div class="nistco-patents-grid">
-
-                <article class="nistco-patent-card reveal-on-scroll">
-                    <div class="nistco-patent-header">
-                        <span class="nistco-tag-pill tag-biotech">🧬 BARC Biotechnology</span>
-                        <span class="nistco-trl-pill">TRL 8: Market Ready</span>
-                    </div>
-                    <h3 class="nistco-patent-title">Bio-Fertilizer &amp; Microbial Soil Enricher Synthesis</h3>
-                    <p class="nistco-patent-excerpt">Organic bacterial-fungal formulation accelerating nitrogen fixation
-                        and boosting crop yields by 35% without soil acidification.</p>
-                    <div class="nistco-patent-meta-box">
-                        <div><span class="meta-label">Patent Ref:</span><strong
-                                class="meta-val">NG/P/2024/00821</strong></div>
-                        <div><span class="meta-label">Licensing:</span><strong class="meta-val">Non-Exclusive</strong>
-                        </div>
-                    </div>
-                    <div class="nistco-patent-footer">
-                        <span class="status-indicator ready">● Ready for Production</span>
-                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2024%2F00821%20(Bio-Fertilizer)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20licensing%20terms%20for%20Patent%20NG/P/2024/00821."
-                            class="nistco-btn-license">License Technology &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="nistco-patent-card reveal-on-scroll delay-100">
-                    <div class="nistco-patent-header">
-                        <span class="nistco-tag-pill tag-chem">🧪 CARC Chemical</span>
-                        <span class="nistco-trl-pill">TRL 7: Pilot Proven</span>
-                    </div>
-                    <h3 class="nistco-patent-title">Cashew Nut Shell Liquid (CNSL) Polymer Resin</h3>
-                    <p class="nistco-patent-excerpt">High-temperature, anti-corrosive industrial brake lining and
-                        surface coating binder synthesized from agricultural cashew agro-waste.</p>
-                    <div class="nistco-patent-meta-box">
-                        <div><span class="meta-label">Patent Ref:</span><strong
-                                class="meta-val">NG/P/2024/01190</strong></div>
-                        <div><span class="meta-label">Licensing:</span><strong class="meta-val">Joint Venture</strong>
-                        </div>
-                    </div>
-                    <div class="nistco-patent-footer">
-                        <span class="status-indicator ready">● Ready for Production</span>
-                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2024%2F01190%20(CNSL%20Polymer)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20joint%20venture%20licensing%20terms%20for%20Patent%20NG/P/2024/01190."
-                            class="nistco-btn-license">License Technology &rarr;</a>
-                    </div>
-                </article>
-
-                <article class="nistco-patent-card reveal-on-scroll delay-200">
-                    <div class="nistco-patent-header">
-                        <span class="nistco-tag-pill tag-sim">💻 AMSARC Supercomputing</span>
-                        <span class="nistco-trl-pill">TRL 8: Deployed</span>
-                    </div>
-                    <h3 class="nistco-patent-title">Quantum-Resistant Algorithmic Cryptographic Cipher</h3>
-                    <p class="nistco-patent-excerpt">Proprietary non-linear cryptographic security algorithm designed
-                        for sovereign defense communications and federal banking networks.</p>
-                    <div class="nistco-patent-meta-box">
-                        <div><span class="meta-label">Patent Ref:</span><strong
-                                class="meta-val">NG/P/2025/00094</strong></div>
-                        <div><span class="meta-label">Licensing:</span><strong class="meta-val">Sovereign / Tier
-                                1</strong></div>
-                    </div>
-                    <div class="nistco-patent-footer">
-                        <span class="status-indicator ready">● Ready for Integration</span>
-                        <a href="mailto:commercialization@shestco.gov.ng?subject=Licensing%20Inquiry%20-%20Patent%20NG%2FP%2F2025%2F00094%20(Quantum%20Cipher)&amp;body=Dear%20Commercialization%20Desk,%0A%0AWe%20wish%20to%20inquire%20about%20sovereign%20integration%20licensing%20terms%20for%20Patent%20NG/P/2025/00094."
-                            class="nistco-btn-license">License Technology &rarr;</a>
-                    </div>
-                </article>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         6. EXECUTIVE LEADERSHIP (DG / CEO VISION)
-         ========================================================================= -->
+    <!-- Media & Press Releases Carousel Section -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
-            <div class="nistco-exec-grid">
-
-                <div class="nistco-exec-portrait-card reveal-on-scroll">
-                    <div class="nistco-exec-photo-wrap">
-                        <?php 
-                        if ( function_exists( 'nistco_get_leader_photo' ) ) {
-                            echo nistco_get_leader_photo( 'nistco_dg_photo', '/assets/images/leaders/dg-ceo.jpg', 'Director-General / CEO' );
-                        }
-                        ?>
-                        <div class="nistco-exec-photo-badge">
-                            <span>Apex Executive Leadership</span>
-                        </div>
-                    </div>
-                    <div class="nistco-exec-caption">
-                        <strong class="nistco-exec-name"><?php echo esc_html( $dg_name ); ?></strong>
-                        <span class="nistco-exec-designation">Director-General / Chief Executive Officer</span>
-                    </div>
-                </div>
-
-                <div class="nistco-exec-statement reveal-on-scroll delay-100">
-                    <span class="nistco-section-kicker">Executive Leadership Vision</span>
-                    <h2 class="nistco-exec-headline"><?php echo esc_html( $dg_headline ); ?></h2>
-
-                    <blockquote class="nistco-exec-quote">
-                        "<?php echo esc_html( $dg_quote ); ?>"
-                    </blockquote>
-
-                    <div class="nistco-exec-actions">
-                        <a href="<?php echo esc_url( $about_url . '#dg-welcome' ); ?>"
-                            class="nistco-btn nistco-btn-primary">
-                            <span>📜</span>
-                            <span>Read Full Welcome Address &rarr;</span>
-                        </a>
-
-                        <a href="<?php echo esc_url( $about_url . '#organogram' ); ?>"
-                            class="nistco-btn nistco-btn-outline">
-                            <span>🏛️</span>
-                            <span>Governance Organogram</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         7. SCIENTIFIC PUBLICATIONS REPOSITORY
-         ========================================================================= -->
-    <section class="nistco-section nistco-bg-parchment nistco-border-top nistco-border-bottom">
-        <div class="nistco-container">
-
             <div class="nistco-section-header-flex">
                 <div>
-                    <span class="nistco-section-kicker">Open Research Output</span>
-                    <h2 class="nistco-section-title">Latest Research Publications</h2>
+                    <span class="nistco-section-kicker">News & Announcements</span>
+                    <h2 class="nistco-section-title">Media & Broadcast Briefs</h2>
+                    <p class="nistco-section-lead">Stay updated with the latest commissioning reports, research breakthroughs, and institutional press releases from NISTCO.</p>
                 </div>
-                <a href="<?php echo esc_url( $publications_url ); ?>" class="nistco-header-link">
-                    Access Scientific Repository (<?php echo esc_html( $pubs_count ); ?>) &rarr;
-                </a>
-            </div>
-
-            <?php if ( $latest_pubs_query->have_posts() ) : ?>
-            <div class="nistco-pubs-grid">
-                <?php while ( $latest_pubs_query->have_posts() ) : $latest_pubs_query->the_post(); 
-                    $pid         = get_the_ID();
-                    $authors     = get_post_meta( $pid, '_publication_authors', true ) ?: 'NISTCO Research Fellows';
-                    $pub_year    = get_post_meta( $pid, '_publication_year', true ) ?: get_the_date( 'Y' );
-                    $pdf_url     = get_post_meta( $pid, '_publication_url', true );
-                    $centre_id   = get_post_meta( $pid, '_publication_centre_id', true );
-                    $centre_name = $centre_id ? get_the_title( $centre_id ) : '';
-                    
-                    $bibtex = function_exists( 'nistco_get_publication_bibtex' ) ? nistco_get_publication_bibtex( $pid ) : '';
-                    $ris    = function_exists( 'nistco_get_publication_ris' ) ? nistco_get_publication_ris( $pid ) : '';
-                ?>
-                <article class="nistco-pub-card reveal-on-scroll">
-                    <div class="nistco-pub-pills">
-                        <span class="nistco-pub-year"><?php echo esc_html( $pub_year ); ?></span>
-                        <?php if ( ! empty( $centre_name ) ) : ?>
-                        <span class="nistco-pub-centre">🏛️
-                            <?php echo esc_html( wp_trim_words( $centre_name, 3 ) ); ?></span>
-                        <?php endif; ?>
-                    </div>
-
-                    <h3 class="nistco-pub-title">
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </h3>
-
-                    <div class="nistco-pub-authors">
-                        ✍️ <?php echo esc_html( wp_trim_words( $authors, 7 ) ); ?>
-                    </div>
-
-                    <p class="nistco-pub-excerpt">
-                        <?php echo wp_trim_words( get_the_excerpt(), 18 ); ?>
-                    </p>
-
-                    <div class="nistco-pub-footer">
-                        <button type="button" class="btn-cite-trigger nistco-btn-cite"
-                            data-title="<?php echo esc_attr( get_the_title() ); ?>"
-                            data-bibtex="<?php echo esc_attr( $bibtex ); ?>" data-ris="<?php echo esc_attr( $ris ); ?>">
-                            💬 Cite Paper
-                        </button>
-
-                        <?php if ( ! empty( $pdf_url ) ) : ?>
-                        <button type="button" class="btn-pdf-preview nistco-btn-preview"
-                            data-pdf-url="<?php echo esc_url( $pdf_url ); ?>"
-                            data-pdf-title="<?php echo esc_attr( get_the_title() ); ?>">
-                            👁️ Preview PDF
-                        </button>
-                        <?php endif; ?>
-                    </div>
-                </article>
-                <?php endwhile; wp_reset_postdata(); ?>
-            </div>
-            <?php endif; ?>
-
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         8. RESEARCHER RATINGS & STAKEHOLDER CAROUSEL
-         ========================================================================= -->
-    <section class="nistco-section nistco-bg-white">
-        <div class="nistco-container">
-
-            <div class="nistco-section-header-flex">
-                <div>
-                    <span class="nistco-section-kicker">Performance &amp; User Experience</span>
-                    <h2 class="nistco-section-title">Researcher Ratings &amp; Stakeholder Feedback</h2>
-                    <p class="nistco-section-lead">Verified reviews from resident doctoral scholars, university fellows,
-                        and industrial pilot partners.</p>
-                </div>
-                <button type="button" class="nistco-btn nistco-btn-primary" id="open-rating-submit-modal">
-                    <span>✍️</span>
-                    <span>Submit Rating / Review</span>
-                </button>
-            </div>
-
-            <!-- Summary Ribbon -->
-            <div class="nistco-rating-summary-ribbon reveal-on-scroll">
-                <div class="rating-stat-box">
-                    <span class="rating-score">4.9<span>/5.0</span></span>
-                    <div class="rating-stars">★★★★★</div>
-                    <span class="rating-count">Based on 140+ Researcher Residencies</span>
-                </div>
-                <div class="rating-divider"></div>
-                <div class="rating-metrics-grid">
-                    <div class="metric-pill">
-                        <span class="metric-val">99.4%</span>
-                        <span class="metric-lbl">Instrument Uptime</span>
-                    </div>
-                    <div class="metric-pill">
-                        <span class="metric-val">100%</span>
-                        <span class="metric-lbl">Clean Power Reliability</span>
-                    </div>
-                    <div class="metric-pill">
-                        <span class="metric-val">48 hrs</span>
-                        <span class="metric-lbl">NMR/HPC Turnaround</span>
-                    </div>
+                <div class="rating-carousel-controls" style="margin: 0;">
+                    <button class="rating-nav-btn media-prev-btn" aria-label="Previous Slide">&larr;</button>
+                    <button class="rating-nav-btn media-next-btn" aria-label="Next Slide">&rarr;</button>
                 </div>
             </div>
 
-            <!-- Testimonial Carousel Track -->
-            <div class="rating-carousel-wrapper reveal-on-scroll delay-100">
+            <!-- Media Carousel Track -->
+            <div class="rating-carousel-wrapper">
                 <div class="rating-carousel-track-container">
-                    <div class="rating-carousel-track" id="ratingCarouselTrack">
-
+                    <div class="rating-carousel-track media-carousel-track">
+                        
+                        <!-- Slide 1 -->
                         <div class="rating-slide">
                             <div class="rating-card">
                                 <div class="rating-card-header">
-                                    <div class="rating-stars">★★★★★</div>
-                                    <span class="rating-verified-tag">✓ Verified Residency</span>
+                                    <span class="rating-verified-tag">Press Release</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">October 10, 2026</span>
                                 </div>
-                                <blockquote class="rating-quote">
-                                    "The high-field NMR spectrometer and automated tissue micropropagation labs at BARC
-                                    enabled our team to sequence 40+ indigenous cassava accessions with zero instrument
-                                    downtime. The continuous 500 kVA solar hybrid microgrid ensures data integrity."
-                                </blockquote>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--mc-dark); margin: 0 0 0.75rem 0;">NISTCO Commissions 500 kVA Solar Microgrid for HPC Compute</h3>
+                                <p class="rating-quote" style="margin-bottom: 1.5rem;">
+                                    "The newly deployed solar hybrid microgrid guarantees uninterrupted power for our High-Performance Computing (HPC) cluster and nuclear magnetic resonance instrumentation in Abuja..."
+                                </p>
                                 <div class="rating-author-box">
-                                    <div class="rating-avatar">🧬</div>
+                                    <div class="rating-avatar">☀️</div>
                                     <div class="rating-author-info">
-                                        <strong class="author-name">Prof. C. O. Eze</strong>
-                                        <span class="author-role">Lead Fellow, Plant Genomics Unit</span>
-                                        <span class="author-inst">University of Ibadan / TETFund Grantee</span>
+                                        <span class="author-name">Works & Services Directorate</span>
+                                        <span class="author-role">Infrastructure Update</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Slide 2 -->
                         <div class="rating-slide">
                             <div class="rating-card">
                                 <div class="rating-card-header">
-                                    <div class="rating-stars">★★★★★</div>
-                                    <span class="rating-verified-tag">✓ HPC Supercomputing Node</span>
+                                    <span class="rating-verified-tag" style="background: var(--mc-gold-light); color: #854d0e;">Research Brief</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">September 28, 2026</span>
                                 </div>
-                                <blockquote class="rating-quote">
-                                    "AMSARC's computational fluid dynamics (CFD) supercomputing cluster reduced our
-                                    aerodynamic simulation render cycles from 3 weeks to under 38 hours. A world-class
-                                    national asset for applied mathematical modeling."
-                                </blockquote>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--mc-dark); margin: 0 0 0.75rem 0;">AMSARC Unveils 256 TeraFLOPs Simulation Benchmark</h3>
+                                <p class="rating-quote" style="margin-bottom: 1.5rem;">
+                                    "Applied Mathematics and Simulation Advanced Research Centre achieves a new milestone in computational fluid dynamics and weather modeling accuracy..."
+                                </p>
                                 <div class="rating-author-box">
-                                    <div class="rating-avatar">💻</div>
+                                    <div class="rating-avatar">⚡</div>
                                     <div class="rating-author-info">
-                                        <strong class="author-name">Dr. Fatima Abdullahi</strong>
-                                        <span class="author-role">Computational Mathematics Fellow</span>
-                                        <span class="author-inst">Ahmadu Bello University, Zaria</span>
+                                        <span class="author-name">Computational Sciences Lab</span>
+                                        <span class="author-role">AMSARC Division</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Slide 3 -->
                         <div class="rating-slide">
                             <div class="rating-card">
                                 <div class="rating-card-header">
-                                    <div class="rating-stars">★★★★★</div>
-                                    <span class="rating-verified-tag">✓ NTC Nuclear User</span>
+                                    <span class="rating-verified-tag" style="background: #e0f2fe; color: #0284c7;">Commercialization</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">September 15, 2026</span>
                                 </div>
-                                <blockquote class="rating-quote">
-                                    "The industrial gamma irradiation and radiation dosimetry suite at the Nuclear
-                                    Technology Centre provided high-precision calibration for our agricultural seed
-                                    preservation trials. Fully IAEA-compliant."
-                                </blockquote>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--mc-dark); margin: 0 0 0.75rem 0;">CARC Scales Up Indigenous Pharmaceutical Formulations</h3>
+                                <p class="rating-quote" style="margin-bottom: 1.5rem;">
+                                    "Chemistry Advanced Research Centre successfully transitions 3 new bio-active compounds to pilot-scale production, bolstering national import substitution goals..."
+                                </p>
                                 <div class="rating-author-box">
-                                    <div class="rating-avatar">⚛️</div>
+                                    <div class="rating-avatar">🧪</div>
                                     <div class="rating-author-info">
-                                        <strong class="author-name">Dr. Yusuf B. Mohammed</strong>
-                                        <span class="author-role">Chief Radiophysicist</span>
-                                        <span class="author-inst">NNRA / Postdoctoral Fellow</span>
+                                        <span class="author-name">Chemical Sciences R&D</span>
+                                        <span class="author-role">CARC Division</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="rating-slide">
+                            <div class="rating-card">
+                                <div class="rating-card-header">
+                                    <span class="rating-verified-tag">Partnership</span>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">August 30, 2026</span>
+                                </div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--mc-dark); margin: 0 0 0.75rem 0;">Federal Ministry Inspects Touchscreen Training Labs</h3>
+                                <p class="rating-quote" style="margin-bottom: 1.5rem;">
+                                    "Delegates from the Federal Ministry of Innovation, Science and Technology review execution schedules and desk officer training curricula at the complex..."
+                                </p>
+                                <div class="rating-author-box">
+                                    <div class="rating-avatar">🏛️</div>
+                                    <div class="rating-author-info">
+                                        <span class="author-name">Public Affairs Department</span>
+                                        <span class="author-role">Ministry Oversight</span>
                                     </div>
                                 </div>
                             </div>
@@ -793,78 +349,6 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
 
                     </div>
                 </div>
-
-                <div class="rating-carousel-controls">
-                    <button type="button" class="rating-nav-btn btn-prev" id="ratingPrevBtn"
-                        aria-label="Previous Slide">&#8592;</button>
-                    <div class="rating-carousel-dots" id="ratingCarouselDots"></div>
-                    <button type="button" class="rating-nav-btn btn-next" id="ratingNextBtn"
-                        aria-label="Next Slide">&#8594;</button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         9. STRATEGIC PARTNERS & ALLIANCES
-         ========================================================================= -->
-    <section class="nistco-section nistco-bg-parchment nistco-border-top">
-        <div class="nistco-container">
-
-            <div class="nistco-section-header mc-text-center" style="margin-left: auto; margin-right: auto;">
-                <span class="nistco-section-kicker">Collaborative Ecosystem</span>
-                <h2 class="nistco-section-title">Strategic Partners &amp; Institutional Alliances</h2>
-                <p class="nistco-section-lead">
-                    Fostering multi-agency scientific synergy across federal ministries, statutory commissions,
-                    universities, and multilateral institutions.
-                </p>
-            </div>
-
-            <div class="nistco-partners-grid">
-
-                <div class="nistco-partner-card reveal-on-scroll">
-                    <span class="nistco-partner-icon">🏛️</span>
-                    <h3 class="nistco-partner-name">FMIST</h3>
-                    <p class="nistco-partner-desc">Federal Ministry of Innovation, Science &amp; Technology</p>
-                    <span class="nistco-partner-tag">Supervising Ministry</span>
-                </div>
-
-                <div class="nistco-partner-card reveal-on-scroll delay-100">
-                    <span class="nistco-partner-icon">📜</span>
-                    <h3 class="nistco-partner-name">NOTAP</h3>
-                    <p class="nistco-partner-desc">National Office for Technology Acquisition &amp; Promotion</p>
-                    <span class="nistco-partner-tag">Technology Transfer</span>
-                </div>
-
-                <div class="nistco-partner-card reveal-on-scroll delay-200">
-                    <span class="nistco-partner-icon">🎓</span>
-                    <h3 class="nistco-partner-name">TETFund</h3>
-                    <p class="nistco-partner-desc">Tertiary Education Trust Fund National Research Fund</p>
-                    <span class="nistco-partner-tag">Grant Partner</span>
-                </div>
-
-                <div class="nistco-partner-card reveal-on-scroll delay-300">
-                    <span class="nistco-partner-icon">⚛️</span>
-                    <h3 class="nistco-partner-name">NNRA</h3>
-                    <p class="nistco-partner-desc">Nigerian Nuclear Regulatory Authority</p>
-                    <span class="nistco-partner-tag">Radiation Safety</span>
-                </div>
-
-                <div class="nistco-partner-card reveal-on-scroll delay-100">
-                    <span class="nistco-partner-icon">🌐</span>
-                    <h3 class="nistco-partner-name">NUC &amp; Universities</h3>
-                    <p class="nistco-partner-desc">Nigerian Universities Commission Academic Fellowships</p>
-                    <span class="nistco-partner-tag">Consortium</span>
-                </div>
-
-                <div class="nistco-partner-card reveal-on-scroll delay-200">
-                    <span class="nistco-partner-icon">🌍</span>
-                    <h3 class="nistco-partner-name">IAEA &amp; Global Bodies</h3>
-                    <p class="nistco-partner-desc">International Atomic Energy Agency &amp; TWAS Fellowships</p>
-                    <span class="nistco-partner-tag">Global Treaties</span>
-                </div>
-
             </div>
 
         </div>
@@ -872,113 +356,95 @@ $dg_quote    = get_theme_mod( 'nistco_dg_quote', 'Our statutory mandate is clear
 
 </main>
 
-<!-- =========================================================================
-     MODALS: PDF VIEWER, CITATION & RATING SUBMISSION
-     ========================================================================= -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Count-up Metrics Animation
+    const counters = document.querySelectorAll('.nistco-counter');
+    if (counters.length > 0) {
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    const isComma = el.getAttribute('data-comma') === 'true';
+                    
+                    let startTime = null;
+                    const duration = 2000;
 
-<!-- PDF VIEWER MODAL -->
-<div id="pdf-viewer-modal" class="pdf-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
-    style="display: none;">
-    <div class="pdf-modal-container">
-        <div class="pdf-modal-header">
-            <div class="pdf-modal-title-wrap">
-                <span class="pdf-modal-badge">Document Preview</span>
-                <h3 id="pdf-modal-title" class="pdf-modal-title">Scientific Document Preview</h3>
-            </div>
-            <div class="pdf-modal-actions">
-                <a id="pdf-modal-newtab-btn" href="#" target="_blank" rel="noopener noreferrer" class="pdf-modal-btn"
-                    title="Open in New Tab">↗ Open Tab</a>
-                <a id="pdf-modal-download-btn" href="#" download class="pdf-modal-btn pdf-modal-btn-download"
-                    title="Download Document">📥 Download</a>
-                <button type="button" id="pdf-modal-close-btn" class="pdf-modal-btn-close"
-                    aria-label="Close Preview">&times;</button>
-            </div>
-        </div>
-        <div class="pdf-modal-body">
-            <div id="pdf-modal-loader" class="pdf-modal-loader">
-                <div class="pdf-modal-spinner"></div>
-                <p>Loading document from repository...</p>
-            </div>
-            <iframe id="pdf-modal-iframe" class="pdf-modal-iframe" src="" frameborder="0"
-                title="Document Viewer"></iframe>
-        </div>
-    </div>
-</div>
+                    function step(currentTime) {
+                        if (!startTime) startTime = currentTime;
+                        const progress = Math.min((currentTime - startTime) / duration, 1);
+                        const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                        const currentVal = target * easeProgress;
 
+                        let formatted = Math.floor(currentVal);
+                        if (isComma) {
+                            formatted = formatted.toLocaleString();
+                        }
 
+                        el.textContent = formatted + suffix;
 
-<!-- RESEARCHER RATING SUBMISSION MODAL -->
-<div id="researcher-rating-modal" class="inno-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true"
-    style="display: none;">
-    <div class="inno-modal-container" style="max-width: 720px;">
-        <div class="inno-modal-header">
-            <div>
-                <span class="inno-modal-badge">Verified Researcher Review</span>
-                <h3 class="inno-modal-title">Submit Facility Rating &amp; Residency Feedback</h3>
-                <span class="inno-modal-ref">Facility &amp; Instrumentation Quality Assurance Desk</span>
-            </div>
-            <button type="button" id="rating-modal-close-btn" class="inno-modal-btn-close"
-                aria-label="Close modal">&times;</button>
-        </div>
+                        if (progress < 1) {
+                            requestAnimationFrame(step);
+                        } else {
+                            let finalVal = target;
+                            if (isComma) {
+                                finalVal = finalVal.toLocaleString();
+                            }
+                            el.textContent = finalVal + suffix;
+                        }
+                    }
 
-        <form id="researcher-rating-form" class="inno-modal-form" method="post">
-            <?php wp_nonce_field( 'nistco_rating_eoi_nonce', 'rating_nonce' ); ?>
-            <div class="inno-form-grid">
-                <div class="inno-form-group">
-                    <label for="rating-reviewer-name">Researcher Full Name <span class="req">*</span></label>
-                    <input type="text" id="rating-reviewer-name" name="reviewer_name" required
-                        placeholder="Prof. / Dr. / Engr. Full Name">
-                </div>
-                <div class="inno-form-group">
-                    <label for="rating-institution">Primary University / Institution <span class="req">*</span></label>
-                    <input type="text" id="rating-institution" name="institution" required
-                        placeholder="e.g. Ahmadu Bello University / TETFund Fellow">
-                </div>
-                <div class="inno-form-group">
-                    <label for="rating-centre-used">Facility / Centre Utilized <span class="req">*</span></label>
-                    <select id="rating-centre-used" name="centre_used" required>
-                        <option value="Biotechnology Advanced Research Centre (BARC)">Biotechnology Advanced Research
-                            Centre (BARC)</option>
-                        <option value="Applied Mathematics & Simulation Centre (AMSARC - HPC)">Applied Mathematics &amp;
-                            Simulation Centre (AMSARC - HPC)</option>
-                        <option value="Chemical Advanced Research Centre (CARC - NMR & Pilot)">Chemical Advanced
-                            Research Centre (CARC - NMR &amp; Pilot)</option>
-                        <option value="Physical Advanced Research Centre (PARC - Solar/Thin-Film)">Physical Advanced
-                            Research Centre (PARC - Solar/Thin-Film)</option>
-                        <option value="Nuclear Technology Centre (NTC - Gamma Irradiation)">Nuclear Technology Centre
-                            (NTC - Gamma Irradiation)</option>
-                        <option value="Engineering & Precision Tooling Department (CNC Workshop)">Engineering &amp;
-                            Precision Tooling Department (CNC Workshop)</option>
-                    </select>
-                </div>
-                <div class="inno-form-group">
-                    <label for="rating-score-select">Overall Experience Rating <span class="req">*</span></label>
-                    <select id="rating-score-select" name="score" required>
-                        <option value="5.0 - Exceptional (World Class)">★★★★★ 5.0 - Exceptional (World Class)</option>
-                        <option value="4.0 - Very Good (Highly Recommended)">★★★★☆ 4.0 - Very Good (Highly Recommended)
-                        </option>
-                        <option value="3.0 - Satisfactory">★★★☆☆ 3.0 - Satisfactory</option>
-                    </select>
-                </div>
-                <div class="inno-form-group inno-form-full">
-                    <label for="rating-feedback-text">Residency Feedback &amp; Technical Observations <span
-                            class="req">*</span></label>
-                    <textarea id="rating-feedback-text" name="feedback_text" rows="4" required
-                        placeholder="Describe your instrument uptime, data calibration accuracy, power continuity, turnaround speed, and technical support..."></textarea>
-                </div>
-            </div>
-            <div class="inno-modal-footer">
-                <span class="inno-statutory-note">🔒 Ratings undergo peer verification prior to publication in the
-                    institutional annual performance index.</span>
-                <button type="submit" id="rating-submit-btn" class="nistco-btn nistco-btn-primary">
-                    <span id="rating-btn-text">Submit Verified Rating &rarr;</span>
-                    <span id="rating-btn-spinner" style="display: none;">⏳ Recording...</span>
-                </button>
-            </div>
-            <div id="rating-form-feedback" class="inno-form-feedback" style="display: none;"></div>
-        </form>
-    </div>
-</div>
+                    requestAnimationFrame(step);
+                    observerInstance.unobserve(el);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    // 2. Media Carousel Slider Engine
+    const mediaTrack = document.querySelector('.media-carousel-track');
+    const mediaPrevBtn = document.querySelector('.media-prev-btn');
+    const mediaNextBtn = document.querySelector('.media-next-btn');
+
+    if (mediaTrack && mediaPrevBtn && mediaNextBtn) {
+        let currentSlide = 0;
+        const totalSlides = mediaTrack.children.length;
+        
+        function updateMediaCarousel() {
+            const slideWidth = mediaTrack.children[0].getBoundingClientRect().width;
+            mediaTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        }
+
+        mediaNextBtn.addEventListener('click', function() {
+            // Show 2 slides at a time on desktop, 1 on mobile
+            const maxIndex = window.innerWidth <= 992 ? totalSlides - 1 : Math.max(0, totalSlides - 2);
+            currentSlide = currentSlide < maxIndex ? currentSlide + 1 : 0;
+            updateMediaCarousel();
+        });
+
+        mediaPrevBtn.addEventListener('click', function() {
+            const maxIndex = window.innerWidth <= 992 ? totalSlides - 1 : Math.max(0, totalSlides - 2);
+            currentSlide = currentSlide > 0 ? currentSlide - 1 : maxIndex;
+            updateMediaCarousel();
+        });
+
+        window.addEventListener('resize', updateMediaCarousel);
+    }
+});
+</script>
+
+<style>
+@media screen and (max-width: 992px) {
+    .nistco-about-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+}
+</style>
 
 <?php
 get_footer();
