@@ -1,15 +1,16 @@
 <?php
 /**
- * The header for NISTCO Theme - Clean & Corrected HTML/CSS
+ * The header for NISTCO Theme - Clean & Fully Responsive
  */
 ?>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
     <style>
-        .nistco-header-bar {
+        .nistco-header {
             background: #042416;
             color: #ffffff;
             border-bottom: 3px solid #d97706;
@@ -174,13 +175,15 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         @media screen and (max-width: 1100px) {
+            .nistco-nav-desktop, .nistco-socials { display: none !important; }
+            .nistco-burger { display: flex !important; }
         }
     </style>
 </head>
 <body <?php body_class(); ?> style="margin: 0; background: #f8fafc; color: #1e293b;">
 <?php wp_body_open(); ?>
 
-<header class="nistco-header-bar">
+<header class="nistco-header">
     <div class="nistco-inner">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nistco-logo-area">
             <div class="nistco-logo-badge">N</div>
@@ -264,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
             d.classList.toggle('open');
         });
         document.addEventListener('click', function(e) {
+            if (!d.contains(e.target) && !b.contains(e.target)) {
                 d.classList.remove('open');
             }
         });
