@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: NISTCO Front Page (Ultimate Master)
+ * Template Name: NISTCO Front Page (Ultimate Master with Exact Hero & Flags)
  * The comprehensive modernized homepage template for NISTCO Portal
  */
 
@@ -9,7 +9,7 @@ get_header();
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION WITH 3D QUANTUM ATOM VIEWPORT -->
+    <!-- 1. HERO SECTION (Customized to match capture layout) -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
@@ -18,54 +18,63 @@ get_header();
         <div class="nistco-container nistco-hero-grid">
             <div>
                 <div class="nistco-hero-badges">
-                    <span class="nistco-pill nistco-pill-green">Federal Republic of Nigeria</span>
-                    <span class="nistco-pill nistco-pill-gold">Innovation & Science Complex</span>
+                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>[cite: 1]
+                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>[cite: 1]
                 </div>
                 
-                <h1 class="nistco-hero-title">
-                    Advancing National <span style="color: #fde047;">Science, Technology & Commercialization</span>
+                <h1 class="nistco-hero-title" style="font-size: clamp(2rem, 4.5vw, 3.4rem);">
+                    National Science & <br><span style="color: #fde047;">Technology Complex</span>[cite: 1]
                 </h1>
                 
                 <p class="nistco-hero-subtitle">
-                    The Nigeria Innovation, Science and Technology Complex (NISTCO) drives high-performance computing, advanced chemistry synthesis, biotechnology, physics research, and industrial prototyping across strategic national research centres.
+                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.[cite: 1]
                 </p>
                 
                 <div class="nistco-hero-actions">
                     <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
-                        Explore Research Centres &rarr;
+                        Explore Research Centres[cite: 1] &rarr;
                     </a>
                     <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-btn nistco-btn-gold">
-                        Commercial Ventures & IP
+                        Innovation & Patents[cite: 1]
+                    </a>
+                    <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-btn nistco-btn-secondary">
+                        Public Trustee Desk[cite: 1]
                     </a>
                 </div>
 
                 <!-- Centre Quick Launchpad Dock -->
                 <div class="nistco-centre-launchpad">
-                    <span class="launchpad-heading">Direct Centre Access</span>
+                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS[cite: 1]</span>
                     <div class="launchpad-pills-row">
-                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC (HPC)</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC (Chemistry)</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC (Biotech)</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC[cite: 1]</span></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Pristine 3D Viewport Atom Animation -->
+            <!-- 3D Viewport with Interlocking Engineering Gears -->
             <div class="nistco-3d-viewport">
                 <div class="nistco-3d-stage">
                     <div class="crossing-resonance-field">
                         <div class="crossing-field-line"></div>
                     </div>
-                    <div class="atom-form-primary">
-                        <div class="nucleus-primary">
-                            <div class="core-emerald-gold"></div>
-                            <div class="corona-emerald"></div>
+                    
+                    <div class="gear-system-3d">
+                        <div class="gear-wrap gear-main-wrap">
+                            <svg class="gear-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="32" stroke="#c59b27" stroke-width="4" stroke-dasharray="6 3"/>
+                                <circle cx="50" cy="50" r="18" fill="#042416" stroke="#86efac" stroke-width="2"/>
+                                <path d="M50 10V20M50 80V90M10 50H20M80 50H90M22 22L29 29M71 71L78 78M22 78L29 71M71 29L78 22" stroke="#c59b27" stroke-width="5" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <div class="quantum-orbit orbit-primary-1 border-emerald">
-                            <div class="quantum-electron electron-emerald"></div>
-                        </div>
-                        <div class="quantum-orbit orbit-primary-2 border-gold">
-                            <div class="quantum-electron electron-gold"></div>
+                        <div class="gear-wrap gear-secondary-wrap">
+                            <svg class="gear-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="28" stroke="#86efac" stroke-width="4" stroke-dasharray="4 2"/>
+                                <circle cx="50" cy="50" r="14" fill="#042416" stroke="#c59b27" stroke-width="2"/>
+                                <path d="M50 12V22M50 78V88M12 50H22M78 50H88" stroke="#86efac" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -73,19 +82,19 @@ get_header();
         </div>
     </section>
 
-    <!-- 2. STATUTORY METRICS WITH LIVE COUNT-UP ANIMATION -->
+    <!-- 2. INSTITUTIONAL IMPACT METRICS (Multi-colored NISTCO Palette) -->
     <?php 
     $metrics = [
-        [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling" ],
-        [ "target" => 5, "suffix" => "+", "comma" => false, "title" => "Scientific Publications", "desc" => "Peer-reviewed & indexed research repository" ],
-        [ "target" => 2000, "suffix" => "", "comma" => true, "title" => "Hectares Campus Footprint", "desc" => "Abuja-Lokoja Technology Corridor sanctuary" ],
-        [ "target" => 16, "suffix" => "+", "comma" => false, "title" => "Registered Patents", "desc" => "NOTAP-certified indigenous technologies" ],
-        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, tissue culture & precision CNC" ],
-        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated solar hybrid for NMR & HPC compute" ],
-        [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities" ]
+        [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#86efac" ],
+        [ "target" => 5, "suffix" => "+", "comma" => false, "title" => "Scientific Publications", "desc" => "Peer-reviewed & indexed research repository", "color" => "#fde047" ],
+        [ "target" => 2000, "suffix" => "", "comma" => true, "title" => "Hectares Campus Footprint", "desc" => "Abuja-Lokoja Technology Corridor sanctuary", "color" => "#38bdf8" ],
+        [ "target" => 16, "suffix" => "+", "comma" => false, "title" => "Registered Patents", "desc" => "NOTAP-certified indigenous technologies", "color" => "#fbbf24" ],
+        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, tissue culture & precision CNC", "color" => "#34d399" ],
+        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated solar hybrid for NMR & HPC compute", "color" => "#f43f5e" ],
+        [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities", "color" => "#a78bfa" ]
     ];
     ?>
-    <section style="background: #042416; color: #fff; padding: 4.5rem 1.5rem; border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
+    <section style="background: linear-gradient(135deg, #021a10 0%, #042416 100%); color: #fff; padding: 4.5rem 1.5rem; border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
         <div style="max-width: 1440px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 3.5rem;">
                 <div style="color: #fde047; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Institutional Impact</div>
@@ -93,8 +102,8 @@ get_header();
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.75rem;">
                 <?php foreach ( $metrics as $metric ) : ?>
-                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(217,119,6,0.3); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25);">
-                        <div class="nistco-counter" data-target="<?php echo esc_attr( $metric['target'] ); ?>" data-suffix="<?php echo esc_attr( $metric['suffix'] ); ?>" data-comma="<?php echo $metric['comma'] ? 'true' : 'false'; ?>" style="font-size: 2.75rem; font-weight: 800; color: #fde047; line-height: 1; margin-bottom: 0.65rem;">0<?php echo esc_html( $metric['suffix'] ); ?></div>
+                    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(217,119,6,0.3); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25); border-top: 4px solid <?php echo $metric['color']; ?>;">
+                        <div class="nistco-counter" data-target="<?php echo esc_attr( $metric['target'] ); ?>" data-suffix="<?php echo esc_attr( $metric['suffix'] ); ?>" data-comma="<?php echo $metric['comma'] ? 'true' : 'false'; ?>" style="font-size: 2.75rem; font-weight: 800; color: <?php echo $metric['color']; ?>; line-height: 1; margin-bottom: 0.65rem;">0<?php echo esc_html( $metric['suffix'] ); ?></div>
                         <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;"><?php echo esc_html( $metric['title'] ); ?></div>
                         <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;"><?php echo esc_html( $metric['desc'] ); ?></div>
                     </div>
@@ -103,8 +112,20 @@ get_header();
         </div>
     </section>
 
-    <!-- 3. MODERN PRESIDENT SECTION -->
-    <section class="nistco-section nistco-bg-parchment">
+    <!-- 3. PRESIDENTIAL SECTION (Customized with Nigerian Flag Side Bars) -->
+    <section class="nistco-section nistco-bg-parchment" style="position: relative; overflow: hidden;">
+        <!-- Fitted Nigerian Flag Side Accent Bars -->
+        <div style="position: absolute; top: 0; left: 0; width: 12px; height: 100%; display: flex; flex-direction: column;">
+            <div style="flex: 1; background: #008751;"></div>
+            <div style="flex: 1; background: #ffffff;"></div>
+            <div style="flex: 1; background: #008751;"></div>
+        </div>
+        <div style="position: absolute; top: 0; right: 0; width: 12px; height: 100%; display: flex; flex-direction: column;">
+            <div style="flex: 1; background: #008751;"></div>
+            <div style="flex: 1; background: #ffffff;"></div>
+            <div style="flex: 1; background: #008751;"></div>
+        </div>
+
         <div class="nistco-container">
             <div class="mc-presidential-banner">
                 <div class="mc-presidential-pattern"></div>
@@ -112,7 +133,7 @@ get_header();
                     <div class="mc-presidential-portrait-wrap">
                         <div class="mc-presidential-photo-frame">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/president.jpg" alt="Presidential Patron" class="leader-photo placeholder" onerror="this.style.display='none';">
-                            <div class="mc-presidential-photo-badge">Federal Republic of Nigeria</div>
+                            <div class="mc-presidential-photo-badge" style="background: #008751; color: #fff;">🇳🇬 Federal Republic of Nigeria</div>
                         </div>
                         <div class="mc-presidential-caption">
                             <span class="mc-presidential-title-kicker">Grand Patron of Science & Tech</span>
@@ -135,7 +156,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 4. EXECUTIVE LEADERSHIP VISION -->
+    <!-- 4. REFINED EXECUTIVE DIRECTION SECTION -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="mc-section-header">
@@ -156,7 +177,7 @@ get_header();
                 </div>
                 <div>
                     <h3 class="mc-exec-headline">Bridging Laboratory Breakthroughs with National Industrialization</h3>
-                    <blockquote class="mc-exec-quote">
+                    <blockquote class="mc-exec-quote" style="border-left-color: #008751;">
                         "At NISTCO, we are transforming our 7 advanced research centres into vibrant commercial engines. From our 500L chemistry pilot synthesis plant to our 256 TeraFLOPs HPC facility, we deliver verified solutions for Nigerian industry."
                     </blockquote>
                     <div class="mc-exec-actions">
@@ -169,13 +190,13 @@ get_header();
         </div>
     </section>
 
-    <!-- 5. RESEARCH CENTRES & DIVISIONS GRID -->
+    <!-- 5. ALL RESEARCH CENTRES & DEPARTMENTS -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header">
                 <span class="nistco-section-kicker">Specialized Divisions</span>
-                <h2 class="nistco-section-title">Our Advanced Research Centres</h2>
-                <p class="nistco-section-lead">Explore our world-class scientific laboratories, specialized equipment clusters, and pilot production plants located across our Abuja complex.</p>
+                <h2 class="nistco-section-title">Our Research Centres & Departments</h2>
+                <p class="nistco-section-lead">Explore our world-class scientific laboratories, specialized equipment clusters, and pilot production plants across all 7 divisions.</p>
             </div>
             <div class="nistco-centres-grid">
                 <div class="nistco-centre-card">
@@ -199,11 +220,32 @@ get_header();
                     <p class="nistco-centre-desc">Molecular biology & PCR suites, plant tissue culture micropropagation, and bioprocess fermentation bioreactors.</p>
                     <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="nistco-card-action"><span>Access BARC Portal</span><span>&rarr;</span></a>
                 </div>
+                <div class="nistco-centre-card">
+                    <div class="nistco-centre-icon-wrap">☢️</div>
+                    <div class="nistco-centre-code">NTC</div>
+                    <h3 class="nistco-centre-title">Nuclear Technology Centre</h3>
+                    <p class="nistco-centre-desc">Radiation safety standards, isotopic analysis, and nuclear instrumentation for industrial and medical application.</p>
+                    <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="nistco-card-action"><span>Access NTC Portal</span><span>&rarr;</span></a>
+                </div>
+                <div class="nistco-centre-card">
+                    <div class="nistco-centre-icon-wrap">🔬</div>
+                    <div class="nistco-centre-code">PARC</div>
+                    <h3 class="nistco-centre-title">Physics Advanced Research Centre</h3>
+                    <p class="nistco-centre-desc">Solid-state physics, materials characterization, optics, and renewable energy semiconductor testing.</p>
+                    <a href="<?php echo esc_url( home_url( '/centres/parc/' ) ); ?>" class="nistco-card-action"><span>Access PARC Portal</span><span>&rarr;</span></a>
+                </div>
+                <div class="nistco-centre-card">
+                    <div class="nistco-centre-icon-wrap">⚙️</div>
+                    <div class="nistco-centre-code">PTD</div>
+                    <h3 class="nistco-centre-title">Advanced Tooling & Prototyping</h3>
+                    <p class="nistco-centre-desc">Precision CNC machining, rapid additive manufacturing, and pilot mold engineering for Nigerian industries.</p>
+                    <a href="<?php echo esc_url( home_url( '/centres/ptd/' ) ); ?>" class="nistco-card-action"><span>Access PTD Portal</span><span>&rarr;</span></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. PATENTS & INVENTIONS -->
+    <!-- 6. PATENTS & MARKET-READY INVENTIONS -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header">
@@ -234,7 +276,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 7. RESEARCH PUBLICATIONS -->
+    <!-- 7. LATEST RESEARCH PUBLICATIONS -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header-flex">
@@ -271,11 +313,11 @@ get_header();
         </div>
     </section>
 
-    <!-- 8. PERFORMANCE & USER EXPERIENCE -->
+    <!-- 8. MEDIA, STAKEHOLDERS & FEEDBACK -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header">
-                <span class="nistco-section-kicker">Stakeholder Feedback</span>
+                <span class="nistco-section-kicker">Stakeholder Feedback & Media</span>
                 <h2 class="nistco-section-title">Performance & User Experience</h2>
                 <p class="nistco-section-lead">Verified feedback from industrial partners, academic researchers, and ministry stakeholders.</p>
             </div>
@@ -295,7 +337,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 9. STRATEGIC PARTNERS -->
+    <!-- 9. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header">
