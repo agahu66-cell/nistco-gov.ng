@@ -1,15 +1,125 @@
 <?php
 /**
- * Template Name: NISTCO Front Page (Fixed Master Clock Hero)
- * The comprehensive modernized homepage template for NISTCO Portal
+ * Template Name: NISTCO Front Page (Master Precision Watch Edition)
+ * The fully self-contained modernized homepage template for NISTCO Portal
  */
 
 get_header();
 ?>
 
+<!-- Embedded Professional Styling for Perfect Rendering -->
+<style>
+.nistco-main { background: #f8fafc; color: #1e293b; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+.nistco-hero-section { background: linear-gradient(135deg, #021a10 0%, #042416 50%, #0d3822 100%); color: #ffffff; padding: 6rem 2rem; position: relative; overflow: hidden; }
+.nistco-hero-ambient-1 { position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(217,119,6,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+.nistco-hero-ambient-2 { position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(16,185,129,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+.nistco-container { max-width: 1440px; margin: 0 auto; position: relative; z-index: 2; }
+.nistco-hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
+@media (max-width: 992px) { .nistco-hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+.nistco-hero-badges { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.nistco-pill { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 50px; letter-spacing: 1px; }
+.nistco-pill-green { background: #008751; color: #ffffff; }
+.nistco-pill-gold { background: #d97706; color: #ffffff; }
+
+.nistco-hero-title { font-size: clamp(2.25rem, 4.5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0 0 1.5rem 0; color: #ffffff; }
+.nistco-hero-subtitle { font-size: 1.1rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 2rem; max-width: 620px; }
+
+.nistco-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.nistco-btn { padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+.nistco-btn-primary { background: #008751; color: #ffffff; box-shadow: 0 4px 14px rgba(0,135,81,0.4); }
+.nistco-btn-primary:hover { background: #006c41; color: #fff; }
+.nistco-btn-gold { background: #d97706; color: #ffffff; box-shadow: 0 4px 14px rgba(217,119,6,0.4); }
+.nistco-btn-gold:hover { background: #b45309; color: #fff; }
+.nistco-btn-secondary { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.2); }
+.nistco-btn-secondary:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+.nistco-centre-launchpad { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; backdrop-filter: blur(10px); }
+.launchpad-heading { display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #fde047; letter-spacing: 1.2px; margin-bottom: 0.75rem; }
+.launchpad-pills-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.launchpad-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 0.45rem 0.85rem; border-radius: 6px; color: #ffffff; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
+.launchpad-pill:hover { background: #008751; border-color: #008751; color: #fff; transform: translateY(-2px); }
+
+/* Skeleton Watch Gear Animations */
+@keyframes rotCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes rotCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.svg-rot-cw-slow { transform-origin: center; animation: rotCW 25s linear infinite; }
+.svg-rot-cw-mid { transform-origin: center; animation: rotCW 15s linear infinite; }
+.svg-rot-ccw-fast { transform-origin: center; animation: rotCCW 10s linear infinite; }
+.svg-rot-ccw-slow { transform-origin: center; animation: rotCCW 20s linear infinite; }
+
+.nistco-section { padding: 5rem 2rem; }
+.nistco-bg-white { background: #ffffff; }
+.nistco-bg-parchment { background: #f1f5f9; }
+.nistco-section-header { text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto; }
+.nistco-section-kicker { display: block; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #008751; letter-spacing: 1.5px; margin-bottom: 0.5rem; }
+.nistco-section-title { font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; letter-spacing: -0.5px; }
+.nistco-section-lead { font-size: 1.05rem; color: #475569; line-height: 1.6; margin: 0; }
+
+.nistco-centres-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
+.nistco-centre-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.nistco-centre-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: #008751; }
+.nistco-centre-icon-wrap { width: 50px; height: 50px; background: rgba(0,135,81,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+.nistco-centre-code { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #d97706; letter-spacing: 1px; margin-bottom: 0.35rem; }
+.nistco-centre-title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; }
+.nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+.nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; color: #008751; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; transition: color 0.2s; }
+.nistco-card-action:hover { color: #006c41; }
+
+.inno-patents-grid, .nistco-pubs-grid, .nistco-partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
+.inno-patent-card, .nistco-pub-card, .nistco-partner-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; }
+.inno-patent-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.inno-tag-pill { font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1; }
+.inno-trl-pill { font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e; }
+.inno-patent-title { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0; }
+.inno-patent-excerpt { font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1; }
+.inno-patent-meta-box { background: #f8fafc; border-radius: 8px; padding: 0.75rem 1rem; display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 1.25rem; }
+.meta-label { color: #64748b; font-weight: 600; }
+.meta-val { color: #0f172a; font-weight: 700; }
+.inno-patent-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem; }
+.status-indicator.ready { color: #059669; font-weight: 700; }
+.status-indicator.deployed { color: #2563eb; font-weight: 700; }
+.inno-btn-license { font-weight: 700; color: #008751; text-decoration: none; }
+
+.nistco-rating-summary-ribbon { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.rating-stat-box { text-align: center; }
+.rating-score { font-size: 3rem; font-weight: 800; color: #0f172a; line-height: 1; }
+.rating-score span { font-size: 1.25rem; color: #64748b; font-weight: 600; }
+.rating-stars { color: #f59e0b; font-size: 1.25rem; margin: 0.35rem 0; }
+.rating-count { font-size: 0.85rem; color: #64748b; }
+.rating-divider { width: 1px; height: 60px; background: #e2e8f0; }
+.rating-metrics-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
+.metric-pill { text-align: center; }
+.metric-val { display: block; font-size: 1.5rem; font-weight: 800; color: #008751; }
+.metric-lbl { font-size: 0.8rem; color: #64748b; font-weight: 700; text-transform: uppercase; }
+
+.mc-presidential-banner { background: #042416; border-radius: 16px; padding: 3rem; color: #ffffff; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(4,36,22,0.25); border: 1px solid rgba(217,119,6,0.3); }
+.mc-presidential-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; }
+@media(max-width: 992px) { .mc-presidential-grid { grid-template-columns: 1fr; } }
+.mc-presidential-photo-frame { width: 100%; height: 360px; background: #021a10; border-radius: 12px; border: 3px solid #d97706; overflow: hidden; position: relative; }
+.mc-presidential-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.mc-presidential-photo-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,135,81,0.9); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 800; padding: 0.5rem; }
+.mc-presidential-caption { margin-top: 1rem; text-align: center; }
+.mc-presidential-title-kicker { display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #fde047; letter-spacing: 1.2px; }
+.mc-presidential-name { display: block; font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.2rem 0; }
+.mc-presidential-rank { font-size: 0.85rem; color: #94a3b8; }
+.mc-presidential-heading { font-size: 2rem; font-weight: 800; color: #fff; margin: 1rem 0; line-height: 1.2; }
+.mc-presidential-quote { font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; font-style: italic; border-left: 4px solid #d97706; padding-left: 1.25rem; margin: 1.5rem 0; }
+
+.mc-exec-grid { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+@media(max-width: 992px) { .mc-exec-grid { grid-template-columns: 1fr; } }
+.mc-exec-portrait-card { text-align: center; }
+.mc-exec-photo-wrap { width: 220px; height: 220px; margin: 0 auto; border-radius: 50%; border: 4px solid #008751; overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,135,81,0.2); }
+.mc-exec-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.mc-exec-name { display: block; font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 1rem; }
+.mc-exec-designation { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+.mc-exec-headline { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; }
+.mc-exec-quote { font-size: 1.05rem; line-height: 1.7; color: #475569; font-style: italic; border-left: 4px solid #008751; padding-left: 1.25rem; margin-bottom: 1.5rem; }
+</style>
+
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION WITH FIXED-POSITION SKELETON CLOCK GEARS -->
+    <!-- 1. HERO SECTION WITH PRECISION SKELETON WATCH MECHANISM -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
@@ -18,57 +128,53 @@ get_header();
         <div class="nistco-container nistco-hero-grid">
             <div>
                 <div class="nistco-hero-badges">
-                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>
-                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>
+                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>[cite: 1]
+                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>[cite: 1]
                 </div>
                 
-                <h1 class="nistco-hero-title" style="font-size: clamp(2rem, 4.5vw, 3.4rem);">
-                    National Science & <br><span style="color: #fde047;">Technology Complex</span>
+                <h1 class="nistco-hero-title">
+                    National Science & <br><span style="color: #fde047;">Technology Complex</span>[cite: 1]
                 </h1>
                 
                 <p class="nistco-hero-subtitle">
-                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.
+                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.[cite: 1]
                 </p>
                 
                 <div class="nistco-hero-actions">
                     <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
-                        Explore Research Centres &rarr;
+                        Explore Research Centres[cite: 1] &rarr;
                     </a>
                     <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-btn nistco-btn-gold">
-                        Innovation & Patents
+                        Innovation & Patents[cite: 1]
                     </a>
                     <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-btn nistco-btn-secondary">
-                        Public Trustee Desk
+                        Public Trustee Desk[cite: 1]
                     </a>
                 </div>
 
                 <!-- Centre Quick Launchpad Dock -->
                 <div class="nistco-centre-launchpad">
-                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS</span>
+                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS[cite: 1]</span>
                     <div class="launchpad-pills-row">
-                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC[cite: 1]</span></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Fixed Position Hero Clock Viewport -->
-            <div class="nistco-3d-viewport" style="display: flex; align-items: center; justify-content: center;">
-                <div class="nistco-3d-stage" style="width: 360px; height: 360px; position: relative; display: flex; align-items: center; justify-content: center;">
-                    <div class="crossing-resonance-field">
-                        <div class="crossing-field-line"></div>
-                    </div>
-                    
-                    <!-- Fixed Skeleton Watch Mechanical Movement SVG -->
-                    <div class="watch-movement-container" style="position: absolute; width: 340px; height: 340px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));">
+            <!-- Precision Skeleton Watch Hero Viewport -->
+            <div style="display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="width: 380px; height: 380px; position: relative; display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; width: 360px; height: 360px; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.7));">
                         <svg viewBox="0 0 200 200" style="width: 100%; height: 100%; overflow: visible;">
-                            <circle cx="100" cy="100" r="95" fill="#042416" stroke="#c59b27" stroke-width="3" opacity="0.95"/>
-                            <circle cx="100" cy="100" r="88" fill="#021a10" stroke="#10b981" stroke-width="1" stroke-dasharray="4 2" opacity="0.7"/>
+                            <!-- Outer Dial Rim -->
+                            <circle cx="100" cy="100" r="96" fill="#021a10" stroke="#d97706" stroke-width="3.5" opacity="0.95"/>
+                            <circle cx="100" cy="100" r="88" fill="#042416" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.7"/>
 
                             <!-- Gear 1: Upper-Left Gold Main Gear (CW) -->
-                            <g class="svg-rot-cw-slow" transform="translate(60, 60)">
+                            <g class="svg-rot-cw-slow" transform="translate(62, 62)">
                                 <circle cx="0" cy="0" r="32" fill="none" stroke="#d97706" stroke-width="6" stroke-dasharray="8 4"/>
                                 <circle cx="0" cy="0" r="22" fill="#042416" stroke="#fde047" stroke-width="2"/>
                                 <line x1="0" y1="-22" x2="0" y2="22" stroke="#d97706" stroke-width="3"/>
@@ -77,7 +183,7 @@ get_header();
                             </g>
 
                             <!-- Gear 2: Upper-Right Silver Balance Wheel (CCW) -->
-                            <g class="svg-rot-ccw-fast" transform="translate(140, 65)">
+                            <g class="svg-rot-ccw-fast" transform="translate(138, 65)">
                                 <circle cx="0" cy="0" r="24" fill="none" stroke="#94a3b8" stroke-width="5" stroke-dasharray="6 3"/>
                                 <circle cx="0" cy="0" r="16" fill="#042416" stroke="#cbd5e1" stroke-width="2"/>
                                 <line x1="-16" y1="-16" x2="16" y2="16" stroke="#94a3b8" stroke-width="2.5"/>
@@ -85,12 +191,16 @@ get_header();
                             </g>
 
                             <!-- Gear 3: Center-Bottom Bronze Power Barrel (CW) -->
-                            <g class="svg-rot-cw-mid" transform="translate(110, 140)">
+                            <g class="svg-rot-cw-mid" transform="translate(112, 138)">
                                 <circle cx="0" cy="0" r="38" fill="none" stroke="#b45309" stroke-width="7" stroke-dasharray="10 4"/>
                                 <circle cx="0" cy="0" r="26" fill="#042416" stroke="#d97706" stroke-width="2.5"/>
                                 <path d="M0 -26 L0 26 M-26 0 L26 0 M-18 -18 L18 18" stroke="#b45309" stroke-width="3"/>
                                 <circle cx="0" cy="0" r="8" fill="#f59e0b"/>
                             </g>
+
+                            <!-- Bridge Plate Overlay -->
+                            <path d="M 45 150 Q 85 180 120 160 Q 90 120 70 110 Z" fill="#0d2e1c" stroke="#10b981" stroke-width="1.5" opacity="0.9"/>
+                            <circle cx="65" cy="140" r="4" fill="#fde047"/>
 
                             <!-- Center Clock Hands / Indicators -->
                             <g transform="translate(100, 100)">
@@ -107,16 +217,16 @@ get_header();
         </div>
     </section>
 
-    <!-- 2. INSTITUTIONAL IMPACT METRICS -->
+    <!-- 2. INSTITUTIONAL IMPACT METRICS (Multi-colored NISTCO Palette) -->
     <?php 
     $metrics = [
-        [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#86efac" ],
-        [ "target" => 5, "suffix" => "+", "comma" => false, "title" => "Scientific Publications", "desc" => "Peer-reviewed & indexed research repository", "color" => "#fde047" ],
-        [ "target" => 2000, "suffix" => "", "comma" => true, "title" => "Hectares Campus Footprint", "desc" => "Abuja-Lokoja Technology Corridor sanctuary", "color" => "#38bdf8" ],
-        [ "target" => 16, "suffix" => "+", "comma" => false, "title" => "Registered Patents", "desc" => "NOTAP-certified indigenous technologies", "color" => "#fbbf24" ],
-        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, tissue culture & precision CNC", "color" => "#34d399" ],
-        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated solar hybrid for NMR & HPC compute", "color" => "#f43f5e" ],
-        [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities", "color" => "#a78bfa" ]
+        [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#10b981" ],
+        [ "target" => 5, "suffix" => "+", "comma" => false, "title" => "Scientific Publications", "desc" => "Peer-reviewed & indexed research repository", "color" => "#f59e0b" ],
+        [ "target" => 2000, "suffix" => "", "comma" => true, "title" => "Hectares Campus Footprint", "desc" => "Abuja-Lokoja Technology Corridor sanctuary", "color" => "#0ea5e9" ],
+        [ "target" => 16, "suffix" => "+", "comma" => false, "title" => "Registered Patents", "desc" => "NOTAP-certified indigenous technologies", "color" => "#d97706" ],
+        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, tissue culture & precision CNC", "color" => "#059669" ],
+        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated solar hybrid for NMR & HPC compute", "color" => "#e11d48" ],
+        [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities", "color" => "#8b5cf6" ]
     ];
     ?>
     <section style="background: linear-gradient(135deg, #021a10 0%, #042416 100%); color: #fff; padding: 4.5rem 1.5rem; border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
@@ -137,14 +247,14 @@ get_header();
         </div>
     </section>
 
-    <!-- 3. PRESIDENTIAL SECTION WITH NIGERIAN FLAG SIDE BARS -->
+    <!-- 3. PRESIDENTIAL SECTION (Customized with Nigerian Flag Side Bars) -->
     <section class="nistco-section nistco-bg-parchment" style="position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; width: 12px; height: 100%; display: flex; flex-direction: column;">
+        <div style="position: absolute; top: 0; left: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
             <div style="flex: 1; background: #008751;"></div>
             <div style="flex: 1; background: #ffffff;"></div>
             <div style="flex: 1; background: #008751;"></div>
         </div>
-        <div style="position: absolute; top: 0; right: 0; width: 12px; height: 100%; display: flex; flex-direction: column;">
+        <div style="position: absolute; top: 0; right: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
             <div style="flex: 1; background: #008751;"></div>
             <div style="flex: 1; background: #ffffff;"></div>
             <div style="flex: 1; background: #008751;"></div>
@@ -180,10 +290,10 @@ get_header();
         </div>
     </section>
 
-    <!-- 4. REFINED EXECUTIVE DIRECTION -->
+    <!-- 4. REFINED EXECUTIVE DIRECTION SECTION -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
-            <div class="mc-section-header">
+            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
                 <span class="nistco-section-kicker">Executive Direction</span>
                 <h2 class="nistco-section-title">Director-General & CEO Vision</h2>
                 <p class="nistco-section-lead">Steering NISTCO toward world-class scientific excellence, operational transparency, and robust public-private industrial partnerships.</p>
@@ -192,18 +302,21 @@ get_header();
                 <div class="mc-exec-portrait-card">
                     <div class="mc-exec-photo-wrap">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/dg-ceo1.jpg" alt="Director General" class="leader-photo" onerror="this.style.display='none';">
-                        <div class="mc-exec-photo-badge">Executive Office</div>
+                        <div class="mc-exec-photo-badge" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.75rem; padding: 0.3rem;">Executive Office</div>
                     </div>
-                    <div class="mc-exec-caption">
-                        <span class="mc-exec-name">Director-General / CEO</span>
-                        <span class="mc-exec-designation">Nigeria Innovation Science & Technology Complex</span>
-                    </div>
+                    <span class="mc-exec-name">Director-General / CEO</span>
+                    <span class="mc-exec-designation">Nigeria Innovation Science & Technology Complex</span>
                 </div>
                 <div>
                     <h3 class="mc-exec-headline">Bridging Laboratory Breakthroughs with National Industrialization</h3>
-                    <blockquote class="mc-exec-quote" style="border-left-color: #008751;">
+                    <blockquote class="mc-exec-quote">
                         "At NISTCO, we are transforming our 7 advanced research centres into vibrant commercial engines. From our 500L chemistry pilot synthesis plant to our 256 TeraFLOPs HPC facility, we deliver verified solutions for Nigerian industry."
                     </blockquote>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-btn nistco-btn-primary">
+                            Explore Leadership Roster &rarr;
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -298,35 +411,34 @@ get_header();
     <!-- 7. LATEST RESEARCH PUBLICATIONS -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
-            <div class="nistco-section-header-flex">
+            <div class="nistco-section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 3.5rem;">
                 <div>
                     <span class="nistco-section-kicker">Scientific Repository</span>
-                    <h2 class="nistco-section-title">Latest Research Publications</h2>
-                    <p class="nistco-section-lead">Peer-reviewed findings, technical monographs, and open-access journals published by NISTCO researchers.</p>
+                    <h2 class="nistco-section-title" style="margin: 0;">Latest Research Publications</h2>
                 </div>
-                <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="nistco-header-link">Browse Full Repository &rarr;</a>
+                <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="nistco-btn nistco-btn-primary">Browse Full Repository &rarr;</a>
             </div>
             <div class="nistco-pubs-grid">
                 <div class="nistco-pub-card">
-                    <div class="nistco-pub-pills"><span class="nistco-pub-year">2026</span><span class="nistco-pub-centre">AMSARC</span></div>
-                    <h3 class="nistco-pub-title"><a href="#">High-Performance Parallel Simulation of Multi-Phase Fluid Dynamics</a></h3>
-                    <div class="nistco-pub-authors">Dr. A. K. Bello, Prof. M. O. Okafor</div>
-                    <p class="nistco-pub-excerpt">Investigating computational fluid dynamics models using 64 GPU accelerated nodes.</p>
-                    <div class="nistco-pub-footer"><button class="nistco-btn-cite">Cite Paper</button><button class="nistco-btn-preview">Download PDF</button></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 4px;">2026</span><span style="font-size: 0.75rem; font-weight: 700; color: #d97706;">AMSARC</span></div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">High-Performance Parallel Simulation of Multi-Phase Fluid Dynamics</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Dr. A. K. Bello, Prof. M. O. Okafor</p>
+                    <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem; flex-grow: 1;">Investigating computational fluid dynamics models using 64 GPU accelerated nodes for subterranean reservoir estimation.</p>
+                    <div style="display: flex; gap: 1rem; border-top: 1px solid #f1f5f9; padding-top: 1rem;"><button style="background: none; border: none; font-weight: 700; color: #008751; cursor: pointer;">Cite Paper</button><button style="background: none; border: none; font-weight: 700; color: #64748b; cursor: pointer;">Download PDF</button></div>
                 </div>
                 <div class="nistco-pub-card">
-                    <div class="nistco-pub-pills"><span class="nistco-pub-year">2026</span><span class="nistco-pub-centre">CARC (Chemistry)</span></div>
-                    <h3 class="nistco-pub-title"><a href="#">Extraction and Spectroscopic Characterization of Bioactive Compounds</a></h3>
-                    <div class="nistco-pub-authors">Dr. E. N. Okoro, Dr. S. Danladi</div>
-                    <p class="nistco-pub-excerpt">Utilizing FTIR, HPLC, and GC-MS instrumentation to profile pharmaceutical precursors.</p>
-                    <div class="nistco-pub-footer"><button class="nistco-btn-cite">Cite Paper</button><button class="nistco-btn-preview">Download PDF</button></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 4px;">2026</span><span style="font-size: 0.75rem; font-weight: 700; color: #d97706;">CARC (Chemistry)</span></div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Extraction and Spectroscopic Characterization of Bioactive Compounds</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Dr. E. N. Okoro, Dr. S. Danladi</p>
+                    <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem; flex-grow: 1;">Utilizing FTIR, HPLC, and GC-MS instrumentation to profile pharmaceutical precursors from West African medicinal flora.</p>
+                    <div style="display: flex; gap: 1rem; border-top: 1px solid #f1f5f9; padding-top: 1rem;"><button style="background: none; border: none; font-weight: 700; color: #008751; cursor: pointer;">Cite Paper</button><button style="background: none; border: none; font-weight: 700; color: #64748b; cursor: pointer;">Download PDF</button></div>
                 </div>
                 <div class="nistco-pub-card">
-                    <div class="nistco-pub-pills"><span class="nistco-pub-year">2025</span><span class="nistco-pub-centre">BARC</span></div>
-                    <h3 class="nistco-pub-title"><a href="#">Genomic Profiling and Pathogen Resistance in Micropropagated Crops</a></h3>
-                    <div class="nistco-pub-authors">Dr. F. Z. Umar, Prof. C. E. Nnamdi</div>
-                    <p class="nistco-pub-excerpt">Real-time PCR thermocycler analysis yielding robust resistance against viral blight.</p>
-                    <div class="nistco-pub-footer"><button class="nistco-btn-cite">Cite Paper</button><button class="nistco-btn-preview">Download PDF</button></div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;"><span style="font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 4px;">2025</span><span style="font-size: 0.75rem; font-weight: 700; color: #d97706;">BARC</span></div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Genomic Profiling and Pathogen Resistance in Micropropagated Crops</h3>
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">Dr. F. Z. Umar, Prof. C. E. Nnamdi</p>
+                    <p style="font-size: 0.9rem; color: #475569; margin-bottom: 1.5rem; flex-grow: 1;">Real-time PCR thermocycler analysis of transgenic plantlets yielding robust resistance against viral blight in agriculture.</p>
+                    <div style="display: flex; gap: 1rem; border-top: 1px solid #f1f5f9; padding-top: 1rem;"><button style="background: none; border: none; font-weight: 700; color: #008751; cursor: pointer;">Cite Paper</button><button style="background: none; border: none; font-weight: 700; color: #64748b; cursor: pointer;">Download PDF</button></div>
                 </div>
             </div>
         </div>
@@ -336,7 +448,7 @@ get_header();
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header">
-                <span class="nistco-section-kicker">Stakeholder Feedback</span>
+                <span class="nistco-section-kicker">Stakeholder Feedback & Media</span>
                 <h2 class="nistco-section-title">Performance & User Experience</h2>
                 <p class="nistco-section-lead">Verified feedback from industrial partners, academic researchers, and ministry stakeholders.</p>
             </div>
@@ -356,7 +468,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 9. STRATEGIC PARTNERS -->
+    <!-- 9. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header">
@@ -365,10 +477,10 @@ get_header();
                 <p class="nistco-section-lead">Collaborating with premier international research councils and industrial conglomerates.</p>
             </div>
             <div class="nistco-partners-grid">
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">🌐</div><h3 class="nistco-partner-name">ECOWAS Science Council</h3><p class="nistco-partner-desc">Regional cooperation in biotechnology safety and agricultural genomics.</p><span class="nistco-partner-tag">Regional Partner</span></div>
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">🎓</div><h3 class="nistco-partner-name">National Universities Commission</h3><p class="nistco-partner-desc">Facilitating postgraduate research residencies and shared laboratory access.</p><span class="nistco-partner-tag">Academic Alliance</span></div>
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">🏭</div><h3 class="nistco-partner-name">Manufacturers Association of Nigeria</h3><p class="nistco-partner-desc">Commercializing NOTAP patents and scaling indigenous pilot plants.</p><span class="nistco-partner-tag">Industrial Partner</span></div>
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">⚛️</div><h3 class="nistco-partner-name">International Atomic Energy Agency</h3><p class="nistco-partner-desc">Technical cooperation in nuclear instrumentation and radiation safety.</p><span class="nistco-partner-tag">Global Partner</span></div>
+                <div class="nistco-partner-card"><div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div><h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">ECOWAS Science Council</h3><p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Regional cooperation in biotechnology safety and agricultural genomics.</p><span style="font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block;">Regional Partner</span></div>
+                <div class="nistco-partner-card"><div style="font-size: 2rem; margin-bottom: 1rem;">🎓</div><h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">National Universities Commission</h3><p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Facilitating postgraduate research residencies and shared laboratory access.</p><span style="font-size: 0.75rem; font-weight: 700; background: #fef3c7; color: #92400e; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block;">Academic Alliance</span></div>
+                <div class="nistco-partner-card"><div style="font-size: 2rem; margin-bottom: 1rem;">🏭</div><h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Manufacturers Association of Nigeria</h3><p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Commercializing NOTAP patents and scaling indigenous pilot plants.</p><span style="font-size: 0.75rem; font-weight: 700; background: #d1fae5; color: #065f46; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block;">Industrial Partner</span></div>
+                <div class="nistco-partner-card"><div style="font-size: 2rem; margin-bottom: 1rem;">⚛️</div><h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">International Atomic Energy Agency</h3><p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Technical cooperation in nuclear instrumentation and radiation safety.</p><span style="font-size: 0.75rem; font-weight: 700; background: #ede9fe; color: #5b21b6; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block;">Global Partner</span></div>
             </div>
         </div>
     </section>
