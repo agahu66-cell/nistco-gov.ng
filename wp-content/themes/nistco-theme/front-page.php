@@ -1,15 +1,18 @@
 <?php
 /**
- * Template Name: NISTCO Front Page (Ultimate Master with Exact Hero & Flags)
- * The comprehensive modernized homepage template for NISTCO Portal
+ * Template Name: NISTCO Front Page (Clean Foundation Master)
+ * The robust, clean foundation homepage template for NISTCO Portal
  */
+
+// Debug verification marker (View Page Source to verify this loads)
+echo '<!-- NISTCO DEBUG: CLEAN FOUNDATION FRONT-PAGE.PHP IS ACTIVE -->';
 
 get_header();
 ?>
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION (Customized to match capture layout) -->
+    <!-- 1. HERO SECTION WITH SKELETON WATCH GEAR MECHANISM -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
@@ -18,71 +21,93 @@ get_header();
         <div class="nistco-container nistco-hero-grid">
             <div>
                 <div class="nistco-hero-badges">
-                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>[cite: 1]
-                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>[cite: 1]
+                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>
+                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>
                 </div>
                 
                 <h1 class="nistco-hero-title" style="font-size: clamp(2rem, 4.5vw, 3.4rem);">
-                    National Science & <br><span style="color: #fde047;">Technology Complex</span>[cite: 1]
+                    National Science & <br><span style="color: #fde047;">Technology Complex</span>
                 </h1>
                 
                 <p class="nistco-hero-subtitle">
-                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.[cite: 1]
+                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.
                 </p>
                 
                 <div class="nistco-hero-actions">
                     <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
-                        Explore Research Centres[cite: 1] &rarr;
+                        Explore Research Centres &rarr;
                     </a>
                     <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-btn nistco-btn-gold">
-                        Innovation & Patents[cite: 1]
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-btn nistco-btn-secondary">
-                        Public Trustee Desk[cite: 1]
+                        Innovation & Patents
                     </a>
                 </div>
 
                 <!-- Centre Quick Launchpad Dock -->
                 <div class="nistco-centre-launchpad">
-                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS[cite: 1]</span>
+                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS</span>
                     <div class="launchpad-pills-row">
-                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC[cite: 1]</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC[cite: 1]</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC[cite: 1]</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC</span></a>
                     </div>
                 </div>
             </div>
 
-            <!-- 3D Viewport with Interlocking Engineering Gears -->
+            <!-- 3D Viewport with Skeleton Watch Gear Complex -->
             <div class="nistco-3d-viewport">
-                <div class="nistco-3d-stage">
+                <div class="nistco-3d-stage" style="width: 380px; height: 380px;">
                     <div class="crossing-resonance-field">
                         <div class="crossing-field-line"></div>
                     </div>
                     
-                    <div class="gear-system-3d">
-                        <div class="gear-wrap gear-main-wrap">
-                            <svg class="gear-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="32" stroke="#c59b27" stroke-width="4" stroke-dasharray="6 3"/>
-                                <circle cx="50" cy="50" r="18" fill="#042416" stroke="#86efac" stroke-width="2"/>
-                                <path d="M50 10V20M50 80V90M10 50H20M80 50H90M22 22L29 29M71 71L78 78M22 78L29 71M71 29L78 22" stroke="#c59b27" stroke-width="5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="gear-wrap gear-secondary-wrap">
-                            <svg class="gear-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="28" stroke="#86efac" stroke-width="4" stroke-dasharray="4 2"/>
-                                <circle cx="50" cy="50" r="14" fill="#042416" stroke="#c59b27" stroke-width="2"/>
-                                <path d="M50 12V22M50 78V88M12 50H22M78 50H88" stroke="#86efac" stroke-width="4" stroke-linecap="round"/>
-                            </svg>
-                        </div>
+                    <!-- Skeleton Watch Mechanical Movement SVG -->
+                    <div class="watch-movement-container" style="position: relative; width: 100%; height: 100%; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));">
+                        <svg viewBox="0 0 200 200" style="width: 100%; height: 100%; overflow: visible;">
+                            <circle cx="100" cy="100" r="95" fill="#042416" stroke="#c59b27" stroke-width="3" opacity="0.9"/>
+                            <circle cx="100" cy="100" r="88" fill="#021a10" stroke="#10b981" stroke-width="1" stroke-dasharray="4 2" opacity="0.6"/>
+
+                            <!-- Gear 1: Upper-Left Gold Main Gear (CW) -->
+                            <g class="svg-rot-cw-slow" transform="translate(60, 60)">
+                                <circle cx="0" cy="0" r="32" fill="none" stroke="#d97706" stroke-width="6" stroke-dasharray="8 4"/>
+                                <circle cx="0" cy="0" r="22" fill="#042416" stroke="#fde047" stroke-width="2"/>
+                                <line x1="0" y1="-22" x2="0" y2="22" stroke="#d97706" stroke-width="3"/>
+                                <line x1="-22" y1="0" x2="22" y2="0" stroke="#d97706" stroke-width="3"/>
+                                <circle cx="0" cy="0" r="6" fill="#fde047"/>
+                            </g>
+
+                            <!-- Gear 2: Upper-Right Silver Balance Wheel (CCW) -->
+                            <g class="svg-rot-ccw-fast" transform="translate(140, 65)">
+                                <circle cx="0" cy="0" r="24" fill="none" stroke="#94a3b8" stroke-width="5" stroke-dasharray="6 3"/>
+                                <circle cx="0" cy="0" r="16" fill="#042416" stroke="#cbd5e1" stroke-width="2"/>
+                                <line x1="-16" y1="-16" x2="16" y2="16" stroke="#94a3b8" stroke-width="2.5"/>
+                                <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+                            </g>
+
+                            <!-- Gear 3: Center-Bottom Bronze Power Barrel (CW) -->
+                            <g class="svg-rot-cw-mid" transform="translate(110, 140)">
+                                <circle cx="0" cy="0" r="38" fill="none" stroke="#b45309" stroke-width="7" stroke-dasharray="10 4"/>
+                                <circle cx="0" cy="0" r="26" fill="#042416" stroke="#d97706" stroke-width="2.5"/>
+                                <path d="M0 -26 L0 26 M-26 0 L26 0 M-18 -18 L18 18" stroke="#b45309" stroke-width="3"/>
+                                <circle cx="0" cy="0" r="8" fill="#f59e0b"/>
+                            </g>
+
+                            <!-- Center Clock Hands / Indicators -->
+                            <g transform="translate(100, 100)">
+                                <circle cx="0" cy="0" r="8" fill="#fde047" stroke="#042416" stroke-width="2"/>
+                                <polygon points="0,0 -3,-55 3,-55" fill="#ffffff" transform="rotate(45)"/>
+                                <polygon points="0,0 -4,-35 4,-35" fill="#cbd5e1" transform="rotate(120)"/>
+                                <line x1="0" y1="15" x2="0" y2="-65" stroke="#f59e0b" stroke-width="1.5"/>
+                                <circle cx="0" cy="0" r="3" fill="#f59e0b"/>
+                            </g>
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. INSTITUTIONAL IMPACT METRICS (Multi-colored NISTCO Palette) -->
+    <!-- 2. INSTITUTIONAL IMPACT METRICS -->
     <?php 
     $metrics = [
         [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#86efac" ],
@@ -112,9 +137,8 @@ get_header();
         </div>
     </section>
 
-    <!-- 3. PRESIDENTIAL SECTION (Customized with Nigerian Flag Side Bars) -->
+    <!-- 3. PRESIDENTIAL SECTION WITH NIGERIAN FLAG SIDE BARS -->
     <section class="nistco-section nistco-bg-parchment" style="position: relative; overflow: hidden;">
-        <!-- Fitted Nigerian Flag Side Accent Bars -->
         <div style="position: absolute; top: 0; left: 0; width: 12px; height: 100%; display: flex; flex-direction: column;">
             <div style="flex: 1; background: #008751;"></div>
             <div style="flex: 1; background: #ffffff;"></div>
@@ -156,7 +180,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 4. REFINED EXECUTIVE DIRECTION SECTION -->
+    <!-- 4. EXECUTIVE DIRECTION -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="mc-section-header">
@@ -180,11 +204,6 @@ get_header();
                     <blockquote class="mc-exec-quote" style="border-left-color: #008751;">
                         "At NISTCO, we are transforming our 7 advanced research centres into vibrant commercial engines. From our 500L chemistry pilot synthesis plant to our 256 TeraFLOPs HPC facility, we deliver verified solutions for Nigerian industry."
                     </blockquote>
-                    <div class="mc-exec-actions">
-                        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-btn nistco-btn-primary">
-                            Explore Executive Leadership Roster &rarr;
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -241,115 +260,6 @@ get_header();
                     <p class="nistco-centre-desc">Precision CNC machining, rapid additive manufacturing, and pilot mold engineering for Nigerian industries.</p>
                     <a href="<?php echo esc_url( home_url( '/centres/ptd/' ) ); ?>" class="nistco-card-action"><span>Access PTD Portal</span><span>&rarr;</span></a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. PATENTS & MARKET-READY INVENTIONS -->
-    <section class="nistco-section nistco-bg-white">
-        <div class="nistco-container">
-            <div class="nistco-section-header">
-                <span class="nistco-section-kicker">Intellectual Property</span>
-                <h2 class="nistco-section-title">Patents & Market-Ready Inventions</h2>
-                <p class="nistco-section-lead">Explore NOTAP-certified indigenous technologies ready for commercial licensing and industrial manufacturing partnership.</p>
-            </div>
-            <div class="inno-patents-grid">
-                <div class="inno-patent-card">
-                    <div class="inno-patent-header"><span class="inno-tag-pill tag-chem">Chemistry & Bioactives</span><span class="inno-trl-pill">TRL 8 Commercial</span></div>
-                    <h3 class="inno-patent-title">Bio-Based Industrial Solvents & Degreasers</h3>
-                    <p class="inno-patent-excerpt">Eco-friendly solvent formulations derived from agro-waste extracts, optimized for heavy mechanical and automotive maintenance.</p>
-                    <div class="inno-patent-footer"><span class="status-indicator ready">● Ready for Licensing</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
-                </div>
-                <div class="inno-patent-card">
-                    <div class="inno-patent-header"><span class="inno-tag-pill tag-biotech">Biotechnology</span><span class="inno-trl-pill">TRL 7 Prototype</span></div>
-                    <h3 class="inno-patent-title">Drought-Resistant Cassava Micropropagation Protocol</h3>
-                    <p class="inno-patent-excerpt">High-yield disease-free tissue culture seedlings engineered for optimal resilience in West African climatic conditions.</p>
-                    <div class="inno-patent-footer"><span class="status-indicator deployed">● Pilot Verified</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
-                </div>
-                <div class="inno-patent-card">
-                    <div class="inno-patent-header"><span class="inno-tag-pill tag-sim">HPC & Simulation</span><span class="inno-trl-pill">TRL 9 Deployed</span></div>
-                    <h3 class="inno-patent-title">National Power Grid Stability Prediction Algorithm</h3>
-                    <p class="inno-patent-excerpt">Advanced parallel computing software suite designed to forecast load imbalances and prevent regional electrical grid disruptions.</p>
-                    <div class="inno-patent-footer"><span class="status-indicator deployed">● Operational</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. LATEST RESEARCH PUBLICATIONS -->
-    <section class="nistco-section nistco-bg-parchment">
-        <div class="nistco-container">
-            <div class="nistco-section-header-flex">
-                <div>
-                    <span class="nistco-section-kicker">Scientific Repository</span>
-                    <h2 class="nistco-section-title">Latest Research Publications</h2>
-                    <p class="nistco-section-lead">Peer-reviewed findings, technical monographs, and open-access journals published by NISTCO researchers.</p>
-                </div>
-                <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="nistco-header-link">Browse Full Repository &rarr;</a>
-            </div>
-            <div class="nistco-pubs-grid">
-                <div class="nistco-pub-card">
-                    <div class="nistco-pub-pills"><span class="nistco-pub-year">2026</span><span class="nistco-pub-centre">AMSARC</span></div>
-                    <h3 class="nistco-pub-title"><a href="#">High-Performance Parallel Simulation of Multi-Phase Fluid Dynamics</a></h3>
-                    <div class="nistco-pub-authors">Dr. A. K. Bello, Prof. M. O. Okafor</div>
-                    <p class="nistco-pub-excerpt">Investigating computational fluid dynamics models using 64 GPU accelerated nodes.</p>
-                    <div class="nistco-pub-footer"><button class="nistco-btn-cite">Cite Paper</button><button class="nistco-btn-preview">Download PDF</button></div>
-                </div>
-                <div class="nistco-pub-card">
-                    <div class="nistco-pub-pills"><span class="nistco-pub-year">2026</span><span class="nistco-pub-centre">CARC (Chemistry)</span></div>
-                    <h3 class="nistco-pub-title"><a href="#">Extraction and Spectroscopic Characterization of Bioactive Compounds</a></h3>
-                    <div class="nistco-pub-authors">Dr. E. N. Okoro, Dr. S. Danladi</div>
-                    <p class="nistco-pub-excerpt">Utilizing FTIR, HPLC, and GC-MS instrumentation to profile pharmaceutical precursors.</p>
-                    <div class="nistco-pub-footer"><button class="nistco-btn-cite">Cite Paper</button><button class="nistco-btn-preview">Download PDF</button></div>
-                </div>
-                <div class="nistco-pub-card">
-                    <div class="nistco-pub-pills"><span class="nistco-pub-year">2025</span><span class="nistco-pub-centre">BARC</span></div>
-                    <h3 class="nistco-pub-title"><a href="#">Genomic Profiling and Pathogen Resistance in Micropropagated Crops</a></h3>
-                    <div class="nistco-pub-authors">Dr. F. Z. Umar, Prof. C. E. Nnamdi</div>
-                    <p class="nistco-pub-excerpt">Real-time PCR thermocycler analysis yielding robust resistance against viral blight.</p>
-                    <div class="nistco-pub-footer"><button class="nistco-btn-cite">Cite Paper</button><button class="nistco-btn-preview">Download PDF</button></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. MEDIA, STAKEHOLDERS & FEEDBACK -->
-    <section class="nistco-section nistco-bg-white">
-        <div class="nistco-container">
-            <div class="nistco-section-header">
-                <span class="nistco-section-kicker">Stakeholder Feedback & Media</span>
-                <h2 class="nistco-section-title">Performance & User Experience</h2>
-                <p class="nistco-section-lead">Verified feedback from industrial partners, academic researchers, and ministry stakeholders.</p>
-            </div>
-            <div class="nistco-rating-summary-ribbon">
-                <div class="rating-stat-box">
-                    <div class="rating-score">4.9 <span>/ 5.0</span></div>
-                    <div class="rating-stars">★★★★★</div>
-                    <div class="rating-count">Based on 1,420 stakeholder reviews</div>
-                </div>
-                <div class="rating-divider"></div>
-                <div class="rating-metrics-grid">
-                    <div class="metric-pill"><span class="metric-val">99.8%</span><span class="metric-lbl">Uptime SLA</span></div>
-                    <div class="metric-pill"><span class="metric-val">&lt; 1.2s</span><span class="metric-lbl">Portal Response</span></div>
-                    <div class="metric-pill"><span class="metric-val">100%</span><span class="metric-lbl">SERVICOM Compliant</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
-    <section class="nistco-section nistco-bg-parchment">
-        <div class="nistco-container">
-            <div class="nistco-section-header">
-                <span class="nistco-section-kicker">Global & Domestic Networks</span>
-                <h2 class="nistco-section-title">Strategic Partners & Institutional Alliances</h2>
-                <p class="nistco-section-lead">Collaborating with premier international research councils and industrial conglomerates.</p>
-            </div>
-            <div class="nistco-partners-grid">
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">🌐</div><h3 class="nistco-partner-name">ECOWAS Science Council</h3><p class="nistco-partner-desc">Regional cooperation in biotechnology safety and agricultural genomics.</p><span class="nistco-partner-tag">Regional Partner</span></div>
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">🎓</div><h3 class="nistco-partner-name">National Universities Commission</h3><p class="nistco-partner-desc">Facilitating postgraduate research residencies and shared laboratory access.</p><span class="nistco-partner-tag">Academic Alliance</span></div>
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">🏭</div><h3 class="nistco-partner-name">Manufacturers Association of Nigeria</h3><p class="nistco-partner-desc">Commercializing NOTAP patents and scaling indigenous pilot plants.</p><span class="nistco-partner-tag">Industrial Partner</span></div>
-                <div class="nistco-partner-card"><div class="nistco-partner-icon">⚛️</div><h3 class="nistco-partner-name">International Atomic Energy Agency</h3><p class="nistco-partner-desc">Technical cooperation in nuclear instrumentation and radiation safety.</p><span class="nistco-partner-tag">Global Partner</span></div>
             </div>
         </div>
     </section>
