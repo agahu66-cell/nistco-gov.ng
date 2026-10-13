@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: NISTCO Front Page (Ultimate Master with 3D Gears & Rolling Orbits)
+ * Template Name: NISTCO Front Page (Ultimate Master)
  * The comprehensive modernized homepage template for NISTCO Portal
  */
 
@@ -9,7 +9,7 @@ get_header();
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION WITH INTERLOCKING 3D GEARS & ROLLING QUANTUM ORBITS -->
+    <!-- 1. HERO SECTION WITH 3D QUANTUM ATOM VIEWPORT -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
@@ -50,32 +50,12 @@ get_header();
                 </div>
             </div>
 
-            <!-- 3D Viewport with Interlocking Gears & Rolling Quantum Orbits -->
+            <!-- Pristine 3D Viewport Atom Animation -->
             <div class="nistco-3d-viewport">
                 <div class="nistco-3d-stage">
                     <div class="crossing-resonance-field">
                         <div class="crossing-field-line"></div>
                     </div>
-                    
-                    <!-- Interlocking Engineering Gears -->
-                    <div class="gear-system-3d">
-                        <div class="gear-wrap gear-main-wrap">
-                            <svg class="gear-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="32" stroke="#c59b27" stroke-width="4" stroke-dasharray="6 3"/>
-                                <circle cx="50" cy="50" r="18" fill="#042416" stroke="#86efac" stroke-width="2"/>
-                                <path d="M50 10V20M50 80V90M10 50H20M80 50H90M22 22L29 29M71 71L78 78M22 78L29 71M71 29L78 22" stroke="#c59b27" stroke-width="5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="gear-wrap gear-secondary-wrap">
-                            <svg class="gear-3d-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="50" cy="50" r="28" stroke="#86efac" stroke-width="4" stroke-dasharray="4 2"/>
-                                <circle cx="50" cy="50" r="14" fill="#042416" stroke="#c59b27" stroke-width="2"/>
-                                <path d="M50 12V22M50 78V88M12 50H22M78 50H88" stroke="#86efac" stroke-width="4" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <!-- Rolling Quantum Atomic Orbits -->
                     <div class="atom-form-primary">
                         <div class="nucleus-primary">
                             <div class="core-emerald-gold"></div>
@@ -86,19 +66,6 @@ get_header();
                         </div>
                         <div class="quantum-orbit orbit-primary-2 border-gold">
                             <div class="quantum-electron electron-gold"></div>
-                        </div>
-                        <div class="quantum-orbit orbit-primary-crossing border-cyan">
-                            <div class="quantum-electron electron-cyan"></div>
-                        </div>
-                    </div>
-
-                    <div class="atom-form-secondary">
-                        <div class="nucleus-secondary">
-                            <div class="core-cyan-amber"></div>
-                            <div class="corona-cyan"></div>
-                        </div>
-                        <div class="quantum-orbit orbit-secondary-1 border-amber">
-                            <div class="quantum-electron electron-amber"></div>
                         </div>
                     </div>
                 </div>
