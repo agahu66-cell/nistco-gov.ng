@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: NISTCO Front Page (Master Precision Watch Edition)
- * The fully self-contained modernized homepage template for NISTCO Portal
+ * Template Name: NISTCO Front Page (3-Gear Orbital Master Edition)
+ * The comprehensive modernized homepage template for NISTCO Portal
  */
 
 get_header();
 ?>
 
-<!-- Embedded Professional Styling for Perfect Rendering -->
+<!-- Embedded Professional Styling for Perfect Rendering of Gears & Orbits -->
 <style>
 .nistco-main { background: #f8fafc; color: #1e293b; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
 .nistco-hero-section { background: linear-gradient(135deg, #021a10 0%, #042416 50%, #0d3822 100%); color: #ffffff; padding: 6rem 2rem; position: relative; overflow: hidden; }
@@ -40,13 +40,11 @@ get_header();
 .launchpad-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 0.45rem 0.85rem; border-radius: 6px; color: #ffffff; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
 .launchpad-pill:hover { background: #008751; border-color: #008751; color: #fff; transform: translateY(-2px); }
 
-/* Skeleton Watch Gear Animations */
+/* Interlocking Gear & Orbital Animations */
 @keyframes rotCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes rotCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
-.svg-rot-cw-slow { transform-origin: center; animation: rotCW 25s linear infinite; }
-.svg-rot-cw-mid { transform-origin: center; animation: rotCW 15s linear infinite; }
-.svg-rot-ccw-fast { transform-origin: center; animation: rotCCW 10s linear infinite; }
-.svg-rot-ccw-slow { transform-origin: center; animation: rotCCW 20s linear infinite; }
+.gear-rot-cw { transform-origin: center; animation: rotCW 16s linear infinite; }
+.gear-rot-ccw { transform-origin: center; animation: rotCCW 12s linear infinite; }
 
 .nistco-section { padding: 5rem 2rem; }
 .nistco-bg-white { background: #ffffff; }
@@ -64,7 +62,6 @@ get_header();
 .nistco-centre-title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; }
 .nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
 .nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; color: #008751; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; transition: color 0.2s; }
-.nistco-card-action:hover { color: #006c41; }
 
 .inno-patents-grid, .nistco-pubs-grid, .nistco-partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
 .inno-patent-card, .nistco-pub-card, .nistco-partner-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; }
@@ -119,7 +116,7 @@ get_header();
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION WITH PRECISION SKELETON WATCH MECHANISM -->
+    <!-- 1. HERO SECTION WITH 3 INTERLOCKING GEARS & GLOWING ORBITAL RINGS -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
@@ -164,52 +161,50 @@ get_header();
                 </div>
             </div>
 
-            <!-- Precision Skeleton Watch Hero Viewport -->
+            <!-- 3-Gear System with Glowing Orbital Rings Viewport -->
             <div style="display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="width: 380px; height: 380px; position: relative; display: flex; align-items: center; justify-content: center;">
-                    <div style="position: absolute; width: 360px; height: 360px; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.7));">
-                        <svg viewBox="0 0 200 200" style="width: 100%; height: 100%; overflow: visible;">
-                            <!-- Outer Dial Rim -->
-                            <circle cx="100" cy="100" r="96" fill="#021a10" stroke="#d97706" stroke-width="3.5" opacity="0.95"/>
-                            <circle cx="100" cy="100" r="88" fill="#042416" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 2" opacity="0.7"/>
+                <div style="width: 400px; height: 400px; position: relative; display: flex; align-items: center; justify-content: center;">
+                    <div style="position: absolute; width: 380px; height: 380px; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.8));">
+                        <svg viewBox="0 0 220 220" style="width: 100%; height: 100%; overflow: visible;">
+                            
+                            <!-- Connecting Structural Bridge between Right Gears -->
+                            <rect x="156" y="90" width="8" height="60" rx="4" fill="#64748b" stroke="#cbd5e1" stroke-width="1.5"/>
 
-                            <!-- Gear 1: Upper-Left Gold Main Gear (CW) -->
-                            <g class="svg-rot-cw-slow" transform="translate(62, 62)">
-                                <circle cx="0" cy="0" r="32" fill="none" stroke="#d97706" stroke-width="6" stroke-dasharray="8 4"/>
-                                <circle cx="0" cy="0" r="22" fill="#042416" stroke="#fde047" stroke-width="2"/>
-                                <line x1="0" y1="-22" x2="0" y2="22" stroke="#d97706" stroke-width="3"/>
-                                <line x1="-22" y1="0" x2="22" y2="0" stroke="#d97706" stroke-width="3"/>
-                                <circle cx="0" cy="0" r="6" fill="#fde047"/>
+                            <!-- Gear 1: Large Central Bronze/Gold Gear (CW) with Glowing Orbits[cite: 3] -->
+                            <g class="gear-rot-cw" transform="translate(95, 110)">
+                                <!-- Outer Gear Teeth & Body -->
+                                <circle cx="0" cy="0" r="75" fill="#a16207" stroke="#ca8a04" stroke-width="4"/>
+                                <path d="M0 -75 L8 -55 L24 -70 L20 -50 L42 -60 L32 -42 L58 -45 L42 -30 L68 -22 L48 -14 L73 -2 L50 2 L70 20 L48 18 L64 42 L42 34 L50 62 L30 45 L32 75 L14 52 L10 78 L-4 54 L-16 76 L-22 50 L-38 68 L-30 44 L-55 58 L-40 32 L-68 40 L-46 18 L-75 22 L-50 2 L-78 -8 L-50 -18 L-70 -38 L-44 -30 L-58 -62 L-32 -42 L-42 -72 L-20 -50 L-22 -76 Z" fill="#b45309" stroke="#f59e0b" stroke-width="2"/>
+                                <!-- Central Disk Core -->
+                                <circle cx="0" cy="0" r="50" fill="#332211" stroke="#d97706" stroke-width="3"/>
+                                
+                                <!-- Glowing Orbital Energy Rings[cite: 3] -->
+                                <circle cx="0" cy="0" r="36" fill="none" stroke="#3b82f6" stroke-width="3.5" stroke-dasharray="160 60" opacity="0.95"/>
+                                <circle cx="0" cy="0" r="36" fill="none" stroke="#f59e0b" stroke-width="3.5" stroke-dasharray="80 140" stroke-dashoffset="-100" opacity="0.95"/>
+                                <circle cx="36" cy="0" r="5" fill="#3b82f6" filter="drop-shadow(0 0 6px #3b82f6)"/>
+                                <circle cx="-25" cy="25" r="5" fill="#f59e0b" filter="drop-shadow(0 0 6px #f59e0b)"/>
+
+                                <!-- Glowing Center Axis Hub -->
+                                <circle cx="0" cy="0" r="16" fill="#1e1b18" stroke="#fde047" stroke-width="2.5"/>
+                                <circle cx="0" cy="0" r="8" fill="#f59e0b" filter="drop-shadow(0 0 8px #fde047)"/>
                             </g>
 
-                            <!-- Gear 2: Upper-Right Silver Balance Wheel (CCW) -->
-                            <g class="svg-rot-ccw-fast" transform="translate(138, 65)">
-                                <circle cx="0" cy="0" r="24" fill="none" stroke="#94a3b8" stroke-width="5" stroke-dasharray="6 3"/>
-                                <circle cx="0" cy="0" r="16" fill="#042416" stroke="#cbd5e1" stroke-width="2"/>
-                                <line x1="-16" y1="-16" x2="16" y2="16" stroke="#94a3b8" stroke-width="2.5"/>
-                                <circle cx="0" cy="0" r="4" fill="#ffffff"/>
+                            <!-- Gear 2: Top-Right Metallic Gear (CCW)[cite: 3] -->
+                            <g class="gear-rot-ccw" transform="translate(165, 55)">
+                                <circle cx="0" cy="0" r="40" fill="#475569" stroke="#94a3b8" stroke-width="3"/>
+                                <path d="M0 -40 L5 -28 L15 -36 L12 -25 L25 -30 L18 -18 L34 -20 L22 -10 L38 -2 L24 4 L38 14 L22 18 L32 30 L18 24 L22 40 L8 28 L5 42 L-4 28 L-16 40 L-14 26 L-28 34 L-20 20 L-38 24 L-24 10 L-40 2 L-26 -2 L-38 -14 L-22 -14 L-32 -28 L-18 -20 L-24 -40 L-10 -25 L-2 -42 L2 -26 Z" fill="#64748b" stroke="#cbd5e1" stroke-width="1.5"/>
+                                <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                                <circle cx="0" cy="0" r="8" fill="#fde047"/>
                             </g>
 
-                            <!-- Gear 3: Center-Bottom Bronze Power Barrel (CW) -->
-                            <g class="svg-rot-cw-mid" transform="translate(112, 138)">
-                                <circle cx="0" cy="0" r="38" fill="none" stroke="#b45309" stroke-width="7" stroke-dasharray="10 4"/>
-                                <circle cx="0" cy="0" r="26" fill="#042416" stroke="#d97706" stroke-width="2.5"/>
-                                <path d="M0 -26 L0 26 M-26 0 L26 0 M-18 -18 L18 18" stroke="#b45309" stroke-width="3"/>
-                                <circle cx="0" cy="0" r="8" fill="#f59e0b"/>
+                            <!-- Gear 3: Bottom-Right Metallic Gear (CW)[cite: 3] -->
+                            <g class="gear-rot-cw" transform="translate(165, 165)">
+                                <circle cx="0" cy="0" r="40" fill="#475569" stroke="#94a3b8" stroke-width="3"/>
+                                <path d="M0 -40 L5 -28 L15 -36 L12 -25 L25 -30 L18 -18 L34 -20 L22 -10 L38 -2 L24 4 L38 14 L22 18 L32 30 L18 24 L22 40 L8 28 L5 42 L-4 28 L-16 40 L-14 26 L-28 34 L-20 20 L-38 24 L-24 10 L-40 2 L-26 -2 L-38 -14 L-22 -14 L-32 -28 L-18 -20 L-24 -40 L-10 -25 L-2 -42 L2 -26 Z" fill="#64748b" stroke="#cbd5e1" stroke-width="1.5"/>
+                                <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+                                <circle cx="0" cy="0" r="8" fill="#fde047"/>
                             </g>
 
-                            <!-- Bridge Plate Overlay -->
-                            <path d="M 45 150 Q 85 180 120 160 Q 90 120 70 110 Z" fill="#0d2e1c" stroke="#10b981" stroke-width="1.5" opacity="0.9"/>
-                            <circle cx="65" cy="140" r="4" fill="#fde047"/>
-
-                            <!-- Center Clock Hands / Indicators -->
-                            <g transform="translate(100, 100)">
-                                <circle cx="0" cy="0" r="8" fill="#fde047" stroke="#042416" stroke-width="2"/>
-                                <polygon points="0,0 -3,-55 3,-55" fill="#ffffff" transform="rotate(45)"/>
-                                <polygon points="0,0 -4,-35 4,-35" fill="#cbd5e1" transform="rotate(120)"/>
-                                <line x1="0" y1="15" x2="0" y2="-65" stroke="#f59e0b" stroke-width="1.5"/>
-                                <circle cx="0" cy="0" r="3" fill="#f59e0b"/>
-                            </g>
                         </svg>
                     </div>
                 </div>
@@ -217,7 +212,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 2. INSTITUTIONAL IMPACT METRICS (Multi-colored NISTCO Palette) -->
+    <!-- 2. INSTITUTIONAL IMPACT METRICS -->
     <?php 
     $metrics = [
         [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#10b981" ],
@@ -247,7 +242,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 3. PRESIDENTIAL SECTION (Customized with Nigerian Flag Side Bars) -->
+    <!-- 3. PRESIDENTIAL SECTION WITH NIGERIAN FLAG SIDE BARS -->
     <section class="nistco-section nistco-bg-parchment" style="position: relative; overflow: hidden;">
         <div style="position: absolute; top: 0; left: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
             <div style="flex: 1; background: #008751;"></div>
