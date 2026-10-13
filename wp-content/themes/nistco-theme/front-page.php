@@ -9,7 +9,13 @@ get_header();
 
 <!-- Modern 3D Gear Hero Styling -->
 <style>
-.nistco-main { background: #f8fafc; color: #1e293b; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
+.nistco-main {
+    background: #f8fafc;
+    color: #1e293b;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
 .nistco-hero-section {
     background: linear-gradient(135deg, #021a10 0%, #042416 50%, #0d3822 100%);
     color: #ffffff;
@@ -20,38 +26,204 @@ get_header();
     position: relative;
     overflow: hidden;
 }
-.nistco-hero-ambient-1 { position: absolute; top: -120px; right: -120px; width: 550px; height: 550px; background: radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-.nistco-hero-ambient-2 { position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(217,119,6,0.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
-.nistco-container { max-width: 1440px; margin: 0 auto; position: relative; z-index: 2; width: 100%; }
-.nistco-hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
-@media (max-width: 992px) { .nistco-hero-grid { grid-template-columns: 1fr; gap: 3rem; } }
 
-.nistco-hero-badges { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.nistco-pill { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; padding: 0.35rem 0.85rem; border-radius: 50px; letter-spacing: 1px; }
-.nistco-pill-green { background: #008751; color: #ffffff; }
-.nistco-pill-gold { background: #d97706; color: #ffffff; }
+.nistco-hero-ambient-1 {
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
 
-.nistco-hero-title { font-size: clamp(2.5rem, 4.5vw, 3.75rem); font-weight: 800; line-height: 1.15; margin: 0 0 1.5rem 0; color: #ffffff; }
-.nistco-hero-subtitle { font-size: 1.15rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 2rem; max-width: 640px; }
+.nistco-hero-ambient-2 {
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
 
-.nistco-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-.nistco-btn { padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
-.nistco-btn-primary { background: #008751; color: #ffffff; box-shadow: 0 4px 14px rgba(0,135,81,0.4); }
-.nistco-btn-primary:hover { background: #006c41; color: #fff; transform: translateY(-2px); }
-.nistco-btn-gold { background: #d97706; color: #ffffff; box-shadow: 0 4px 14px rgba(217,119,6,0.4); }
-.nistco-btn-gold:hover { background: #b45309; color: #fff; transform: translateY(-2px); }
-.nistco-btn-secondary { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.2); }
-.nistco-btn-secondary:hover { background: rgba(255,255,255,0.15); color: #fff; transform: translateY(-2px); }
+.nistco-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
 
-.nistco-centre-launchpad { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.25rem; backdrop-filter: blur(10px); }
-.launchpad-heading { display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #fde047; letter-spacing: 1.2px; margin-bottom: 0.75rem; }
-.launchpad-pills-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-.launchpad-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 0.45rem 0.85rem; border-radius: 6px; color: #ffffff; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
-.launchpad-pill:hover { background: #008751; border-color: #008751; color: #fff; transform: translateY(-2px); }
+.nistco-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .nistco-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+.nistco-hero-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nistco-pill {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 50px;
+    letter-spacing: 1px;
+}
+
+.nistco-pill-green {
+    background: #008751;
+    color: #ffffff;
+}
+
+.nistco-pill-gold {
+    background: #d97706;
+    color: #ffffff;
+}
+
+.nistco-hero-title {
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 1.5rem 0;
+    color: #ffffff;
+}
+
+.nistco-hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    max-width: 640px;
+}
+
+.nistco-hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.nistco-btn {
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nistco-btn-primary {
+    background: #008751;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 135, 81, 0.4);
+}
+
+.nistco-btn-primary:hover {
+    background: #006c41;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.nistco-btn-gold {
+    background: #d97706;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+}
+
+.nistco-btn-gold:hover {
+    background: #b45309;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.nistco-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nistco-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.nistco-centre-launchpad {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
+    backdrop-filter: blur(10px);
+}
+
+.launchpad-heading {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fde047;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.75rem;
+}
+
+.launchpad-pills-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.launchpad-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.45rem 0.85rem;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s;
+}
+
+.launchpad-pill:hover {
+    background: #008751;
+    border-color: #008751;
+    color: #fff;
+    transform: translateY(-2px);
+}
 
 /* Modern 3D Rolling Gear Animations & Background Removal */
-@keyframes rotCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes rotCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+@keyframes rotCW {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotCCW {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
 
 .gear-3d-cluster {
     position: relative;
@@ -62,47 +234,28 @@ get_header();
     justify-content: center;
 }
 
-/* Main Large Tech Gear (Transparent Background via mix-blend-mode: screen) */
 .gear-main-3d {
     position: absolute;
     width: 320px;
     height: 320px;
     object-fit: contain;
     mix-blend-mode: screen;
-    filter: drop-shadow(0 25px 45px rgba(56,189,248,0.35));
+    filter: drop-shadow(0 25px 45px rgba(56, 189, 248, 0.35));
     animation: rotCW 25s linear infinite;
     z-index: 2;
 }
 
-/* Secondary Interlocking Tech Gear (Counter-rotating to align teeth rolling motion) */
 .gear-sub-3d {
     position: absolute;
     width: 200px;
     height: 200px;
     object-fit: contain;
     mix-blend-mode: screen;
-    filter: drop-shadow(0 20px 35px rgba(217,119,6,0.3));
+    filter: drop-shadow(0 20px 35px rgba(217, 119, 6, 0.3));
     animation: rotCCW 15s linear infinite;
     top: 20px;
     right: 20px;
     z-index: 3;
-}
-
-/* Glowing Orbital Ring around Gear Assembly */
-@keyframes pulseOrbit {
-    0% { transform: scale(0.98); opacity: 0.6; }
-    50% { transform: scale(1.03); opacity: 1; }
-    100% { transform: scale(0.98); opacity: 0.6; }
-}
-.gear-orbital-ring {
-    position: absolute;
-    width: 380px;
-    height: 380px;
-    border: 2px dashed rgba(56, 189, 248, 0.4);
-    border-radius: 50%;
-    animation: rotCW 40s linear infinite, pulseOrbit 6s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 1;
 }
 </style>
 
@@ -112,24 +265,24 @@ get_header();
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
-        
+
         <div class="nistco-container nistco-hero-grid">
-            
+
             <!-- Left Column: Content & Mandate -->
             <div>
                 <div class="nistco-hero-badges">
                     <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>
                     <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>
                 </div>
-                
+
                 <h1 class="nistco-hero-title">
                     National Science & <br><span style="color: #fde047;">Technology Complex</span>
                 </h1>
-                
+
                 <p class="nistco-hero-subtitle">
                     Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.
                 </p>
-                
+
                 <div class="nistco-hero-actions">
                     <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
                         Explore Research Centres &rarr;
@@ -154,14 +307,11 @@ get_header();
                 </div>
             </div>
 
-            <!-- Right Column: Modern 3D Rolling Gears with Background Removed -->
+            <!-- Right Column: Clean 3D Rolling Gears without Orbitals -->
             <div style="display: flex; align-items: center; justify-content: center;">
                 <div class="gear-3d-cluster">
-                    <div class="gear-orbital-ring"></div>
-                    <!-- Main Tech Gear[cite: 5] -->
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gears3-3d.png" alt="Futuristic Tech Gear" class="gear-main-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
-                    <!-- Interlocking Secondary Gear[cite: 6] -->
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gears4-3d.jpg" alt="Interlocking Gear" class="gear-sub-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gears1-3d.png" alt="Futuristic Tech Gear" class="gear-main-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gear3-3d.png" alt="Interlocking Gear" class="gear-sub-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
                 </div>
             </div>
 
