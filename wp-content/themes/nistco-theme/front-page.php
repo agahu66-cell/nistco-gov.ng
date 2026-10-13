@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: NISTCO Front Page (Colorful Centres & Media Master)
+ * Template Name: NISTCO Front Page (Harmonized Master Edition)
  * The comprehensive modernized homepage template for NISTCO Portal
  */
 
 get_header();
 ?>
 
-<!-- Embedded Professional Styling for Colorful Centres, Media, & Master Sections -->
+<!-- Embedded Professional Styling for Harmonized Institute Aesthetic -->
 <style>
 .nistco-main { background: #f8fafc; color: #1e293b; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
 .nistco-hero-section { background: linear-gradient(135deg, #021a10 0%, #042416 50%, #0d3822 100%); color: #ffffff; padding: 6rem 2rem; position: relative; overflow: hidden; }
@@ -40,9 +40,26 @@ get_header();
 .launchpad-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); padding: 0.45rem 0.85rem; border-radius: 6px; color: #ffffff; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
 .launchpad-pill:hover { background: #008751; border-color: #008751; color: #fff; transform: translateY(-2px); }
 
-/* Transparent 3D Gear Animation */
+/* 3D Connected Gears (Small, Medium, Large) & Colorful Orbits Animation */
 @keyframes rotCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.transparent-3d-gear { width: 360px; height: 360px; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.8)); animation: rotCW 30s linear infinite; }
+@keyframes rotCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.gear-motion-cw { transform-origin: center; animation: rotCW 20s linear infinite; }
+.gear-motion-ccw { transform-origin: center; animation: rotCCW 14s linear infinite; }
+.gear-motion-fast { transform-origin: center; animation: rotCW 8s linear infinite; }
+
+@keyframes orbitalPath1 {
+    0% { transform: rotate(0deg) translateX(90px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(90px) rotate(-360deg); }
+}
+@keyframes orbitalPath2 {
+    0% { transform: rotate(0deg) translateX(130px) rotate(0deg); }
+    100% { transform: rotate(-360deg) translateX(130px) rotate(360deg); }
+}
+.orbital-ring-1 { position: absolute; top: 50%; left: 50%; width: 180px; height: 180px; margin: -90px 0 0 -90px; border: 1px dashed rgba(56,189,248,0.4); border-radius: 50%; pointer-events: none; }
+.orbital-ring-2 { position: absolute; top: 50%; left: 50%; width: 260px; height: 260px; margin: -130px 0 0 -130px; border: 1px dashed rgba(253,224,71,0.3); border-radius: 50%; pointer-events: none; }
+.orbital-node-blue { position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; background: #38bdf8; border-radius: 50%; box-shadow: 0 0 12px #38bdf8; animation: orbitalPath1 7s linear infinite; }
+.orbital-node-gold { position: absolute; top: 50%; left: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; background: #fde047; border-radius: 50%; box-shadow: 0 0 14px #fde047; animation: orbitalPath2 11s linear infinite; }
+.orbital-node-green { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; margin: -5px 0 0 -5px; background: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399; animation: orbitalPath1 5s linear infinite reverse; }
 
 .nistco-section { padding: 5rem 2rem; }
 .nistco-bg-white { background: #ffffff; }
@@ -62,16 +79,35 @@ get_header();
 .nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
 .nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; }
 
-/* Media & Press Room Cards */
-.nistco-media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
-.nistco-media-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; transition: transform 0.2s; }
-.nistco-media-card:hover { transform: translateY(-3px); }
-.nistco-media-thumb { height: 200px; background: #042416; position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 3rem; }
-.nistco-media-badge { position: absolute; top: 1rem; left: 1rem; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.7rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase; }
-.nistco-media-body { padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1; }
-.nistco-media-title { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.4; }
-.nistco-media-excerpt { font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
-.nistco-media-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem; color: #008751; font-weight: 700; text-decoration: none; }
+/* Media & Press Room: Vertical Carousel / Stack */
+.nistco-vertical-carousel { max-width: 900px; margin: 0 auto; max-height: 520px; overflow-y: auto; padding-right: 0.5rem; display: flex; flex-direction: column; gap: 1.5rem; scroll-snap-type: y mandatory; scrollbar-width: thin; scrollbar-color: #008751 #e2e8f0; }
+.nistco-vertical-carousel::-webkit-scrollbar { width: 6px; }
+.nistco-vertical-carousel::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
+.nistco-vertical-carousel::-webkit-scrollbar-thumb { background: #008751; border-radius: 10px; }
+.nistco-media-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.75rem; display: grid; grid-template-columns: 240px 1fr; gap: 1.75rem; align-items: center; scroll-snap-align: start; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.2s, border-color 0.2s; }
+@media (max-width: 768px) { .nistco-media-item { grid-template-columns: 1fr; } }
+.nistco-media-item:hover { transform: translateX(5px); border-color: #008751; }
+.nistco-media-thumb-box { height: 140px; background: #042416; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; border: 2px solid #d97706; }
+.nistco-media-badge-tag { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
+
+/* Stakeholder Feedback: Horizontal Carousel */
+.nistco-horizontal-carousel { display: flex; gap: 2rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 1rem 0 2rem 0; scrollbar-width: thin; scrollbar-color: #d97706 #e2e8f0; max-width: 1440px; margin: 0 auto; }
+.nistco-horizontal-carousel::-webkit-scrollbar { height: 8px; }
+.nistco-horizontal-carousel::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
+.nistco-horizontal-carousel::-webkit-scrollbar-thumb { background: #d97706; border-radius: 10px; }
+.nistco-feedback-card { min-width: 380px; max-width: 420px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; scroll-snap-align: start; box-shadow: 0 10px 25px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #d97706; }
+
+/* Refined Executive Direction Photo Box (Rectangular, Not Circular) */
+.mc-exec-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+@media(max-width: 992px) { .mc-exec-grid { grid-template-columns: 1fr; } }
+.mc-exec-portrait-card { text-align: center; }
+.mc-exec-photo-wrap { width: 100%; height: 320px; border-radius: 12px; border: 3px solid #008751; overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,135,81,0.15); background: #021a10; }
+.mc-exec-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.mc-exec-photo-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.4rem; text-transform: uppercase; }
+.mc-exec-name { display: block; font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 1rem; }
+.mc-exec-designation { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+.mc-exec-headline { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; }
+.mc-exec-quote { font-size: 1.05rem; line-height: 1.7; color: #475569; font-style: italic; border-left: 4px solid #008751; padding-left: 1.25rem; margin-bottom: 1.5rem; }
 
 .inno-patents-grid, .nistco-pubs-grid, .nistco-partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
 .inno-patent-card, .nistco-pub-card, .nistco-partner-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; }
@@ -85,7 +121,7 @@ get_header();
 .status-indicator.deployed { color: #2563eb; font-weight: 700; }
 .inno-btn-license { font-weight: 700; color: #008751; text-decoration: none; }
 
-.nistco-rating-summary-ribbon { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.nistco-rating-summary-ribbon { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; max-width: 1440px; margin: 0 auto; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 2rem; }
 .rating-stat-box { text-align: center; }
 .rating-score { font-size: 3rem; font-weight: 800; color: #0f172a; line-height: 1; }
 .rating-score span { font-size: 1.25rem; color: #64748b; font-weight: 600; }
@@ -109,21 +145,11 @@ get_header();
 .mc-presidential-rank { font-size: 0.85rem; color: #94a3b8; }
 .mc-presidential-heading { font-size: 2rem; font-weight: 800; color: #fff; margin: 1rem 0; line-height: 1.2; }
 .mc-presidential-quote { font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; font-style: italic; border-left: 4px solid #d97706; padding-left: 1.25rem; margin: 1.5rem 0; }
-
-.mc-exec-grid { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-@media(max-width: 992px) { .mc-exec-grid { grid-template-columns: 1fr; } }
-.mc-exec-portrait-card { text-align: center; }
-.mc-exec-photo-wrap { width: 220px; height: 220px; margin: 0 auto; border-radius: 50%; border: 4px solid #008751; overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,135,81,0.2); }
-.mc-exec-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
-.mc-exec-name { display: block; font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 1rem; }
-.mc-exec-designation { font-size: 0.85rem; color: #64748b; font-weight: 600; }
-.mc-exec-headline { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; }
-.mc-exec-quote { font-size: 1.05rem; line-height: 1.7; color: #475569; font-style: italic; border-left: 4px solid #008751; padding-left: 1.25rem; margin-bottom: 1.5rem; }
 </style>
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION WITH TRANSPARENT 3D GEAR ASSET -->
+    <!-- 1. HERO SECTION WITH 3 CONNECTED GEARS (SMALL, MEDIUM, LARGE) & 3D ORBITALS -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
@@ -131,45 +157,77 @@ get_header();
         <div class="nistco-container nistco-hero-grid">
             <div>
                 <div class="nistco-hero-badges">
-                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>[cite: 1]
-                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>[cite: 1]
+                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>
+                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>
                 </div>
                 
                 <h1 class="nistco-hero-title">
-                    National Science & <br><span style="color: #fde047;">Technology Complex</span>[cite: 1]
+                    National Science & <br><span style="color: #fde047;">Technology Complex</span>
                 </h1>
                 
                 <p class="nistco-hero-subtitle">
-                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.[cite: 1]
+                    Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic and applied research, operate national demonstration pilot plants, and drive indigenous industrial transformation.
                 </p>
                 
                 <div class="nistco-hero-actions">
                     <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
-                        Explore Research Centres[cite: 1] &rarr;
+                        Explore Research Centres &rarr;
                     </a>
                     <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-btn nistco-btn-gold">
-                        Innovation & Patents[cite: 1]
+                        Innovation & Patents
                     </a>
                     <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>" class="nistco-btn nistco-btn-secondary">
-                        Public Trustee Desk[cite: 1]
+                        Public Trustee Desk
                     </a>
                 </div>
 
                 <!-- Centre Quick Launchpad Dock -->
                 <div class="nistco-centre-launchpad">
-                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS[cite: 1]</span>
+                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS</span>
                     <div class="launchpad-pills-row">
-                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC[cite: 1]</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC[cite: 1]</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC[cite: 1]</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC[cite: 1]</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">⚡</span><span class="pill-code">AMSARC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧪</span><span class="pill-code">CARC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">🧬</span><span class="pill-code">BARC</span></a>
+                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span class="pill-icon">☢️</span><span class="pill-code">NTC</span></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Transparent 3D Gear Asset Viewport -->
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gear-3d.png" alt="3D Transparent Gear Asset" class="transparent-3d-gear" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
+            <!-- Right Column: 3 Connected Gears (Small, Medium, Large) in Motion with 3D Orbitals -->
+            <div style="display: flex; align-items: center; justify-content: center; position: relative; height: 420px;">
+                <!-- 3D Colorful Orbitals -->
+                <div class="orbital-ring-1"><div class="orbital-node-blue"></div></div>
+                <div class="orbital-ring-2"><div class="orbital-node-gold"></div><div class="orbital-node-green"></div></div>
+
+                <div style="width: 360px; height: 360px; position: relative; display: flex; align-items: center; justify-content: center; filter: drop-shadow(0 25px 50px rgba(0,0,0,0.8));">
+                    <svg viewBox="0 0 220 220" style="width: 100%; height: 100%; overflow: visible;">
+                        
+                        <!-- Gear 1: Large Bronze/Gold Main Gear (CW) -->
+                        <g class="gear-motion-cw" transform="translate(85, 110)">
+                            <circle cx="0" cy="0" r="62" fill="none" stroke="#d97706" stroke-width="10" stroke-dasharray="12 6"/>
+                            <circle cx="0" cy="0" r="48" fill="#042416" stroke="#fde047" stroke-width="2.5"/>
+                            <path d="M0 -48 L0 48 M-48 0 L48 0 M-34 -34 L34 34 M-34 34 L34 -34" stroke="#d97706" stroke-width="3.5"/>
+                            <circle cx="0" cy="0" r="14" fill="#f59e0b"/>
+                        </g>
+
+                        <!-- Gear 2: Medium Silver-Metallic Gear Interlocking Above-Right (CCW) -->
+                        <g class="gear-motion-ccw" transform="translate(165, 55)">
+                            <circle cx="0" cy="0" r="38" fill="none" stroke="#94a3b8" stroke-width="7" stroke-dasharray="9 4"/>
+                            <circle cx="0" cy="0" r="28" fill="#042416" stroke="#cbd5e1" stroke-width="2"/>
+                            <path d="M0 -28 L0 28 M-28 0 L28 0" stroke="#94a3b8" stroke-width="3"/>
+                            <circle cx="0" cy="0" r="9" fill="#ffffff"/>
+                        </g>
+
+                        <!-- Gear 3: Small Copper Gear Interlocking Below-Right (Fast CW) -->
+                        <g class="gear-motion-fast" transform="translate(155, 168)">
+                            <circle cx="0" cy="0" r="24" fill="none" stroke="#b45309" stroke-width="6" stroke-dasharray="6 3"/>
+                            <circle cx="0" cy="0" r="16" fill="#042416" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M0 -16 L0 16 M-16 0 L16 0" stroke="#b45309" stroke-width="2.5"/>
+                            <circle cx="0" cy="0" r="5" fill="#fde047"/>
+                        </g>
+
+                    </svg>
+                </div>
             </div>
 
         </div>
@@ -248,7 +306,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 4. REFINED EXECUTIVE DIRECTION SECTION -->
+    <!-- 4. REFINED EXECUTIVE DIRECTION SECTION (Rectangular Portrait Box) -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
@@ -260,7 +318,7 @@ get_header();
                 <div class="mc-exec-portrait-card">
                     <div class="mc-exec-photo-wrap">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/dg-ceo1.jpg" alt="Director General" class="leader-photo" onerror="this.style.display='none';">
-                        <div class="mc-exec-photo-badge" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.75rem; padding: 0.3rem;">Executive Office</div>
+                        <div class="mc-exec-photo-badge">Executive Office</div>
                     </div>
                     <span class="mc-exec-name">Director-General / CEO</span>
                     <span class="mc-exec-designation">Nigeria Innovation Science & Technology Complex</span>
@@ -383,7 +441,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 8. MEDIA, PRESS & DOCUMENTARIES -->
+    <!-- 8. MEDIA & PRESS ROOM (VERTICAL CAROUSEL) -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header">
@@ -391,51 +449,60 @@ get_header();
                 <h2 class="nistco-section-title">Documentaries & Institutional Briefings</h2>
                 <p class="nistco-section-lead">Explore broadcast features, laboratory showcases, and video documentaries highlighting NISTCO’s national impact.</p>
             </div>
-            <div class="nistco-media-grid">
-                <div class="nistco-media-card">
-                    <div class="nistco-media-thumb">
+            
+            <div class="nistco-vertical-carousel">
+                <div class="nistco-media-item">
+                    <div class="nistco-media-thumb-box">
                         🎥
-                        <span class="nistco-media-badge">Documentary</span>
+                        <span class="nistco-media-badge-tag">Documentary</span>
                     </div>
-                    <div class="nistco-media-body">
-                        <h3 class="nistco-media-title">Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
-                        <p class="nistco-media-excerpt">A comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS analytical instrumentation suites.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>" class="nistco-media-footer">
-                            <span>Watch Feature</span><span>&rarr;</span>
-                        </a>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">A comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS analytical instrumentation suites.</p>
+                        <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
                     </div>
                 </div>
-                <div class="nistco-media-card">
-                    <div class="nistco-media-thumb">
+
+                <div class="nistco-media-item">
+                    <div class="nistco-media-thumb-box">
                         ⚡
-                        <span class="nistco-media-badge">High Performance</span>
+                        <span class="nistco-media-badge-tag">Supercomputing</span>
                     </div>
-                    <div class="nistco-media-body">
-                        <h3 class="nistco-media-title">AMSARC Supercomputing & National Grid Modeling</h3>
-                        <p class="nistco-media-excerpt">Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast national electrical stability.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>" class="nistco-media-footer">
-                            <span>Watch Feature</span><span>&rarr;</span>
-                        </a>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">AMSARC Supercomputing & National Grid Modeling</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast national electrical stability.</p>
+                        <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
                     </div>
                 </div>
-                <div class="nistco-media-card">
-                    <div class="nistco-media-thumb">
+
+                <div class="nistco-media-item">
+                    <div class="nistco-media-thumb-box">
                         🧬
-                        <span class="nistco-media-badge">Agro-Biotech</span>
+                        <span class="nistco-media-badge-tag">Agro-Biotech</span>
                     </div>
-                    <div class="nistco-media-body">
-                        <h3 class="nistco-media-title">Drought Resilience: BARC Plant Micropropagation Lab</h3>
-                        <p class="nistco-media-excerpt">Documenting tissue culture seed multiplication protocols distributed to farming cooperatives across all geopolitical zones.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>" class="nistco-media-footer">
-                            <span>Watch Feature</span><span>&rarr;</span>
-                        </a>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Drought Resilience: BARC Plant Micropropagation Lab</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Documenting tissue culture seed multiplication protocols distributed to farming cooperatives across all geopolitical zones.</p>
+                        <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="nistco-media-item">
+                    <div class="nistco-media-thumb-box">
+                        ☢️
+                        <span class="nistco-media-badge-tag">Nuclear Safety</span>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Nuclear Technology Centre: Radiation Standards & Metrology</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Overview of NTC’s national calibration laboratories ensuring strict compliance for industrial and medical isotopic devices.</p>
+                        <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 9. PERFORMANCE & USER EXPERIENCE -->
+    <!-- 9. STAKEHOLDER FEEDBACK (HORIZONTAL CAROUSEL) -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header">
@@ -443,6 +510,7 @@ get_header();
                 <h2 class="nistco-section-title">Performance & User Experience</h2>
                 <p class="nistco-section-lead">Verified feedback from industrial partners, academic researchers, and ministry stakeholders.</p>
             </div>
+            
             <div class="nistco-rating-summary-ribbon">
                 <div class="rating-stat-box">
                     <div class="rating-score">4.9 <span>/ 5.0</span></div>
@@ -454,6 +522,53 @@ get_header();
                     <div class="metric-pill"><span class="metric-val">99.8%</span><span class="metric-lbl">Uptime SLA</span></div>
                     <div class="metric-pill"><span class="metric-val">&lt; 1.2s</span><span class="metric-lbl">Portal Response</span></div>
                     <div class="metric-pill"><span class="metric-val">100%</span><span class="metric-lbl">SERVICOM Compliant</span></div>
+                </div>
+            </div>
+
+            <!-- Horizontal Carousel Track -->
+            <div class="nistco-horizontal-carousel">
+                <div class="nistco-feedback-card">
+                    <div>
+                        <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                        <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The HPC compute simulation resources at AMSARC enabled our engineering consultancy to slash structural stress testing timelines by over 60%."</p>
+                    </div>
+                    <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Engr. Dr. T. A. Balogun</strong>
+                        <span style="font-size: 0.8rem; color: #64748b;">Director of Infrastructure, Abuja</span>
+                    </div>
+                </div>
+
+                <div class="nistco-feedback-card">
+                    <div>
+                        <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                        <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"CARC's pilot plant synthesis services have transformed our local pharmaceutical startup, giving us access to world-class GC-MS testing right here in Nigeria."</p>
+                    </div>
+                    <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Dr. (Mrs.) Chioma Okeke</strong>
+                        <span style="font-size: 0.8rem; color: #64748b;">Chief Formulation Chemist, BioPharma Ltd</span>
+                    </div>
+                </div>
+
+                <div class="nistco-feedback-card">
+                    <div>
+                        <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                        <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The tissue culture seedlings procured from BARC exhibited exceptional disease resistance, doubling our cooperative's harvest yield this season."</p>
+                    </div>
+                    <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Alhaji Ibrahim Danladi</strong>
+                        <span style="font-size: 0.8rem; color: #64748b;">President, Agro-Allied Farmers Cooperative</span>
+                    </div>
+                </div>
+
+                <div class="nistco-feedback-card">
+                    <div>
+                        <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                        <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"Portal response times and transparency have been phenomenal. The SERVICOM digital desk resolved our patent inquiry within 24 hours."</p>
+                    </div>
+                    <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Prof. Zainab Abdullahi</strong>
+                        <span style="font-size: 0.8rem; color: #64748b;">Dean of Postgraduate Studies, FUT</span>
+                    </div>
                 </div>
             </div>
         </div>
