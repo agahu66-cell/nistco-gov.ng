@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: NISTCO Master Front Page (3D Colorful Feedback Edition)
- * Comprehensive master homepage template containing all 10 synchronized institutional sections with 3D colorful feedback cards.
+ * Template Name: NISTCO Master Front Page (Telemetry & Patent Filters Edition)
+ * Comprehensive master homepage featuring Live R&D Telemetry and Interactive Patent Filtering.
  */
 
 get_header();
@@ -258,6 +258,82 @@ get_header();
     z-index: 3;
 }
 
+/* Live R&D Telemetry Dashboard Styles */
+.nistco-telemetry-bar {
+    background: linear-gradient(135deg, #042416 0%, #021a10 100%);
+    border-top: 2px solid #d97706;
+    border-bottom: 2px solid #d97706;
+    padding: 2.5rem 2rem;
+    color: #ffffff;
+}
+.telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.telemetry-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+.telemetry-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+.telemetry-card.hpc::before { background: #38bdf8; }
+.telemetry-card.energy::before { background: #f59e0b; }
+.telemetry-card.nodes::before { background: #10b981; }
+.telemetry-card.ip::before { background: #8b5cf6; }
+
+.telemetry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+.telemetry-title {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+.telemetry-status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.8); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.telemetry-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+.telemetry-subtext {
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+
 /* Section & Banner Styles */
 .nistco-section { padding: 5rem 2rem; }
 .nistco-bg-white { background: #ffffff; }
@@ -297,6 +373,62 @@ get_header();
 .nistco-centre-title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; }
 .nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
 .nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; }
+
+/* Interactive Patent & Tech Transfer Filter Styles */
+.patent-filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+.patent-tab-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.patent-tab-btn:hover, .patent-tab-btn.active {
+    background: #008751;
+    border-color: #008751;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 135, 81, 0.3);
+}
+.inno-patents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.inno-patent-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.inno-patent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.inno-patent-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.inno-tag-pill { font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1; }
+.inno-trl-pill { font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e; }
+.inno-patent-title { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0; }
+.inno-patent-excerpt { font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1; }
+.inno-patent-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem; }
+.status-indicator.ready { color: #059669; font-weight: 700; }
+.status-indicator.deployed { color: #2563eb; font-weight: 700; }
+.inno-btn-license { font-weight: 700; color: #008751; text-decoration: none; }
 
 /* Infinite Vertical Media Ticker Styles */
 .nistco-vertical-ticker-container {
@@ -362,7 +494,6 @@ get_header();
     100% { transform: translateX(calc(-50% - 1rem)); }
 }
 
-/* 3D Colorful Feedback Cards with Small Image Boxes */
 .nistco-feedback-card {
     width: 380px;
     background: linear-gradient(145deg, #ffffff, #f8fafc);
@@ -501,6 +632,44 @@ get_header();
         </div>
     </section>
 
+    <!-- LIVE R&D TELEMETRY DASHBOARD -->
+    <div class="nistco-telemetry-bar">
+        <div class="telemetry-grid">
+            <div class="telemetry-card hpc">
+                <div class="telemetry-header">
+                    <span class="telemetry-title">AMSARC HPC Cluster</span>
+                    <span class="telemetry-status-dot"></span>
+                </div>
+                <div class="telemetry-value">256 TFLOPS</div>
+                <span class="telemetry-subtext">Active GPU Parallel Simulation Load</span>
+            </div>
+            <div class="telemetry-card energy">
+                <div class="telemetry-header">
+                    <span class="telemetry-title">Solar Microgrid</span>
+                    <span class="telemetry-status-dot"></span>
+                </div>
+                <div class="telemetry-value">500 kVA</div>
+                <span class="telemetry-subtext">Clean Energy Hybrid Generation</span>
+            </div>
+            <div class="telemetry-card nodes">
+                <div class="telemetry-header">
+                    <span class="telemetry-title">CARC Synthesis Plant</span>
+                    <span class="telemetry-status-dot"></span>
+                </div>
+                <div class="telemetry-value">500 Liters</div>
+                <span class="telemetry-subtext">Continuous Batch Production Online</span>
+            </div>
+            <div class="telemetry-card ip">
+                <div class="telemetry-header">
+                    <span class="telemetry-title">NOTAP Patent Registry</span>
+                    <span class="telemetry-status-dot"></span>
+                </div>
+                <div class="telemetry-value">16 Filings</div>
+                <span class="telemetry-subtext">Verified Commercial Technologies</span>
+            </div>
+        </div>
+    </div>
+
     <!-- 2. INSTITUTIONAL IMPACT METRICS -->
     <?php 
     $metrics = [
@@ -513,7 +682,7 @@ get_header();
         [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities", "color" => "#8b5cf6" ]
     ];
     ?>
-    <section style="background: linear-gradient(135deg, #021a10 0%, #042416 100%); color: #fff; padding: 4.5rem 1.5rem; border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
+    <section style="background: linear-gradient(135deg, #021a10 0%, #042416 100%); color: #fff; padding: 4.5rem 1.5rem; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
         <div style="max-width: 1440px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 3.5rem;">
                 <div style="color: #fde047; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Institutional Impact</div>
@@ -642,8 +811,48 @@ get_header();
         </div>
     </section>
 
-    <!-- 6. MEDIA & PRESS ROOM (INFINITE VERTICAL TICKER) -->
+    <!-- 6. INTERACTIVE PATENTS & TECH TRANSFER FILTER WIDGET -->
     <section class="nistco-section nistco-bg-white">
+        <div class="nistco-container">
+            <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+                <span class="nistco-section-kicker">Intellectual Property</span>
+                <h2 class="nistco-section-title">Patents & Market-Ready Inventions</h2>
+                <p class="nistco-section-lead">Explore NOTAP-certified indigenous technologies ready for commercial licensing and industrial manufacturing partnership.</p>
+            </div>
+
+            <!-- Patent Category Filter Tabs -->
+            <div class="patent-filter-tabs">
+                <button class="patent-tab-btn active" data-filter="all">All Inventions</button>
+                <button class="patent-tab-btn" data-filter="chem">Chemistry & Bioactives</button>
+                <button class="patent-tab-btn" data-filter="biotech">Biotechnology</button>
+                <button class="patent-tab-btn" data-filter="sim">HPC & Simulation</button>
+            </div>
+
+            <div class="inno-patents-grid">
+                <div class="inno-patent-card" data-category="chem">
+                    <div class="inno-patent-header"><span class="inno-tag-pill">Chemistry & Bioactives</span><span class="inno-trl-pill">TRL 8 Commercial</span></div>
+                    <h3 class="inno-patent-title">Bio-Based Industrial Solvents & Degreasers</h3>
+                    <p class="inno-patent-excerpt">Eco-friendly solvent formulations derived from agro-waste extracts, optimized for heavy mechanical and automotive maintenance.</p>
+                    <div class="inno-patent-footer"><span class="status-indicator ready">● Ready for Licensing</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
+                </div>
+                <div class="inno-patent-card" data-category="biotech">
+                    <div class="inno-patent-header"><span class="inno-tag-pill">Biotechnology</span><span class="inno-trl-pill">TRL 7 Prototype</span></div>
+                    <h3 class="inno-patent-title">Drought-Resistant Cassava Micropropagation Protocol</h3>
+                    <p class="inno-patent-excerpt">High-yield disease-free tissue culture seedlings engineered for optimal resilience in West African climatic conditions.</p>
+                    <div class="inno-patent-footer"><span class="status-indicator deployed">● Pilot Verified</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
+                </div>
+                <div class="inno-patent-card" data-category="sim">
+                    <div class="inno-patent-header"><span class="inno-tag-pill">HPC & Simulation</span><span class="inno-trl-pill">TRL 9 Deployed</span></div>
+                    <h3 class="inno-patent-title">National Power Grid Stability Prediction Algorithm</h3>
+                    <p class="inno-patent-excerpt">Advanced parallel computing software suite designed to forecast load imbalances and prevent regional electrical grid disruptions.</p>
+                    <div class="inno-patent-footer"><span class="status-indicator deployed">● Operational</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MEDIA & PRESS ROOM (INFINITE VERTICAL TICKER) -->
+    <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
                 <span class="nistco-section-kicker">Media & Press Room</span>
@@ -730,7 +939,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 7. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL 3D COLORFUL CARDS) -->
+    <!-- 8. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL 3D COLORFUL CARDS) -->
     <?php 
     $feedback_items = [
         [
@@ -775,7 +984,7 @@ get_header();
         ]
     ];
     ?>
-    <section class="nistco-section nistco-bg-parchment">
+    <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
                 <span class="nistco-section-kicker">Stakeholder Feedback</span>
@@ -801,7 +1010,6 @@ get_header();
             <div class="nistco-horizontal-ticker-container">
                 <div class="nistco-horizontal-ticker-track">
                     <?php 
-                    // Render original + duplicated set for seamless infinite loop
                     $loop_feedback = array_merge($feedback_items, $feedback_items);
                     foreach ($loop_feedback as $fb) : 
                     ?>
@@ -829,8 +1037,8 @@ get_header();
         </div>
     </section>
 
-    <!-- 8. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
-    <section class="nistco-section nistco-bg-white">
+    <!-- 9. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
+    <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
                 <span class="nistco-section-kicker">Global & Domestic Networks</span>
@@ -870,6 +1078,7 @@ get_header();
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Impact Counters Animation
     const counters = document.querySelectorAll('.nistco-counter');
     if (counters.length > 0) {
         const observer = new IntersectionObserver((entries, observerInstance) => {
@@ -896,6 +1105,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.2 });
         counters.forEach(counter => observer.observe(counter));
     }
+
+    // Interactive Patent Filter Logic
+    const filterButtons = document.querySelectorAll('.patent-tab-btn');
+    const patentCards = document.querySelectorAll('.inno-patent-card');
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            patentCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        });
+    });
 });
 </script>
 
