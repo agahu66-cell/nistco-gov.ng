@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: NISTCO Master Front Page (Complete Edition)
- * Comprehensive master homepage template containing all 10 synchronized institutional sections.
+ * Template Name: NISTCO Master Front Page (3D Colorful Feedback Edition)
+ * Comprehensive master homepage template containing all 10 synchronized institutional sections with 3D colorful feedback cards.
  */
 
 get_header();
@@ -326,7 +326,7 @@ get_header();
 .nistco-media-thumb-box { height: 140px; background: #042416; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; border: 2px solid #d97706; }
 .nistco-media-badge-tag { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
 
-/* Infinite Horizontal Feedback Ticker Styles */
+/* Infinite Horizontal 3D Colorful Feedback Cards Ticker Styles */
 .nistco-rating-summary-ribbon { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; max-width: 1440px; margin: 0 auto 3rem auto; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 .rating-stat-box { text-align: center; }
 .rating-score { font-size: 3rem; font-weight: 800; color: #0f172a; line-height: 1; }
@@ -346,12 +346,13 @@ get_header();
     position: relative;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 1rem 0;
 }
 .nistco-horizontal-ticker-track {
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: infiniteHorizontalScroll 30s linear infinite;
+    animation: infiniteHorizontalScroll 32s linear infinite;
 }
 .nistco-horizontal-ticker-container:hover .nistco-horizontal-ticker-track {
     animation-play-state: paused;
@@ -360,18 +361,84 @@ get_header();
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(-50% - 1rem)); }
 }
+
+/* 3D Colorful Feedback Cards with Small Image Boxes */
 .nistco-feedback-card {
     width: 380px;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
     padding: 2rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 135, 81, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-top: 4px solid #d97706;
     flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.nistco-feedback-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 10px 25px rgba(0, 135, 81, 0.1);
+}
+.feedback-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+.feedback-avatar-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    border: 2px solid rgba(255,255,255,0.8);
+}
+.feedback-avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.feedback-card-meta h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.15rem 0;
+}
+.feedback-card-meta span {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+}
+.feedback-quote {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+.feedback-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+}
+.feedback-stars {
+    color: #f59e0b;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+.feedback-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
 }
 
 /* Strategic Partners Grid Styles */
@@ -663,7 +730,51 @@ get_header();
         </div>
     </section>
 
-    <!-- 7. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL TICKER) -->
+    <!-- 7. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL 3D COLORFUL CARDS) -->
+    <?php 
+    $feedback_items = [
+        [
+            "name" => "Engr. Dr. T. A. Balogun",
+            "title" => "Director of Infrastructure, Abuja",
+            "quote" => "The HPC compute simulation resources at AMSARC enabled our engineering consultancy to slash structural stress testing timelines by over 60%.",
+            "badge" => "Infrastructure",
+            "badge_bg" => "#e0f2fe",
+            "badge_color" => "#0369a1",
+            "border_color" => "#0ea5e9",
+            "avatar" => "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+        ],
+        [
+            "name" => "Dr. (Mrs.) Chioma Okeke",
+            "title" => "Chief Formulation Chemist",
+            "quote" => "CARC's pilot plant synthesis services have transformed our local pharmaceutical startup, giving us access to world-class GC-MS testing right here in Nigeria.",
+            "badge" => "Pharma & Chem",
+            "badge_bg" => "#fef3c7",
+            "badge_color" => "#92400e",
+            "border_color" => "#f59e0b",
+            "avatar" => "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80"
+        ],
+        [
+            "name" => "Alhaji Ibrahim Danladi",
+            "title" => "President, Agro Cooperative",
+            "quote" => "The tissue culture seedlings procured from BARC exhibited exceptional disease resistance, doubling our cooperative's harvest yield this season.",
+            "badge" => "Agro-Biotech",
+            "badge_bg" => "#d1fae5",
+            "badge_color" => "#065f46",
+            "border_color" => "#10b981",
+            "avatar" => "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+        ],
+        [
+            "name" => "Prof. Zainab Abdullahi",
+            "title" => "Dean of Postgraduate Studies",
+            "quote" => "Portal response times and transparency have been phenomenal. The SERVICOM digital desk resolved our patent inquiry within 24 hours.",
+            "badge" => "Academia",
+            "badge_bg" => "#ede9fe",
+            "badge_color" => "#5b21b6",
+            "border_color" => "#8b5cf6",
+            "avatar" => "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80"
+        ]
+    ];
+    ?>
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
             <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
@@ -686,96 +797,33 @@ get_header();
                 </div>
             </div>
 
+            <!-- Infinite Horizontal Ticker with 3D Colorful Feedback Cards -->
             <div class="nistco-horizontal-ticker-container">
                 <div class="nistco-horizontal-ticker-track">
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The HPC compute simulation resources at AMSARC enabled our engineering consultancy to slash structural stress testing timelines by over 60%."</p>
+                    <?php 
+                    // Render original + duplicated set for seamless infinite loop
+                    $loop_feedback = array_merge($feedback_items, $feedback_items);
+                    foreach ($loop_feedback as $fb) : 
+                    ?>
+                        <div class="nistco-feedback-card" style="border-top: 5px solid <?php echo $fb['border_color']; ?>;">
+                            <div>
+                                <div class="feedback-card-header">
+                                    <div class="feedback-avatar-box">
+                                        <img src="<?php echo esc_url($fb['avatar']); ?>" alt="<?php echo esc_attr($fb['name']); ?>">
+                                    </div>
+                                    <div class="feedback-card-meta">
+                                        <h4><?php echo esc_html($fb['name']); ?></h4>
+                                        <span><?php echo esc_html($fb['title']); ?></span>
+                                    </div>
+                                </div>
+                                <p class="feedback-quote">"<?php echo esc_html($fb['quote']); ?>"</p>
+                            </div>
+                            <div class="feedback-footer-row">
+                                <div class="feedback-stars">★★★★★</div>
+                                <span class="feedback-badge" style="background: <?php echo $fb['badge_bg']; ?>; color: <?php echo $fb['badge_color']; ?>;"><?php echo esc_html($fb['badge']); ?></span>
+                            </div>
                         </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Engr. Dr. T. A. Balogun</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">Director of Infrastructure, Abuja</span>
-                        </div>
-                    </div>
-
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"CARC's pilot plant synthesis services have transformed our local pharmaceutical startup, giving us access to world-class GC-MS testing right here in Nigeria."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Dr. (Mrs.) Chioma Okeke</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">Chief Formulation Chemist, BioPharma Ltd</span>
-                        </div>
-                    </div>
-
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The tissue culture seedlings procured from BARC exhibited exceptional disease resistance, doubling our cooperative's harvest yield this season."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Alhaji Ibrahim Danladi</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">President, Agro-Allied Farmers Cooperative</span>
-                        </div>
-                    </div>
-
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"Portal response times and transparency have been phenomenal. The SERVICOM digital desk resolved our patent inquiry within 24 hours."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Prof. Zainab Abdullahi</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">Dean of Postgraduate Studies, FUT</span>
-                        </div>
-                    </div>
-
-                    <!-- Duplicated Set for Loop -->
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The HPC compute simulation resources at AMSARC enabled our engineering consultancy to slash structural stress testing timelines by over 60%."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Engr. Dr. T. A. Balogun</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">Director of Infrastructure, Abuja</span>
-                        </div>
-                    </div>
-
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"CARC's pilot plant synthesis services have transformed our local pharmaceutical startup, giving us access to world-class GC-MS testing right here in Nigeria."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Dr. (Mrs.) Chioma Okeke</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">Chief Formulation Chemist, BioPharma Ltd</span>
-                        </div>
-                    </div>
-
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The tissue culture seedlings procured from BARC exhibited exceptional disease resistance, doubling our cooperative's harvest yield this season."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Alhaji Ibrahim Danladi</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">President, Agro-Allied Farmers Cooperative</span>
-                        </div>
-                    </div>
-
-                    <div class="nistco-feedback-card">
-                        <div>
-                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"Portal response times and transparency have been phenomenal. The SERVICOM digital desk resolved our patent inquiry within 24 hours."</p>
-                        </div>
-                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
-                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Prof. Zainab Abdullahi</strong>
-                            <span style="font-size: 0.8rem; color: #64748b;">Dean of Postgraduate Studies, FUT</span>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
