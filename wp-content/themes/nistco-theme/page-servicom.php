@@ -1,12 +1,13 @@
-<?php
+?php
 /**
- * Template Name: SERVICOM & Citizen Service Charter
- * Description: Citizen service compact, service delivery benchmarks, anti-corruption compliance (ACTU), and grievance redress mechanism for NISTCO.
- * File: page-servicom.php
- *
- * @package ShestcoTheme
- * @version 2.5.0
- */
+* Template Name: SERVICOM & Citizen Service Charter
+* Description: Citizen service compact, service delivery benchmarks, anti-corruption compliance (ACTU), and grievance
+redress mechanism for NISTCO.
+* File: page-servicom.php
+*
+* @package ShestcoTheme
+* @version 2.5.0
+*/
 
 get_header();
 
