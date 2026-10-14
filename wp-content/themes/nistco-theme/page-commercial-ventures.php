@@ -5,7 +5,7 @@
  * File: page-commercial-ventures.php
  *
  * @package NistcoTheme
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 get_header();
@@ -111,103 +111,68 @@ get_header();
             </div>
 
             <div class="patents-catalog-grid">
-                <?php
-                global $wpdb;
-                $telemetry_table = $wpdb->prefix . 'nistco_patent_telemetry';$patents_query = new WP_Query( array(
-                    'post_type'      => 'nistco_patent',
-                    'posts_per_page' => 6,
-                    'orderby'        => 'date',
-                    'order'          => 'DESC'
-                ));
-
-                if ( $patents_query->have_posts() ) :
-                    while ( $patents_query->have_posts() ) : $patents_query->the_post();$post_id = get_the_ID();
-                        $telemetry =$wpdb->get_row( $wpdb->prepare( "SELECT * FROM $telemetry_table WHERE post_id = %d", $post_id ) );
-                        $trl =$telemetry ? $telemetry->trl_level : 'TRL 8 Commercial';$status = $telemetry ? $telemetry->licensing_status : 'Ready for Licensing';
-                        ?>
-                        <div class="patent-catalog-card">
-                            <div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                                    <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Certified Patent</span>
-                                    <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;"><?php echo esc_html($trl); ?></span>
-                                </div>
-                                <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;"><?php the_title(); ?></h3>
-                                <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;"><?php echo esc_html( get_the_excerpt() ?: get_the_content() ); ?></p>
-                            </div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
-                                <span style="color: #059669; font-weight: 700;">● <?php echo esc_html($status); ?></span>
-                                <a href="<?php the_permalink(); ?>" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
-                            </div>
+                <div class="patent-catalog-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Chemistry &amp; Bioactives</span>
+                            <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;">TRL 8 Commercial</span>
                         </div>
-                        <?php
-                    endwhile;
-                    wp_reset_postdata();
-                else :
-                    ?>
-                    <!-- Fallback Static Patent Cards if CPT is empty -->
-                    <div class="patent-catalog-card">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                                <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Chemistry &amp; Bioactives</span>
-                                <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;">TRL 8 Commercial</span>
-                            </div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">Bio-Based Industrial Solvents &amp; Degreasers</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Eco-friendly solvent formulations derived from agro-waste extracts, optimized for heavy mechanical and automotive maintenance.</p>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
-                            <span style="color: #059669; font-weight: 700;">● Ready for Licensing</span>
-                            <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
-                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">Bio-Based Industrial Solvents &amp; Degreasers</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Eco-friendly solvent formulations derived from agro-waste extracts, optimized for heavy mechanical and automotive maintenance.</p>
                     </div>
-
-                    <div class="patent-catalog-card">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                                <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Biotechnology</span>
-                                <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;">TRL 7 Prototype</span>
-                            </div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">Drought-Resistant Cassava Micropropagation Protocol</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">High-yield disease-free tissue culture seedlings engineered for optimal resilience in West African climatic conditions.</p>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
-                            <span style="color: #2563eb; font-weight: 700;">● Pilot Verified</span>
-                            <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
-                        </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
+                        <span style="color: #059669; font-weight: 700;">● Ready for Licensing</span>
+                        <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
                     </div>
+                </div>
 
-                    <div class="patent-catalog-card">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                                <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">HPC &amp; Simulation</span>
-                                <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;">TRL 9 Deployed</span>
-                            </div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">National Power Grid Stability Prediction Algorithm</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Advanced parallel computing software suite designed to forecast load imbalances and prevent regional electrical grid disruptions.</p>
+                <div class="patent-catalog-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">Biotechnology</span>
+                            <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;">TRL 7 Prototype</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
-                            <span style="color: #2563eb; font-weight: 700;">● Operational</span>
-                            <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
-                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">Drought-Resistant Cassava Micropropagation Protocol</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">High-yield disease-free tissue culture seedlings engineered for optimal resilience in West African climatic conditions.</p>
                     </div>
-                <?php endif; ?>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
+                        <span style="color: #2563eb; font-weight: 700;">● Pilot Verified</span>
+                        <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="patent-catalog-card">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #e0f2fe; color: #0369a1;">HPC &amp; Simulation</span>
+                            <span style="font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: #fef3c7; color: #92400e;">TRL 9 Deployed</span>
+                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">National Power Grid Stability Prediction Algorithm</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Advanced parallel computing software suite designed to forecast load imbalances and prevent regional electrical grid disruptions.</p>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
+                        <span style="color: #2563eb; font-weight: 700;">● Operational</span>
+                        <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Resource Tutorial -->
-    <section class="ventures-section" style="padding-bottom: 0;">
+    <!-- 3. RESOURCE GUIDE VIDEO EMBED -->
+    <section class="ventures-section">
         <div class="section-header">
             <span class="section-kicker">Resource Guide</span>
             <h2 class="section-heading">Understanding Technology Transfer &amp; IP Licensing</h2>
             <p class="section-lead">The video below illustrates best practices in university-industry technology transfer and commercialization workflows.</p>
         </div>
-        <Carousel>
-            <Video source="youtube" query="university industry technology transfer and commercialization process" count="1"/>
-        </Carousel>
+        <div style="max-width: 900px; margin: 0 auto; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); background: #000;">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube-nocookie.com/embed/xyMCb7ft66k" title="Understanding the Technology Commercialization Process" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </section>
 
-    <!-- 3. INTERACTIVE EXPRESSION OF INTEREST (EOI) FORM -->
-    <section id="eoi-form" class="ventures-section">
+    <!-- 4. INTERACTIVE EXPRESSION OF INTEREST (EOI) FORM -->
+    <section id="eoi-form" class="ventures-section nistco-bg-parchment" style="max-width: 100%; padding: 5rem 2rem;">
         <div class="eoi-wrapper">
             <div style="text-align: center; margin-bottom: 2.5rem;">
                 <span style="color: #d97706; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Commercialization Desk</span>
