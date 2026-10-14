@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: NISTCO Master Front Page with Media Carousel
- * Homepage template containing Hero, Impact Metrics, Presidential Banner, Executive Direction, Research Centres, and Media Carousel.
+ * Template Name: NISTCO Master Front Page with Infinite Vertical Media Ticker
+ * Homepage template containing Hero, Impact Metrics, Presidential Banner, Executive Direction, Research Centres, and Infinite Media Ticker.
  */
 
 get_header();
@@ -298,14 +298,31 @@ get_header();
 .nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
 .nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; }
 
-/* Vertical Media Carousel Styles */
-.nistco-vertical-carousel { max-width: 900px; margin: 0 auto; max-height: 520px; overflow-y: auto; padding-right: 0.5rem; display: flex; flex-direction: column; gap: 1.5rem; scroll-snap-type: y mandatory; scrollbar-width: thin; scrollbar-color: #008751 #e2e8f0; }
-.nistco-vertical-carousel::-webkit-scrollbar { width: 6px; }
-.nistco-vertical-carousel::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
-.nistco-vertical-carousel::-webkit-scrollbar-thumb { background: #008751; border-radius: 10px; }
-.nistco-media-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.75rem; display: grid; grid-template-columns: 240px 1fr; gap: 1.75rem; align-items: center; scroll-snap-align: start; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.2s, border-color 0.2s; }
-@media (max-width: 768px) { .nistco-media-item { grid-template-columns: 1fr; } }
-.nistco-media-item:hover { transform: translateX(5px); border-color: #008751; }
+/* Infinite Vertical Media Ticker Styles */
+.nistco-vertical-ticker-container {
+    max-width: 900px;
+    margin: 0 auto;
+    height: 480px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+.nistco-vertical-ticker-track {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: infiniteVerticalScroll 22s linear infinite;
+}
+.nistco-vertical-ticker-container:hover .nistco-vertical-ticker-track {
+    animation-play-state: paused;
+}
+@keyframes infiniteVerticalScroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(calc(-50% - 0.75rem)); }
+}
+.nistco-media-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.75rem; display: grid; grid-template-columns: 240px 1fr; gap: 1.75rem; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: border-color 0.2s; }
+.nistco-media-item:hover { border-color: #008751; }
 .nistco-media-thumb-box { height: 140px; background: #042416; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; border: 2px solid #d97706; }
 .nistco-media-badge-tag { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
 </style>
@@ -505,7 +522,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 6. MEDIA & PRESS ROOM (VERTICAL CAROUSEL) -->
+    <!-- 6. MEDIA & PRESS ROOM (INFINITE VERTICAL TICKER) -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
@@ -514,52 +531,80 @@ get_header();
                 <p class="nistco-section-lead">Explore broadcast features, laboratory showcases, and video documentaries highlighting NISTCO’s national impact.</p>
             </div>
             
-            <div class="nistco-vertical-carousel">
-                <div class="nistco-media-item">
-                    <div class="nistco-media-thumb-box">
-                        🎥
-                        <span class="nistco-media-badge-tag">Documentary</span>
+            <div class="nistco-vertical-ticker-container">
+                <div class="nistco-vertical-ticker-track">
+                    <!-- Original Set -->
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">🎥<span class="nistco-media-badge-tag">Documentary</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">A comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS analytical instrumentation suites.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
-                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">A comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS analytical instrumentation suites.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
-                    </div>
-                </div>
 
-                <div class="nistco-media-item">
-                    <div class="nistco-media-thumb-box">
-                        ⚡
-                        <span class="nistco-media-badge-tag">Supercomputing</span>
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">⚡<span class="nistco-media-badge-tag">Supercomputing</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">AMSARC Supercomputing & National Grid Modeling</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast national electrical stability.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">AMSARC Supercomputing & National Grid Modeling</h3>
-                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast national electrical stability.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
-                    </div>
-                </div>
 
-                <div class="nistco-media-item">
-                    <div class="nistco-media-thumb-box">
-                        🧬
-                        <span class="nistco-media-badge-tag">Agro-Biotech</span>
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">🧬<span class="nistco-media-badge-tag">Agro-Biotech</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Drought Resilience: BARC Plant Micropropagation Lab</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Documenting tissue culture seed multiplication protocols distributed to farming cooperatives across all geopolitical zones.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Drought Resilience: BARC Plant Micropropagation Lab</h3>
-                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Documenting tissue culture seed multiplication protocols distributed to farming cooperatives across all geopolitical zones.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
-                    </div>
-                </div>
 
-                <div class="nistco-media-item">
-                    <div class="nistco-media-thumb-box">
-                        ☢️
-                        <span class="nistco-media-badge-tag">Nuclear Safety</span>
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">☢️<span class="nistco-media-badge-tag">Nuclear Safety</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Nuclear Technology Centre: Radiation Standards & Metrology</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Overview of NTC’s national calibration laboratories ensuring strict compliance for industrial and medical isotopic devices.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Nuclear Technology Centre: Radiation Standards & Metrology</h3>
-                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Overview of NTC’s national calibration laboratories ensuring strict compliance for industrial and medical isotopic devices.</p>
-                        <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+
+                    <!-- Duplicated Set for Seamless Infinite Loop -->
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">🎥<span class="nistco-media-badge-tag">Documentary</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">A comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS analytical instrumentation suites.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">⚡<span class="nistco-media-badge-tag">Supercomputing</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">AMSARC Supercomputing & National Grid Modeling</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast national electrical stability.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">🧬<span class="nistco-media-badge-tag">Agro-Biotech</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Drought Resilience: BARC Plant Micropropagation Lab</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Documenting tissue culture seed multiplication protocols distributed to farming cooperatives across all geopolitical zones.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
+                    </div>
+
+                    <div class="nistco-media-item">
+                        <div class="nistco-media-thumb-box">☢️<span class="nistco-media-badge-tag">Nuclear Safety</span></div>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Nuclear Technology Centre: Radiation Standards & Metrology</h3>
+                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">Overview of NTC’s national calibration laboratories ensuring strict compliance for industrial and medical isotopic devices.</p>
+                            <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
+                        </div>
                     </div>
                 </div>
             </div>
