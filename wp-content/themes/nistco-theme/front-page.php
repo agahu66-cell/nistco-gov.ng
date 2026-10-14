@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: NISTCO Master Front Page (Telemetry & Patent Filters Edition)
- * Comprehensive master homepage featuring Live R&D Telemetry and Interactive Patent Filtering.
+ * Template Name: NISTCO Master Front Page (Box Cards & Atomic Backdrop Edition)
+ * Comprehensive master homepage template featuring box-form patent cards and a minimalist 3D atomic glowing backdrop.
  */
 
 get_header();
 ?>
 
-<!-- Modern 3D Gear Hero & Harmonized Institutional Sections Styling -->
+<!-- Modern 3D Hero & Harmonized Institutional Sections Styling -->
 <style>
 .nistco-main {
     background: #f8fafc;
@@ -27,27 +27,40 @@ get_header();
     overflow: hidden;
 }
 
-.nistco-hero-ambient-1 {
+/* Minimalist 3D Atomic Glowing Backdrop (Static & Blurred) */
+.atomic-backdrop-3d {
     position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 550px;
-    height: 550px;
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 450px;
+    height: 450px;
     pointer-events: none;
+    z-index: 1;
+    opacity: 0.35;
+    filter: blur(45px);
 }
-
-.nistco-hero-ambient-2 {
+.atomic-core {
     position: absolute;
-    bottom: -150px;
-    left: -150px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    background: radial-gradient(circle, #fde047 0%, #d97706 100%);
     border-radius: 50%;
-    pointer-events: none;
+    box-shadow: 0 0 50px #fde047, 0 0 100px #d97706;
 }
+.atomic-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid rgba(56, 189, 248, 0.6);
+    border-radius: 50%;
+}
+.orbit-1 { width: 320px; height: 320px; margin: -160px 0 0 -160px; transform: rotate(25deg); }
+.orbit-2 { width: 380px; height: 380px; margin: -190px 0 0 -190px; transform: rotate(-35deg); }
+.orbit-3 { width: 440px; height: 440px; margin: -220px 0 0 -220px; transform: rotate(75deg); }
 
 .nistco-container {
     max-width: 1440px;
@@ -214,50 +227,6 @@ get_header();
     transform: translateY(-2px);
 }
 
-/* 3D Rolling Gear Animations */
-@keyframes rotCW {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes rotCCW {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
-}
-
-.gear-3d-cluster {
-    position: relative;
-    width: 440px;
-    height: 440px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gear-main-3d {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    object-fit: contain;
-    mix-blend-mode: screen;
-    filter: drop-shadow(0 25px 45px rgba(56, 189, 248, 0.35));
-    animation: rotCW 25s linear infinite;
-    z-index: 2;
-}
-
-.gear-sub-3d {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    mix-blend-mode: screen;
-    filter: drop-shadow(0 20px 35px rgba(217, 119, 6, 0.3));
-    animation: rotCCW 15s linear infinite;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-}
-
 /* Live R&D Telemetry Dashboard Styles */
 .nistco-telemetry-bar {
     background: linear-gradient(135deg, #042416 0%, #021a10 100%);
@@ -374,7 +343,7 @@ get_header();
 .nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
 .nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; }
 
-/* Interactive Patent & Tech Transfer Filter Styles */
+/* Interactive Patent & Tech Transfer Filter Styles (Strict Box Cards) */
 .patent-filter-tabs {
     display: flex;
     justify-content: center;
@@ -401,7 +370,7 @@ get_header();
 }
 .inno-patents-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     max-width: 1440px;
     margin: 0 auto;
@@ -414,7 +383,9 @@ get_header();
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    justify-content: space-between;
+    min-height: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 .inno-patent-card:hover {
     transform: translateY(-5px);
@@ -580,10 +551,18 @@ get_header();
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO SECTION WITH 3D MINIMALIST ATOMIC GLOWING BACKDROP -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
+
+        <!-- Minimalist 3D Atomic Glowing Backdrop (Static & Blurred) -->
+        <div class="atomic-backdrop-3d">
+            <div class="atomic-core"></div>
+            <div class="atomic-orbit orbit-1"></div>
+            <div class="atomic-orbit orbit-2"></div>
+            <div class="atomic-orbit orbit-3"></div>
+        </div>
 
         <div class="nistco-container nistco-hero-grid">
             <div>
@@ -623,10 +602,13 @@ get_header();
                 </div>
             </div>
 
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <div class="gear-3d-cluster">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gears1-3d.png" alt="Futuristic Tech Gear" class="gear-main-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gear3-3d.png" alt="Interlocking Gear" class="gear-sub-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
+            <div style="display: flex; align-items: center; justify-content: center; z-index: 2;">
+                <!-- Balanced placeholder or clean scientific badge anchor -->
+                <div style="width: 280px; height: 280px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px); box-shadow: 0 25px 50px rgba(0,0,0,0.5);">
+                    <div style="text-align: center; color: #fde047;">
+                        <span style="font-size: 3.5rem; display: block; margin-bottom: 0.5rem;">⚛️</span>
+                        <strong style="font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: #fff;">NISTCO R&D CORE</strong>
+                    </div>
                 </div>
             </div>
         </div>
@@ -811,7 +793,7 @@ get_header();
         </div>
     </section>
 
-    <!-- 6. INTERACTIVE PATENTS & TECH TRANSFER FILTER WIDGET -->
+    <!-- 6. INTERACTIVE PATENTS & TECH TRANSFER FILTER WIDGET (Strict Box Cards) -->
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
             <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
@@ -830,21 +812,27 @@ get_header();
 
             <div class="inno-patents-grid">
                 <div class="inno-patent-card" data-category="chem">
-                    <div class="inno-patent-header"><span class="inno-tag-pill">Chemistry & Bioactives</span><span class="inno-trl-pill">TRL 8 Commercial</span></div>
-                    <h3 class="inno-patent-title">Bio-Based Industrial Solvents & Degreasers</h3>
-                    <p class="inno-patent-excerpt">Eco-friendly solvent formulations derived from agro-waste extracts, optimized for heavy mechanical and automotive maintenance.</p>
+                    <div>
+                        <div class="inno-patent-header"><span class="inno-tag-pill">Chemistry & Bioactives</span><span class="inno-trl-pill">TRL 8 Commercial</span></div>
+                        <h3 class="inno-patent-title">Bio-Based Industrial Solvents & Degreasers</h3>
+                        <p class="inno-patent-excerpt">Eco-friendly solvent formulations derived from agro-waste extracts, optimized for heavy mechanical and automotive maintenance.</p>
+                    </div>
                     <div class="inno-patent-footer"><span class="status-indicator ready">● Ready for Licensing</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
                 </div>
                 <div class="inno-patent-card" data-category="biotech">
-                    <div class="inno-patent-header"><span class="inno-tag-pill">Biotechnology</span><span class="inno-trl-pill">TRL 7 Prototype</span></div>
-                    <h3 class="inno-patent-title">Drought-Resistant Cassava Micropropagation Protocol</h3>
-                    <p class="inno-patent-excerpt">High-yield disease-free tissue culture seedlings engineered for optimal resilience in West African climatic conditions.</p>
+                    <div>
+                        <div class="inno-patent-header"><span class="inno-tag-pill">Biotechnology</span><span class="inno-trl-pill">TRL 7 Prototype</span></div>
+                        <h3 class="inno-patent-title">Drought-Resistant Cassava Micropropagation Protocol</h3>
+                        <p class="inno-patent-excerpt">High-yield disease-free tissue culture seedlings engineered for optimal resilience in West African climatic conditions.</p>
+                    </div>
                     <div class="inno-patent-footer"><span class="status-indicator deployed">● Pilot Verified</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
                 </div>
                 <div class="inno-patent-card" data-category="sim">
-                    <div class="inno-patent-header"><span class="inno-tag-pill">HPC & Simulation</span><span class="inno-trl-pill">TRL 9 Deployed</span></div>
-                    <h3 class="inno-patent-title">National Power Grid Stability Prediction Algorithm</h3>
-                    <p class="inno-patent-excerpt">Advanced parallel computing software suite designed to forecast load imbalances and prevent regional electrical grid disruptions.</p>
+                    <div>
+                        <div class="inno-patent-header"><span class="inno-tag-pill">HPC & Simulation</span><span class="inno-trl-pill">TRL 9 Deployed</span></div>
+                        <h3 class="inno-patent-title">National Power Grid Stability Prediction Algorithm</h3>
+                        <p class="inno-patent-excerpt">Advanced parallel computing software suite designed to forecast load imbalances and prevent regional electrical grid disruptions.</p>
+                    </div>
                     <div class="inno-patent-footer"><span class="status-indicator deployed">● Operational</span><a href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>" class="inno-btn-license">Request Dossier &rarr;</a></div>
                 </div>
             </div>
