@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: NISTCO Master Front Page with Infinite Vertical Media Ticker
- * Homepage template containing Hero, Impact Metrics, Presidential Banner, Executive Direction, Research Centres, and Infinite Media Ticker.
+ * Template Name: NISTCO Master Front Page (Complete Edition)
+ * Comprehensive master homepage template containing all 10 synchronized institutional sections.
  */
 
 get_header();
 ?>
 
-<!-- Modern 3D Gear Hero & Institutional Sections Styling -->
+<!-- Modern 3D Gear Hero & Harmonized Institutional Sections Styling -->
 <style>
 .nistco-main {
     background: #f8fafc;
@@ -325,6 +325,59 @@ get_header();
 .nistco-media-item:hover { border-color: #008751; }
 .nistco-media-thumb-box { height: 140px; background: #042416; border-radius: 8px; position: relative; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; border: 2px solid #d97706; }
 .nistco-media-badge-tag { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.65rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
+
+/* Infinite Horizontal Feedback Ticker Styles */
+.nistco-rating-summary-ribbon { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; max-width: 1440px; margin: 0 auto 3rem auto; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+.rating-stat-box { text-align: center; }
+.rating-score { font-size: 3rem; font-weight: 800; color: #0f172a; line-height: 1; }
+.rating-score span { font-size: 1.25rem; color: #64748b; font-weight: 600; }
+.rating-stars { color: #f59e0b; font-size: 1.25rem; margin: 0.35rem 0; }
+.rating-count { font-size: 0.85rem; color: #64748b; }
+.rating-divider { width: 1px; height: 60px; background: #e2e8f0; }
+.rating-metrics-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
+.metric-pill { text-align: center; }
+.metric-val { display: block; font-size: 1.5rem; font-weight: 800; color: #008751; }
+.metric-lbl { font-size: 0.8rem; color: #64748b; font-weight: 700; text-transform: uppercase; }
+
+.nistco-horizontal-ticker-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.nistco-horizontal-ticker-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: infiniteHorizontalScroll 30s linear infinite;
+}
+.nistco-horizontal-ticker-container:hover .nistco-horizontal-ticker-track {
+    animation-play-state: paused;
+}
+@keyframes infiniteHorizontalScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+}
+.nistco-feedback-card {
+    width: 380px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 4px solid #d97706;
+    flex-shrink: 0;
+}
+
+/* Strategic Partners Grid Styles */
+.nistco-partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
+.nistco-partner-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; transition: transform 0.2s; }
+.nistco-partner-card:hover { transform: translateY(-3px); border-color: #008751; }
 </style>
 
 <main class="nistco-main">
@@ -533,7 +586,6 @@ get_header();
             
             <div class="nistco-vertical-ticker-container">
                 <div class="nistco-vertical-ticker-track">
-                    <!-- Original Set -->
                     <div class="nistco-media-item">
                         <div class="nistco-media-thumb-box">🎥<span class="nistco-media-badge-tag">Documentary</span></div>
                         <div>
@@ -570,7 +622,7 @@ get_header();
                         </div>
                     </div>
 
-                    <!-- Duplicated Set for Seamless Infinite Loop -->
+                    <!-- Duplicated Set for Loop -->
                     <div class="nistco-media-item">
                         <div class="nistco-media-thumb-box">🎥<span class="nistco-media-badge-tag">Documentary</span></div>
                         <div>
@@ -606,6 +658,161 @@ get_header();
                             <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>" style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature &rarr;</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL TICKER) -->
+    <section class="nistco-section nistco-bg-parchment">
+        <div class="nistco-container">
+            <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
+                <span class="nistco-section-kicker">Stakeholder Feedback</span>
+                <h2 class="nistco-section-title">Performance & User Experience</h2>
+                <p class="nistco-section-lead">Verified feedback from industrial partners, academic researchers, and ministry stakeholders.</p>
+            </div>
+            
+            <div class="nistco-rating-summary-ribbon">
+                <div class="rating-stat-box">
+                    <div class="rating-score">4.9 <span>/ 5.0</span></div>
+                    <div class="rating-stars">★★★★★</div>
+                    <div class="rating-count">Based on 1,420 stakeholder reviews</div>
+                </div>
+                <div class="rating-divider"></div>
+                <div class="rating-metrics-grid">
+                    <div class="metric-pill"><span class="metric-val">99.8%</span><span class="metric-lbl">Uptime SLA</span></div>
+                    <div class="metric-pill"><span class="metric-val">&lt; 1.2s</span><span class="metric-lbl">Portal Response</span></div>
+                    <div class="metric-pill"><span class="metric-val">100%</span><span class="metric-lbl">SERVICOM Compliant</span></div>
+                </div>
+            </div>
+
+            <div class="nistco-horizontal-ticker-container">
+                <div class="nistco-horizontal-ticker-track">
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The HPC compute simulation resources at AMSARC enabled our engineering consultancy to slash structural stress testing timelines by over 60%."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Engr. Dr. T. A. Balogun</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Director of Infrastructure, Abuja</span>
+                        </div>
+                    </div>
+
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"CARC's pilot plant synthesis services have transformed our local pharmaceutical startup, giving us access to world-class GC-MS testing right here in Nigeria."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Dr. (Mrs.) Chioma Okeke</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Chief Formulation Chemist, BioPharma Ltd</span>
+                        </div>
+                    </div>
+
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The tissue culture seedlings procured from BARC exhibited exceptional disease resistance, doubling our cooperative's harvest yield this season."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Alhaji Ibrahim Danladi</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">President, Agro-Allied Farmers Cooperative</span>
+                        </div>
+                    </div>
+
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"Portal response times and transparency have been phenomenal. The SERVICOM digital desk resolved our patent inquiry within 24 hours."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Prof. Zainab Abdullahi</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Dean of Postgraduate Studies, FUT</span>
+                        </div>
+                    </div>
+
+                    <!-- Duplicated Set for Loop -->
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The HPC compute simulation resources at AMSARC enabled our engineering consultancy to slash structural stress testing timelines by over 60%."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Engr. Dr. T. A. Balogun</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Director of Infrastructure, Abuja</span>
+                        </div>
+                    </div>
+
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"CARC's pilot plant synthesis services have transformed our local pharmaceutical startup, giving us access to world-class GC-MS testing right here in Nigeria."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Dr. (Mrs.) Chioma Okeke</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Chief Formulation Chemist, BioPharma Ltd</span>
+                        </div>
+                    </div>
+
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"The tissue culture seedlings procured from BARC exhibited exceptional disease resistance, doubling our cooperative's harvest yield this season."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Alhaji Ibrahim Danladi</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">President, Agro-Allied Farmers Cooperative</span>
+                        </div>
+                    </div>
+
+                    <div class="nistco-feedback-card">
+                        <div>
+                            <div style="color: #f59e0b; margin-bottom: 0.75rem;">★★★★★</div>
+                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.6; font-style: italic; margin-bottom: 1.5rem;">"Portal response times and transparency have been phenomenal. The SERVICOM digital desk resolved our patent inquiry within 24 hours."</p>
+                        </div>
+                        <div style="border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                            <strong style="display: block; color: #0f172a; font-size: 0.95rem;">Prof. Zainab Abdullahi</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Dean of Postgraduate Studies, FUT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
+    <section class="nistco-section nistco-bg-white">
+        <div class="nistco-container">
+            <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
+                <span class="nistco-section-kicker">Global & Domestic Networks</span>
+                <h2 class="nistco-section-title">Strategic Partners & Institutional Alliances</h2>
+                <p class="nistco-section-lead">Collaborating with premier international research councils, academic institutions, and industrial conglomerates.</p>
+            </div>
+            <div class="nistco-partners-grid">
+                <div class="nistco-partner-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">ECOWAS Science Council</h3>
+                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Regional cooperation in biotechnology safety and agricultural genomics across West Africa.</p>
+                    <span style="font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Regional Partner</span>
+                </div>
+                <div class="nistco-partner-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎓</div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">National Universities Commission</h3>
+                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Facilitating postgraduate research residencies and shared advanced laboratory access.</p>
+                    <span style="font-size: 0.75rem; font-weight: 700; background: #fef3c7; color: #92400e; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Academic Alliance</span>
+                </div>
+                <div class="nistco-partner-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🏭</div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Manufacturers Association of Nigeria</h3>
+                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Commercializing NOTAP patents and scaling indigenous pilot plants for national enterprise.</p>
+                    <span style="font-size: 0.75rem; font-weight: 700; background: #d1fae5; color: #065f46; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Industrial Partner</span>
+                </div>
+                <div class="nistco-partner-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚛️</div>
+                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">International Atomic Energy Agency</h3>
+                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">Technical cooperation in nuclear instrumentation, radiation safety, and metrology standards.</p>
+                    <span style="font-size: 0.75rem; font-weight: 700; background: #ede9fe; color: #5b21b6; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Global Partner</span>
                 </div>
             </div>
         </div>
