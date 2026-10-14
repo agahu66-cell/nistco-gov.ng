@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: NISTCO Modern 3D Rolling Gear Hero
- * Isolated hero section featuring transparent 3D tech gears with aligned rolling teeth motion.
+ * Template Name: NISTCO Hero + Impact Metrics & Presidential Master
+ * Homepage template containing Hero, Impact Metrics, and Presidential Banner.
  */
 
 get_header();
 ?>
 
-<!-- Modern 3D Gear Hero Styling -->
+<!-- Modern 3D Gear Hero & Institutional Sections Styling -->
 <style>
 .nistco-main {
     background: #f8fafc;
@@ -214,7 +214,7 @@ get_header();
     transform: translateY(-2px);
 }
 
-/* Modern 3D Rolling Gear Animations & Background Removal */
+/* 3D Rolling Gear Animations */
 @keyframes rotCW {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
@@ -257,18 +257,32 @@ get_header();
     right: 20px;
     z-index: 3;
 }
+
+/* Presidential Banner Styles */
+.nistco-section { padding: 5rem 2rem; }
+.nistco-bg-parchment { background: #f1f5f9; }
+.mc-presidential-banner { background: #042416; border-radius: 16px; padding: 3rem; color: #ffffff; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(4,36,22,0.25); border: 1px solid rgba(217,119,6,0.3); }
+.mc-presidential-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; }
+@media(max-width: 992px) { .mc-presidential-grid { grid-template-columns: 1fr; } }
+.mc-presidential-photo-frame { width: 100%; height: 360px; background: #021a10; border-radius: 12px; border: 3px solid #d97706; overflow: hidden; position: relative; }
+.mc-presidential-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.mc-presidential-photo-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,135,81,0.9); color: #fff; text-align: center; font-size: 0.8rem; font-weight: 800; padding: 0.5rem; }
+.mc-presidential-caption { margin-top: 1rem; text-align: center; }
+.mc-presidential-title-kicker { display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #fde047; letter-spacing: 1.2px; }
+.mc-presidential-name { display: block; font-size: 1.15rem; font-weight: 800; color: #fff; margin: 0.2rem 0; }
+.mc-presidential-rank { font-size: 0.85rem; color: #94a3b8; }
+.mc-presidential-heading { font-size: 2rem; font-weight: 800; color: #fff; margin: 1rem 0; line-height: 1.2; }
+.mc-presidential-quote { font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; font-style: italic; border-left: 4px solid #d97706; padding-left: 1.25rem; margin: 1.5rem 0; }
 </style>
 
 <main class="nistco-main">
 
-    <!-- ISOLATED HERO SECTION -->
+    <!-- 1. HERO SECTION -->
     <section class="nistco-hero-section">
         <div class="nistco-hero-ambient-1"></div>
         <div class="nistco-hero-ambient-2"></div>
 
         <div class="nistco-container nistco-hero-grid">
-
-            <!-- Left Column: Content & Mandate -->
             <div>
                 <div class="nistco-hero-badges">
                     <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>
@@ -295,7 +309,6 @@ get_header();
                     </a>
                 </div>
 
-                <!-- Centre Quick Launchpad Dock -->
                 <div class="nistco-centre-launchpad">
                     <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS</span>
                     <div class="launchpad-pills-row">
@@ -307,17 +320,119 @@ get_header();
                 </div>
             </div>
 
-            <!-- Right Column: Clean 3D Rolling Gears without Orbitals -->
             <div style="display: flex; align-items: center; justify-content: center;">
                 <div class="gear-3d-cluster">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gears1-3d.png" alt="Futuristic Tech Gear" class="gear-main-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gear3-3d.png" alt="Interlocking Gear" class="gear-sub-3d" onerror="this.src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gear/gear-original.svg';">
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- 2. INSTITUTIONAL IMPACT METRICS -->
+    <?php 
+    $metrics = [
+        [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#10b981" ],
+        [ "target" => 5, "suffix" => "+", "comma" => false, "title" => "Scientific Publications", "desc" => "Peer-reviewed & indexed research repository", "color" => "#f59e0b" ],
+        [ "target" => 2000, "suffix" => "", "comma" => true, "title" => "Hectares Campus Footprint", "desc" => "Abuja-Lokoja Technology Corridor sanctuary", "color" => "#0ea5e9" ],
+        [ "target" => 16, "suffix" => "+", "comma" => false, "title" => "Registered Patents", "desc" => "NOTAP-certified indigenous technologies", "color" => "#d97706" ],
+        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, tissue culture & precision CNC", "color" => "#059669" ],
+        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated solar hybrid for NMR & HPC compute", "color" => "#e11d48" ],
+        [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities", "color" => "#8b5cf6" ]
+    ];
+    ?>
+    <section style="background: linear-gradient(135deg, #021a10 0%, #042416 100%); color: #fff; padding: 4.5rem 1.5rem; border-top: 3px solid #d97706; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
+        <div style="max-width: 1440px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <div style="color: #fde047; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">Institutional Impact</div>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; margin: 0; color: #ffffff;">Nigeria Innovation Science & Technology Complex</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.75rem;">
+                <?php foreach ( $metrics as $metric ) : ?>
+                    <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(217,119,6,0.3); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25); border-top: 4px solid <?php echo $metric['color']; ?>;">
+                        <div class="nistco-counter" data-target="<?php echo esc_attr( $metric['target'] ); ?>" data-suffix="<?php echo esc_attr( $metric['suffix'] ); ?>" data-comma="<?php echo $metric['comma'] ? 'true' : 'false'; ?>" style="font-size: 2.75rem; font-weight: 800; color: <?php echo $metric['color']; ?>; line-height: 1; margin-bottom: 0.65rem;">0<?php echo esc_html( $metric['suffix'] ); ?></div>
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;"><?php echo esc_html( $metric['title'] ); ?></div>
+                        <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;"><?php echo esc_html( $metric['desc'] ); ?></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRESIDENTIAL SECTION WITH NIGERIAN FLAG SIDE BARS -->
+    <section class="nistco-section nistco-bg-parchment" style="position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
+            <div style="flex: 1; background: #008751;"></div>
+            <div style="flex: 1; background: #ffffff;"></div>
+            <div style="flex: 1; background: #008751;"></div>
+        </div>
+        <div style="position: absolute; top: 0; right: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
+            <div style="flex: 1; background: #008751;"></div>
+            <div style="flex: 1; background: #ffffff;"></div>
+            <div style="flex: 1; background: #008751;"></div>
+        </div>
+
+        <div class="nistco-container">
+            <div class="mc-presidential-banner">
+                <div class="mc-presidential-pattern"></div>
+                <div class="mc-presidential-grid">
+                    <div class="mc-presidential-portrait-wrap">
+                        <div class="mc-presidential-photo-frame">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/president.jpg" alt="Presidential Patron" class="leader-photo placeholder" onerror="this.style.display='none';">
+                            <div class="mc-presidential-photo-badge" style="background: #008751; color: #fff;">🇳🇬 Federal Republic of Nigeria</div>
+                        </div>
+                        <div class="mc-presidential-caption">
+                            <span class="mc-presidential-title-kicker">Grand Patron of Science & Tech</span>
+                            <span class="mc-presidential-name">His Excellency, President of Nigeria</span>
+                            <span class="mc-presidential-rank">Commander-in-Chief of the Armed Forces</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mc-presidential-pills">
+                            <span class="nistco-pill nistco-pill-gold">National Agenda 2030</span>
+                            <span class="nistco-pill nistco-pill-green">Renewed Hope R&D Mandate</span>
+                        </div>
+                        <h2 class="mc-presidential-heading">Driving Indigenous Innovation & Industrial Sovereignty</h2>
+                        <blockquote class="mc-presidential-quote">
+                            "Our national economic transformation rests squarely on our ability to convert scientific research into scalable industrial products, fostering self-reliance across chemistry, computing, and advanced manufacturing."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.nistco-counter');
+    if (counters.length > 0) {
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    const isComma = el.getAttribute('data-comma') === 'true';
+                    let startTime = null;
+                    function step(currentTime) {
+                        if (!startTime) startTime = currentTime;
+                        const progress = Math.min((currentTime - startTime) / 2000, 1);
+                        const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                        let formatted = Math.floor(target * easeProgress);
+                        if (isComma) formatted = formatted.toLocaleString();
+                        el.textContent = formatted + suffix;
+                        if (progress < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                    observerInstance.unobserve(el);
+                }
+            });
+        }, { threshold: 0.2 });
+        counters.forEach(counter => observer.observe(counter));
+    }
+});
+</script>
 
 <?php get_footer(); ?>
