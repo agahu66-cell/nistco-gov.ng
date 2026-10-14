@@ -19,6 +19,9 @@ $centres_data = [
         'color' => '#0ea5e9',
         'bg_gradient' => 'linear-gradient(135deg, #021a10 0%, #032d3c 100%)',
         'mandate' => 'Executing advanced mathematical modeling, parallel computing simulations, and predictive algorithmic analysis for national infrastructure, fluid dynamics, and electrical grid stability.',
+        'contact' => 'amsarc@nistco.gov.ng',
+        'lead' => 'Dr. Aliyu Mohammed',
+        'lead_title' => 'Director, AMSARC',
         'thrusts' => [
             ['title' => 'Computational Fluid Dynamics', 'desc' => 'Simulating aerodynamic and hydrodynamic forces for indigenous engineering designs and marine structures.'],
             ['title' => 'Smart Grid Predictive AI', 'desc' => 'Machine learning models predicting electrical load fluctuations to prevent national grid transmission failures.'],
@@ -42,8 +45,6 @@ $centres_data = [
             ['name' => 'Dr. Ngozi Eze', 'role' => 'Senior Research Fellow', 'spec' => 'Machine Learning & Grid Modeling'],
             ['name' => 'Engr. David Okon', 'role' => 'Systems Architect', 'spec' => 'Parallel Cluster Operations']
         ],
-        'lead' => 'Dr. Aliyu Mohammed',
-        'lead_title' => 'Director, AMSARC',
         'stats' => ['48+ Indexed Papers', '12 Industry Solvers', '256 TFLOPS Cluster', '99.9% Uptime']
     ],
     'carc' => [
@@ -54,6 +55,9 @@ $centres_data = [
         'color' => '#f59e0b',
         'bg_gradient' => 'linear-gradient(135deg, #021a10 0%, #3a2204 100%)',
         'mandate' => 'Driving chemical synthesis, material characterization, agro-chemical formulation, and rigorous quality assurance using state-of-the-art spectroscopic instrumentation.',
+        'contact' => 'carc@nistco.gov.ng',
+        'lead' => 'Prof. (Mrs.) Beatrice Ekanem',
+        'lead_title' => 'Director, CARC',
         'thrusts' => [
             ['title' => 'Green Industrial Catalysis', 'desc' => 'Synthesizing eco-friendly catalysts from local mineral deposits for petrochemical and agro-processing.'],
             ['title' => 'Bio-Active Compound Extraction', 'desc' => 'Isolating pharmaceutical-grade bio-actives from indigenous flora for herbal and orthodox drug formulation.'],
@@ -77,44 +81,44 @@ $centres_data = [
             ['name' => 'Dr. Ibrahim Sani', 'role' => 'Principal Research Officer', 'spec' => 'Analytical Spectrometry'],
             ['name' => 'Pharm. Grace Adebayo', 'role' => 'Senior Formulation Chemist', 'spec' => 'Bioactive Extraction']
         ],
-        'lead' => 'Prof. (Mrs.) Beatrice Ekanem',
-        'lead_title' => 'Director, CARC',
         'stats' => ['500L Pilot Plant', '6 NOTAP Patents', 'ISO 17025 Certified', '14 Active Industry Projects']
     ],
     'barc' => [
         'code' => 'BARC',
         'name' => 'Biotechnology Advanced Research Centre',
-        'tagline' => 'Genomics, Molecular Biology & Micropropagation',
+        'tagline' => 'Plant Tissue Culture, Molecular Biology, Genomics & Industrial Fermentation',
         'icon' => '🧬',
         'color' => '#10b981',
         'bg_gradient' => 'linear-gradient(135deg, #021a10 0%, #042d1a 100%)',
-        'mandate' => 'Pioneering agricultural biotechnology, disease-resistant plant micropropagation, molecular diagnostics, and industrial bioprocess fermentation.',
+        'mandate' => 'BARC conducts priority research in plant tissue culture, molecular biology, genomics, and industrial fermentation to develop bio-fertilizers, disease-resistant crop varieties, and biopharmaceuticals.',
+        'contact' => 'barc@shestco.gov.ng',
+        'lead' => 'Director of Biotechnology',
+        'lead_title' => 'Centre Director / Head, BARC',
         'thrusts' => [
-            ['title' => 'Climate-Smart Crop Genomics', 'desc' => 'Breeding drought and pest-resistant staple crop varieties using marker-assisted selection.'],
-            ['title' => 'Rapid Tissue Culture Multiplication', 'desc' => 'Mass-producing disease-free cassava, yam, and plantain seedlings for national farming cooperatives.'],
-            ['title' => 'Industrial Bioprocessing', 'desc' => 'Engineering microbial strains for bio-fertilizer production and agricultural waste biodegradation.']
+            ['title' => 'Plant Tissue Culture & Micropropagation', 'desc' => 'Mass propagation of disease-free, high-yielding crop varieties for agricultural cooperatives.'],
+            ['title' => 'Molecular Biology & Genomics', 'desc' => 'Genomic sequencing and marker-assisted selection for climate-resilient crop traits.'],
+            ['title' => 'Industrial Fermentation & Biopharmaceuticals', 'desc' => 'Engineering microbial strains to produce bio-fertilizers, enzymes, and therapeutic compounds.']
         ],
         'equipment' => [
-            ['name' => 'ISO Class 5 Tissue Culture Cleanrooms', 'specs' => 'Sterile laminar flow chambers for mass multiplication of drought-resilient crop seedlings.'],
-            ['name' => 'Real-Time PCR & Sequencing Suites', 'specs' => 'High-throughput genomic screening and pathogen detection instrumentation.'],
-            ['name' => 'Bioprocess Fermentation Bioreactors', 'specs' => 'Automated bioreactor vessels ranging from 10L to 100L for enzyme and bio-product synthesis.']
+            ['name' => 'Plant Tissue Culture Suite', 'specs' => 'Sterile laminar flow chambers and controlled-environment incubation rooms for micropropagation.'],
+            ['name' => 'DNA Sequencing and Molecular Marker Lab', 'specs' => 'High-throughput genomic screening and molecular characterization instruments.'],
+            ['name' => 'Fermentation Pilot Plant', 'specs' => 'Industrial bioreactor vessels for bio-fertilizers and biopharmaceutical production.'],
+            ['name' => 'Cryopreservation Bank', 'specs' => 'Long-term ultra-low temperature germplasm preservation and gene bank facility.']
         ],
         'publications' => [
-            ['title' => 'Genomic Profiling of Drought-Tolerant Cassava Landraces across Guinea Savanna Zones', 'journal' => 'Plant Biotechnology Journal of West Africa', 'year' => '2026', 'doi' => '10.1111/pbi.14520'],
-            ['title' => 'Optimizing Bioreactor Parameters for Large-Scale Yam Micropropagation', 'journal' => 'Agricultural Science & Technology', 'year' => '2025', 'doi' => '10.1016/j.agsci.2025.11.008']
+            ['title' => 'Genomic Profiling and Marker-Assisted Selection for Drought Resilience in West African Crops', 'journal' => 'Plant Biotechnology Journal', 'year' => '2026', 'doi' => '10.1111/pbi.14520'],
+            ['title' => 'Optimization of Submerged Fermentation Parameters for Indigenous Bio-Fertilizer Production', 'journal' => 'Journal of Applied Microbiology & Biotechnology', 'year' => '2025', 'doi' => '10.1007/s00253-025-13104-x']
         ],
         'grants' => [
-            ['title' => 'National Seed Security & Biotechnology Rollout', 'agency' => 'Federal Ministry of Agriculture & Food Security', 'amount' => '₦210M'],
-            ['title' => 'West African Genomics Repository Project', 'agency' => 'ECOWAS Agricultural Development Fund', 'amount' => '$300K USD']
+            ['title' => 'National Agricultural Biotechnology & Bio-Fertilizer Rollout', 'agency' => 'Federal Ministry of Science, Technology and Innovation', 'amount' => '₦210M'],
+            ['title' => 'West African Germplasm Cryopreservation Initiative', 'agency' => 'ECOWAS Science Council', 'amount' => '$300K USD']
         ],
         'team' => [
-            ['name' => 'Dr. Chinedu Okafor', 'role' => 'Director & Principal Investigator', 'spec' => 'Plant Molecular Biology'],
-            ['name' => 'Dr. Aishatu Bello', 'role' => 'Senior Biotechnologist', 'spec' => 'Tissue Culture & Virology'],
-            ['name' => 'Mr. Samuel Ojo', 'role' => 'Bioprocess Engineer', 'spec' => 'Fermentation Systems']
+            ['name' => 'Director of Biotechnology', 'role' => 'Centre Director / Head', 'spec' => 'Molecular Biology & Fermentation'],
+            ['name' => 'Dr. Chinedu Okafor', 'role' => 'Principal Research Fellow', 'spec' => 'Plant Tissue Culture & Genomics'],
+            ['name' => 'Dr. Aishatu Bello', 'role' => 'Senior Biotechnologist', 'spec' => 'Biopharmaceuticals']
         ],
-        'lead' => 'Dr. Chinedu Okafor',
-        'lead_title' => 'Director, BARC',
-        'stats' => ['2.5M Seedlings', '4 BSL-2 Labs', '10+ University Partners', '8 Plant Varieties Released']
+        'stats' => ['2.5M Seedlings', '4 Specialized Labs', '10+ University Partners', 'Active Germplasm Bank']
     ],
     'ntc' => [
         'code' => 'NTC',
@@ -124,6 +128,9 @@ $centres_data = [
         'color' => '#e11d48',
         'bg_gradient' => 'linear-gradient(135deg, #021a10 0%, #3a0410 100%)',
         'mandate' => 'Enforcing national radiation safety standards, conducting environmental radioactivity monitoring, calibrating industrial isotopic gauges, and supporting nuclear medicine applications.',
+        'contact' => 'ntc@nistco.gov.ng',
+        'lead' => 'Prof. Sani Garba',
+        'lead_title' => 'Director, NTC',
         'thrusts' => [
             ['title' => 'Environmental Radioactivity Surveillance', 'desc' => 'Continuous nationwide monitoring of background radiation and airborne particulate radionuclides.'],
             ['title' => 'Secondary Standard Dosimetry', 'desc' => 'Calibrating hospital radiotherapy equipment and industrial radiation protection badges (TLDs).'],
@@ -147,8 +154,6 @@ $centres_data = [
             ['name' => 'Dr. (Mrs.) Helen Mensah', 'role' => 'Principal Metrologist', 'spec' => 'Gamma Spectroscopy'],
             ['name' => 'Mr. Kabir Danlami', 'role' => 'Radiation Safety Officer', 'spec' => 'Environmental Monitoring']
         ],
-        'lead' => 'Prof. Sani Garba',
-        'lead_title' => 'Director, NTC',
         'stats' => ['100% Audit Compliance', 'National Monitoring Grid', 'IAEA Partner Facility', '350+ Facilities Calibrated']
     ],
     'parc' => [
@@ -159,6 +164,9 @@ $centres_data = [
         'color' => '#8b5cf6',
         'bg_gradient' => 'linear-gradient(135deg, #021a10 0%, #220b3a 100%)',
         'mandate' => 'Conducting fundamental and applied research in solid-state physics, semiconductor characterization, optics, and thin-film photovoltaic solar technologies.',
+        'contact' => 'parc@nistco.gov.ng',
+        'lead' => 'Dr. Funmilayo Adebayo',
+        'lead_title' => 'Director, PARC',
         'thrusts' => [
             ['title' => 'Next-Gen Photovoltaic Thin Films', 'desc' => 'Synthesizing perovskite and cadmium-telluride semiconductor films for high-efficiency solar panels.'],
             ['title' => 'Nanomaterials & Optoelectronics', 'desc' => 'Studying quantum dots and carbon nanotubes for advanced sensor and optical display applications.'],
@@ -182,8 +190,6 @@ $centres_data = [
             ['name' => 'Dr. Emmanuel Nwachukwu', 'role' => 'Senior Research Fellow', 'spec' => 'Electron Microscopy & Nanomaterials'],
             ['name' => 'Ms. Zainab Aliyu', 'role' => 'Experimental Physicist', 'spec' => 'Thin-Film Deposition']
         ],
-        'lead' => 'Dr. Funmilayo Adebayo',
-        'lead_title' => 'Director, PARC',
         'stats' => ['18 PV Patents', 'Nano-Characterization Lab', 'Regional Physics Hub', '15 Industry Collaborations']
     ],
     'atp' => [
@@ -194,6 +200,9 @@ $centres_data = [
         'color' => '#06b6d4',
         'bg_gradient' => 'linear-gradient(135deg, #021a10 0%, #04353a 100%)',
         'mandate' => 'Bridging the gap between R&D and industrial manufacturing through high-precision CNC machining, rapid additive prototyping, and pilot mold engineering.',
+        'contact' => 'atp@nistco.gov.ng',
+        'lead' => 'Engr. Musa Bello',
+        'lead_title' => 'Director, ATP',
         'thrusts' => [
             ['title' => 'High-Precision CNC Machining', 'desc' => 'Producing complex metallic components, turbine blades, and automotive dies with sub-micron accuracy.'],
             ['title' => 'Industrial Additive Manufacturing', 'desc' => 'Rapid prototyping and direct metal laser sintering (DMLS) for aerospace and medical implants.'],
@@ -217,14 +226,12 @@ $centres_data = [
             ['name' => 'Engr. Peter Eze', 'role' => 'Senior CNC Specialist', 'spec' => 'Multi-Axis Machining & CAD/CAM'],
             ['name' => 'Mrs. Halima Ahmed', 'role' => 'Quality Assurance Lead', 'spec' => 'CMM Metrology & Inspection']
         ],
-        'lead' => 'Engr. Musa Bello',
-        'lead_title' => 'Director, ATP',
         'stats' => ['Sub-Micron Precision', '200+ Molds Fabricated', 'Rapid Prototyping Line', '99.4% Client Satisfaction']
     ]
 ];
 
 // Fallback if slug not found
-$current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_data['amsarc'];
+$current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_data['barc'];
 ?>
 
 <!-- Modern Research Portal Styling -->
@@ -293,9 +300,9 @@ $current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_
             <span class="research-badge"><?php echo esc_html($current_centre['code']); ?> RESEARCH DIVISION</span>
             <h1 class="research-title"><?php echo esc_html($current_centre['name']); ?></h1>
             <p class="research-subtitle"><?php echo esc_html($current_centre['mandate']); ?></p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
                 <a href="#equipment" class="nistco-btn nistco-btn-primary" style="background: <?php echo $current_centre['color']; ?>;">Explore Laboratory Facilities &rarr;</a>
-                <a href="#team" class="nistco-btn nistco-btn-secondary">Principal Investigators</a>
+                <a href="mailto:<?php echo esc_attr($current_centre['contact']); ?>" class="nistco-btn nistco-btn-secondary">Desk Contact: <?php echo esc_html($current_centre['contact']); ?></a>
             </div>
         </div>
     </section>
@@ -345,8 +352,8 @@ $current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_
         <div style="max-width: 1440px; margin: 0 auto;">
             <div class="section-header">
                 <span class="section-kicker">Advanced Instrumentation</span>
-                <h2 class="section-heading">Laboratory Facilities & Equipment</h2>
-                <p class="section-lead">World-class machinery and computing clusters available for academic residency, testing, and industrial collaboration.</p>
+                <h2 class="section-heading">Specialized Laboratories & Equipment</h2>
+                <p class="section-lead">World-class machinery and specialized testing suites available for academic research and industrial collaboration.</p>
             </div>
             <div class="equipment-grid">
                 <?php foreach ($current_centre['equipment'] as $item) : ?>
@@ -411,8 +418,8 @@ $current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_
     <section id="team" class="research-section">
         <div class="section-header">
             <span class="section-kicker">Leadership & Fellowship</span>
-            <h2 class="section-heading">Principal Investigators & Research Team</h2>
-            <p class="section-lead">Meet the leading scientists and engineers driving innovation within this division.</p>
+            <h2 class="section-heading">Centre Director & Research Team</h2>
+            <p class="section-lead">Head: <strong><?php echo esc_html($current_centre['lead_title']); ?></strong> | Desk Contact: <a href="mailto:<?php echo esc_attr($current_centre['contact']); ?>" style="color: <?php echo $current_centre['color']; ?>; text-decoration: none;"><?php echo esc_html($current_centre['contact']); ?></a></p>
         </div>
         <div class="team-grid">
             <?php foreach ($current_centre['team'] as $member) : ?>
@@ -431,9 +438,9 @@ $current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_
         <div style="background: <?php echo $current_centre['bg_gradient']; ?>; border-radius: 16px; padding: 4rem 3rem; color: #fff; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
             <span style="color: #fde047; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 0.5rem;">Partner With <?php echo esc_html($current_centre['code']); ?></span>
             <h2 style="font-size: 2.25rem; font-weight: 800; margin: 0 0 1rem 0;">Ready to Collaborate or Book Laboratory Time?</h2>
-            <p style="color: #cbd5e1; font-size: 1.05rem; max-width: 650px; margin: 0 auto 2.5rem auto;">We offer joint research residencies, contract analytical testing, and industrial technology transfer partnerships.</p>
+            <p style="color: #cbd5e1; font-size: 1.05rem; max-width: 650px; margin: 0 auto 2.5rem auto;">Contact desk at <a href="mailto:<?php echo esc_attr($current_centre['contact']); ?>" style="color: #fde047; text-decoration: none;"><?php echo esc_html($current_centre['contact']); ?></a> to initiate partnership inquiries.</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="nistco-btn nistco-btn-primary" style="background: <?php echo $current_centre['color']; ?>;">Initiate Collaboration Inquiry &rarr;</a>
+                <a href="mailto:<?php echo esc_attr($current_centre['contact']); ?>" class="nistco-btn nistco-btn-primary" style="background: <?php echo $current_centre['color']; ?>;">Email Desk Direct &rarr;</a>
                 <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="nistco-btn nistco-btn-secondary">Explore Commercial Patents</a>
             </div>
         </div>
@@ -442,7 +449,6 @@ $current_centre = isset($centres_data[$slug]) ? $centres_data[$slug] : $centres_
 </main>
 
 <script>
-// Smooth active state for subnav links on scroll
 document.addEventListener('DOMContentLoaded', function() {
     const subnavLinks = document.querySelectorAll('.subnav-link');
     window.addEventListener('scroll', () => {
