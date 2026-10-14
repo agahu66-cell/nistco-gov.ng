@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: NISTCO Hero + Metrics + Presidential + Executive Master
- * Homepage template containing Hero, Impact Metrics, Presidential Banner, and Executive Direction.
+ * Template Name: NISTCO Master Front Page with Research Centres
+ * Homepage template containing Hero, Impact Metrics, Presidential Banner, Executive Direction, and Research Centres.
  */
 
 get_header();
@@ -276,7 +276,7 @@ get_header();
 .mc-presidential-heading { font-size: 2rem; font-weight: 800; color: #fff; margin: 1rem 0; line-height: 1.2; }
 .mc-presidential-quote { font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; font-style: italic; border-left: 4px solid #d97706; padding-left: 1.25rem; margin: 1.5rem 0; }
 
-/* Executive Direction Styles (Rectangular Portrait Box) */
+/* Executive Direction Styles */
 .mc-exec-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 @media(max-width: 992px) { .mc-exec-grid { grid-template-columns: 1fr; } }
 .mc-exec-portrait-card { text-align: center; }
@@ -287,6 +287,16 @@ get_header();
 .mc-exec-designation { font-size: 0.85rem; color: #64748b; font-weight: 600; }
 .mc-exec-headline { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; }
 .mc-exec-quote { font-size: 1.05rem; line-height: 1.7; color: #475569; font-style: italic; border-left: 4px solid #008751; padding-left: 1.25rem; margin-bottom: 1.5rem; }
+
+/* Research Centres Grid Styles */
+.nistco-centres-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto; }
+.nistco-centre-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04); transition: all 0.3s ease; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.nistco-centre-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.nistco-centre-icon-wrap { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.25rem; }
+.nistco-centre-code { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.35rem; }
+.nistco-centre-title { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; }
+.nistco-centre-desc { font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+.nistco-card-action { display: inline-flex; align-items: center; justify-content: space-between; font-weight: 700; text-decoration: none; padding-top: 1rem; border-top: 1px solid #f1f5f9; }
 </style>
 
 <main class="nistco-main">
@@ -444,6 +454,42 @@ get_header();
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ALL RESEARCH CENTRES & DEPARTMENTS (COLOURFUL THEME) -->
+    <?php 
+    $centres = [
+        [ "code" => "AMSARC", "title" => "Applied Mathematics & Simulation", "desc" => "High-performance computing (HPC) cluster, GPU accelerated simulation nodes, and scientific visualization labs.", "icon" => "⚡", "color" => "#0ea5e9", "bg" => "rgba(14,165,233,0.08)", "url" => home_url( '/centres/amsarc/' ) ],
+        [ "code" => "CARC", "title" => "Chemistry Advanced Research Centre", "desc" => "Industrial chemistry synthesis, 500L pilot plant, NMR & GC-MS instrumentation, and material testing suites.", "icon" => "🧪", "color" => "#f59e0b", "bg" => "rgba(245,158,11,0.08)", "url" => home_url( '/centres/carc/' ) ],
+        [ "code" => "BARC", "title" => "Biotechnology Advanced Research Centre", "desc" => "Molecular biology & PCR suites, plant tissue culture micropropagation, and bioprocess fermentation bioreactors.", "icon" => "🧬", "color" => "#10b981", "bg" => "rgba(16,185,129,0.08)", "url" => home_url( '/centres/barc/' ) ],
+        [ "code" => "NTC", "title" => "Nuclear Technology Centre", "desc" => "Radiation safety standards, isotopic analysis, and nuclear instrumentation for industrial and medical application.", "icon" => "☢️", "color" => "#e11d48", "bg" => "rgba(225,29,72,0.08)", "url" => home_url( '/centres/ntc/' ) ],
+        [ "code" => "PARC", "title" => "Physics Advanced Research Centre", "desc" => "Solid-state physics, materials characterization, optics, and renewable energy semiconductor testing.", "icon" => "🔬", "color" => "#8b5cf6", "bg" => "rgba(139,92,246,0.08)", "url" => home_url( '/centres/parc/' ) ],
+        [ "code" => "PTD", "title" => "Advanced Tooling & Prototyping", "desc" => "Precision CNC machining, rapid additive manufacturing, and pilot mold engineering for Nigerian industries.", "icon" => "⚙️", "color" => "#06b6d4", "bg" => "rgba(6,182,212,0.08)", "url" => home_url( '/centres/ptd/' ) ]
+    ];
+    ?>
+    <section class="nistco-section nistco-bg-parchment">
+        <div class="nistco-container">
+            <div class="nistco-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
+                <span class="nistco-section-kicker">Specialized Divisions</span>
+                <h2 class="nistco-section-title">Our Research Centres & Departments</h2>
+                <p class="nistco-section-lead">Explore our world-class scientific laboratories, specialized equipment clusters, and pilot production plants across all divisions.</p>
+            </div>
+            <div class="nistco-centres-grid">
+                <?php foreach ( $centres as $centre ) : ?>
+                    <div class="nistco-centre-card" style="border-top: 4px solid <?php echo $centre['color']; ?>;">
+                        <div class="nistco-centre-icon-wrap" style="background: <?php echo $centre['bg']; ?>; color: <?php echo $centre['color']; ?>;">
+                            <?php echo $centre['icon']; ?>
+                        </div>
+                        <div class="nistco-centre-code" style="color: <?php echo $centre['color']; ?>;"><?php echo esc_html( $centre['code'] ); ?></div>
+                        <h3 class="nistco-centre-title"><?php echo esc_html( $centre['title'] ); ?></h3>
+                        <p class="nistco-centre-desc"><?php echo esc_html( $centre['desc'] ); ?></p>
+                        <a href="<?php echo esc_url( $centre['url'] ); ?>" class="nistco-card-action" style="color: <?php echo $centre['color']; ?>;">
+                            <span>Access <?php echo esc_html( $centre['code'] ); ?> Portal</span><span>&rarr;</span>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
