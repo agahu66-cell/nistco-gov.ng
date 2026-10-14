@@ -5,7 +5,7 @@
  * File: page-commercial-ventures.php
  *
  * @package NistcoTheme
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 get_header();
@@ -159,15 +159,60 @@ get_header();
         </div>
     </section>
 
-    <!-- 3. RESOURCE GUIDE VIDEO EMBED -->
+    <!-- 3. RESOURCE GUIDE 4-CARD VIDEO LIBRARY -->
     <section class="ventures-section">
         <div class="section-header">
             <span class="section-kicker">Resource Guide</span>
-            <h2 class="section-heading">Understanding Technology Transfer &amp; IP Licensing</h2>
-            <p class="section-lead">The video below illustrates best practices in university-industry technology transfer and commercialization workflows.</p>
+            <h2 class="section-heading">Technology Transfer &amp; IP Licensing Video Library</h2>
+            <p class="section-lead">Explore our curated video library covering university-industry technology transfer, patent licensing, and commercialization workflows.</p>
         </div>
-        <div style="max-width: 900px; margin: 0 auto; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); background: #000;">
-            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" src="https://www.youtube-nocookie.com/embed/xyMCb7ft66k" title="Understanding the Technology Commercialization Process" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1440px; margin: 0 auto;">
+            
+            <!-- Video Card 1 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube-nocookie.com/embed/xyMCb7ft66k" title="Introduction to Technology Transfer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">1. Introduction to Technology Transfer</h4>
+                    <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Foundational principles of moving scientific research from academic laboratories into commercial markets.</p>
+                </div>
+            </div>
+
+            <!-- Video Card 2 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube-nocookie.com/embed/b9EkMc79ZSU" title="University-Industry Collaboration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">2. University-Industry Synergy</h4>
+                    <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Building robust research partnerships between national complexes and manufacturing enterprises.</p>
+                </div>
+            </div>
+
+            <!-- Video Card 3 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube-nocookie.com/embed/kJQP7kiw5Fk" title="Patent Licensing Strategies" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">3. Patent Licensing &amp; Royalties</h4>
+                    <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Navigating statutory intellectual property pacts, equity stakes, and industrial royalty frameworks.</p>
+                </div>
+            </div>
+
+            <!-- Video Card 4 -->
+            <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
+                    <iframe style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" src="https://www.youtube-nocookie.com/embed/L_LUpnjgPso" title="Pilot Plant Scale-Up" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">4. Pilot Plant Scale-Up</h4>
+                    <p style="font-size: 0.88rem; color: #64748b; margin: 0; line-height: 1.5;">Transitioning bench-scale chemical and biotech synthesis into full commercial manufacturing lines.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
