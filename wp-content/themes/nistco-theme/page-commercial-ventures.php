@@ -5,7 +5,7 @@
  * File: page-commercial-ventures.php
  *
  * @package NistcoTheme
- * @version 1.2.0
+ * @version 1.3.0
  */
 
 get_header();
@@ -122,7 +122,7 @@ get_header();
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
                         <span style="color: #059669; font-weight: 700;">● Ready for Licensing</span>
-                        <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
+                        <a href="javascript:void(0)" onclick="openDossierModal(1, 'Bio-Based Industrial Solvents & Degreasers')" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
                     </div>
                 </div>
 
@@ -137,7 +137,7 @@ get_header();
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
                         <span style="color: #2563eb; font-weight: 700;">● Pilot Verified</span>
-                        <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
+                        <a href="javascript:void(0)" onclick="openDossierModal(2, 'Drought-Resistant Cassava Micropropagation Protocol')" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
                     </div>
                 </div>
 
@@ -152,7 +152,7 @@ get_header();
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem; font-size: 0.85rem;">
                         <span style="color: #2563eb; font-weight: 700;">● Operational</span>
-                        <a href="#eoi-form" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
+                        <a href="javascript:void(0)" onclick="openDossierModal(3, 'National Power Grid Stability Prediction Algorithm')" style="font-weight: 700; color: #008751; text-decoration: none;">Request Dossier &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -260,7 +260,89 @@ get_header();
 
 </main>
 
+<!-- Patent Dossier Request Modal -->
+<div id="dossierModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(2,26,16,0.8); z-index:9999; align-items:center; justify-content:center; backdrop-filter:blur(5px);">
+    <div style="background:#ffffff; border-radius:16px; padding:2.5rem; max-width:480px; width:90%; position:relative; box-shadow:0 25px 50px rgba(0,0,0,0.25);">
+        <button onclick="closeDossierModal()" style="position:absolute; top:1rem; right:1.25rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#64748b;">&times;</button>
+        <div style="color:#d97706; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Technology Transfer &amp; Licensing</div>
+        <h3 id="modalPatentTitle" style="font-size:1.5rem; font-weight:800; color:#0f172a; margin:0 0 1rem 0;">Request Patent Dossier</h3>
+        <p style="font-size:0.9rem; color:#64748b; margin-bottom:1.5rem;">Fill out your institutional details to access the certified NOTAP technology dossier and licensing agreement framework.</p>
+        
+        <form id="dossierForm" onsubmit="submitDossier(event)">
+            <input type="hidden" id="modalPostId" name="post_id" value="">
+            <div style="margin-bottom:1rem;">
+                <label style="display:block; font-size:0.85rem; font-weight:700; color:#334155; margin-bottom:0.35rem;">Full Name *</label>
+                <input type="text" id="dossierName" required style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:8px; font-size:0.95rem; box-sizing:border-box;">
+            </div>
+            <div style="margin-bottom:1rem;">
+                <label style="display:block; font-size:0.85rem; font-weight:700; color:#334155; margin-bottom:0.35rem;">Official Email *</label>
+                <input type="email" id="dossierEmail" required style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:8px; font-size:0.95rem; box-sizing:border-box;">
+            </div>
+            <div style="margin-bottom:1.5rem;">
+                <label style="display:block; font-size:0.85rem; font-weight:700; color:#334155; margin-bottom:0.35rem;">Company / Institution</label>
+                <input type="text" id="dossierOrg" style="width:100%; padding:0.75rem; border:1px solid #cbd5e1; border-radius:8px; font-size:0.95rem; box-sizing:border-box;">
+            </div>
+            <button type="submit" id="dossierSubmitBtn" class="nistco-btn nistco-btn-gold" style="width:100%; justify-content:center; background:#d97706; border:none; cursor:pointer; color:#fff;">Submit Request &rarr;</button>
+        </form>
+        <div id="dossierResponseMsg" style="margin-top:1rem; font-size:0.9rem; font-weight:600; text-align:center;"></div>
+    </div>
+</div>
+
 <script>
+function openDossierModal(postId, patentTitle) {
+    document.getElementById('modalPostId').value = postId;
+    document.getElementById('modalPatentTitle').textContent = 'Request Dossier: ' + patentTitle;
+    document.getElementById('dossierModal').style.display = 'flex';
+    document.getElementById('dossierResponseMsg').textContent = '';
+    document.getElementById('dossierForm').reset();
+}
+
+function closeDossierModal() {
+    document.getElementById('dossierModal').style.display = 'none';
+}
+
+function submitDossier(e) {
+    e.preventDefault();
+    const btn = document.getElementById('dossierSubmitBtn');
+    const msg = document.getElementById('dossierResponseMsg');
+    
+    btn.disabled = true;
+    btn.textContent = 'Processing & Logging...';
+    msg.textContent = '';
+
+    const formData = new URLSearchParams();
+    formData.append('action', 'nistco_request_dossier');
+    formData.append('security', '<?php echo wp_create_nonce( "nistco_dossier_nonce" ); ?>');
+    formData.append('post_id', document.getElementById('modalPostId').value);
+    formData.append('full_name', document.getElementById('dossierName').value);
+    formData.append('email', document.getElementById('dossierEmail').value);
+    formData.append('org', document.getElementById('dossierOrg').value);
+
+    fetch('<?php echo admin_url( "admin-ajax.php" ); ?>', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        btn.disabled = false;
+        btn.textContent = 'Submit Request →';
+        if(data.success) {
+            msg.style.color = '#059669';
+            msg.textContent = data.data.message;
+            setTimeout(closeDossierModal, 3500);
+        } else {
+            msg.style.color = '#e11d48';
+            msg.textContent = data.data.message || 'An error occurred.';
+        }
+    })
+    .catch(err => {
+        btn.disabled = false;
+        btn.textContent = 'Submit Request →';
+        msg.style.color = '#e11d48';
+        msg.textContent = 'Network error. Please try again.';
+    });
+}
+
 function submitEOI(e) {
     e.preventDefault();
     const btn = document.getElementById('eoiSubmitBtn');
