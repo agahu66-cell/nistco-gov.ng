@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: NISTCO Hero + Impact Metrics & Presidential Master
- * Homepage template containing Hero, Impact Metrics, and Presidential Banner.
+ * Template Name: NISTCO Hero + Metrics + Presidential + Executive Master
+ * Homepage template containing Hero, Impact Metrics, Presidential Banner, and Executive Direction.
  */
 
 get_header();
@@ -258,9 +258,11 @@ get_header();
     z-index: 3;
 }
 
-/* Presidential Banner Styles */
+/* Section & Banner Styles */
 .nistco-section { padding: 5rem 2rem; }
+.nistco-bg-white { background: #ffffff; }
 .nistco-bg-parchment { background: #f1f5f9; }
+
 .mc-presidential-banner { background: #042416; border-radius: 16px; padding: 3rem; color: #ffffff; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(4,36,22,0.25); border: 1px solid rgba(217,119,6,0.3); }
 .mc-presidential-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; }
 @media(max-width: 992px) { .mc-presidential-grid { grid-template-columns: 1fr; } }
@@ -273,6 +275,18 @@ get_header();
 .mc-presidential-rank { font-size: 0.85rem; color: #94a3b8; }
 .mc-presidential-heading { font-size: 2rem; font-weight: 800; color: #fff; margin: 1rem 0; line-height: 1.2; }
 .mc-presidential-quote { font-size: 1.05rem; line-height: 1.7; color: #cbd5e1; font-style: italic; border-left: 4px solid #d97706; padding-left: 1.25rem; margin: 1.5rem 0; }
+
+/* Executive Direction Styles (Rectangular Portrait Box) */
+.mc-exec-grid { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; align-items: center; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+@media(max-width: 992px) { .mc-exec-grid { grid-template-columns: 1fr; } }
+.mc-exec-portrait-card { text-align: center; }
+.mc-exec-photo-wrap { width: 100%; height: 320px; border-radius: 12px; border: 3px solid #008751; overflow: hidden; position: relative; box-shadow: 0 10px 25px rgba(0,135,81,0.15); background: #021a10; }
+.mc-exec-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.mc-exec-photo-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,135,81,0.9); color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.4rem; text-transform: uppercase; }
+.mc-exec-name { display: block; font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-top: 1rem; }
+.mc-exec-designation { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+.mc-exec-headline { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0; }
+.mc-exec-quote { font-size: 1.05rem; line-height: 1.7; color: #475569; font-style: italic; border-left: 4px solid #008751; padding-left: 1.25rem; margin-bottom: 1.5rem; }
 </style>
 
 <main class="nistco-main">
@@ -396,6 +410,38 @@ get_header();
                         <blockquote class="mc-presidential-quote">
                             "Our national economic transformation rests squarely on our ability to convert scientific research into scalable industrial products, fostering self-reliance across chemistry, computing, and advanced manufacturing."
                         </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EXECUTIVE DIRECTION SECTION -->
+    <section class="nistco-section nistco-bg-white">
+        <div class="nistco-container">
+            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
+                <span class="nistco-section-kicker">Executive Direction</span>
+                <h2 class="nistco-section-title">Director-General & CEO Vision</h2>
+                <p class="nistco-section-lead">Steering NISTCO toward world-class scientific excellence, operational transparency, and robust public-private industrial partnerships.</p>
+            </div>
+            <div class="mc-exec-grid">
+                <div class="mc-exec-portrait-card">
+                    <div class="mc-exec-photo-wrap">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/dg-ceo1.jpg" alt="Director General" class="leader-photo" onerror="this.style.display='none';">
+                        <div class="mc-exec-photo-badge">Executive Office</div>
+                    </div>
+                    <span class="mc-exec-name">Director-General / CEO</span>
+                    <span class="mc-exec-designation">Nigeria Innovation Science & Technology Complex</span>
+                </div>
+                <div>
+                    <h3 class="mc-exec-headline">Bridging Laboratory Breakthroughs with National Industrialization</h3>
+                    <blockquote class="mc-exec-quote">
+                        "At NISTCO, we are transforming our 7 advanced research centres into vibrant commercial engines. From our 500L chemistry pilot synthesis plant to our 256 TeraFLOPs HPC facility, we deliver verified solutions for Nigerian industry."
+                    </blockquote>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>" class="nistco-btn nistco-btn-primary">
+                            Explore Leadership Roster &rarr;
+                        </a>
                     </div>
                 </div>
             </div>
