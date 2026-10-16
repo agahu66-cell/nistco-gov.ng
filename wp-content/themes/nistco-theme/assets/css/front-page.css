@@ -1,0 +1,822 @@
+/* ==========================================================================
+   NISTCO Master Front Page Stylesheet
+   ========================================================================== */
+
+/* Base Architecture */
+.nistco-main {
+    background: #060d17;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+}
+
+.nistco-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+.nistco-section {
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.nistco-bg-dark { background: #060d17; color: #ffffff; }
+.nistco-bg-slate { background: #0c1626; color: #ffffff; }
+.nistco-bg-parchment { background: #f8fafc; color: #0f172a; }
+.nistco-bg-white { background: #ffffff; color: #0f172a; }
+
+/* Bidirectional Scroll Engine */
+.scroll-fx {
+    opacity: 0;
+    transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-fx.fx-fade-up { transform: translateY(50px); }
+.scroll-fx.fx-slide-left { transform: translateX(-50px); }
+.scroll-fx.fx-slide-right { transform: translateX(50px); }
+.scroll-fx.fx-scale-in { transform: scale(0.90); }
+
+.scroll-fx.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+.scroll-fx.scrolled-past {
+    opacity: 0.1;
+    transform: translateY(-35px) scale(0.97);
+}
+
+.scroll-fx.scrolled-above {
+    opacity: 0.1;
+    transform: translateY(35px) scale(0.97);
+}
+
+/* 1. Hero Section & 3D Epicyclic Gearing Core */
+.nistco-hero-section {
+    position: relative;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 75% 25%, rgba(0, 135, 81, 0.16) 0%, transparent 50%),
+                radial-gradient(circle at 15% 80%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+                #060d17;
+    padding: 7rem 2rem 5rem 2rem;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nistco-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .nistco-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+}
+
+.nistco-pill-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    .nistco-pill-group { justify-content: center; }
+}
+
+.nistco-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+}
+
+.badge-green { background: rgba(0, 135, 81, 0.2); border: 1px solid #008751; color: #00ffa3; }
+.badge-gold { background: rgba(217, 119, 6, 0.2); border: 1px solid #d97706; color: #fbbf24; }
+
+.hero-lead-title {
+    font-size: clamp(2.4rem, 4.4vw, 4rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -1px;
+}
+
+.hero-lead-title span {
+    background: linear-gradient(135deg, #00ffa3 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: #94a3b8;
+    max-width: 620px;
+    margin-bottom: 2.25rem;
+}
+
+@media (max-width: 992px) {
+    .hero-description { margin-left: auto; margin-right: auto; }
+}
+
+.hero-actions-row {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 992px) {
+    .hero-actions-row { justify-content: center; }
+}
+
+.btn-nistco {
+    padding: 0.9rem 1.85rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.btn-prime {
+    background: #008751;
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 135, 81, 0.35);
+}
+
+.btn-prime:hover {
+    background: #00a865;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 135, 81, 0.5);
+    color: #fff;
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.nistco-centre-launchpad {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.25rem;
+    backdrop-filter: blur(10px);
+}
+
+.launchpad-heading {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fde047;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.75rem;
+}
+
+.launchpad-pills-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 992px) {
+    .launchpad-pills-row { justify-content: center; }
+}
+
+.launchpad-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.launchpad-pill:hover {
+    background: #008751;
+    border-color: #008751;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* 3D Epicyclic Gear Stage */
+.nistco-hero-viewport {
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    height: 520px;
+    margin: 0 auto;
+    perspective: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.epicyclic-stage {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    transform-style: preserve-3d;
+    transform: rotateX(54deg) rotateZ(-36deg);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nistco-hero-viewport:hover .epicyclic-stage {
+    transform: rotateX(46deg) rotateZ(-28deg);
+}
+
+.epicyclic-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 25px 35px rgba(0, 10, 25, 0.8))
+            drop-shadow(0 0 25px rgba(0, 229, 255, 0.25));
+}
+
+.planetary-carrier {
+    transform-origin: 0 0;
+    animation: carrierRotate 30s linear infinite;
+}
+
+.planet-spin {
+    transform-origin: 0 0;
+    animation: planetCounterRotate 10s linear infinite;
+}
+
+.sun-gear {
+    transform-origin: 0 0;
+    animation: sunCounterRotate 15s linear infinite;
+}
+
+@keyframes carrierRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes planetCounterRotate {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@keyframes sunCounterRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* 2. Institutional Impact Metrics Section */
+.nistco-impact-section {
+    background: linear-gradient(135deg, #021a10 0%, #042416 100%);
+    color: #fff;
+    padding: 5rem 1.5rem;
+    border-top: 2px solid #d97706;
+    border-bottom: 3px solid #d97706;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.impact-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.impact-metric-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    border-radius: 12px;
+    padding: 2rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.impact-metric-card:hover {
+    transform: translateY(-4px);
+}
+
+.nistco-counter {
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.65rem;
+}
+
+/* 3. Specialized Centres & Divisions: 3D Vector Cards */
+.centres-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.centre-card-3d {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    perspective: 800px;
+}
+
+.centre-card-3d:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.icon-box-3d-wrap {
+    width: 64px;
+    height: 64px;
+    perspective: 600px;
+    margin-bottom: 1.5rem;
+}
+
+.icon-box-3d {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-15deg);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.centre-card-3d:hover .icon-box-3d {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(12px);
+    box-shadow: 0 15px 30px rgba(0, 135, 81, 0.25);
+}
+
+.icon-box-3d svg {
+    width: 32px;
+    height: 32px;
+    transform: translateZ(16px);
+    transition: transform 0.3s ease;
+}
+
+.centre-card-3d:hover .icon-box-3d svg {
+    transform: translateZ(24px) scale(1.1);
+}
+
+.centre-badge-tag {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.centre-title-text {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0.35rem 0 0.5rem 0;
+}
+
+.centre-meta-spec {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.centre-body-copy {
+    font-size: 0.92rem;
+    color: #64748b;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+    flex-grow: 1;
+}
+
+.centre-link-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.centre-card-3d:hover .centre-link-arrow {
+    transform: translateX(4px);
+}
+
+/* 4. Documentaries & Institutional Briefings: Editorial Showcase */
+.briefings-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+    .briefings-editorial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.briefing-feature-card {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.briefing-video-player-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #020811;
+    overflow: hidden;
+}
+
+.briefing-video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(0, 135, 81, 0.3) 0%, rgba(2, 8, 17, 0.95) 75%);
+}
+
+.play-pulse-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #008751;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.6);
+    animation: pulsePlay 2.2s infinite;
+    cursor: pointer;
+    border: none;
+}
+
+@keyframes pulsePlay {
+    0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(0, 255, 163, 0); }
+    100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(0, 255, 163, 0); }
+}
+
+.briefing-feature-content {
+    padding: 2.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.briefing-time-pill {
+    font-size: 0.72rem;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.08);
+    color: #38bdf8;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 0.85rem;
+}
+
+.briefing-feature-content h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin: 0 0 0.85rem 0;
+    line-height: 1.3;
+}
+
+.briefing-feature-content p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
+
+.briefings-catalog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.briefing-list-item {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.briefing-list-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: #008751;
+    transform: translateX(6px);
+}
+
+.briefing-badge-icon {
+    width: 54px;
+    height: 54px;
+    background: rgba(0, 135, 81, 0.15);
+    border: 1px solid rgba(0, 255, 163, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffa3;
+}
+
+.briefing-item-meta h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.briefing-item-meta p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* 5. Stakeholder Feedback: Infinite Horizontal 3D Carousel */
+.nistco-rating-summary-ribbon {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 1440px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.rating-stat-box { text-align: center; }
+.rating-score { font-size: 3rem; font-weight: 800; color: #0f172a; line-height: 1; }
+.rating-score span { font-size: 1.25rem; color: #64748b; font-weight: 600; }
+.rating-stars { color: #f59e0b; font-size: 1.25rem; margin: 0.35rem 0; }
+.rating-count { font-size: 0.85rem; color: #64748b; }
+.rating-divider { width: 1px; height: 60px; background: #e2e8f0; }
+.rating-metrics-grid { display: flex; gap: 2rem; flex-wrap: wrap; }
+.metric-pill { text-align: center; }
+.metric-val { display: block; font-size: 1.5rem; font-weight: 800; color: #008751; }
+.metric-lbl { font-size: 0.8rem; color: #64748b; font-weight: 700; text-transform: uppercase; }
+
+.nistco-horizontal-ticker-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 1rem 0;
+}
+
+.nistco-horizontal-ticker-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: infiniteHorizontalScroll 36s linear infinite;
+}
+
+.nistco-horizontal-ticker-container:hover .nistco-horizontal-ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes infiniteHorizontalScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+.nistco-feedback-card {
+    width: 380px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: #1e293b;
+}
+
+.nistco-feedback-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.feedback-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.feedback-avatar-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.feedback-avatar-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.feedback-card-meta h4 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.15rem 0;
+}
+
+.feedback-card-meta span {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.feedback-quote {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.feedback-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+}
+
+.feedback-stars { color: #f59e0b; font-size: 1rem; letter-spacing: 1px; }
+.feedback-badge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* 6. Strategic Partners: Floating 3D Animated Insignia */
+.partners-grid-3d {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.partner-card-modern {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2.25rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.partner-card-modern:hover {
+    transform: translateY(-5px);
+    border-color: #008751;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+}
+
+.insignia-float-box {
+    width: 60px;
+    height: 60px;
+    perspective: 500px;
+    margin-bottom: 1.5rem;
+}
+
+.insignia-inner-3d {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #042416 0%, #02140c 100%);
+    border: 1px solid rgba(0, 255, 163, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    animation: insigniaLevitate 5s ease-in-out infinite;
+    box-shadow: 0 8px 16px rgba(4, 36, 22, 0.2);
+}
+
+.partner-card-modern:hover .insignia-inner-3d {
+    animation-play-state: paused;
+    transform: rotateX(20deg) rotateY(-20deg) scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 135, 81, 0.35);
+}
+
+@keyframes insigniaLevitate {
+    0%, 100% { transform: translateY(0px) rotateX(10deg) rotateY(-10deg); }
+    50% { transform: translateY(-8px) rotateX(-10deg) rotateY(10deg); }
+}
+
+.insignia-inner-3d svg {
+    width: 28px;
+    height: 28px;
+    stroke: #00ffa3;
+    transform: translateZ(12px);
+}
+
+.partner-card-modern h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.6rem 0;
+}
+
+.partner-card-modern p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.partner-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.25rem;
+}

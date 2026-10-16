@@ -204,3 +204,4 @@ function nistco_register_institutional_metrics_block() {
     register_block_type( get_template_directory() . '/blocks/institutional-metrics' );
 }
 add_action( 'init', 'nistco_register_institutional_metrics_block' );
+require_once get_template_directory() . '/inc-front-assets.php';
