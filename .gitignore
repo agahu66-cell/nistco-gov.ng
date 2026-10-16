@@ -32,3 +32,7 @@ wp-content/index.php
 wp-content/plugins/
 wp-content/themes/index.php
 *.zip
+
+# Database backups
+*.sql
+*.sql.gz
