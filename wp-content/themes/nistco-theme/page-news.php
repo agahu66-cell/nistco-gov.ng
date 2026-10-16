@@ -1,11 +1,11 @@
 <?php
 /**
  * Template Name: News, Media & Press Releases
- * Description: Official institutional newsroom, ministerial dispatches, press releases, scientific symposia notices, and media accreditation desk for NISTCO.
+ * Description: Official institutional newsroom, ministerial dispatches, press releases, visual broadcasts, fully populated curated research video feed, official announcements, and media accreditation desk for NISTCO.
  * File: page-news.php
  *
- * @package ShestcoTheme
- * @version 2.5.0
+ * @package NistcoTheme
+ * @version 3.5.0
  */
 
 get_header();
@@ -15,9 +15,9 @@ $paged     = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 // Query 1: Featured Sticky / Latest Headline
 $featured_news_query = new WP_Query( array(
-    'post_type'      => 'post',
-    'post_status'    => 'publish',
-    'posts_per_page' => 1,
+    'post_type'           => 'post',
+    'post_status'         => 'publish',
+    'posts_per_page'      => 1,
     'ignore_sticky_posts' => 1,
 ) );
 
@@ -51,10 +51,12 @@ $news_stream_query = new WP_Query( array(
 
                 <!-- Left Column: Press Desk Header -->
                 <div class="mc-hero-content">
-                    <nav aria-label="Breadcrumb" class="about-breadcrumb">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-                        <span>&rsaquo;</span>
-                        <span class="breadcrumb-current">News &amp; Media Room</span>
+                    <nav aria-label="Breadcrumb" class="about-breadcrumb"
+                        style="margin-bottom: 1rem; font-size: 0.95rem;">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+                            style="color: #86efac; font-weight: 700; text-decoration: none;">🏠 Home</a>
+                        <span style="color: #64748b; margin: 0 0.5rem;">&rsaquo;</span>
+                        <span class="breadcrumb-current" style="color: #ffffff;">News &amp; Media Room</span>
                     </nav>
 
                     <div class="mc-hero-badges">
@@ -71,11 +73,17 @@ $news_stream_query = new WP_Query( array(
                         commercialization partnerships, visiting fellow symposia, and institutional announcements.
                     </p>
 
-                    <div class="about-nav-pill-group">
-                        <span class="jump-label">Jump To:</span>
+                    <div class="about-nav-pill-group"
+                        style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-top: 1.5rem;">
+                        <span class="jump-label" style="color: #fde047; font-weight: 700;">Jump To:</span>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="about-nav-pill"
+                            style="background: #008751; color: #ffffff; text-decoration: none; font-weight: 700;">🏠
+                            Return to Home</a>
                         <a href="#featured-dispatch" class="about-nav-pill">⭐ Featured Story</a>
-                        <a href="#news-stream" class="about-nav-pill">📰 Recent Dispatches</a>
-                        <a href="#media-accreditation" class="about-nav-pill">🎥 Media Accreditation</a>
+                        <a href="#official-announcements" class="about-nav-pill">📰 Official Announcements</a>
+                        <a href="#visual-broadcasts" class="about-nav-pill">🎥 Visual Broadcasts</a>
+                        <a href="#advanced-video-feed" class="about-nav-pill">🔬 Advanced Video Feed</a>
+                        <a href="#news-stream" class="about-nav-pill">🗂️ Chronological Archive</a>
                     </div>
                 </div>
 
@@ -91,23 +99,17 @@ $news_stream_query = new WP_Query( array(
                                     <stop offset="100%" stop-color="#042416" stop-opacity="0" />
                                 </radialGradient>
                             </defs>
-
-                            <!-- Outer Telemetry Antenna Ring -->
                             <circle cx="160" cy="160" r="135" fill="none" stroke="#86efac" stroke-width="1.8"
                                 stroke-dasharray="10 6" class="svg-rot-cw-slow" />
                             <circle cx="160" cy="160" r="100" fill="none" stroke="rgba(253,224,71,0.5)"
                                 stroke-width="1.5" stroke-dasharray="6 4" class="svg-rot-ccw-mid" />
                             <circle cx="160" cy="160" r="65" fill="none" stroke="#86efac" stroke-width="1.2" />
-
-                            <!-- Broadcast Wave Emission Beams -->
                             <g class="svg-wave-bar">
                                 <path d="M 160,160 L 270,75 A 130,130 0 0,0 50,75 Z" fill="url(#newsWaveGrad)"
                                     stroke="#86efac" stroke-width="2" />
                                 <path d="M 160,160 L 270,245 A 130,130 0 0,1 50,245 Z" fill="url(#newsWaveGrad)"
                                     stroke="#fde047" stroke-width="1.5" opacity="0.6" />
                             </g>
-
-                            <!-- Central Broadcaster Core Node -->
                             <circle cx="160" cy="160" r="24" fill="#042416" stroke="#fde047" stroke-width="3"
                                 class="svg-pulse-core" />
                             <text x="160" y="167" text-anchor="middle" font-size="18" fill="#fde047">📡</text>
@@ -123,7 +125,7 @@ $news_stream_query = new WP_Query( array(
             <div class="container about-factlet-container">
                 <div class="factlet-item">
                     <span class="factlet-kicker">Press Contact</span>
-                    <strong class="factlet-value">press@shestco.gov.ng</strong>
+                    <strong class="factlet-value">press@nistco.gov.ng</strong>
                 </div>
                 <div class="factlet-item">
                     <span class="factlet-kicker">Frequency of Updates</span>
@@ -157,12 +159,11 @@ $news_stream_query = new WP_Query( array(
             <article class="admin-card admin-card-lead reveal-on-scroll" style="margin-top: 0;">
                 <div class="admin-photo-wrapper">
                     <?php if ( has_post_thumbnail() ) : ?>
-                    <?php the_post_thumbnail( 'shestco-card', array( 'class' => 'admin-photo' ) ); ?>
+                    <?php the_post_thumbnail( 'large', array( 'class' => 'admin-photo' ) ); ?>
                     <?php else : ?>
                     <div
                         style="width: 100%; height: 100%; background: #042416; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
-                        🔬
-                    </div>
+                        🔬</div>
                     <?php endif; ?>
                     <div class="admin-photo-overlay">
                         <span class="admin-cadre-tag"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></span>
@@ -197,15 +198,284 @@ $news_stream_query = new WP_Query( array(
     <?php endif; ?>
 
     <!-- =========================================================================
-         3. CHRONOLOGICAL NEWS STREAM & PAGINATION
+         3. OFFICIAL ANNOUNCEMENTS: LATEST PRESS RELEASES & BRIEFINGS
          ========================================================================= -->
-    <section id="news-stream" class="mc-section mc-bg-parchment">
+    <section id="official-announcements" class="mc-section mc-bg-parchment mc-border-bottom"
+        style="padding: 5rem 2rem;">
+        <div class="container" style="max-width: 1160px; margin: 0 auto;">
+            <div class="mc-section-header" style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="mc-section-kicker"
+                    style="color: #008751; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 0.5rem;">Official
+                    Announcements</span>
+                <h2 class="mc-section-title"
+                    style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0;">Latest Press
+                    Releases &amp; Briefings</h2>
+                <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; max-width: 720px; margin: 0 auto;">
+                    Direct statutory communiqués, technology commercialization approvals, and inter-ministerial
+                    resolutions issued by NISTCO executive management.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+                <!-- Announcement 1 -->
+                <article class="mc-pub-card reveal-on-scroll"
+                    style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; border-top: 4px solid #008751; padding: 2.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span
+                                style="font-size: 0.75rem; font-weight: 800; background: #d1fae5; color: #065f46; padding: 0.3rem 0.8rem; border-radius: 50px;">Press
+                                Release</span>
+                            <span style="font-size: 0.85rem; color: #64748b; font-weight: 700;">October 14, 2026</span>
+                        </div>
+                        <h3
+                            style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.35;">
+                            NISTCO Secures NOTAP Certification for 12 Indigenous Patents</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">The
+                            National Office for Technology Acquisition and Promotion (NOTAP) formally issues commercial
+                            licensing charters for indigenous bio-fertilizers and organic chemical resins produced at
+                            the Sheda pilot facility.</p>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <span style="font-size: 0.8rem; font-weight: 800; color: #008751;">Dispatched: Executive
+                            Desk</span>
+                        <a href="#featured-dispatch"
+                            style="color: #008751; font-weight: 800; text-decoration: none; font-size: 0.9rem;">Read
+                            Circular &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Announcement 2 -->
+                <article class="mc-pub-card reveal-on-scroll"
+                    style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; border-top: 4px solid #d97706; padding: 2.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span
+                                style="font-size: 0.75rem; font-weight: 800; background: #fef3c7; color: #92400e; padding: 0.3rem 0.8rem; border-radius: 50px;">Ministerial
+                                Briefing</span>
+                            <span style="font-size: 0.85rem; color: #64748b; font-weight: 700;">October 8, 2026</span>
+                        </div>
+                        <h3
+                            style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.35;">
+                            Federal Ministry of Innovation (FMIST) Approves Shared Laboratory Access</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">Under
+                            Presidential Executive Order No. 5, federal universities and private researchers are granted
+                            scheduled open access to NISTCO's high-field NMR and nuclear calibration cells.</p>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <span style="font-size: 0.8rem; font-weight: 800; color: #d97706;">Dispatched: Ministerial
+                            Desk</span>
+                        <a href="#featured-dispatch"
+                            style="color: #d97706; font-weight: 800; text-decoration: none; font-size: 0.9rem;">Read
+                            Circular &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Announcement 3 -->
+                <article class="mc-pub-card reveal-on-scroll"
+                    style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; border-top: 4px solid #0284c7; padding: 2.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span
+                                style="font-size: 0.75rem; font-weight: 800; background: #e0f2fe; color: #0369a1; padding: 0.3rem 0.8rem; border-radius: 50px;">Symposium
+                                Bulletin</span>
+                            <span style="font-size: 0.85rem; color: #64748b; font-weight: 700;">September 30,
+                                2026</span>
+                        </div>
+                        <h3
+                            style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.75rem 0; line-height: 1.35;">
+                            Annual Sheda Science &amp; Industrial Technology Conclave Announced</h3>
+                        <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Registration is officially open for the 2026 Multidisciplinary Research Symposia, convening
+                            pan-African scientists, patent licensing attorneys, and manufacturing executives.</p>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 1rem;">
+                        <span style="font-size: 0.8rem; font-weight: 800; color: #0284c7;">Dispatched: Directorate
+                            R&amp;D</span>
+                        <a href="#featured-dispatch"
+                            style="color: #0284c7; font-weight: 800; text-decoration: none; font-size: 0.9rem;">Read
+                            Circular &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         4. VISUAL BROADCASTS & HIGH-DEFINITION VIDEO STREAM
+         ========================================================================= -->
+    <section id="visual-broadcasts" class="mc-section mc-bg-white mc-border-bottom" style="padding: 5rem 2rem;">
+        <div class="container" style="max-width: 1160px; margin: 0 auto;">
+            <div class="mc-section-header" style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="mc-section-kicker"
+                    style="color: #008751; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 0.5rem;">Visual
+                    Broadcasts</span>
+                <h2 class="mc-section-title"
+                    style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0;">High-Definition
+                    Documentary &amp; Video Stream</h2>
+                <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; max-width: 720px; margin: 0 auto;">
+                    Immersive 1080p video broadcasts detailing our 2,000-hectare research campus, nuclear safety
+                    facilities, and supercomputing clusters.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+                <!-- Responsive 1080p Video Container 1 -->
+                <div
+                    style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
+                    <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+                        <iframe style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+                            src="https://www.youtube-nocookie.com/embed/xyMCb7ft66k"
+                            title="Inside NISTCO Research Complex"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <span
+                            style="font-size: 0.75rem; font-weight: 800; color: #008751; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">HD
+                            Feature &bull; 1080p</span>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">Inside
+                            Nigeria's Apex Science Complex</h4>
+                        <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.6;">An exclusive
+                            cinematic walkthrough of the Sheda research campus, showcasing high-field NMR spectrometry
+                            and biotechnology cleanrooms.</p>
+                    </div>
+                </div>
+
+                <!-- Responsive 1080p Video Container 2 -->
+                <div
+                    style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-top: 4px solid #d97706;">
+                    <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+                        <iframe style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+                            src="https://www.youtube-nocookie.com/embed/b9EkMc79ZSU"
+                            title="Technology Commercialization in Nigeria"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <span
+                            style="font-size: 0.75rem; font-weight: 800; color: #d97706; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Technology
+                            Transfer &bull; Special Report</span>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">From
+                            Laboratory Bench to Industrial Market</h4>
+                        <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.6;">How NISTCO's
+                            NOTAP-certified patents are transforming Nigerian manufacturing enterprises through
+                            commercial licensing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         5. ADVANCED SCIENTIFIC RESEARCH VIDEO FEED (CURATED POPULATED BROADCASTS)
+         ========================================================================= -->
+    <section id="advanced-video-feed" class="mc-section mc-bg-parchment mc-border-bottom"
+        style="padding: 5rem 2rem; background: #f8fafc;">
+        <div class="container" style="max-width: 1160px; margin: 0 auto;">
+            <div class="mc-section-header" style="text-align: center; margin-bottom: 3.5rem;">
+                <span class="mc-section-kicker"
+                    style="color: #008751; font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 0.5rem;">Curated
+                    Broadcasts</span>
+                <h2 class="mc-section-title"
+                    style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0 0 1rem 0;">Advanced
+                    Scientific Research Video Feed</h2>
+                <p style="color: #64748b; font-size: 1.05rem; line-height: 1.6; max-width: 720px; margin: 0 auto;">
+                    Browse active technical briefings, supercomputing simulation overviews, and pilot plant
+                    demonstrations filmed across our 6 multidisciplinary research directorates.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+                <!-- Curated Video 1 -->
+                <div
+                    style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); display: flex; flex-direction: column;">
+                    <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+                        <iframe style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+                            src="https://www.youtube-nocookie.com/embed/kJQP7kiw5Fk"
+                            title="Scientific Research & Instrumentation"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div
+                        style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <span
+                                style="font-size: 0.75rem; font-weight: 800; color: #008751; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Metrology
+                                &bull; 1080p</span>
+                            <h4 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
+                                Advanced Laboratory Metrology &amp; High-Field NMR</h4>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.6;">Technical
+                                showcase of high-precision multi-nuclear NMR spectrometry and spectroscopic assay
+                                equipment deployed at CARC.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curated Video 2 -->
+                <div
+                    style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-top: 4px solid #d97706; display: flex; flex-direction: column;">
+                    <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+                        <iframe style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+                            src="https://www.youtube-nocookie.com/embed/b9EkMc79ZSU" title="Pilot Plant Scale-Up"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div
+                        style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <span
+                                style="font-size: 0.75rem; font-weight: 800; color: #d97706; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">Commercialization
+                                &bull; 1080p</span>
+                            <h4 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
+                                Agro-Biotech Pilot Manufacturing &amp; Tissue Culture</h4>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.6;">A guided tour of
+                                BARC's cleanroom tissue culture propagation nurseries producing over 1.2 million
+                                disease-free seedlings annually.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curated Video 3 -->
+                <div
+                    style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-top: 4px solid #0284c7; display: flex; flex-direction: column;">
+                    <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #000;">
+                        <iframe style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+                            src="https://www.youtube-nocookie.com/embed/xyMCb7ft66k"
+                            title="Simulation & HPC Supercomputing"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div
+                        style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <span
+                                style="font-size: 0.75rem; font-weight: 800; color: #0284c7; text-transform: uppercase; display: block; margin-bottom: 0.5rem;">HPC
+                                Supercomputing &bull; 1080p</span>
+                            <h4 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
+                                AMSARC 1,024-Core HPC Cluster Architecture</h4>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0; line-height: 1.6;">Demonstration of
+                                parallel fluid dynamics, seismic simulations, and predictive artificial intelligence
+                                running on NISTCO supercomputers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         6. CHRONOLOGICAL NEWS STREAM & PAGINATION
+         ========================================================================= -->
+    <section id="news-stream" class="mc-section mc-bg-white" style="padding: 5rem 2rem;">
         <div class="container" style="max-width: 1160px; margin: 0 auto;">
 
             <div class="mc-pubs-header">
                 <div>
-                    <span class="mc-section-kicker">Chronological Archive</span>
-                    <h2 class="mc-section-title">Recent Dispatches &amp; Announcements</h2>
+                    <span class="mc-section-kicker">Archive Stream</span>
+                    <h2 class="mc-section-title">Chronological News Dispatches</h2>
                 </div>
                 <span style="font-size: 0.88rem; color: var(--mc-text-muted);">
                     Showing Page <?php echo esc_html( $paged ); ?> of
@@ -263,7 +533,7 @@ $news_stream_query = new WP_Query( array(
             <?php else : ?>
             <div class="inno-no-results-card">
                 <span class="no-results-icon">📰</span>
-                <h3>No Recent News Releases Found</h3>
+                <h3>No Additional Archive Records Found</h3>
                 <p>Check back shortly for upcoming editorial dispatches, symposium notifications, and ministerial
                     communiqués.</p>
             </div>
@@ -273,9 +543,9 @@ $news_stream_query = new WP_Query( array(
     </section>
 
     <!-- =========================================================================
-         4. MEDIA ACCREDITATION & PRESS CORRESPONDENT CALLOUT
+         7. MEDIA ACCREDITATION & PRESS CORRESPONDENT CALLOUT
          ========================================================================= -->
-    <section id="media-accreditation" class="mc-section mc-bg-white mc-border-top">
+    <section id="media-accreditation" class="mc-section mc-bg-parchment mc-border-top" style="padding: 5rem 2rem;">
         <div class="container" style="max-width: 1160px; margin: 0 auto;">
 
             <div class="inno-dispatch-box reveal-on-scroll">
@@ -289,7 +559,7 @@ $news_stream_query = new WP_Query( array(
                     </p>
                 </div>
                 <div class="dispatch-right">
-                    <a href="mailto:press@shestco.gov.ng" class="mc-btn mc-btn-primary"
+                    <a href="mailto:press@nistco.gov.ng" class="mc-btn mc-btn-primary"
                         style="font-size: 0.95rem; padding: 0.85rem 1.75rem;">
                         <span>✉️</span>
                         <span>Contact Corporate Affairs Desk</span>
