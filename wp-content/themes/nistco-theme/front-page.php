@@ -1,54 +1,23 @@
 <?php
 /**
- * Template Name: NISTCO Master Front Page (Unified Atomic & Gears Edition)
- * Comprehensive master homepage featuring the immersive atomic particle hero and SVG interlocking gears.
+ * Template Name: NISTCO Master Front Page (Modern Interactive Edition)
+ * International standard institutional homepage featuring smoothed bidirectional scroll animations,
+ * 3D isometric epicyclic gearing, 3D division & partner insignia, institutional impact metrics,
+ * editorial media briefings, and an infinite horizontal stakeholder review carousel.
  */
 
 get_header();
 ?>
 
-<!-- Master NISTCO Styling & Immersive Hero Animations -->
 <style>
+/* ==========================================================================
+   Base Architecture & Global Reset
+   ========================================================================== */
 .nistco-main {
-    background: #0a1a2f;
+    background: #060d17;
     color: #ffffff;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
-}
-
-/* Immersive Hero Section with Particle Field & Color Cycling */
-.nistco-hero-section {
-    position: relative;
-    min-height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at center, #0a1a2f 0%, #050a16 100%);
-    padding: 6rem 2rem;
-    overflow: hidden;
-}
-
-.nistco-hero-section::before,
-.nistco-hero-section::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: drift 60s linear infinite, hueShift 20s linear infinite;
-    opacity: 0.25;
-    filter: blur(2px);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.nistco-hero-section::after {
-    background-size: 60px 60px;
-    animation-duration: 90s, 30s;
-    opacity: 0.15;
 }
 
 .nistco-container {
@@ -59,9 +28,94 @@ get_header();
     width: 100%;
 }
 
+.nistco-section {
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.nistco-bg-dark {
+    background: #060d17;
+    color: #ffffff;
+}
+
+.nistco-bg-slate {
+    background: #0c1626;
+    color: #ffffff;
+}
+
+.nistco-bg-parchment {
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.nistco-bg-white {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+/* ==========================================================================
+   Bidirectional Scroll Engine (Smoothed, Slower In & Out Transitions)
+   ========================================================================== */
+.scroll-fx {
+    opacity: 0;
+    /* Paced down to 1.35s with deep cubic easing for majestic deceleration */
+    transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-fx.fx-fade-up {
+    transform: translateY(50px);
+}
+
+.scroll-fx.fx-slide-left {
+    transform: translateX(-50px);
+}
+
+.scroll-fx.fx-slide-right {
+    transform: translateX(50px);
+}
+
+.scroll-fx.fx-scale-in {
+    transform: scale(0.90);
+}
+
+/* In-viewport state */
+.scroll-fx.is-visible {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+/* Slower reciprocal exit transforms */
+.scroll-fx.scrolled-past {
+    opacity: 0.1;
+    transform: translateY(-35px) scale(0.97);
+}
+
+.scroll-fx.scrolled-above {
+    opacity: 0.1;
+    transform: translateY(35px) scale(0.97);
+}
+
+/* ==========================================================================
+   1. Hero Section & 3D Isometric Epicyclic Gearing Core
+   ========================================================================== */
+.nistco-hero-section {
+    position: relative;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 75% 25%, rgba(0, 135, 81, 0.16) 0%, transparent 50%),
+        radial-gradient(circle at 15% 80%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+        #060d17;
+    padding: 7rem 2rem 5rem 2rem;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .nistco-hero-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.15fr 0.85fr;
     gap: 4rem;
     align-items: center;
 }
@@ -72,130 +126,125 @@ get_header();
         gap: 3rem;
         text-align: center;
     }
-
-    .nistco-hero-badges,
-    .nistco-hero-actions,
-    .launchpad-pills-row {
-        justify-content: center;
-    }
-
-    .nistco-hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
 
-.nistco-hero-badges {
+.nistco-pill-group {
     display: flex;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
-.nistco-pill {
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    padding: 0.35rem 0.85rem;
-    border-radius: 50px;
-    letter-spacing: 1px;
-}
-
-.nistco-pill-green {
-    background: #008751;
-    color: #ffffff;
-}
-
-.nistco-pill-gold {
-    background: #d97706;
-    color: #ffffff;
-}
-
-.nistco-hero-title {
-    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
-    font-weight: 800;
-    line-height: 1.15;
-    margin: 0 0 1.5rem 0;
-    color: #ffffff;
-}
-
-.nistco-hero-subtitle {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #cbd5e1;
-    margin-bottom: 2rem;
-    max-width: 640px;
-}
-
-.nistco-hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-}
-
-@media (max-width: 576px) {
-    .nistco-hero-actions {
-        flex-direction: column;
-    }
-
-    .nistco-btn {
-        width: 100%;
+@media (max-width: 992px) {
+    .nistco-pill-group {
         justify-content: center;
     }
 }
 
-.nistco-btn {
-    padding: 0.85rem 1.75rem;
+.nistco-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+}
+
+.badge-green {
+    background: rgba(0, 135, 81, 0.2);
+    border: 1px solid #008751;
+    color: #00ffa3;
+}
+
+.badge-gold {
+    background: rgba(217, 119, 6, 0.2);
+    border: 1px solid #d97706;
+    color: #fbbf24;
+}
+
+.hero-lead-title {
+    font-size: clamp(2.4rem, 4.4vw, 4rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -1px;
+}
+
+.hero-lead-title span {
+    background: linear-gradient(135deg, #00ffa3 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.12rem;
+    line-height: 1.75;
+    color: #94a3b8;
+    max-width: 620px;
+    margin-bottom: 2.25rem;
+}
+
+@media (max-width: 992px) {
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.hero-actions-row {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 992px) {
+    .hero-actions-row {
+        justify-content: center;
+    }
+}
+
+.btn-nistco {
+    padding: 0.9rem 1.85rem;
     border-radius: 8px;
-    font-weight: 700;
     font-size: 0.95rem;
+    font-weight: 700;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
-.nistco-btn-primary {
+.btn-prime {
     background: #008751;
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 135, 81, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 135, 81, 0.35);
 }
 
-.nistco-btn-primary:hover {
-    background: #006c41;
-    color: #fff;
+.btn-prime:hover {
+    background: #00a865;
     transform: translateY(-2px);
-}
-
-.nistco-btn-gold {
-    background: #d97706;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
-}
-
-.nistco-btn-gold:hover {
-    background: #b45309;
+    box-shadow: 0 8px 25px rgba(0, 135, 81, 0.5);
     color: #fff;
-    transform: translateY(-2px);
 }
 
-.nistco-btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.05);
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.nistco-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
     color: #fff;
     transform: translateY(-2px);
 }
 
 .nistco-centre-launchpad {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 1.25rem;
     backdrop-filter: blur(10px);
@@ -203,11 +252,11 @@ get_header();
 
 .launchpad-heading {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
     color: #fde047;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
     margin-bottom: 0.75rem;
 }
 
@@ -217,18 +266,21 @@ get_header();
     flex-wrap: wrap;
 }
 
+@media (max-width: 992px) {
+    .launchpad-pills-row {
+        justify-content: center;
+    }
+}
+
 .launchpad-pill {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 0.45rem 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.4rem 0.85rem;
     border-radius: 6px;
     color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
     transition: all 0.2s;
 }
 
@@ -239,747 +291,405 @@ get_header();
     transform: translateY(-2px);
 }
 
-/* Floating Atomic Background Structures */
-.atom {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    filter: blur(1px);
-    animation: floatAtom 8s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.atom1 {
-    top: 10%;
-    left: 5%;
-    opacity: 0.4;
-}
-
-.atom2 {
-    bottom: 10%;
-    right: 5%;
-    opacity: 0.4;
-}
-
-.nucleus {
-    fill: #ff006e;
-    filter: blur(1px) drop-shadow(0 0 10px #ff006e);
-}
-
-.orbit {
-    fill: none;
-    stroke-width: 2;
-    opacity: 0.7;
-}
-
-.orbit1 {
-    stroke: #00c6ff;
-    animation: glow1 4s ease-in-out infinite;
-}
-
-.orbit2 {
-    stroke: #ffd60a;
-    animation: glow2 5s ease-in-out infinite;
-}
-
-.orbit3 {
-    stroke: #ffffff;
-    animation: glow3 6s ease-in-out infinite;
-}
-
-@keyframes floatAtom {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-@keyframes drift {
-    from {
-        transform: translate(0, 0);
-    }
-
-    to {
-        transform: translate(-100px, -100px);
-    }
-}
-
-@keyframes hueShift {
-    0% {
-        filter: hue-rotate(0deg) blur(2px);
-    }
-
-    50% {
-        filter: hue-rotate(180deg) blur(2px);
-    }
-
-    100% {
-        filter: hue-rotate(360deg) blur(2px);
-    }
-}
-
-@keyframes glow1 {
-
-    0%,
-    100% {
-        stroke-width: 2;
-        filter: drop-shadow(0 0 8px #00c6ff);
-    }
-
-    50% {
-        stroke-width: 3;
-        filter: drop-shadow(0 0 16px #00c6ff);
-    }
-}
-
-@keyframes glow2 {
-
-    0%,
-    100% {
-        stroke-width: 2;
-        filter: drop-shadow(0 0 8px #ffd60a);
-    }
-
-    50% {
-        stroke-width: 3;
-        filter: drop-shadow(0 0 16px #ffd60a);
-    }
-}
-
-@keyframes glow3 {
-
-    0%,
-    100% {
-        stroke-width: 2;
-        filter: drop-shadow(0 0 8px #ffffff);
-    }
-
-    50% {
-        stroke-width: 3;
-        filter: drop-shadow(0 0 16px #ffffff);
-    }
-}
-
-/* SVG Interlocking Gears Styling */
-.gear-container {
+/* 3D Epicyclic Gear Stage */
+.nistco-hero-viewport {
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: 100%;
+    max-width: 580px;
+    height: 520px;
+    margin: 0 auto;
+    perspective: 1400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3;
 }
 
-.gear {
-    position: absolute;
-    opacity: 0.85;
-    filter: drop-shadow(0 0 20px currentColor);
-    transition: transform 0.1s linear;
+.epicyclic-stage {
+    position: relative;
+    width: 480px;
+    height: 480px;
+    transform-style: preserve-3d;
+    transform: rotateX(54deg) rotateZ(-36deg);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gear-large {
-    width: 220px;
-    height: 220px;
-    bottom: 10%;
-    right: 15%;
-    color: #ff006e;
+.nistco-hero-viewport:hover .epicyclic-stage {
+    transform: rotateX(46deg) rotateZ(-28deg);
 }
 
-.gear-medium {
-    width: 140px;
-    height: 140px;
-    bottom: 25%;
-    right: 32%;
-    color: #00c6ff;
+.epicyclic-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 25px 35px rgba(0, 10, 25, 0.8)) drop-shadow(0 0 25px rgba(0, 229, 255, 0.25));
 }
 
-.gear-small {
-    width: 90px;
-    height: 90px;
-    bottom: 42%;
-    right: 25%;
-    color: #ffd60a;
+.planetary-carrier {
+    transform-origin: 0 0;
+    animation: carrierRotate 30s linear infinite;
 }
 
-/* Live R&D Telemetry Dashboard Styles */
-.nistco-telemetry-bar {
-    background: linear-gradient(135deg, #042416 0%, #021a10 100%);
+.planet-spin {
+    transform-origin: 0 0;
+    animation: planetCounterRotate 10s linear infinite;
+}
+
+.sun-gear {
+    transform-origin: 0 0;
+    animation: sunCounterRotate 15s linear infinite;
+}
+
+@keyframes carrierRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes planetCounterRotate {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes sunCounterRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* ==========================================================================
+   2. Institutional Impact Metrics Section & Dynamic Counters
+   ========================================================================== */
+.nistco-impact-section {
+    background: linear-gradient(135deg, #021a10 0%, #042416 100%);
+    color: #fff;
+    padding: 5rem 1.5rem;
     border-top: 2px solid #d97706;
-    border-bottom: 2px solid #d97706;
-    padding: 2.5rem 2rem;
-    color: #ffffff;
+    border-bottom: 3px solid #d97706;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.telemetry-grid {
+.impact-metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
-    max-width: 1440px;
-    margin: 0 auto;
 }
 
-.telemetry-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 1.5rem;
-    backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-}
-
-.telemetry-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-}
-
-.telemetry-card.hpc::before {
-    background: #38bdf8;
-}
-
-.telemetry-card.energy::before {
-    background: #f59e0b;
-}
-
-.telemetry-card.nodes::before {
-    background: #10b981;
-}
-
-.telemetry-card.ip::before {
-    background: #8b5cf6;
-}
-
-.telemetry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.75rem;
-}
-
-.telemetry-title {
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #cbd5e1;
-    letter-spacing: 1px;
-}
-
-.telemetry-status-dot {
-    width: 8px;
-    height: 8px;
-    background: #10b981;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #10b981;
-    animation: pulseDot 2s infinite;
-}
-
-@keyframes pulseDot {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(0.8);
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.telemetry-value {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 0.25rem;
-}
-
-.telemetry-subtext {
-    font-size: 0.82rem;
-    color: #94a3b8;
-}
-
-/* Section & Banner Styles */
-.nistco-section {
-    padding: 5rem 2rem;
-    color: #1e293b;
-}
-
-.nistco-bg-white {
-    background: #ffffff;
-}
-
-.nistco-bg-parchment {
-    background: #f1f5f9;
-}
-
-.mc-presidential-banner {
-    background: #042416;
-    border-radius: 16px;
-    padding: 3rem;
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(4, 36, 22, 0.25);
+.impact-metric-card {
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(217, 119, 6, 0.3);
-}
-
-.mc-presidential-grid {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-@media(max-width: 992px) {
-    .mc-presidential-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.mc-presidential-photo-frame {
-    width: 100%;
-    height: 360px;
-    background: #021a10;
     border-radius: 12px;
-    border: 3px solid #d97706;
-    overflow: hidden;
-    position: relative;
-}
-
-.mc-presidential-photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mc-presidential-photo-badge {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 135, 81, 0.9);
-    color: #fff;
+    padding: 2rem 1.25rem;
     text-align: center;
-    font-size: 0.8rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.impact-metric-card:hover {
+    transform: translateY(-4px);
+}
+
+.nistco-counter {
+    font-size: 2.75rem;
     font-weight: 800;
-    padding: 0.5rem;
+    line-height: 1;
+    margin-bottom: 0.65rem;
 }
 
-.mc-presidential-caption {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.mc-presidential-title-kicker {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #fde047;
-    letter-spacing: 1.2px;
-}
-
-.mc-presidential-name {
-    display: block;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 0.2rem 0;
-}
-
-.mc-presidential-rank {
-    font-size: 0.85rem;
-    color: #94a3b8;
-}
-
-.mc-presidential-heading {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #fff;
-    margin: 1rem 0;
-    line-height: 1.2;
-}
-
-.mc-presidential-quote {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #cbd5e1;
-    font-style: italic;
-    border-left: 4px solid #d97706;
-    padding-left: 1.25rem;
-    margin: 1.5rem 0;
-}
-
-/* Executive Direction Styles */
-.mc-exec-grid {
+/* ==========================================================================
+   3. Specialized Centres & Divisions: 3D Vector Cards
+   ========================================================================== */
+.centres-grid-modern {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 3rem;
-    align-items: center;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 3rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-}
-
-@media(max-width: 992px) {
-    .mc-exec-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.mc-exec-portrait-card {
-    text-align: center;
-}
-
-.mc-exec-photo-wrap {
-    width: 100%;
-    height: 320px;
-    border-radius: 12px;
-    border: 3px solid #008751;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0, 135, 81, 0.15);
-    background: #021a10;
-}
-
-.mc-exec-photo-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.mc-exec-photo-badge {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 135, 81, 0.9);
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 0.4rem;
-    text-transform: uppercase;
-}
-
-.mc-exec-name {
-    display: block;
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-top: 1rem;
-}
-
-.mc-exec-designation {
-    font-size: 0.85rem;
-    color: #64748b;
-    font-weight: 600;
-}
-
-.mc-exec-headline {
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin: 0 0 1rem 0;
-}
-
-.mc-exec-quote {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #475569;
-    font-style: italic;
-    border-left: 4px solid #008751;
-    padding-left: 1.25rem;
-    margin-bottom: 1.5rem;
-}
-
-/* Research Centres Grid Styles */
-.nistco-centres-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 2rem;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-.nistco-centre-card {
+.centre-card-3d {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
+    border-radius: 16px;
+    padding: 2.25rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
-    position: relative;
-    overflow: hidden;
+    perspective: 800px;
 }
 
-.nistco-centre-card:hover {
-    transform: translateY(-5px);
+.centre-card-3d:hover {
+    transform: translateY(-6px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-.nistco-centre-icon-wrap {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
+.icon-box-3d-wrap {
+    width: 64px;
+    height: 64px;
+    perspective: 600px;
+    margin-bottom: 1.5rem;
+}
+
+.icon-box-3d {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(-15deg);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-.nistco-centre-code {
-    font-size: 0.75rem;
+.centre-card-3d:hover .icon-box-3d {
+    transform: rotateX(0deg) rotateY(0deg) translateZ(12px);
+    box-shadow: 0 15px 30px rgba(0, 135, 81, 0.25);
+}
+
+.icon-box-3d svg {
+    width: 32px;
+    height: 32px;
+    transform: translateZ(16px);
+    transition: transform 0.3s ease;
+}
+
+.centre-card-3d:hover .icon-box-3d svg {
+    transform: translateZ(24px) scale(1.1);
+}
+
+.centre-badge-tag {
+    font-size: 0.72rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.35rem;
+    letter-spacing: 1.2px;
 }
 
-.nistco-centre-title {
-    font-size: 1.25rem;
+.centre-title-text {
+    font-size: 1.3rem;
     font-weight: 800;
     color: #0f172a;
-    margin: 0 0 0.75rem 0;
+    margin: 0.35rem 0 0.5rem 0;
 }
 
-.nistco-centre-desc {
+.centre-meta-spec {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.centre-body-copy {
     font-size: 0.92rem;
     color: #64748b;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
     flex-grow: 1;
 }
 
-.nistco-card-action {
+.centre-link-arrow {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     font-weight: 700;
+    font-size: 0.92rem;
     text-decoration: none;
-    padding-top: 1rem;
     border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+    transition: transform 0.2s ease;
 }
 
-/* Interactive Patent Filter Styles */
-.patent-filter-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
+.centre-card-3d:hover .centre-link-arrow {
+    transform: translateX(4px);
 }
 
-.patent-tab-btn {
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    color: #475569;
-    padding: 0.6rem 1.25rem;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.patent-tab-btn:hover,
-.patent-tab-btn.active {
-    background: #008751;
-    border-color: #008751;
-    color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 135, 81, 0.3);
-}
-
-.inno-patents-grid {
+/* ==========================================================================
+   4. Documentaries & Institutional Briefings: Editorial Showcase
+   ========================================================================== */
+.briefings-editorial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-.inno-patent-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+@media (max-width: 992px) {
+    .briefings-editorial-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.inno-patent-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.inno-patent-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.inno-tag-pill {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-    background: #e0f2fe;
-    color: #0369a1;
-}
-
-.inno-trl-pill {
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.inno-patent-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin: 0 0 0.5rem 0;
-}
-
-.inno-patent-excerpt {
-    font-size: 0.9rem;
-    color: #64748b;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-    flex-grow: 1;
-}
-
-.inno-patent-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #f1f5f9;
-    padding-top: 1rem;
-    font-size: 0.85rem;
-}
-
-.status-indicator.ready {
-    color: #059669;
-    font-weight: 700;
-}
-
-.status-indicator.deployed {
-    color: #2563eb;
-    font-weight: 700;
-}
-
-.inno-btn-license {
-    font-weight: 700;
-    color: #008751;
-    text-decoration: none;
-}
-
-/* Infinite Vertical Media Ticker Styles */
-.nistco-vertical-ticker-container {
-    max-width: 900px;
-    margin: 0 auto;
-    height: 480px;
+.briefing-feature-card {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     overflow: hidden;
-    position: relative;
-    mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-}
-
-.nistco-vertical-ticker-track {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    animation: infiniteVerticalScroll 22s linear infinite;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-.nistco-vertical-ticker-container:hover .nistco-vertical-ticker-track {
-    animation-play-state: paused;
-}
-
-@keyframes infiniteVerticalScroll {
-    0% {
-        transform: translateY(0);
-    }
-
-    100% {
-        transform: translateY(calc(-50% - 0.75rem));
-    }
-}
-
-.nistco-media-item {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 1.75rem;
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 1.75rem;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    transition: border-color 0.2s;
-}
-
-.nistco-media-item:hover {
-    border-color: #008751;
-}
-
-.nistco-media-thumb-box {
-    height: 140px;
-    background: #042416;
-    border-radius: 8px;
+.briefing-video-player-wrap {
     position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #020811;
+    overflow: hidden;
+}
+
+.briefing-video-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(0, 135, 81, 0.3) 0%, rgba(2, 8, 17, 0.95) 75%);
+}
+
+.play-pulse-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #008751;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-size: 2.5rem;
-    border: 2px solid #d97706;
+    box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.6);
+    animation: pulsePlay 2.2s infinite;
+    cursor: pointer;
+    border: none;
 }
 
-.nistco-media-badge-tag {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    background: rgba(0, 135, 81, 0.9);
-    color: #fff;
-    font-size: 0.65rem;
+@keyframes pulsePlay {
+    0% {
+        transform: scale(0.96);
+        box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.7);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 20px rgba(0, 255, 163, 0);
+    }
+
+    100% {
+        transform: scale(0.96);
+        box-shadow: 0 0 0 0 rgba(0, 255, 163, 0);
+    }
+}
+
+.briefing-feature-content {
+    padding: 2.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.briefing-time-pill {
+    font-size: 0.72rem;
     font-weight: 800;
-    padding: 0.2rem 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: #38bdf8;
+    padding: 0.3rem 0.7rem;
     border-radius: 4px;
-    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 0.85rem;
 }
 
-/* Infinite Horizontal 3D Colorful Feedback Cards Ticker Styles */
+.briefing-feature-content h3 {
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin: 0 0 0.85rem 0;
+    line-height: 1.3;
+}
+
+.briefing-feature-content p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
+
+.briefings-catalog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.briefing-list-item {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.briefing-list-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: #008751;
+    transform: translateX(6px);
+}
+
+.briefing-badge-icon {
+    width: 54px;
+    height: 54px;
+    background: rgba(0, 135, 81, 0.15);
+    border: 1px solid rgba(0, 255, 163, 0.3);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ffa3;
+}
+
+.briefing-item-meta h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.briefing-item-meta p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. Stakeholder Feedback: Infinite Horizontal 3D Carousel
+   ========================================================================== */
 .nistco-rating-summary-ribbon {
     background: #ffffff;
     border: 1px solid #e2e8f0;
@@ -1067,7 +777,7 @@ get_header();
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: infiniteHorizontalScroll 32s linear infinite;
+    animation: infiniteHorizontalScroll 36s linear infinite;
 }
 
 .nistco-horizontal-ticker-container:hover .nistco-horizontal-ticker-track {
@@ -1090,7 +800,7 @@ get_header();
     border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: 16px;
     padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 135, 81, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1103,7 +813,7 @@ get_header();
 
 .nistco-feedback-card:hover {
     transform: translateY(-6px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 10px 25px rgba(0, 135, 81, 0.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 }
 
 .feedback-card-header {
@@ -1173,8 +883,10 @@ get_header();
     border-radius: 6px;
 }
 
-/* Strategic Partners Grid Styles */
-.nistco-partners-grid {
+/* ==========================================================================
+   6. Strategic Partners: Floating 3D Animated Insignia
+   ========================================================================== */
+.partners-grid-3d {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
@@ -1182,187 +894,248 @@ get_header();
     margin: 0 auto;
 }
 
-.nistco-partner-card {
+.partner-card-modern {
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 16px;
+    padding: 2.25rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s;
-    color: #1e293b;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.nistco-partner-card:hover {
-    transform: translateY(-3px);
+.partner-card-modern:hover {
+    transform: translateY(-5px);
     border-color: #008751;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+}
+
+.insignia-float-box {
+    width: 60px;
+    height: 60px;
+    perspective: 500px;
+    margin-bottom: 1.5rem;
+}
+
+.insignia-inner-3d {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #042416 0%, #02140c 100%);
+    border: 1px solid rgba(0, 255, 163, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    animation: insigniaLevitate 5s ease-in-out infinite;
+    box-shadow: 0 8px 16px rgba(4, 36, 22, 0.2);
+}
+
+.partner-card-modern:hover .insignia-inner-3d {
+    animation-play-state: paused;
+    transform: rotateX(20deg) rotateY(-20deg) scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 135, 81, 0.35);
+}
+
+@keyframes insigniaLevitate {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotateX(10deg) rotateY(-10deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotateX(-10deg) rotateY(10deg);
+    }
+}
+
+.insignia-inner-3d svg {
+    width: 28px;
+    height: 28px;
+    stroke: #00ffa3;
+    transform: translateZ(12px);
+}
+
+.partner-card-modern h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.6rem 0;
+}
+
+.partner-card-modern p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.partner-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.25rem;
 }
 </style>
 
 <main class="nistco-main">
 
-    <!-- 1. HERO SECTION WITH FLOATING ATOMS & INTERLOCKING GEARS -->
+    <!-- 1. HERO SECTION WITH 3D ISOMETRIC GEARS & CANONICAL LAUNCHPAD -->
     <section class="nistco-hero-section">
-        <!-- Floating Atomic Structures -->
-        <svg class="atom atom1" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="10" class="nucleus" />
-            <ellipse cx="100" cy="100" rx="60" ry="20" class="orbit orbit1" />
-            <ellipse cx="100" cy="100" rx="40" ry="80" class="orbit orbit2" />
-            <ellipse cx="100" cy="100" rx="80" ry="60" class="orbit orbit3" />
-        </svg>
-
-        <svg class="atom atom2" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="8" class="nucleus" />
-            <ellipse cx="100" cy="100" rx="50" ry="15" class="orbit orbit1" />
-            <ellipse cx="100" cy="100" rx="30" ry="60" class="orbit orbit2" />
-            <ellipse cx="100" cy="100" rx="70" ry="50" class="orbit orbit3" />
-        </svg>
-
         <div class="nistco-container nistco-hero-grid">
-            <div>
-                <div class="nistco-hero-badges">
-                    <span class="nistco-pill nistco-pill-green">FEDERAL REPUBLIC OF NIGERIA</span>
-                    <span class="nistco-pill nistco-pill-gold">CHIEF PATRONAGE</span>
+            <div class="scroll-fx fx-slide-left">
+                <div class="nistco-pill-group">
+                    <span class="nistco-badge badge-green">Federal Republic of Nigeria</span>
+                    <span class="nistco-badge badge-gold">Apex Science & Technology Mandate</span>
                 </div>
 
-                <h1 class="nistco-hero-title">
-                    National Science & <br><span style="color: #fde047;">Technology Complex</span>
+                <h1 class="hero-lead-title">
+                    National Science & <br><span>Technology Complex</span>
                 </h1>
 
-                <p class="nistco-hero-subtitle">
+                <p class="hero-description">
                     Nigeria's apex multidisciplinary centre of scientific excellence mandated to execute frontier basic
                     and applied research, operate national demonstration pilot plants, and drive indigenous industrial
                     transformation.
                 </p>
 
-                <div class="nistco-hero-actions">
-                    <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="nistco-btn nistco-btn-primary">
+                <div class="hero-actions-row">
+                    <a href="<?php echo esc_url( home_url( '/centres/' ) ); ?>" class="btn-nistco btn-prime">
                         Explore Research Centres &rarr;
                     </a>
                     <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>"
-                        class="nistco-btn nistco-btn-gold">
+                        class="btn-nistco btn-ghost">
                         Innovation & Patents
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/servicom/' ) ); ?>"
-                        class="nistco-btn nistco-btn-secondary">
-                        Public Trustee Desk
                     </a>
                 </div>
 
+                <!-- Canonical CPT Division Launchpad -->
                 <div class="nistco-centre-launchpad">
-                    <span class="launchpad-heading">ADVANCED CENTRES & DIVISIONS</span>
+                    <span class="launchpad-heading">Flagship Research Divisions & Hubs</span>
                     <div class="launchpad-pills-row">
-                        <a href="<?php echo esc_url( home_url( '/centres/amsarc/' ) ); ?>" class="launchpad-pill"><span
-                                class="pill-icon">⚡</span><span class="pill-code">AMSARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/carc/' ) ); ?>" class="launchpad-pill"><span
-                                class="pill-icon">🧪</span><span class="pill-code">CARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/barc/' ) ); ?>" class="launchpad-pill"><span
-                                class="pill-icon">🧬</span><span class="pill-code">BARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/ntc/' ) ); ?>" class="launchpad-pill"><span
-                                class="pill-icon">☢️</span><span class="pill-code">NTC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/parc/' ) ); ?>" class="launchpad-pill"><span
-                                class="pill-icon">🔬</span><span class="pill-code">PARC</span></a>
-                        <a href="<?php echo esc_url( home_url( '/centres/atp/' ) ); ?>" class="launchpad-pill"><span
-                                class="pill-icon">⚙️</span><span class="pill-code">ATP</span></a>
+                        <a href="<?php echo esc_url( home_url( '/research-centres/amsarc/' ) ); ?>"
+                            class="launchpad-pill">AMSARC</a>
+                        <a href="<?php echo esc_url( home_url( '/research-centres/barc/' ) ); ?>"
+                            class="launchpad-pill">BARC</a>
+                        <a href="<?php echo esc_url( home_url( '/research-centres/carc/' ) ); ?>"
+                            class="launchpad-pill">CARC</a>
+                        <a href="<?php echo esc_url( home_url( '/research-centres/parc/' ) ); ?>"
+                            class="launchpad-pill">PARC</a>
+                        <a href="<?php echo esc_url( home_url( '/research-centres/ntc/' ) ); ?>"
+                            class="launchpad-pill">NTC</a>
+                        <a href="<?php echo esc_url( home_url( '/research-centres/aepc/' ) ); ?>"
+                            class="launchpad-pill">AEPC</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Interlocking Gears with Hover Power-up & Scroll Acceleration -->
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <div class="gear-container">
-                    <svg class="gear gear-large" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="12"
-                            stroke-dasharray="10 5" />
-                        <circle cx="50" cy="50" r="20" fill="currentColor" stroke="#042416" stroke-width="4" />
-                    </svg>
+            <!-- Right Column: 3D Isometric Epicyclic Gearing Core -->
+            <div class="nistco-hero-viewport scroll-fx fx-slide-right" aria-hidden="true">
+                <div class="epicyclic-stage">
+                    <svg class="epicyclic-svg" viewBox="-240 -240 480 480" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gearMetallicSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.9" />
+                                <stop offset="50%" stop-color="#0a2540" stop-opacity="0.8" />
+                                <stop offset="100%" stop-color="#0077b6" stop-opacity="0.95" />
+                            </linearGradient>
+                            <radialGradient id="stageGlowPulse" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.4" />
+                                <stop offset="100%" stop-color="#00e5ff" stop-opacity="0" />
+                            </radialGradient>
 
-                    <svg class="gear gear-medium" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="32" fill="none" stroke="currentColor" stroke-width="10"
-                            stroke-dasharray="8 4" />
-                        <circle cx="50" cy="50" r="16" fill="currentColor" stroke="#042416" stroke-width="3" />
-                    </svg>
+                            <g id="planet-gear-symbol">
+                                <circle cx="0" cy="0" r="32" fill="url(#gearMetallicSteel)" stroke="#00e5ff"
+                                    stroke-width="1.5" />
+                                <path
+                                    d="M -8 -36 L 8 -36 L 10 -32 L -10 -32 Z M 32 -10 L 36 -8 L 36 8 L 32 10 Z M 8 32 L 10 36 L -10 36 L -8 32 Z M -32 8 L -36 10 L -36 -8 L -32 -10 Z"
+                                    fill="url(#gearMetallicSteel)" stroke="#00e5ff" stroke-width="1.5" />
+                                <circle cx="0" cy="0" r="14" fill="#040d17" stroke="rgba(0, 229, 255, 0.5)"
+                                    stroke-width="1.5" />
+                                <circle cx="0" cy="0" r="5" fill="#fde047" />
+                            </g>
+                        </defs>
 
-                    <svg class="gear gear-small" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="9"
-                            stroke-dasharray="6 3" />
-                        <circle cx="50" cy="50" r="12" fill="currentColor" stroke="#042416" stroke-width="2" />
+                        <circle cx="0" cy="0" r="140" fill="url(#stageGlowPulse)" />
+                        <circle cx="0" cy="0" r="200" fill="none" stroke="#00e5ff" stroke-width="1.5"
+                            stroke-dasharray="8 8" opacity="0.6" />
+                        <circle cx="0" cy="0" r="190" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+
+                        <!-- Planetary Carrier Assembly -->
+                        <g class="planetary-carrier">
+                            <line x1="0" y1="0" x2="0" y2="-120" stroke="rgba(0,229,255,0.35)" stroke-width="2"
+                                stroke-dasharray="3 3" />
+                            <line x1="0" y1="0" x2="103.9" y2="60" stroke="rgba(0,229,255,0.35)" stroke-width="2"
+                                stroke-dasharray="3 3" />
+                            <line x1="0" y1="0" x2="-103.9" y2="60" stroke="rgba(0,229,255,0.35)" stroke-width="2"
+                                stroke-dasharray="3 3" />
+
+                            <g transform="translate(0, -120)">
+                                <g class="planet-spin">
+                                    <use href="#planet-gear-symbol" />
+                                </g>
+                            </g>
+                            <g transform="translate(103.9, 60)">
+                                <g class="planet-spin">
+                                    <use href="#planet-gear-symbol" />
+                                </g>
+                            </g>
+                            <g transform="translate(-103.9, 60)">
+                                <g class="planet-spin">
+                                    <use href="#planet-gear-symbol" />
+                                </g>
+                            </g>
+                        </g>
+
+                        <!-- Central Drive Sun Gear -->
+                        <g class="sun-gear">
+                            <circle cx="0" cy="0" r="58" fill="#042416" stroke="#00ffa3" stroke-width="2" />
+                            <path
+                                d="M -10 -66 L 10 -66 L 12 -58 L -12 -58 Z M 58 -12 L 66 -10 L 66 10 L 58 12 Z M 10 58 L 12 66 L -12 66 L -10 58 Z M -58 10 L -66 12 L -66 -10 L -58 -12 Z"
+                                fill="#008751" stroke="#00ffa3" stroke-width="1.5" />
+                            <circle cx="0" cy="0" r="28" fill="#02140c" stroke="#d97706" stroke-width="2" />
+                            <polygon points="0,-14 12,7 -12,7" fill="#fde047" />
+                        </g>
                     </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LIVE R&D TELEMETRY DASHBOARD -->
-    <div class="nistco-telemetry-bar">
-        <div class="telemetry-grid">
-            <div class="telemetry-card hpc">
-                <div class="telemetry-header">
-                    <span class="telemetry-title">AMSARC HPC Cluster</span>
-                    <span class="telemetry-status-dot"></span>
-                </div>
-                <div class="telemetry-value">256 TFLOPS</div>
-                <span class="telemetry-subtext">Active GPU Parallel Simulation Load</span>
-            </div>
-            <div class="telemetry-card energy">
-                <div class="telemetry-header">
-                    <span class="telemetry-title">Solar Microgrid</span>
-                    <span class="telemetry-status-dot"></span>
-                </div>
-                <div class="telemetry-value">500 kVA</div>
-                <span class="telemetry-subtext">Clean Energy Hybrid Generation</span>
-            </div>
-            <div class="telemetry-card nodes">
-                <div class="telemetry-header">
-                    <span class="telemetry-title">CARC Synthesis Plant</span>
-                    <span class="telemetry-status-dot"></span>
-                </div>
-                <div class="telemetry-value">500 Liters</div>
-                <span class="telemetry-subtext">Continuous Batch Production Online</span>
-            </div>
-            <div class="telemetry-card ip">
-                <div class="telemetry-header">
-                    <span class="telemetry-title">NOTAP Patent Registry</span>
-                    <span class="telemetry-status-dot"></span>
-                </div>
-                <div class="telemetry-value">16 Filings</div>
-                <span class="telemetry-subtext">Verified Commercial Technologies</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2. INSTITUTIONAL IMPACT METRICS -->
+    <!-- 2. INSTITUTIONAL IMPACT METRICS SECTION -->
     <?php 
     $metrics = [
-        [ "target" => 7, "suffix" => "", "comma" => false, "title" => "Research Centres & Divisions", "desc" => "Biotech, HPC, Chemistry, Physics, Nuclear & Tooling", "color" => "#10b981" ],
-        [ "target" => 5, "suffix" => "+", "comma" => false, "title" => "Scientific Publications", "desc" => "Peer-reviewed & indexed research repository", "color" => "#f59e0b" ],
+        [ "target" => 6, "suffix" => "", "comma" => false, "title" => "Flagship Research Centres", "desc" => "AMSARC, BARC, CARC, PARC, NTC & AEPC", "color" => "#10b981" ],
+        [ "target" => 256, "suffix" => " TFLOPS", "comma" => false, "title" => "Supercomputing Compute", "desc" => "GPU-accelerated national simulation cluster", "color" => "#38bdf8" ],
         [ "target" => 2000, "suffix" => "", "comma" => true, "title" => "Hectares Campus Footprint", "desc" => "Abuja-Lokoja Technology Corridor sanctuary", "color" => "#0ea5e9" ],
         [ "target" => 16, "suffix" => "+", "comma" => false, "title" => "Registered Patents", "desc" => "NOTAP-certified indigenous technologies", "color" => "#d97706" ],
-        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, tissue culture & precision CNC", "color" => "#059669" ],
-        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated solar hybrid for NMR & HPC compute", "color" => "#e11d48" ],
-        [ "target" => 100, "suffix" => "%", "comma" => false, "title" => "Open Researcher Access", "desc" => "Shared national laboratory & residency facilities", "color" => "#8b5cf6" ]
+        [ "target" => 4, "suffix" => "", "comma" => false, "title" => "Demonstration Pilot Plants", "desc" => "500L synthesis, micropropagation & CNC tooling", "color" => "#059669" ],
+        [ "target" => 500, "suffix" => " kVA", "comma" => false, "title" => "Clean Energy Microgrid", "desc" => "Dedicated hybrid solar for laboratory continuous run", "color" => "#f59e0b" ]
     ];
     ?>
-    <section
-        style="background: linear-gradient(135deg, #021a10 0%, #042416 100%); color: #fff; padding: 4.5rem 1.5rem; border-bottom: 3px solid #d97706; box-sizing: border-box; width: 100%;">
-        <div style="max-width: 1440px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 3.5rem;">
+    <section class="nistco-impact-section">
+        <div class="nistco-container">
+            <div class="scroll-fx fx-fade-up" style="text-align: center; margin-bottom: 3.5rem;">
                 <div
-                    style="color: #fde047; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">
+                    style="color: #fde047; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem;">
                     Institutional Impact</div>
                 <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; margin: 0; color: #ffffff;">Nigeria
                     Innovation Science & Technology Complex</h2>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.75rem;">
-                <?php foreach ( $metrics as $metric ) : ?>
-                <div
-                    style="background: rgba(255,255,255,0.04); border: 1px solid rgba(217,119,6,0.3); border-radius: 10px; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.25); border-top: 4px solid <?php echo $metric['color']; ?>;">
+            <div class="impact-metrics-grid">
+                <?php foreach ( $metrics as $index => $metric ) : ?>
+                <div class="impact-metric-card scroll-fx fx-scale-in"
+                    style="transition-delay: <?php echo ($index * 0.08); ?>s; border-top: 4px solid <?php echo $metric['color']; ?>;">
                     <div class="nistco-counter" data-target="<?php echo esc_attr( $metric['target'] ); ?>"
                         data-suffix="<?php echo esc_attr( $metric['suffix'] ); ?>"
                         data-comma="<?php echo $metric['comma'] ? 'true' : 'false'; ?>"
-                        style="font-size: 2.75rem; font-weight: 800; color: <?php echo $metric['color']; ?>; line-height: 1; margin-bottom: 0.65rem;">
-                        0<?php echo esc_html( $metric['suffix'] ); ?></div>
+                        style="color: <?php echo $metric['color']; ?>;">
+                        0<?php echo esc_html( $metric['suffix'] ); ?>
+                    </div>
                     <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
                         <?php echo esc_html( $metric['title'] ); ?></div>
                     <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5;">
@@ -1373,126 +1146,102 @@ get_header();
         </div>
     </section>
 
-    <!-- 3. PRESIDENTIAL SECTION WITH NIGERIAN FLAG SIDE BARS -->
-    <section class="nistco-section nistco-bg-parchment" style="position: relative; overflow: hidden;">
-        <div
-            style="position: absolute; top: 0; left: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
-            <div style="flex: 1; background: #008751;"></div>
-            <div style="flex: 1; background: #ffffff;"></div>
-            <div style="flex: 1; background: #008751;"></div>
-        </div>
-        <div
-            style="position: absolute; top: 0; right: 0; width: 14px; height: 100%; display: flex; flex-direction: column; z-index: 3;">
-            <div style="flex: 1; background: #008751;"></div>
-            <div style="flex: 1; background: #ffffff;"></div>
-            <div style="flex: 1; background: #008751;"></div>
-        </div>
-
-        <div class="nistco-container">
-            <div class="mc-presidential-banner">
-                <div class="mc-presidential-pattern"></div>
-                <div class="mc-presidential-grid">
-                    <div class="mc-presidential-portrait-wrap">
-                        <div class="mc-presidential-photo-frame">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/president.jpg"
-                                alt="Presidential Patron" class="leader-photo placeholder"
-                                onerror="this.style.display='none';">
-                            <div class="mc-presidential-photo-badge" style="background: #008751; color: #fff;">🇳🇬
-                                Federal Republic of Nigeria</div>
-                        </div>
-                        <div class="mc-presidential-caption">
-                            <span class="mc-presidential-title-kicker">Grand Patron of Science & Tech</span>
-                            <span class="mc-presidential-name">His Excellency, President of Nigeria</span>
-                            <span class="mc-presidential-rank">Commander-in-Chief of the Armed Forces</span>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="mc-presidential-pills">
-                            <span class="nistco-pill nistco-pill-gold">National Agenda 2030</span>
-                            <span class="nistco-pill nistco-pill-green">Renewed Hope R&D Mandate</span>
-                        </div>
-                        <h2 class="mc-presidential-heading">Driving Indigenous Innovation & Industrial Sovereignty</h2>
-                        <blockquote class="mc-presidential-quote">
-                            "Our national economic transformation rests squarely on our ability to convert scientific
-                            research into scalable industrial products, fostering self-reliance across chemistry,
-                            computing, and advanced manufacturing."
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. EXECUTIVE DIRECTION SECTION -->
-    <section class="nistco-section nistco-bg-white">
-        <div class="nistco-container">
-            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
-                <span class="nistco-section-kicker">Executive Direction</span>
-                <h2 class="nistco-section-title">Director-General & CEO Vision</h2>
-                <p class="nistco-section-lead">Steering NISTCO toward world-class scientific excellence, operational
-                    transparency, and robust public-private industrial partnerships.</p>
-            </div>
-            <div class="mc-exec-grid">
-                <div class="mc-exec-portrait-card">
-                    <div class="mc-exec-photo-wrap">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/leaders/dg-ceo1.jpg"
-                            alt="Director General" class="leader-photo" onerror="this.style.display='none';">
-                        <div class="mc-exec-photo-badge">Executive Office</div>
-                    </div>
-                    <span class="mc-exec-name">Director-General / CEO</span>
-                    <span class="mc-exec-designation">Nigeria Innovation Science & Technology Complex</span>
-                </div>
-                <div>
-                    <h3 class="mc-exec-headline">Bridging Laboratory Breakthroughs with National Industrialization</h3>
-                    <blockquote class="mc-exec-quote">
-                        "At NISTCO, we are transforming our 7 advanced research centres into vibrant commercial engines.
-                        From our 500L chemistry pilot synthesis plant to our 256 TeraFLOPs HPC facility, we deliver
-                        verified solutions for Nigerian industry."
-                    </blockquote>
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"
-                            class="nistco-btn nistco-btn-primary">
-                            Explore Leadership Roster &rarr;
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. ALL RESEARCH CENTRES & DEPARTMENTS (COLOURFUL THEME) -->
+    <!-- 3. SPECIALIZED CENTRES & DIVISIONS (3D ANIMATED VECTOR CARDS) -->
     <?php 
     $centres = [
-        [ "code" => "AMSARC", "title" => "Applied Mathematics & Simulation", "desc" => "High-performance computing (HPC) cluster, GPU accelerated simulation nodes, and scientific visualization labs.", "icon" => "⚡", "color" => "#0ea5e9", "bg" => "rgba(14,165,233,0.08)", "url" => home_url( '/centres/amsarc/' ) ],
-        [ "code" => "CARC", "title" => "Chemistry Advanced Research Centre", "desc" => "Industrial chemistry synthesis, 500L pilot plant, NMR & GC-MS instrumentation, and material testing suites.", "icon" => "🧪", "color" => "#f59e0b", "bg" => "rgba(245,158,11,0.08)", "url" => home_url( '/centres/carc/' ) ],
-        [ "code" => "BARC", "title" => "Biotechnology Advanced Research Centre", "desc" => "Molecular biology & PCR suites, plant tissue culture micropropagation, and bioprocess fermentation bioreactors.", "icon" => "🧬", "color" => "#10b981", "bg" => "rgba(16,185,129,0.08)", "url" => home_url( '/centres/barc/' ) ],
-        [ "code" => "NTC", "title" => "Nuclear Technology Centre", "desc" => "Radiation safety standards, isotopic analysis, and nuclear instrumentation for industrial and medical application.", "icon" => "☢️", "color" => "#e11d48", "bg" => "rgba(225,29,72,0.08)", "url" => home_url( '/centres/ntc/' ) ],
-        [ "code" => "PARC", "title" => "Physics Advanced Research Centre", "desc" => "Solid-state physics, materials characterization, optics, and renewable energy semiconductor testing.", "icon" => "🔬", "color" => "#8b5cf6", "bg" => "rgba(139,92,246,0.08)", "url" => home_url( '/centres/parc/' ) ],
-        [ "code" => "PTD", "title" => "Advanced Tooling & Prototyping", "desc" => "Precision CNC machining, rapid additive manufacturing, and pilot mold engineering for Nigerian industries.", "icon" => "⚙️", "color" => "#06b6d4", "bg" => "rgba(6,182,212,0.08)", "url" => home_url( '/centres/ptd/' ) ]
+        [
+            "code"  => "AMSARC",
+            "title" => "Applied Mathematics & Simulation",
+            "spec"  => "256 TFLOPS HPC • GPU Cluster",
+            "desc"  => "Frontier computational modeling, fluid dynamics simulation, and high-performance numerical forecasting for national infrastructure.",
+            "color" => "#0ea5e9",
+            "bg"    => "rgba(14,165,233,0.15)",
+            "url"   => home_url( '/research-centres/amsarc/' ),
+            "svg"   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'
+        ],
+        [
+            "code"  => "BARC",
+            "title" => "Biotechnology Advanced Research",
+            "spec"  => "Plant Micropropagation • Bioreactors",
+            "desc"  => "Molecular diagnostics, tissue culture micropropagation, crop disease resistance protocols, and bioprocess fermentation systems.",
+            "color" => "#10b981",
+            "bg"    => "rgba(16,185,129,0.15)",
+            "url"   => home_url( '/research-centres/barc/' ),
+            "svg"   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 15c6.667-6 13.333 0 20-6"/><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"/><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"/></svg>'
+        ],
+        [
+            "code"  => "CARC",
+            "title" => "Chemistry Advanced Research Centre",
+            "spec"  => "500L Pilot Plant • GC-MS & NMR",
+            "desc"  => "Industrial fine chemical synthesis, natural product bio-extraction, polymer formulation, and pilot batch synthesis plants.",
+            "color" => "#f59e0b",
+            "bg"    => "rgba(245,158,11,0.15)",
+            "url"   => home_url( '/research-centres/carc/' ),
+            "svg"   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31L4.12 19a2 2 0 0 0 1.71 3h12.34a2 2 0 0 0 1.71-3L14 9.31V2"/><line x1="8.5" y1="2" x2="15.5" y2="2"/></svg>'
+        ],
+        [
+            "code"  => "PARC",
+            "title" => "Physics Advanced Research Centre",
+            "spec"  => "Thin-Film Optics • Semiconductor Lab",
+            "desc"  => "Solid-state materials characterization, thin-film solar cell validation, optical spectroscopy, and sensor instrumentation.",
+            "color" => "#8b5cf6",
+            "bg"    => "rgba(139,92,246,0.15)",
+            "url"   => home_url( '/research-centres/parc/' ),
+            "svg"   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/></svg>'
+        ],
+        [
+            "code"  => "NTC",
+            "title" => "Nuclear Technology Centre",
+            "spec"  => "Secondary Standards Dosimetry Lab",
+            "desc"  => "National radiation safety metrology, isotopic tracer analysis, calibration services, and industrial gamma applications.",
+            "color" => "#e11d48",
+            "bg"    => "rgba(225,29,72,0.15)",
+            "url"   => home_url( '/research-centres/ntc/' ),
+            "svg"   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/></svg>'
+        ],
+        [
+            "code"  => "AEPC",
+            "title" => "Advanced Engineering & Prototyping",
+            "spec"  => "5-Axis CNC • Additive Metallurgy",
+            "desc"  => "Precision mold manufacturing, reverse engineering of industrial components, and high-tolerance fabrication engineering.",
+            "color" => "#06b6d4",
+            "bg"    => "rgba(6,182,212,0.15)",
+            "url"   => home_url( '/research-centres/aepc/' ),
+            "svg"   => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83"/></svg>'
+        ]
     ];
     ?>
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
-            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
-                <span class="nistco-section-kicker">Specialized Divisions</span>
-                <h2 class="nistco-section-title">Our Research Centres & Departments</h2>
-                <p class="nistco-section-lead">Explore our world-class scientific laboratories, specialized equipment
-                    clusters, and pilot production plants across all divisions.</p>
+            <div class="scroll-fx fx-fade-up" style="text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto;">
+                <span
+                    style="font-size: 0.8rem; font-weight: 800; color: #008751; text-transform: uppercase; letter-spacing: 1.5px;">Flagship
+                    Wings</span>
+                <h2 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0.5rem 0 1rem 0;">Specialized
+                    Centres & Divisions</h2>
+                <p style="color: #64748b; line-height: 1.6;">Explore Nigeria's apex research laboratories, pilot
+                    production units, and specialized scientific infrastructure.</p>
             </div>
-            <div class="nistco-centres-grid">
-                <?php foreach ( $centres as $centre ) : ?>
-                <div class="nistco-centre-card" style="border-top: 4px solid <?php echo $centre['color']; ?>;">
-                    <div class="nistco-centre-icon-wrap"
-                        style="background: <?php echo $centre['bg']; ?>; color: <?php echo $centre['color']; ?>;">
-                        <?php echo $centre['icon']; ?>
+
+            <div class="centres-grid-modern">
+                <?php foreach ( $centres as $index => $centre ) : ?>
+                <div class="centre-card-3d scroll-fx fx-scale-in"
+                    style="transition-delay: <?php echo ($index * 0.08); ?>s; border-top: 4px solid <?php echo $centre['color']; ?>;">
+                    <div class="icon-box-3d-wrap">
+                        <div class="icon-box-3d"
+                            style="background: <?php echo $centre['bg']; ?>; color: <?php echo $centre['color']; ?>;">
+                            <?php echo $centre['svg']; ?>
+                        </div>
                     </div>
-                    <div class="nistco-centre-code" style="color: <?php echo $centre['color']; ?>;">
-                        <?php echo esc_html( $centre['code'] ); ?></div>
-                    <h3 class="nistco-centre-title"><?php echo esc_html( $centre['title'] ); ?></h3>
-                    <p class="nistco-centre-desc"><?php echo esc_html( $centre['desc'] ); ?></p>
-                    <a href="<?php echo esc_url( $centre['url'] ); ?>" class="nistco-card-action"
+                    <span class="centre-badge-tag"
+                        style="color: <?php echo $centre['color']; ?>;"><?php echo esc_html( $centre['code'] ); ?></span>
+                    <h3 class="centre-title-text"><?php echo esc_html( $centre['title'] ); ?></h3>
+                    <span class="centre-meta-spec"><?php echo esc_html( $centre['spec'] ); ?></span>
+                    <p class="centre-body-copy"><?php echo esc_html( $centre['desc'] ); ?></p>
+                    <a href="<?php echo esc_url( $centre['url'] ); ?>" class="centre-link-arrow"
                         style="color: <?php echo $centre['color']; ?>;">
-                        <span>Access <?php echo esc_html( $centre['code'] ); ?> Portal</span><span>&rarr;</span>
+                        <span>Access <?php echo esc_html( $centre['code'] ); ?> Portal</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
                 <?php endforeach; ?>
@@ -1500,203 +1249,127 @@ get_header();
         </div>
     </section>
 
-    <!-- 6. INTERACTIVE PATENTS & TECH TRANSFER FILTER WIDGET -->
-    <section class="nistco-section nistco-bg-white">
+    <!-- 4. RESTRUCTURED DOCUMENTARIES & INSTITUTIONAL BRIEFINGS -->
+    <section class="nistco-section nistco-bg-slate">
         <div class="nistco-container">
-            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
-                <span class="nistco-section-kicker">Intellectual Property</span>
-                <h2 class="nistco-section-title">Patents & Market-Ready Inventions</h2>
-                <p class="nistco-section-lead">Explore NOTAP-certified indigenous technologies ready for commercial
-                    licensing and industrial manufacturing partnership.</p>
+            <div class="scroll-fx fx-fade-up" style="max-width: 700px; margin-bottom: 3.5rem;">
+                <span
+                    style="font-size: 0.8rem; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 1.5px;">Broadcast
+                    Features</span>
+                <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff; margin: 0.5rem 0 1rem 0;">Documentaries
+                    & Institutional Briefings</h2>
+                <p style="color: #94a3b8; line-height: 1.6;">In-depth visual walkthroughs, technical laboratory
+                    briefings, and frontline documentaries covering national scientific breakthroughs.</p>
             </div>
 
-            <!-- Patent Category Filter Tabs -->
-            <div class="patent-filter-tabs">
-                <button class="patent-tab-btn active" data-filter="all">All Inventions</button>
-                <button class="patent-tab-btn" data-filter="chem">Chemistry & Bioactives</button>
-                <button class="patent-tab-btn" data-filter="biotech">Biotechnology</button>
-                <button class="patent-tab-btn" data-filter="sim">HPC & Simulation</button>
-            </div>
+            <div class="briefings-editorial-grid">
+                <!-- Master Feature Showcase -->
+                <div class="briefing-feature-card scroll-fx fx-slide-left">
+                    <div class="briefing-video-player-wrap">
+                        <div class="briefing-video-poster">
+                            <button class="play-pulse-btn" aria-label="Play Featured Briefing">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg>
+                            </button>
+                            <span
+                                style="margin-top: 1rem; font-size: 0.85rem; font-weight: 700; color: #f8fafc; letter-spacing: 0.5px;">Click
+                                to Stream Documentary</span>
+                        </div>
+                    </div>
+                    <div class="briefing-feature-content">
+                        <div>
+                            <span class="briefing-time-pill">FEATURED • 24 MINS • 4K</span>
+                            <h3>Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
+                            <p>An exclusive tour inside CARC’s industrial chemical pilot plant, exploring fine-chemical
+                                continuous synthesis and advanced GC-MS quality certification suites.</p>
+                        </div>
+                        <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>"
+                            class="btn-nistco btn-prime" style="width: max-content;">
+                            Watch Full Briefing &rarr;
+                        </a>
+                    </div>
+                </div>
 
-            <div class="inno-patents-grid">
-                <div class="inno-patent-card" data-category="chem">
-                    <div>
-                        <div class="inno-patent-header"><span class="inno-tag-pill">Chemistry & Bioactives</span><span
-                                class="inno-trl-pill">TRL 8 Commercial</span></div>
-                        <h3 class="inno-patent-title">Bio-Based Industrial Solvents & Degreasers</h3>
-                        <p class="inno-patent-excerpt">Eco-friendly solvent formulations derived from agro-waste
-                            extracts, optimized for heavy mechanical and automotive maintenance.</p>
-                    </div>
-                    <div class="inno-patent-footer"><span class="status-indicator ready">● Ready for Licensing</span><a
-                            href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>"
-                            class="inno-btn-license">Request Dossier &rarr;</a></div>
-                </div>
-                <div class="inno-patent-card" data-category="biotech">
-                    <div>
-                        <div class="inno-patent-header"><span class="inno-tag-pill">Biotechnology</span><span
-                                class="inno-trl-pill">TRL 7 Prototype</span></div>
-                        <h3 class="inno-patent-title">Drought-Resistant Cassava Micropropagation Protocol</h3>
-                        <p class="inno-patent-excerpt">High-yield disease-free tissue culture seedlings engineered for
-                            optimal resilience in West African climatic conditions.</p>
-                    </div>
-                    <div class="inno-patent-footer"><span class="status-indicator deployed">● Pilot Verified</span><a
-                            href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>"
-                            class="inno-btn-license">Request Dossier &rarr;</a></div>
-                </div>
-                <div class="inno-patent-card" data-category="sim">
-                    <div>
-                        <div class="inno-patent-header"><span class="inno-tag-pill">HPC & Simulation</span><span
-                                class="inno-trl-pill">TRL 9 Deployed</span></div>
-                        <h3 class="inno-patent-title">National Power Grid Stability Prediction Algorithm</h3>
-                        <p class="inno-patent-excerpt">Advanced parallel computing software suite designed to forecast
-                            load imbalances and prevent regional electrical grid disruptions.</p>
-                    </div>
-                    <div class="inno-patent-footer"><span class="status-indicator deployed">● Operational</span><a
-                            href="<?php echo esc_url( home_url( '/innovation-patents/' ) ); ?>"
-                            class="inno-btn-license">Request Dossier &rarr;</a></div>
+                <!-- Secondary Editorial Catalog List -->
+                <div class="briefings-catalog-list scroll-fx fx-slide-right">
+                    <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>"
+                        class="briefing-list-item">
+                        <div class="briefing-badge-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <div class="briefing-item-meta">
+                            <span
+                                style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; text-transform: uppercase;">Supercomputing
+                                • 14 Mins</span>
+                            <h4>AMSARC 256 TFLOPS HPC & National Grid Simulation</h4>
+                            <p>How mathematical algorithms predict national electrical power line stability.</p>
+                        </div>
+                    </a>
+
+                    <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>"
+                        class="briefing-list-item">
+                        <div class="briefing-badge-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M2 15c6.667-6 13.333 0 20-6" />
+                                <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" />
+                            </svg>
+                        </div>
+                        <div class="briefing-item-meta">
+                            <span
+                                style="font-size: 0.72rem; color: #10b981; font-weight: 800; text-transform: uppercase;">Biotechnology
+                                • 18 Mins</span>
+                            <h4>Drought-Resilient Cassava Micropropagation Labs</h4>
+                            <p>Tissue culture protocols distributed to rural farming cooperatives.</p>
+                        </div>
+                    </a>
+
+                    <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>"
+                        class="briefing-list-item">
+                        <div class="briefing-badge-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="2" />
+                                <path d="M12 2v4" />
+                                <path d="M12 18v4" />
+                            </svg>
+                        </div>
+                        <div class="briefing-item-meta">
+                            <span
+                                style="font-size: 0.72rem; color: #e11d48; font-weight: 800; text-transform: uppercase;">Nuclear
+                                Metrology • 12 Mins</span>
+                            <h4>Radiation Safety & Secondary Standards Calibration</h4>
+                            <p>Calibrating national medical and industrial isotopic detectors.</p>
+                        </div>
+                    </a>
+
+                    <a href="<?php echo esc_url( home_url( '/media/aepc-tooling-showcase/' ) ); ?>"
+                        class="briefing-list-item">
+                        <div class="briefing-badge-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83" />
+                            </svg>
+                        </div>
+                        <div class="briefing-item-meta">
+                            <span
+                                style="font-size: 0.72rem; color: #06b6d4; font-weight: 800; text-transform: uppercase;">Prototyping
+                                • 16 Mins</span>
+                            <h4>5-Axis CNC Precision Mold Fabrication</h4>
+                            <p>Reverse-engineering mission-critical parts for domestic factories.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. MEDIA & PRESS ROOM (INFINITE VERTICAL TICKER) -->
-    <section class="nistco-section nistco-bg-parchment">
-        <div class="nistco-container">
-            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
-                <span class="nistco-section-kicker">Media & Press Room</span>
-                <h2 class="nistco-section-title">Documentaries & Institutional Briefings</h2>
-                <p class="nistco-section-lead">Explore broadcast features, laboratory showcases, and video documentaries
-                    highlighting NISTCO’s national impact.</p>
-            </div>
-
-            <div class="nistco-vertical-ticker-container">
-                <div class="nistco-vertical-ticker-track">
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">🎥<span class="nistco-media-badge-tag">Documentary</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">A
-                                comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS
-                                analytical instrumentation suites.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">⚡<span class="nistco-media-badge-tag">Supercomputing</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                AMSARC Supercomputing & National Grid Modeling</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
-                                Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast
-                                national electrical stability.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">🧬<span class="nistco-media-badge-tag">Agro-Biotech</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                Drought Resilience: BARC Plant Micropropagation Lab</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
-                                Documenting tissue culture seed multiplication protocols distributed to farming
-                                cooperatives across all geopolitical zones.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">☢️<span class="nistco-media-badge-tag">Nuclear Safety</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                Nuclear Technology Centre: Radiation Standards & Metrology</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
-                                Overview of NTC’s national calibration laboratories ensuring strict compliance for
-                                industrial and medical isotopic devices.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Duplicated Set for Loop -->
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">🎥<span class="nistco-media-badge-tag">Documentary</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                Inside Nigeria's 500L Advanced Chemistry Synthesis Facility</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">A
-                                comprehensive visual walkthrough of CARC’s pilot plant production lines and GC-MS
-                                analytical instrumentation suites.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/chemistry-plant-tour/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">⚡<span class="nistco-media-badge-tag">Supercomputing</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                AMSARC Supercomputing & National Grid Modeling</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
-                                Briefing on how 256 TeraFLOPs parallel clusters simulate fluid dynamics and forecast
-                                national electrical stability.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/amsarc-hpc-briefing/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">🧬<span class="nistco-media-badge-tag">Agro-Biotech</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                Drought Resilience: BARC Plant Micropropagation Lab</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
-                                Documenting tissue culture seed multiplication protocols distributed to farming
-                                cooperatives across all geopolitical zones.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/barc-biotech-showcase/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="nistco-media-item">
-                        <div class="nistco-media-thumb-box">☢️<span class="nistco-media-badge-tag">Nuclear Safety</span>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 1.25rem; font-weight: 800; color: #0f172a; margin: 0 0 0.5rem 0;">
-                                Nuclear Technology Centre: Radiation Standards & Metrology</h3>
-                            <p style="font-size: 0.92rem; color: #64748b; line-height: 1.6; margin-bottom: 1rem;">
-                                Overview of NTC’s national calibration laboratories ensuring strict compliance for
-                                industrial and medical isotopic devices.</p>
-                            <a href="<?php echo esc_url( home_url( '/media/ntc-safety-briefing/' ) ); ?>"
-                                style="color: #008751; font-weight: 700; text-decoration: none;">Watch Feature
-                                &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL 3D COLORFUL CARDS) -->
+    <!-- 5. STAKEHOLDER FEEDBACK (INFINITE HORIZONTAL 3D CAROUSEL) -->
     <?php 
     $feedback_items = [
         [
@@ -1743,14 +1416,17 @@ get_header();
     ?>
     <section class="nistco-section nistco-bg-white">
         <div class="nistco-container">
-            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
-                <span class="nistco-section-kicker">Stakeholder Feedback</span>
-                <h2 class="nistco-section-title">Performance & User Experience</h2>
-                <p class="nistco-section-lead">Verified feedback from industrial partners, academic researchers, and
-                    ministry stakeholders.</p>
+            <div class="scroll-fx fx-fade-up" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
+                <span
+                    style="font-size: 0.8rem; font-weight: 800; color: #008751; text-transform: uppercase; letter-spacing: 1.5px;">Stakeholder
+                    Feedback</span>
+                <h2 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0.5rem 0;">Performance & User
+                    Experience</h2>
+                <p style="color: #64748b; line-height: 1.6;">Verified feedback from industrial partners, academic
+                    researchers, and ministry stakeholders.</p>
             </div>
 
-            <div class="nistco-rating-summary-ribbon">
+            <div class="nistco-rating-summary-ribbon scroll-fx fx-scale-in">
                 <div class="rating-stat-box">
                     <div class="rating-score">4.9 <span>/ 5.0</span></div>
                     <div class="rating-stars">★★★★★</div>
@@ -1767,7 +1443,7 @@ get_header();
                 </div>
             </div>
 
-            <div class="nistco-horizontal-ticker-container">
+            <div class="nistco-horizontal-ticker-container scroll-fx fx-fade-up">
                 <div class="nistco-horizontal-ticker-track">
                     <?php 
                     $loop_feedback = array_merge($feedback_items, $feedback_items);
@@ -1799,55 +1475,114 @@ get_header();
         </div>
     </section>
 
-    <!-- 9. STRATEGIC PARTNERS & INSTITUTIONAL ALLIANCES -->
+    <!-- 6. STRATEGIC PARTNERS WITH 3D ANIMATED INSIGNIA -->
     <section class="nistco-section nistco-bg-parchment">
         <div class="nistco-container">
-            <div class="mc-section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
-                <span class="nistco-section-kicker">Global & Domestic Networks</span>
-                <h2 class="nistco-section-title">Strategic Partners & Institutional Alliances</h2>
-                <p class="nistco-section-lead">Collaborating with premier international research councils, academic
-                    institutions, and industrial conglomerates.</p>
+            <div class="scroll-fx fx-fade-up" style="text-align: center; max-width: 720px; margin: 0 auto 3.5rem auto;">
+                <span
+                    style="font-size: 0.8rem; font-weight: 800; color: #008751; text-transform: uppercase; letter-spacing: 1.5px;">Global
+                    Networks</span>
+                <h2 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin: 0.5rem 0 1rem 0;">Strategic
+                    Partners & Institutional Alliances</h2>
+                <p style="color: #64748b; line-height: 1.6;">Collaborating with premier international research councils,
+                    academic accreditation bodies, and manufacturing leaders.</p>
             </div>
-            <div class="nistco-partners-grid">
-                <div class="nistco-partner-card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">ECOWAS
-                        Science Council</h3>
-                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Regional cooperation in biotechnology safety and agricultural genomics across West Africa.</p>
-                    <span
-                        style="font-size: 0.75rem; font-weight: 700; background: #e0f2fe; color: #0284c7; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Regional
-                        Partner</span>
+
+            <div class="partners-grid-3d">
+                <div class="partner-card-modern scroll-fx fx-fade-up" style="transition-delay: 0.05s;">
+                    <div>
+                        <div class="insignia-float-box">
+                            <div class="insignia-inner-3d">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>ECOWAS Science & Tech Council</h3>
+                        <p>Harmonizing biotechnology safety regulations, shared agricultural seed trials, and
+                            transboundary research initiatives across West Africa.</p>
+                    </div>
+                    <div class="partner-card-footer">
+                        <span
+                            style="font-size: 0.72rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Regional
+                            Partner</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #008751;">Active MoU</span>
+                    </div>
                 </div>
-                <div class="nistco-partner-card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🎓</div>
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">National
-                        Universities Commission</h3>
-                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Facilitating postgraduate research residencies and shared advanced laboratory access.</p>
-                    <span
-                        style="font-size: 0.75rem; font-weight: 700; background: #fef3c7; color: #92400e; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Academic
-                        Alliance</span>
+
+                <div class="partner-card-modern scroll-fx fx-fade-up" style="transition-delay: 0.1s;">
+                    <div>
+                        <div class="insignia-float-box">
+                            <div class="insignia-inner-3d">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>National Universities Commission</h3>
+                        <p>Facilitating postgraduate scientific fellowships, doctoral residency programs, and shared
+                            instrumentation across Nigerian universities.</p>
+                    </div>
+                    <div class="partner-card-footer">
+                        <span
+                            style="font-size: 0.72rem; font-weight: 800; background: #fef3c7; color: #92400e; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Academic
+                            Hub</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #008751;">Residency Access</span>
+                    </div>
                 </div>
-                <div class="nistco-partner-card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🏭</div>
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">
-                        Manufacturers Association of Nigeria</h3>
-                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Commercializing NOTAP patents and scaling indigenous pilot plants for national enterprise.</p>
-                    <span
-                        style="font-size: 0.75rem; font-weight: 700; background: #d1fae5; color: #065f46; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Industrial
-                        Partner</span>
+
+                <div class="partner-card-modern scroll-fx fx-fade-up" style="transition-delay: 0.15s;">
+                    <div>
+                        <div class="insignia-float-box">
+                            <div class="insignia-inner-3d">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>Manufacturers Association of Nigeria</h3>
+                        <p>Accelerating industrial commercialization of NOTAP-registered patents, pilot chemical
+                            batches, and local replacement components.</p>
+                    </div>
+                    <div class="partner-card-footer">
+                        <span
+                            style="font-size: 0.72rem; font-weight: 800; background: #d1fae5; color: #065f46; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Industrial
+                            Partner</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #008751;">Tech Transfer</span>
+                    </div>
                 </div>
-                <div class="nistco-partner-card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚛️</div>
-                    <h3 style="font-size: 1.15rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">
-                        International Atomic Energy Agency</h3>
-                    <p style="font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Technical cooperation in nuclear instrumentation, radiation safety, and metrology standards.</p>
-                    <span
-                        style="font-size: 0.75rem; font-weight: 700; background: #ede9fe; color: #5b21b6; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; width: max-content;">Global
-                        Partner</span>
+
+                <div class="partner-card-modern scroll-fx fx-fade-up" style="transition-delay: 0.2s;">
+                    <div>
+                        <div class="insignia-float-box">
+                            <div class="insignia-inner-3d">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"></ellipse>
+                                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"></ellipse>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3>International Atomic Energy Agency</h3>
+                        <p>Technical verification of radiation dosimetry standards, environmental isotopic monitoring,
+                            and laboratory safety certification.</p>
+                    </div>
+                    <div class="partner-card-footer">
+                        <span
+                            style="font-size: 0.72rem; font-weight: 800; background: #ede9fe; color: #5b21b6; padding: 0.25rem 0.65rem; border-radius: 4px; text-transform: uppercase;">Global
+                            Authority</span>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: #008751;">Standards Certified</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1857,10 +1592,72 @@ get_header();
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Impact Counters Animation
+    // ==========================================================================
+    // 1. Smoothed Bidirectional Scroll Animation Engine
+    // ==========================================================================
+    const scrollElements = document.querySelectorAll('.scroll-fx');
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const el = entry.target;
+
+            if (entry.isIntersecting) {
+                el.classList.add('is-visible');
+                el.classList.remove('scrolled-past', 'scrolled-above');
+            } else {
+                el.classList.remove('is-visible');
+                const rect = entry.boundingClientRect;
+
+                if (rect.top < 0) {
+                    el.classList.add('scrolled-past');
+                    el.classList.remove('scrolled-above');
+                } else {
+                    el.classList.add('scrolled-above');
+                    el.classList.remove('scrolled-past');
+                }
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    scrollElements.forEach(el => scrollObserver.observe(el));
+
+    // ==========================================================================
+    // 2. Interactive Parallax for 3D Hero Epicyclic Gear Assembly
+    // ==========================================================================
+    const heroViewport = document.querySelector('.nistco-hero-viewport');
+    const stage = document.querySelector('.epicyclic-stage');
+
+    if (heroViewport && stage) {
+        const basePitch = 54;
+        const baseYaw = -36;
+
+        heroViewport.closest('.nistco-hero-section')?.addEventListener('mousemove', (e) => {
+            const rect = heroViewport.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            requestAnimationFrame(() => {
+                stage.style.transform =
+                    `rotateX(${basePitch - (y * 10)}deg) rotateZ(${baseYaw + (x * 12)}deg)`;
+            });
+        });
+
+        heroViewport.closest('.nistco-hero-section')?.addEventListener('mouseleave', () => {
+            requestAnimationFrame(() => {
+                stage.style.transform = `rotateX(${basePitch}deg) rotateZ(${baseYaw}deg)`;
+            });
+        });
+    }
+
+    // ==========================================================================
+    // 3. Impact Counters Animation
+    // ==========================================================================
     const counters = document.querySelectorAll('.nistco-counter');
     if (counters.length > 0) {
-        const observer = new IntersectionObserver((entries, observerInstance) => {
+        const counterObserver = new IntersectionObserver((entries, observerInstance) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const el = entry.target;
@@ -1871,7 +1668,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     function step(currentTime) {
                         if (!startTime) startTime = currentTime;
-                        const progress = Math.min((currentTime - startTime) / 2000, 1);
+                        const progress = Math.min((currentTime - startTime) / 2200, 1);
                         const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 *
                             progress);
                         let formatted = Math.floor(target * easeProgress);
@@ -1884,68 +1681,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, {
-            threshold: 0.2
+            threshold: 0.25
         });
-        counters.forEach(counter => observer.observe(counter));
+
+        counters.forEach(counter => counterObserver.observe(counter));
     }
 
-    // Interactive Patent Filter Logic
-    const filterButtons = document.querySelectorAll('.patent-tab-btn');
-    const patentCards = document.querySelectorAll('.inno-patent-card');
+    // ==========================================================================
+    // 4. Interactive 3D Cursor Tilt for Centres & Partners
+    // ==========================================================================
+    const cards3D = document.querySelectorAll('.centre-card-3d, .partner-card-modern');
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    cards3D.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-            const filterValue = btn.getAttribute('data-filter');
-
-            patentCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    card.style.display = 'flex';
-                    setTimeout(() => card.style.opacity = '1', 50);
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
+            const iconBox = card.querySelector('.icon-box-3d, .insignia-inner-3d');
+            if (iconBox) {
+                iconBox.style.transform =
+                    `rotateX(${-y * 22}deg) rotateY(${x * 22}deg) translateZ(14px)`;
+            }
         });
-    });
 
-    // SVG Interlocking Gears Animation & Interaction Logic
-    const largeGear = document.querySelector('.gear-large');
-    const mediumGear = document.querySelector('.gear-medium');
-    const smallGear = document.querySelector('.gear-small');
-    const heroSection = document.querySelector('.nistco-hero-section');
-
-    let angle = 0;
-    let baseSpeed = 1;
-    let speed = baseSpeed;
-
-    function rotateGears() {
-        angle += speed;
-        if (largeGear) largeGear.style.transform = `rotate(${angle}deg)`;
-        if (mediumGear) mediumGear.style.transform = `rotate(${-angle}deg)`; // counter-rotating
-        if (smallGear) smallGear.style.transform = `rotate(${angle}deg)`; // same as large
-        requestAnimationFrame(rotateGears);
-    }
-    rotateGears();
-
-    if (heroSection) {
-        heroSection.addEventListener('mouseenter', () => {
-            speed = 4; // hover power-up
+        card.addEventListener('mouseleave', () => {
+            const iconBox = card.querySelector('.icon-box-3d, .insignia-inner-3d');
+            if (iconBox) {
+                iconBox.style.transform = '';
+            }
         });
-        heroSection.addEventListener('mouseleave', () => {
-            speed = baseSpeed;
-        });
-    }
-
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const maxScroll = document.body.scrollHeight - window.innerHeight;
-        const scrollFactor = maxScroll > 0 ? (scrollTop / maxScroll) : 0;
-        speed = baseSpeed + scrollFactor * 5; // scroll acceleration
     });
 });
 </script>
