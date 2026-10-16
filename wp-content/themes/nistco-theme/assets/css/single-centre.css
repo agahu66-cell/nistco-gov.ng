@@ -1,0 +1,447 @@
+/* ==========================================================================
+   NISTCO Single Research Centre Master Stylesheet
+   ========================================================================== */
+
+/* Division Color Tokens */
+.division-theme-amsarc {
+    --centre-accent: #0ea5e9;
+    --centre-rgb: 14, 165, 233;
+}
+
+.division-theme-carc {
+    --centre-accent: #f59e0b;
+    --centre-rgb: 245, 158, 11;
+}
+
+.division-theme-barc {
+    --centre-accent: #10b981;
+    --centre-rgb: 16, 185, 129;
+}
+
+.division-theme-parc {
+    --centre-accent: #8b5cf6;
+    --centre-rgb: 139, 92, 246;
+}
+
+.division-theme-ntc {
+    --centre-accent: #e11d48;
+    --centre-rgb: 225, 29, 72;
+}
+
+.division-theme-aepc {
+    --centre-accent: #06b6d4;
+    --centre-rgb: 6, 182, 212;
+}
+
+/* Base Portal Canvas */
+.centre-portal-main {
+    background: #060d17;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+}
+
+.centre-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 3;
+}
+
+/* Division Hero */
+.centre-hero {
+    position: relative;
+    padding: 6.5rem 0 4.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: radial-gradient(circle at 80% 20%, rgba(var(--centre-rgb), 0.16) 0%, transparent 60%),
+                #060d17;
+}
+
+.centre-breadcrumb {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+}
+
+.centre-breadcrumb a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.centre-breadcrumb a:hover {
+    color: var(--centre-accent);
+}
+
+.centre-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .centre-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.centre-code-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    background: rgba(var(--centre-rgb), 0.15);
+    border: 1px solid var(--centre-accent);
+    color: var(--centre-accent);
+    margin-bottom: 1rem;
+}
+
+.centre-hero-title {
+    font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    color: #ffffff;
+}
+
+.centre-hero-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+.centre-hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Telemetry Box */
+.centre-telemetry-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.25rem;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid var(--centre-accent);
+}
+
+.telemetry-box-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0 0 1.25rem 0;
+    color: #f1f5f9;
+}
+
+.telemetry-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.92rem;
+}
+
+.telemetry-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.telemetry-kicker {
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+.telemetry-stat {
+    color: var(--centre-accent);
+    font-weight: 800;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1.05rem;
+}
+
+/* Sticky Navigation Ribbon */
+.centre-nav-ribbon {
+    background: #0b1524;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.centre-nav-tabs {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 0.25rem 0;
+}
+
+.centre-tab-link {
+    padding: 1.2rem 0;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.centre-tab-link:hover,
+.centre-tab-link.active {
+    color: #ffffff;
+    border-bottom-color: var(--centre-accent);
+}
+
+/* Sections */
+.portal-section {
+    padding: 5rem 0;
+    border-bottom: 1px solid #1e293b;
+}
+
+.portal-section-alt {
+    background: #08111d;
+}
+
+.section-kicker {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--centre-accent);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.section-heading {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 1.25rem 0;
+}
+
+.section-desc {
+    color: #94a3b8;
+    max-width: 720px;
+    line-height: 1.65;
+    margin-bottom: 3rem;
+}
+
+/* Facilities Grid */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.facility-card {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--centre-accent);
+}
+
+.facility-card h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0 0 0.75rem 0;
+    color: #ffffff;
+}
+
+.facility-card p {
+    color: #94a3b8;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.facility-status-tag {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--centre-accent);
+}
+
+/* Equipment Table */
+.equipment-table-wrap {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow-x: auto;
+}
+
+.equipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
+}
+
+.equipment-table th {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 1.1rem 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #cbd5e1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.equipment-table td {
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: #94a3b8;
+}
+
+.equipment-table tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+    color: #ffffff;
+}
+
+.equipment-name-cell {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.status-badge-verified {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    background: rgba(0, 135, 81, 0.2);
+    color: #00ffa3;
+    border: 1px solid #008751;
+}
+
+/* Leadership Profile */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 3rem;
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 3rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.leader-portrait-wrap {
+    width: 100%;
+    height: 340px;
+    background: #040d17;
+    border-radius: 12px;
+    border: 2px solid var(--centre-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--centre-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.leader-portrait-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(var(--centre-rgb), 0.9);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 0.4rem;
+    text-transform: uppercase;
+}
+
+.leader-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.35rem 0;
+}
+
+.leader-rank {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--centre-accent);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.leader-bio {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+}
+
+.leader-contact-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.leader-contact-item strong {
+    color: #ffffff;
+}
+
+.leader-contact-item a {
+    color: var(--centre-accent);
+    text-decoration: none;
+}
+
+/* Commercial Patents Dossier Card */
+.patent-dossier-card {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.patent-dossier-title {
+    font-size: 1.35rem;
+    color: #ffffff;
+    margin: 0 0 0.85rem 0;
+}
+
+.patent-dossier-lead {
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
