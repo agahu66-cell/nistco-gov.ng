@@ -205,3 +205,11 @@ function nistco_register_institutional_metrics_block() {
 }
 add_action( 'init', 'nistco_register_institutional_metrics_block' );
 require_once get_template_directory() . '/inc-front-assets.php';
+
+// NISTCO Commercial Ventures Engine & Statutory Royalty Ledger
+require_once get_template_directory() . '/inc-venture-db.php';
+require_once get_template_directory() . '/inc-venture-api.php';
+
+// NISTCO Commercial Ventures Engine & Statutory Royalty Ledger
+require_once get_template_directory() . '/inc-venture-db.php';
+require_once get_template_directory() . '/inc-venture-api.php';
