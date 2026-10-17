@@ -1,10 +1,9 @@
 /**
  * NISTCO Single Research Centre Interactive Script
- * Tab synchronization and dynamic highlight tracking.
  */
 document.addEventListener('DOMContentLoaded', function() {
-    const tabLinks = document.querySelectorAll('.centre-tab-link');
-    const sections = document.querySelectorAll('.portal-section');
+    const tabLinks = document.querySelectorAll('.centre-nav-item');
+    const sections = document.querySelectorAll('.centre-section, .centre-hero');
 
     tabLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', function() {
         let currentSectionId = '';
-        const scrollPosition = window.scrollY + 120;
+        const scrollPosition = window.scrollY + 140;
 
         sections.forEach(section => {
             const top = section.offsetTop;
@@ -35,6 +34,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
+            }
+        });
+    });
+
+    const faqButtons = document.querySelectorAll('.faq-question-btn');
+    faqButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const parentItem = this.closest('.faq-item');
+            const isOpen = parentItem.classList.contains('active');
+
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-question-btn').setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isOpen) {
+                parentItem.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
             }
         });
     });
