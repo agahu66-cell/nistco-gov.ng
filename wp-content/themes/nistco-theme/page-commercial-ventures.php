@@ -151,12 +151,12 @@ foreach ( $royalties as $r ) {
                 </div>
                 <div class="filter-pills-cluster">
                     <button class="filter-pill active" onclick="filterVentures('all')">All Divisions</button>
-                    <button class="filter-pill" onclick="filterVentures('carc')">CARC</button>
-                    <button class="filter-pill" onclick="filterVentures('barc')">BARC</button>
-                    <button class="filter-pill" onclick="filterVentures('aepc')">AEPC</button>
-                    <button class="filter-pill" onclick="filterVentures('ntc')">NTC</button>
-                    <button class="filter-pill" onclick="filterVentures('amsarc')">AMSARC</button>
-                    <button class="filter-pill" onclick="filterVentures('parc')">PARC</button>
+                    <button class="filter-pill" onclick="filterVentures('carc')">CARC (Chemistry)</button>
+                    <button class="filter-pill" onclick="filterVentures('barc')">BARC (Biotech)</button>
+                    <button class="filter-pill" onclick="filterVentures('aepc')">AEPC (Prototype)</button>
+                    <button class="filter-pill" onclick="filterVentures('ntc')">NTC (Nuclear)</button>
+                    <button class="filter-pill" onclick="filterVentures('amsarc')">AMSARC (Applied Math)</button>
+                    <button class="filter-pill" onclick="filterVentures('parc')">PARC (Physics)</button>
                 </div>
             </div>
 
