@@ -56,3 +56,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Facility Booking Form Handler
+document.addEventListener('DOMContentLoaded', function() {
+    const bookingForm = document.getElementById('facilityBookingForm');
+    const statusMsg = document.getElementById('bookingStatusMsg');
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate processing
+            const btn = bookingForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Processing Request...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+                
+                statusMsg.textContent = 'Requisition registered. Our technical desk will contact you within 48 hours.';
+                statusMsg.classList.add('show');
+                bookingForm.reset();
+
+                setTimeout(() => {
+                    statusMsg.classList.remove('show');
+                }, 8000);
+            }, 1500);
+        });
+    }
+});
