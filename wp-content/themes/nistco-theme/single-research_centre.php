@@ -1,6 +1,8 @@
 <?php
 /**
- * Template Name: Remodeled NISTCO Master Single Research Centre Portal
+ * Template Name: NISTCO Master Single Research Centre Portal
+ * Includes bespoke 3D insignias, statutory mandate, 3D infrastructure blueprints,
+ * facility requisition form, and at least 4 FAQs per division.
  */
 
 get_header();
@@ -10,6 +12,12 @@ $profiles = [
         'acronym'     => 'AMSARC',
         'title'       => 'Applied Mathematics and Simulation Advanced Research Centre',
         'mandate'     => 'National Apex Supercomputing & Numerical Simulation Mandate',
+        'mandate_text'=> 'Mandated under the National Science, Technology, and Innovation (STI) Policy to maintain Nigeria’s apex computational supercomputing infrastructure. AMSARC translates mathematical continuum mechanics, computational fluid dynamics (CFD), and stochastic tensor modeling into mission-critical solutions for national power grid stability, aerospace aerodynamics, and defense logistics.',
+        'pillars'     => [
+            [ 'title' => 'National Grid Simulation', 'desc' => 'Executing real-time synchrophasor modeling across 330kV and 132kV transmission lines to eliminate nationwide grid collapses.' ],
+            [ 'title' => 'Turbulence & Aerodynamics', 'desc' => 'Navier-Stokes and finite-volume fluid modeling for indigenous hydro turbines and marine hulls.' ],
+            [ 'title' => 'HPC & Parallel Computing', 'desc' => 'High-throughput 256 TFLOPS parallel GPU allocation for universities and national engineering programs.' ]
+        ],
         'telemetry'   => [
             'Supercomputing Cluster'   => '256 TFLOPS GPU Acceleration',
             'Grid Simulation Forecast' => '99.4% Numerical Precision',
@@ -44,13 +52,20 @@ $profiles = [
         'faq'         => [
             [ 'q' => 'How can external researchers or universities request supercomputing time?', 'a' => 'External investigators and postgraduate students can submit a computational proposal via the HPC Access Desk. Node allocations are granted within 5 working days following technical feasibility review.' ],
             [ 'q' => 'What scientific software suites and toolchains are available on AMSARC clusters?', 'a' => 'AMSARC provides pre-compiled OpenFOAM, ANSYS Fluent, MATLAB Distributed Computing Engine, Python PyTorch/TensorFlow, and custom MPI parallel C++/Fortran libraries.' ],
-            [ 'q' => 'Can private enterprises contract AMSARC for proprietary CFD or structural analysis?', 'a' => 'Yes. Under NISTCO commercial service charters, AMSARC executes proprietary simulation engagements with complete non-disclosure confidentiality and certified engineering reports.' ]
+            [ 'q' => 'Can private enterprises contract AMSARC for proprietary CFD or structural analysis?', 'a' => 'Yes. Under NISTCO commercial service charters, AMSARC executes proprietary simulation engagements with complete non-disclosure confidentiality and certified engineering reports.' ],
+            [ 'q' => 'What is the network latency and remote cluster access protocol?', 'a' => 'Authorized external researchers connect via secure encrypted VPN with SSH/SFTP endpoints, supported by dedicated 100 Gbps InfiniBand interconnects.' ]
         ]
     ],
     'carc' => [
         'acronym'     => 'CARC',
         'title'       => 'Chemistry Advanced Research Centre',
         'mandate'     => 'National Industrial Chemistry, Fine Chemicals & Materials Mandate',
+        'mandate_text'=> 'Established to drive Nigeria’s raw materials substitution agenda by transforming domestic petrochemicals, solid minerals, and natural botanical extracts into certified industrial chemicals, pharmaceutical intermediates, and specialized polymer formulations.',
+        'pillars'     => [
+            [ 'title' => '500L Batch Scale-Up', 'desc' => 'Bridging the laboratory-to-industry gap through jacketed demonstration reactors.' ],
+            [ 'title' => 'High-Field Structural NMR', 'desc' => '400 MHz organic and inorganic molecular characterization for domestic research.' ],
+            [ 'title' => 'Import Substitution', 'desc' => 'Developing domestic zeolite cracking catalysts and biopolymer packaging resins.' ]
+        ],
         'telemetry'   => [
             'Chemical Pilot Plant'     => '500L Jacketed Batch Synthesis',
             'Structural Spectroscopy'  => '400 MHz High-Field NMR',
@@ -85,13 +100,20 @@ $profiles = [
         'faq'         => [
             [ 'q' => 'How can commercial manufacturing companies schedule production on the 500L Pilot Plant?', 'a' => 'Companies submit a Pilot Synthesis Request detailing the reaction pathway, material safety data sheets (MSDS), and batch volume. Our chemical engineers conduct a hazards evaluation prior to contract scheduling.' ],
             [ 'q' => 'What sample purity and submission standards are required for 400 MHz NMR testing?', 'a' => 'Samples must be submitted in standard 5mm NMR tubes, dissolved in minimum 0.6 mL deuterated solvent (CDCl3, DMSO-d6, D2O, or MeOD) with a recommended concentration of 5–15 mg for 1H or 20–50 mg for 13C.' ],
-            [ 'q' => 'Does CARC provide official Certificates of Analysis (CoA) for export clearance?', 'a' => 'Yes. CARC issues accredited Certificates of Analysis recognized by regulatory bodies including NAFDAC, SON, and international phytosanitary authorities.' ]
+            [ 'q' => 'Does CARC provide official Certificates of Analysis (CoA) for export clearance?', 'a' => 'Yes. CARC issues accredited Certificates of Analysis recognized by regulatory bodies including NAFDAC, SON, and international phytosanitary authorities.' ],
+            [ 'q' => 'What turnaround time can commercial clients expect for GC-MS and HPLC assay runs?', 'a' => 'Routine analytical assays are completed within 3 to 5 business days, with rush express reporting available within 48 hours.' ]
         ]
     ],
     'barc' => [
         'acronym'     => 'BARC',
         'title'       => 'Biotechnology Advanced Research Centre',
         'mandate'     => 'National Agricultural Genomics, Tissue Culture & Bioeconomy Mandate',
+        'mandate_text'=> 'Statutorily charged with advancing Nigeria’s bioeconomy through high-throughput tissue culture propagation, molecular breeding, bio-fertilizer microbial bioprocessing, and germplasm conservation to ensure national food security and agro-allied export growth.',
+        'pillars'     => [
+            [ 'title' => 'Disease-Free Seedlings', 'desc' => 'Delivering 50,000 monthly certified plantlets to agricultural cooperatives.' ],
+            [ 'title' => 'Agro-Bioprocess Core', 'desc' => '250L fermentation capacity developing organic soil amendments and bio-pesticides.' ],
+            [ 'title' => 'Genetic Integrity', 'desc' => 'Real-time qPCR pathogen diagnostics and cryogenic germplasm repository.' ]
+        ],
         'telemetry'   => [
             'Micropropagation Output'  => '50,000 Certified Plantlets / Month',
             'Pilot Bioreactor Core'    => '250 Liters Fermentation Capacity',
@@ -126,13 +148,20 @@ $profiles = [
         'faq'         => [
             [ 'q' => 'How can farmer cooperatives or agribusinesses procure tissue-culture plantlets?', 'a' => 'Cooperatives can place supply orders through the Agro-Allied Desk. Seedlings are acclimated and delivered in sterile, disease-free hardened batches along with planting management protocols.' ],
             [ 'q' => 'What biosafety protocols govern genetic diagnostics and organism handling at BARC?', 'a' => 'BARC operates under National Biosafety Management Agency (NBMA) Level 2 biocontainment protocols with full autoclave sterilization, HEPA air filtration, and controlled biohazard disposal.' ],
-            [ 'q' => 'Can graduate students access the molecular biology lab for thesis research?', 'a' => 'Yes. BARC hosts graduate fellows from recognized universities through the NISTCO Postgraduate Residency Fellowship program.' ]
+            [ 'q' => 'Can graduate students access the molecular biology lab for thesis research?', 'a' => 'Yes. BARC hosts graduate fellows from recognized universities through the NISTCO Postgraduate Residency Fellowship program.' ],
+            [ 'q' => 'What is the production capacity of BARC bio-fertilizer pilot fermenters?', 'a' => 'Our pilot fermentation suite can produce 1,000 liters of concentrated liquid microbial inoculant per production cycle.' ]
         ]
     ],
     'parc' => [
         'acronym'     => 'PARC',
         'title'       => 'Physics Advanced Research Centre',
         'mandate'     => 'National Solid-State Physics, Semiconductors & Clean Energy Mandate',
+        'mandate_text'=> 'Mandated to establish sovereign capabilities in solid-state physics, semiconductor device fabrication, solar photovoltaic metrology, and clean energy storage solutions tailored to withstand extreme Sahel and tropical conditions.',
+        'pillars'     => [
+            [ 'title' => 'Semiconductor Thin-Films', 'desc' => 'High-vacuum magnetron sputtering for transparent conductive oxides and solar cells.' ],
+            [ 'title' => 'Class AAA PV Standards', 'desc' => 'Photovoltaic flash characterization and IEC 60904 degradation certification.' ],
+            [ 'title' => 'Advanced Solid-State Physics', 'desc' => 'Variable-temperature electronic transport and optical spectroscopy.' ]
+        ],
         'telemetry'   => [
             'Solar Testing Standard'   => 'Class AAA Solar Simulator Bench',
             'Thin-Film Vacuum Suite'   => '10^-6 Torr High-Vacuum Deposition',
@@ -167,13 +196,20 @@ $profiles = [
         'faq'         => [
             [ 'q' => 'Can solar panel assemblers and importers submit panels for Class AAA flash certification?', 'a' => 'Yes. PARC performs standard IEC 60904 photovoltaic efficiency tests, temperature coefficient ratings, and electroluminescence crack detection for domestic commercial certification.' ],
             [ 'q' => 'What substrate sizes can be accommodated in the magnetron sputter coater?', 'a' => 'The multi-target vacuum coater accommodates circular wafers and glass substrates up to 150mm (6 inches) in diameter with multi-target sequential deposition.' ],
-            [ 'q' => 'What parameters are determined by the Variable Temperature Hall Effect System?', 'a' => 'The system measures carrier concentration, sheet resistance, Hall coefficient, and carrier mobility across temperatures from 77 K (liquid nitrogen) up to 500 K.' ]
+            [ 'q' => 'What parameters are determined by the Variable Temperature Hall Effect System?', 'a' => 'The system measures carrier concentration, sheet resistance, Hall coefficient, and carrier mobility across temperatures from 77 K (liquid nitrogen) up to 500 K.' ],
+            [ 'q' => 'Does PARC offer testing for commercial battery storage systems?', 'a' => 'Yes. Our battery testing rigs conduct charge/discharge cycle stability, depth-of-discharge endurance, and thermal runaway monitoring.' ]
         ]
     ],
     'ntc' => [
         'acronym'     => 'NTC',
         'title'       => 'Nuclear Technology Centre',
         'mandate'     => 'National Radiation Protection, Dosimetry & Nuclear Metrology Mandate',
+        'mandate_text'=> 'Designated under the Nuclear Safety and Radiation Protection Act 1995 as Nigeria’s apex Secondary Standards Dosimetry Laboratory (SSDL). NTC maintains national primary-traceable calibration reference beams, performs environmental isotope surveillance, and manages personal radiation badging services.',
+        'pillars'     => [
+            [ 'title' => 'National SSDL Sanctuary', 'desc' => 'Calibrating hospital radiotherapy and industrial nuclear measurement instruments.' ],
+            [ 'title' => 'Environmental Metrology', 'desc' => 'Cryogenic HPGe spectrometry identifying radionuclide levels in soil and water.' ],
+            [ 'title' => 'Occupational Safety', 'desc' => 'Issuing and analyzing monthly TLD dosimeters for radiation workers nationwide.' ]
+        ],
         'telemetry'   => [
             'Dosimetry Metrology'      => 'National SSDL Secondary Standard',
             'Gamma Spectroscopy'       => 'Cryogenic HPGe Isotopic Detector',
@@ -208,13 +244,20 @@ $profiles = [
         'faq'         => [
             [ 'q' => 'How can hospitals and industrial operators submit survey meters for SSDL calibration?', 'a' => 'Instruments can be delivered to the NTC SSDL Receiving Desk with prior online booking. Calibration is performed using Cs-137 or Co-60 beams with traceable certification issued in 3–5 working days.' ],
             [ 'q' => 'How does the personal TLD badging service work for healthcare personnel?', 'a' => 'Facilities enroll their staff in the National Dosimetry Registry. Harshaw TLD badges are mailed every 30 days; returned badges are read, dose-evaluated, and entered into official occupational dose records.' ],
-            [ 'q' => 'Can mining or export companies submit mineral/water samples for radiological clearance?', 'a' => 'Yes. Samples undergo non-destructive gamma spectrometry on our cryogenic HPGe detector to measure Ra-226, Th-232, and K-40 specific activities with compliance export certificates.' ]
+            [ 'q' => 'Can mining or export companies submit mineral/water samples for radiological clearance?', 'a' => 'Yes. Samples undergo non-destructive gamma spectrometry on our cryogenic HPGe detector to measure Ra-226, Th-232, and K-40 specific activities with compliance export certificates.' ],
+            [ 'q' => 'What radiation protection training does NTC provide for Radiation Safety Officers (RSOs)?', 'a' => 'NTC conducts periodic accredited RSO certification workshops covering radiation physics, regulatory compliance, dosimetric monitoring, and emergency response.' ]
         ]
     ],
     'aepc' => [
         'acronym'     => 'AEPC',
         'title'       => 'Advanced Engineering & Prototype Centre',
         'mandate'     => 'National Precision Tooling, CNC Machining & Additive Metallurgy Mandate',
+        'mandate_text'=> 'Statutorily charged under Nigeria’s Industrial Revolution Plan with industrial reverse engineering, sub-micron precision machining (±0.005mm), 5-axis CNC prototyping, injection mold manufacturing, and direct metal laser sintering to empower local manufacturers.',
+        'pillars'     => [
+            [ 'title' => '5-Axis Precision Machining', 'desc' => 'High-tolerance fabrication of complex replacement components for industry.' ],
+            [ 'title' => 'Additive Metal Prototyping', 'desc' => 'Direct metal laser sintering (DMLS) of functional titanium and steel parts.' ],
+            [ 'title' => 'Tooling & Injection Molds', 'desc' => 'Wire EDM and CNC mold-making for pharmaceutical and industrial plastics.' ]
+        ],
         'telemetry'   => [
             'Precision Machining'     => '5-Axis Simultaneous CNC Machining',
             'Machining Tolerance'     => '±0.005 mm Sub-Micron Accuracy',
@@ -249,17 +292,22 @@ $profiles = [
         'faq'         => [
             [ 'q' => 'Can local manufacturing companies contract AEPC to fabricate single replacement parts for broken machinery?', 'a' => 'Yes. Send the physical broken component or 3D CAD files. AEPC reverse-engineers the part via optical 3D scanning, verifies metallurgy, and machines the exact replacement on our 5-axis CNC.' ],
             [ 'q' => 'What dimensional tolerances can AEPC guarantee on machined components?', 'a' => 'Our 5-axis machining centres and Mitutoyo Coordinate Measuring Machine (CMM) certify tolerances down to ±0.005 mm (sub-micron precision) with comprehensive dimensional inspection certificates.' ],
-            [ 'q' => 'What file formats are accepted for CNC machining and 3D printing orders?', 'a' => 'We accept standard STEP (.stp, .step), IGES (.igs), Parasolid (.x_t), and SolidWorks (.sldprt) files, as well as high-resolution STL files for additive manufacturing.' ]
+            [ 'q' => 'What file formats are accepted for CNC machining and 3D printing orders?', 'a' => 'We accept standard STEP (.stp, .step), IGES (.igs), Parasolid (.x_t), and SolidWorks (.sldprt) files, as well as high-resolution STL files for additive manufacturing.' ],
+            [ 'q' => 'Does AEPC provide metallurgical certification for machined parts?', 'a' => 'Yes. AEPC provides full material composition certificates, hardness testing, and dimensional inspection reports.' ]
         ]
     ]
 ];
 
 $slug = get_post_field( 'post_name', get_the_ID() );
-$data = isset( $profiles[$slug] ) ? $profiles[$slug] : $profiles['carc'];
+if ( ! array_key_exists( $slug, $profiles ) ) { $slug = 'carc'; }
+
+$data = $profiles[$slug];
 $theme_class = 'division-theme-' . sanitize_html_class( $slug );
 ?>
 
 <main class="centre-portal-main <?php echo esc_attr( $theme_class ); ?>">
+
+    <!-- 1. DIVISION HERO WITH BESPOKE 3D VECTOR INSIGNIAS -->
     <header class="centre-hero">
         <div class="centre-container">
             <nav class="centre-breadcrumb" aria-label="Breadcrumb">
@@ -288,53 +336,76 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
                         <a href="#facilities" class="btn-nistco btn-prime">
                             Explore Laboratories & Facilities &rarr;
                         </a>
-                        <a href="#equipment" class="btn-nistco btn-ghost">
-                            Instrumentation Matrix
+                        <a href="#booking" class="btn-nistco btn-ghost">
+                            Book Facility / Request Service
                         </a>
                     </div>
                 </div>
 
+                <!-- Division Telemetry HUD with Dedicated 3D Insignia -->
                 <div class="centre-telemetry-hud">
                     <div class="insignia-badge-stage">
                         <div class="insignia-svg-box">
                             <?php if ( $slug === 'amsarc' ) : ?>
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon class="anim-spin-cw" points="50,15 85,32 85,68 50,85 15,68 15,32" stroke="var(--centre-accent)" stroke-width="2.5"/>
-                                    <polygon class="anim-spin-ccw" points="50,28 72,40 72,60 50,72 28,60 28,40" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="4 2"/>
-                                    <circle class="anim-pulse" cx="50" cy="50" r="9" fill="var(--centre-accent)"/>
+                                <!-- AMSARC: 3D Isometric Tensor Lattice / Supercomputing Hypercube -->
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon class="anim-spin-cw" points="60,10 102,34 102,86 60,110 18,86 18,34" stroke="var(--centre-accent)" stroke-width="2.5"/>
+                                    <polygon class="anim-spin-ccw" points="60,26 86,41 86,79 60,94 34,79 34,41" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="5 3"/>
+                                    <line x1="60" y1="10" x2="60" y2="26" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <line x1="102" y1="34" x2="86" y2="41" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <line x1="102" y1="86" x2="86" y2="79" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <line x1="60" y1="110" x2="60" y2="94" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <line x1="18" y1="86" x2="34" y2="79" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <line x1="18" y1="34" x2="34" y2="41" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <circle class="anim-pulse" cx="60" cy="60" r="10" fill="var(--centre-accent)"/>
                                 </svg>
                             <?php elseif ( $slug === 'carc' ) : ?>
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <polygon class="anim-spin-cw" points="50,10 85,30 85,70 50,90 15,70 15,30" stroke="var(--centre-accent)" stroke-width="2.5"/>
-                                    <circle class="anim-spin-ccw" cx="50" cy="50" r="28" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="6 3"/>
-                                    <circle class="anim-pulse" cx="50" cy="50" r="10" fill="var(--centre-accent)"/>
-                                    <circle cx="85" cy="30" r="4" fill="#ffffff"/>
-                                    <circle cx="15" cy="70" r="4" fill="#ffffff"/>
+                                <!-- CARC: 3D Hexagonal Molecular Cage / Polymer Ring with Orbiting Covalent Bonds -->
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon class="anim-spin-cw" points="60,12 100,35 100,85 60,108 20,85 20,35" stroke="var(--centre-accent)" stroke-width="2.8"/>
+                                    <circle class="anim-spin-ccw" cx="60" cy="60" r="32" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="6 4"/>
+                                    <circle class="anim-pulse" cx="60" cy="60" r="12" fill="var(--centre-accent)"/>
+                                    <circle class="anim-orbit" cx="100" cy="35" r="5" fill="#ffffff"/>
+                                    <circle class="anim-orbit" cx="20" cy="85" r="5" fill="#ffffff"/>
+                                    <circle class="anim-orbit" cx="60" cy="12" r="5" fill="var(--centre-accent)"/>
                                 </svg>
                             <?php elseif ( $slug === 'barc' ) : ?>
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <ellipse class="anim-spin-cw" cx="50" cy="50" rx="42" ry="16" transform="rotate(45 50 50)" stroke="var(--centre-accent)" stroke-width="2.5"/>
-                                    <ellipse class="anim-spin-ccw" cx="50" cy="50" rx="42" ry="16" transform="rotate(-45 50 50)" stroke="#38bdf8" stroke-width="2"/>
-                                    <circle class="anim-pulse" cx="50" cy="50" r="9" fill="var(--centre-accent)"/>
+                                <!-- BARC: 3D Double Helix Bioprocess Ribbon with Glowing Metabolic Nodes -->
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse class="anim-spin-cw" cx="60" cy="60" rx="48" ry="18" transform="rotate(45 60 60)" stroke="var(--centre-accent)" stroke-width="2.5"/>
+                                    <ellipse class="anim-spin-ccw" cx="60" cy="60" rx="48" ry="18" transform="rotate(-45 60 60)" stroke="#38bdf8" stroke-width="2.2"/>
+                                    <line x1="38" y1="38" x2="82" y2="82" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="3 3"/>
+                                    <line x1="82" y1="38" x2="38" y2="82" stroke="#ffffff" stroke-width="1.8" stroke-dasharray="3 3"/>
+                                    <circle class="anim-pulse" cx="60" cy="60" r="11" fill="var(--centre-accent)"/>
+                                    <circle cx="26" cy="26" r="4" fill="#38bdf8"/>
+                                    <circle cx="94" cy="94" r="4" fill="var(--centre-accent)"/>
                                 </svg>
                             <?php elseif ( $slug === 'parc' ) : ?>
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle class="anim-spin-cw" cx="50" cy="50" r="40" stroke="var(--centre-accent)" stroke-width="2.5" stroke-dasharray="8 4"/>
-                                    <polygon class="anim-spin-ccw" points="50,15 78,75 22,75" stroke="#ffffff" stroke-width="2"/>
-                                    <circle class="anim-pulse" cx="50" cy="50" r="8" fill="var(--centre-accent)"/>
+                                <!-- PARC: 3D Quantum Photonic & High-Vacuum Sputter Chamber Lattice -->
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="anim-spin-slow" cx="60" cy="60" r="48" stroke="var(--centre-accent)" stroke-width="2.5" stroke-dasharray="8 6"/>
+                                    <polygon class="anim-spin-ccw" points="60,18 95,82 25,82" stroke="#ffffff" stroke-width="2"/>
+                                    <polygon class="anim-spin-cw" points="60,102 25,38 95,38" stroke="var(--centre-accent)" stroke-width="1.5" opacity="0.7"/>
+                                    <circle class="anim-pulse" cx="60" cy="60" r="10" fill="var(--centre-accent)"/>
+                                    <line x1="12" y1="60" x2="108" y2="60" stroke="var(--centre-accent)" stroke-width="1.5" stroke-dasharray="4 4"/>
                                 </svg>
                             <?php elseif ( $slug === 'ntc' ) : ?>
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <ellipse class="anim-spin-cw" cx="50" cy="50" rx="44" ry="14" stroke="var(--centre-accent)" stroke-width="2.2"/>
-                                    <ellipse class="anim-spin-ccw" cx="50" cy="50" rx="44" ry="14" transform="rotate(60 50 50)" stroke="#ffffff" stroke-width="1.8"/>
-                                    <ellipse class="anim-spin-cw" cx="50" cy="50" rx="44" ry="14" transform="rotate(120 50 50)" stroke="var(--centre-accent)" stroke-width="1.8"/>
-                                    <circle class="anim-pulse" cx="50" cy="50" r="10" fill="var(--centre-accent)"/>
+                                <!-- NTC: 3D Rutherford-Bohr Nuclear Atomic Orbital with Glowing Isotope Core -->
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse class="anim-spin-cw" cx="60" cy="60" rx="50" ry="16" stroke="var(--centre-accent)" stroke-width="2.5"/>
+                                    <ellipse class="anim-spin-ccw" cx="60" cy="60" rx="50" ry="16" transform="rotate(60 60 60)" stroke="#ffffff" stroke-width="2"/>
+                                    <ellipse class="anim-spin-cw" cx="60" cy="60" rx="50" ry="16" transform="rotate(120 60 60)" stroke="var(--centre-accent)" stroke-width="2"/>
+                                    <circle class="anim-pulse" cx="60" cy="60" r="13" fill="var(--centre-accent)"/>
+                                    <circle cx="110" cy="60" r="4" fill="#ffffff"/>
                                 </svg>
                             <?php else : ?>
-                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle class="anim-spin-cw" cx="50" cy="50" r="42" stroke="var(--centre-accent)" stroke-width="2.5" stroke-dasharray="10 4"/>
-                                    <rect class="anim-spin-ccw" x="25" y="25" width="50" height="50" rx="6" stroke="#ffffff" stroke-width="2"/>
-                                    <circle class="anim-pulse" cx="50" cy="50" r="9" fill="var(--centre-accent)"/>
+                                <!-- AEPC: 3D 5-Axis CNC Milling Gyroscope with Precision Gimbal Rings -->
+                                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="anim-spin-cw" cx="60" cy="60" r="48" stroke="var(--centre-accent)" stroke-width="2.8" stroke-dasharray="12 4"/>
+                                    <rect class="anim-spin-ccw" x="30" y="30" width="60" height="60" rx="8" stroke="#ffffff" stroke-width="2"/>
+                                    <ellipse class="anim-spin-cw" cx="60" cy="60" rx="42" ry="18" stroke="var(--centre-accent)" stroke-width="1.8"/>
+                                    <circle class="anim-pulse" cx="60" cy="60" r="10" fill="var(--centre-accent)"/>
+                                    <line x1="60" y1="12" x2="60" y2="108" stroke="#ffffff" stroke-width="1.5"/>
                                 </svg>
                             <?php endif; ?>
                         </div>
@@ -358,31 +429,109 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </header>
 
+    <!-- 2. STICKY DIVISION NAVIGATION -->
     <nav class="centre-sticky-nav" aria-label="Division In-Page Navigation">
         <div class="centre-container">
             <div class="centre-nav-scroll-track">
-                <a href="#facilities" class="centre-nav-item active">Facilities & Cleanrooms</a>
-                <a href="#equipment" class="centre-nav-item">Instrumentation Matrix</a>
-                <a href="#projects" class="centre-nav-item">Strategic Projects</a>
+                <a href="#mandate" class="centre-nav-item active">Statutory Mandate</a>
+                <a href="#facilities" class="centre-nav-item">3D Infrastructure</a>
+                <a href="#booking" class="centre-nav-item">Facility Booking</a>
+                <a href="#equipment" class="centre-nav-item">Instrumentation</a>
+                <a href="#projects" class="centre-nav-item">Projects</a>
                 <a href="#publications" class="centre-nav-item">Publications</a>
-                <a href="#directorate" class="centre-nav-item">Directorate & Fellows</a>
-                <a href="#faq" class="centre-nav-item">Institutional FAQ</a>
-                <a href="#commercialization" class="centre-nav-item">Tech Transfer Desk</a>
+                <a href="#directorate" class="centre-nav-item">Directorate</a>
+                <a href="#faq" class="centre-nav-item">FAQ Accordion</a>
             </div>
         </div>
     </nav>
 
-    <section id="facilities" class="centre-section">
+    <!-- 3. STATUTORY MANDATE & NATIONAL MISSION -->
+    <section id="mandate" class="centre-section">
+        <div class="centre-container">
+            <div class="mandate-dossier-card">
+                <div>
+                    <span class="section-eyebrow">Federal Mission & Legal Charter</span>
+                    <h2 style="font-size: 2.1rem; font-weight: 900; margin: 0 0 1.25rem 0; color: #ffffff;">
+                        <?php echo esc_html( $data['acronym'] ); ?> Strategic Mandate
+                    </h2>
+                    <p style="color: #94a3b8; font-size: 1.05rem; line-height: 1.75; margin-bottom: 2rem;">
+                        <?php echo esc_html( $data['mandate_text'] ); ?>
+                    </p>
+                    <a href="#booking" class="btn-nistco btn-prime">
+                        Engage Technical Directorate &rarr;
+                    </a>
+                </div>
+
+                <div class="mandate-pillars-list">
+                    <?php foreach ( $data['pillars'] as $pillar ) : ?>
+                    <div class="mandate-pillar-item">
+                        <h4><?php echo esc_html( $pillar['title'] ); ?></h4>
+                        <p><?php echo esc_html( $pillar['desc'] ); ?></p>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 3D INFRASTRUCTURE & SPECIALIZED LABORATORIES -->
+    <section id="facilities" class="centre-section centre-section-alt">
         <div class="centre-container">
             <span class="section-eyebrow">Physical Infrastructure</span>
-            <h2 class="section-lead-title">Specialized Facilities & Demonstration Pilot Units</h2>
+            <h2 class="section-lead-title">Physical Infrastructure & 3D Architectural Blueprint</h2>
             <p class="section-summary-text">
-                Certified cleanrooms, high-containment laboratories, and industrial-scale demonstration facilities engineered to transition laboratory-scale breakthroughs into scalable domestic industries.
+                Certified cleanrooms, pilot-scale synthesis units, and precision laboratories operating within the Sheda Technology Sanctuary.
             </p>
 
+            <!-- 3D Infrastructure Blueprint Stage -->
+            <div class="infrastructure-hero-stage">
+                <div class="infra-blueprint-box">
+                    <svg class="infra-blueprint-svg" viewBox="0 0 100 100" fill="none" stroke="var(--centre-accent)" stroke-width="1.8">
+                        <polygon points="50,15 90,35 90,75 50,95 10,75 10,35" stroke-dasharray="4 2"/>
+                        <polygon points="50,30 75,42 75,68 50,80 25,68 25,42" fill="rgba(var(--centre-rgb), 0.1)"/>
+                        <line x1="50" y1="15" x2="50" y2="95"/>
+                        <line x1="10" y1="35" x2="90" y2="75"/>
+                        <line x1="10" y1="75" x2="90" y2="35"/>
+                        <circle cx="50" cy="55" r="8" fill="var(--centre-accent)"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin: 0 0 0.75rem 0;">
+                        <?php echo esc_html( $data['acronym'] ); ?> Core Facility Blueprint
+                    </h3>
+                    <p style="color: #94a3b8; font-size: 0.98rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                        Our modular engineering layout adheres to international ISO cleanroom standards, high-vacuum vibration isolation, and isolated clean power feeds from the NISTCO dedicated solar microgrid.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="#booking" class="btn-nistco btn-prime">Schedule Facility Tour &rarr;</a>
+                        <a href="#equipment" class="btn-nistco btn-ghost">Analytical Registry</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Facilities Grid -->
             <div class="facilities-grid-layout">
-                <?php foreach ( $data['facilities'] as $fac ) : ?>
+                <?php foreach ( $data['facilities'] as $index => $fac ) : ?>
                 <div class="facility-terminal-card">
+                    <div class="facility-icon-stage">
+                        <svg class="facility-icon-svg" viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="2">
+                            <?php if ( $index === 0 ) : ?>
+                                <rect x="12" y="16" width="40" height="32" rx="4"/>
+                                <line x1="12" y1="28" x2="52" y2="28"/>
+                                <circle cx="20" cy="22" r="2" fill="var(--centre-accent)"/>
+                                <circle cx="28" cy="22" r="2" fill="#fff"/>
+                            <?php elseif ( $index === 1 ) : ?>
+                                <path d="M22 48L32 16L42 48Z"/>
+                                <line x1="26" y1="36" x2="38" y2="36"/>
+                                <circle cx="32" cy="42" r="2" fill="#fff"/>
+                            <?php else : ?>
+                                <path d="M12 48V24L32 12L52 24V48Z"/>
+                                <circle cx="32" cy="34" r="6" stroke-dasharray="2 2"/>
+                            <?php endif; ?>
+                        </svg>
+                    </div>
+
                     <div>
                         <h3><?php echo esc_html( $fac['title'] ); ?></h3>
                         <p><?php echo esc_html( $fac['desc'] ); ?></p>
@@ -397,13 +546,63 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </section>
 
+    <!-- 5. FACILITY REQUISITION & BOOKING FORM -->
+    <section id="booking" class="centre-section">
+        <div class="centre-container">
+            <div class="booking-dossier-card">
+                <span class="section-eyebrow">Institutional Access</span>
+                <h2 class="section-lead-title" style="margin-bottom: 2rem;">
+                    <?php echo esc_html( $data['acronym'] ); ?> Facility Requisition & Booking Form
+                </h2>
+
+                <form id="facilityBookingForm" class="booking-form-grid">
+                    <div class="form-group">
+                        <label for="reqName">Lead Investigator / Representative Name *</label>
+                        <input type="text" id="reqName" class="form-control" placeholder="Prof. Jane Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reqInst">Institution / Enterprise Name *</label>
+                        <input type="text" id="reqInst" class="form-control" placeholder="University / Industrial Corp" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reqFacility">Target Facility / Laboratory Suite *</label>
+                        <select id="reqFacility" class="form-control" required>
+                            <option value="">-- Select Division Facility --</option>
+                            <?php foreach ( $data['facilities'] as $fac ) : ?>
+                                <option value="<?php echo esc_attr( $fac['title'] ); ?>"><?php echo esc_html( $fac['title'] ); ?></option>
+                            <?php endforeach; ?>
+                            <option value="General Instrumentation">General Analytical Instrumentation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reqDate">Proposed Start Date *</label>
+                        <input type="date" id="reqDate" class="form-control" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="reqObjective">Research Objective / Pilot Run Parameters *</label>
+                        <textarea id="reqObjective" class="form-control" rows="4" placeholder="Detail sample volume, desired precision tolerances, testing specifications, or pilot batch objectives..." required></textarea>
+                    </div>
+
+                    <div class="form-group full-width booking-submit-wrap">
+                        <button type="submit" class="btn-nistco btn-prime">
+                            Submit Requisition Request &rarr;
+                        </button>
+                        <span id="bookingStatusMsg" class="booking-status-msg"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PRECISION INSTRUMENTATION MATRIX -->
     <section id="equipment" class="centre-section centre-section-alt">
         <div class="centre-container">
             <span class="section-eyebrow">Analytical Registry</span>
             <h2 class="section-lead-title">Scientific Instrumentation & Analytical Suites</h2>
-            <p class="section-summary-text">
-                Calibrated scientific instrumentation available for interdisciplinary basic research, postgraduate doctoral residency, and third-party industrial quality assurance certification.
-            </p>
 
             <div style="overflow-x: auto;">
                 <table class="equipment-registry-table">
@@ -433,13 +632,11 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </section>
 
+    <!-- 7. STRATEGIC RESEARCH PROJECTS -->
     <section id="projects" class="centre-section">
         <div class="centre-container">
             <span class="section-eyebrow">National Investigations</span>
-            <h2 class="section-lead-title">Active Strategic Research Projects & Pilot Scale-Ups</h2>
-            <p class="section-summary-text">
-                National development projects funded by federal ministries, international development partners, and commercial industrial joint ventures.
-            </p>
+            <h2 class="section-lead-title">Active Strategic Research Projects & Scale-Ups</h2>
 
             <div class="projects-matrix-grid">
                 <?php foreach ( $data['projects'] as $proj ) : ?>
@@ -461,13 +658,11 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </section>
 
+    <!-- 8. PEER-REVIEWED PUBLICATIONS -->
     <section id="publications" class="centre-section centre-section-alt">
         <div class="centre-container">
             <span class="section-eyebrow">Scholarly Output</span>
-            <h2 class="section-lead-title">Recent Peer-Reviewed Publications & Technical Monographs</h2>
-            <p class="section-summary-text">
-                High-impact scientific literature, peer-reviewed journal papers, and open-access technical monographs published by <?php echo esc_html( $data['acronym'] ); ?> research fellows.
-            </p>
+            <h2 class="section-lead-title">Peer-Reviewed Publications & Monographs</h2>
 
             <div class="publications-list-wrap">
                 <?php foreach ( $data['publications'] as $pub ) : ?>
@@ -489,22 +684,48 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </section>
 
+    <!-- 9. DIRECTORATE & SCIENTIFIC FELLOWS -->
     <section id="directorate" class="centre-section">
         <div class="centre-container">
-            <span class="section-eyebrow">Institutional Leadership</span>
+            <span class="section-eyebrow">Leadership</span>
             <h2 class="section-lead-title">Directorate & Principal Investigators</h2>
-            <p class="section-summary-text">
-                Distinguished scientific directors, research fellows, and laboratory managers coordinating national strategic research initiatives.
-            </p>
 
             <div class="directorate-dossier-card">
                 <div class="directorate-avatar-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="var(--centre-accent)">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    </svg>
+                    <?php if ( $slug === 'amsarc' ) : ?>
+                        <svg viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="1.5">
+                            <path d="M32 8L52 20V44L32 56L12 44V20L32 8Z"/>
+                            <circle cx="32" cy="32" r="8" fill="var(--centre-glow)"/>
+                        </svg>
+                    <?php elseif ( $slug === 'barc' ) : ?>
+                        <svg viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="1.5">
+                            <path d="M32 56C32 56 12 40 12 24C12 12 32 8 32 8C32 8 52 12 52 24C52 40 32 56 32 56Z"/>
+                            <path d="M32 56V24"/>
+                        </svg>
+                    <?php elseif ( $slug === 'carc' ) : ?>
+                        <svg viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="1.5">
+                            <circle cx="20" cy="20" r="8" fill="var(--centre-glow)"/>
+                            <circle cx="44" cy="20" r="8"/>
+                            <circle cx="32" cy="44" r="8" fill="var(--centre-glow)"/>
+                            <line x1="26" y1="20" x2="36" y2="20"/>
+                        </svg>
+                    <?php elseif ( $slug === 'parc' ) : ?>
+                        <svg viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="1.5">
+                            <circle cx="32" cy="32" r="24" stroke-dasharray="4 4"/>
+                            <circle cx="32" cy="32" r="10" fill="var(--centre-glow)"/>
+                        </svg>
+                    <?php elseif ( $slug === 'ntc' ) : ?>
+                        <svg viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="1.5">
+                            <ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(45 32 32)"/>
+                            <ellipse cx="32" cy="32" rx="26" ry="10" transform="rotate(-45 32 32)"/>
+                            <circle cx="32" cy="32" r="6" fill="var(--centre-accent)"/>
+                        </svg>
+                    <?php else : ?>
+                        <svg viewBox="0 0 64 64" fill="none" stroke="var(--centre-accent)" stroke-width="1.5">
+                            <circle cx="32" cy="32" r="20"/>
+                            <circle cx="32" cy="32" r="8" fill="var(--centre-glow)" stroke-dasharray="2 2"/>
+                        </svg>
+                    <?php endif; ?>
                     <div class="directorate-badge-ribbon"><?php echo esc_html( $data['acronym'] ); ?> Director</div>
                 </div>
 
@@ -532,13 +753,14 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </section>
 
+    <!-- 10. FREQUENTLY ASKED QUESTIONS (MINIMUM 4 UNIQUE PER CENTRE) -->
     <section id="faq" class="centre-section centre-section-alt">
         <div class="centre-container">
             <div style="text-align: center; margin-bottom: 3.5rem;">
-                <span class="section-eyebrow">Institutional Advisory</span>
+                <span class="section-eyebrow">Advisory & Compliance</span>
                 <h2 class="section-lead-title" style="margin: 0 auto 1rem auto;">Frequently Asked Questions</h2>
                 <p class="section-summary-text" style="margin: 0 auto;">
-                    Standard operational protocols, residency applications, third-party testing procedures, and commercial partnership guidelines for <?php echo esc_html( $data['acronym'] ); ?>.
+                    Standard operational protocols, residency applications, analytical tolerances, and partnership guidelines for <?php echo esc_html( $data['acronym'] ); ?>.
                 </p>
             </div>
 
@@ -558,30 +780,6 @@ $theme_class = 'division-theme-' . sanitize_html_class( $slug );
         </div>
     </section>
 
-    <section id="commercialization" class="centre-section">
-        <div class="centre-container">
-            <span class="section-eyebrow">Commercialization Desk</span>
-            <h2 class="section-lead-title">Intellectual Property & Technology Transfer</h2>
-            <p class="section-summary-text">
-                Certified indigenous technologies developed by <?php echo esc_html( $data['acronym'] ); ?> ready for private-sector licensing, joint-venture production, and industrial scale-up.
-            </p>
-
-            <div class="patents-showcase-box">
-                <h3>Commercial Feasibility & Technical Dossiers</h3>
-                <p>
-                    Private enterprise partners and investors can request complete technical specifications, patent documentation, and pilot production trials for <?php echo esc_html( $data['acronym'] ); ?> technologies.
-                </p>
-                <div class="patents-showcase-actions">
-                    <a href="<?php echo esc_url( home_url( '/commercial-ventures/' ) ); ?>" class="btn-nistco btn-prime">
-                        Access Commercial Ventures Portal &rarr;
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="btn-nistco btn-ghost">
-                        Contact Tech Transfer Officer
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 </main>
 
 <?php get_footer(); ?>

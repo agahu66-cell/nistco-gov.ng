@@ -1,8 +1,52 @@
 /* ==========================================================================
-   NISTCO Single Research Centre - Stylesheet & 3D Insignia
+   NISTCO Single Research Centre - Master High-Authority Architecture
    ========================================================================== */
 
-.btn-nistco {
+/* 1. Division Color Tokens & Glow Attributes */
+.division-theme-amsarc {
+    --centre-accent: #0ea5e9;
+    --centre-rgb: 14, 165, 233;
+    --centre-glow: rgba(14, 165, 233, 0.35);
+    --centre-surface: #0a1727;
+}
+
+.division-theme-carc {
+    --centre-accent: #f59e0b;
+    --centre-rgb: 245, 158, 11;
+    --centre-glow: rgba(245, 158, 11, 0.35);
+    --centre-surface: #1a1508;
+}
+
+.division-theme-barc {
+    --centre-accent: #10b981;
+    --centre-rgb: 16, 185, 129;
+    --centre-glow: rgba(16, 185, 129, 0.35);
+    --centre-surface: #081a14;
+}
+
+.division-theme-parc {
+    --centre-accent: #8b5cf6;
+    --centre-rgb: 139, 92, 246;
+    --centre-glow: rgba(139, 92, 246, 0.35);
+    --centre-surface: #150d26;
+}
+
+.division-theme-ntc {
+    --centre-accent: #e11d48;
+    --centre-rgb: 225, 29, 72;
+    --centre-glow: rgba(225, 29, 72, 0.35);
+    --centre-surface: #1c080e;
+}
+
+.division-theme-aepc {
+    --centre-accent: #06b6d4;
+    --centre-rgb: 6, 182, 212;
+    --centre-glow: rgba(6, 182, 212, 0.35);
+    --centre-surface: #071821;
+}
+
+/* 2. Universal Action Button Architecture (Inheriting Division Colors) */
+.centre-portal-main .btn-nistco {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +54,7 @@
     padding: 0.85rem 1.65rem;
     border-radius: 8px;
     font-size: 0.92rem;
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -18,41 +62,37 @@
     border: 1px solid transparent;
 }
 
-.btn-prime {
-    background: #008751;
-    color: #ffffff !important;
-    border-color: #00ffa3;
-    box-shadow: 0 4px 15px rgba(0, 135, 81, 0.4);
+.centre-portal-main .btn-prime {
+    background: var(--centre-accent);
+    color: #060d17 !important;
+    border-color: var(--centre-accent);
+    box-shadow: 0 4px 18px var(--centre-glow);
 }
 
-.btn-prime:hover {
-    background: #00a865;
+.centre-portal-main .btn-prime:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #060d17 !important;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 255, 163, 0.45);
-    color: #ffffff !important;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.45);
 }
 
-.btn-ghost {
-    background: rgba(255, 255, 255, 0.05);
+.centre-portal-main .btn-ghost {
+    background: rgba(255, 255, 255, 0.04);
     color: #f1f5f9 !important;
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(var(--centre-rgb), 0.45);
     backdrop-filter: blur(8px);
 }
 
-.btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.3);
-    color: #ffffff !important;
+.centre-portal-main .btn-ghost:hover {
+    background: rgba(var(--centre-rgb), 0.15);
+    border-color: var(--centre-accent);
+    color: var(--centre-accent) !important;
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--centre-glow);
 }
 
-.division-theme-amsarc { --centre-accent: #0ea5e9; --centre-rgb: 14, 165, 233; --centre-glow: rgba(14, 165, 233, 0.25); }
-.division-theme-carc   { --centre-accent: #f59e0b; --centre-rgb: 245, 158, 11; --centre-glow: rgba(245, 158, 11, 0.25); }
-.division-theme-barc   { --centre-accent: #10b981; --centre-rgb: 16, 185, 129; --centre-glow: rgba(16, 185, 129, 0.25); }
-.division-theme-parc   { --centre-accent: #8b5cf6; --centre-rgb: 139, 92, 246; --centre-glow: rgba(139, 92, 246, 0.25); }
-.division-theme-ntc    { --centre-accent: #e11d48; --centre-rgb: 225, 29, 72;  --centre-glow: rgba(225, 29, 72, 0.25); }
-.division-theme-aepc   { --centre-accent: #06b6d4; --centre-rgb: 6, 182, 212;  --centre-glow: rgba(6, 182, 212, 0.25); }
-
+/* 3. Base Canvas Architecture */
 .centre-portal-main {
     background: #060d17;
     color: #ffffff;
@@ -68,12 +108,13 @@
     z-index: 3;
 }
 
+/* 4. Division Hero & 3D Insignia Stage */
 .centre-hero {
     position: relative;
     padding: 6.5rem 0 5rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    background: radial-gradient(circle at 85% 20%, var(--centre-glow) 0%, transparent 55%),
-                radial-gradient(circle at 10% 85%, rgba(0, 135, 81, 0.1) 0%, transparent 45%),
+    background: radial-gradient(circle at 85% 20%, var(--centre-glow) 0%, transparent 60%),
+                radial-gradient(circle at 10% 85%, rgba(0, 135, 81, 0.12) 0%, transparent 45%),
                 #060d17;
     overflow: hidden;
 }
@@ -90,8 +131,15 @@
     margin-bottom: 1.5rem;
 }
 
-.centre-breadcrumb a { color: #94a3b8; text-decoration: none; transition: color 0.2s ease; }
-.centre-breadcrumb a:hover { color: var(--centre-accent); }
+.centre-breadcrumb a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.centre-breadcrumb a:hover {
+    color: var(--centre-accent);
+}
 
 .centre-hero-grid {
     display: grid;
@@ -101,7 +149,10 @@
 }
 
 @media (max-width: 992px) {
-    .centre-hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .centre-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 }
 
 .centre-pill-badge {
@@ -137,8 +188,13 @@
     max-width: 680px;
 }
 
-.centre-hero-actions { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.centre-hero-actions {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
 
+/* 5. 3D Division Insignia HUD */
 .centre-telemetry-hud {
     background: rgba(12, 22, 38, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -148,7 +204,7 @@
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
     border-top: 4px solid var(--centre-accent);
     position: relative;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
 .insignia-badge-stage {
@@ -156,38 +212,70 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1.5rem;
-    height: 140px;
+    height: 160px;
 }
 
 .insignia-svg-box {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     filter: drop-shadow(0 0 20px var(--centre-glow));
     animation: insigniaHover 6s ease-in-out infinite;
     transform-style: preserve-3d;
 }
 
 @keyframes insigniaHover {
-    0%, 100% { transform: translateY(0) rotateY(0deg); }
-    50% { transform: translateY(-8px) rotateY(15deg); }
+    0%, 100% { transform: translateY(0) rotateY(0deg) rotateX(4deg); }
+    50% { transform: translateY(-8px) rotateY(16deg) rotateX(-4deg); }
 }
 
+/* 3D Keyframe Animations with Precise Transform Center */
 .anim-spin-cw,
 .anim-spin-ccw,
-.anim-pulse {
+.anim-spin-slow,
+.anim-pulse,
+.anim-orbit {
     transform-box: fill-box;
     transform-origin: center;
 }
 
-.anim-spin-cw { animation: spinCW 18s linear infinite; }
-.anim-spin-ccw { animation: spinCCW 14s linear infinite; }
-.anim-pulse { animation: pulseScale 3s ease-in-out infinite alternate; }
+.anim-spin-cw {
+    animation: spinCW 18s linear infinite;
+}
 
-@keyframes spinCW { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes spinCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.anim-spin-ccw {
+    animation: spinCCW 14s linear infinite;
+}
+
+.anim-spin-slow {
+    animation: spinCW 32s linear infinite;
+}
+
+.anim-pulse {
+    animation: pulseScale 3s ease-in-out infinite alternate;
+}
+
+.anim-orbit {
+    animation: orbitValence 8s ease-in-out infinite alternate;
+}
+
+@keyframes spinCW {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spinCCW {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
 @keyframes pulseScale {
-    0% { transform: scale(0.9); opacity: 0.75; }
-    100% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 8px var(--centre-accent)); }
+    0% { transform: scale(0.88); opacity: 0.75; }
+    100% { transform: scale(1.12); opacity: 1; filter: drop-shadow(0 0 10px var(--centre-accent)); }
+}
+
+@keyframes orbitValence {
+    0% { transform: rotate(0deg) scale(0.95); }
+    100% { transform: rotate(180deg) scale(1.05); }
 }
 
 .hud-header {
@@ -228,7 +316,11 @@
     box-shadow: 0 0 8px #00ffa3;
 }
 
-.hud-metrics-list { display: flex; flex-direction: column; gap: 0.85rem; }
+.hud-metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
 
 .hud-metric-row {
     display: flex;
@@ -240,7 +332,12 @@
     padding: 0.75rem 1.15rem;
 }
 
-.hud-metric-label { font-size: 0.85rem; font-weight: 600; color: #94a3b8; }
+.hud-metric-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
 .hud-metric-value {
     font-size: 0.95rem;
     font-weight: 800;
@@ -248,6 +345,7 @@
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* 6. Sticky Navigation Ribbon */
 .centre-sticky-nav {
     background: rgba(11, 21, 36, 0.95);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -266,7 +364,9 @@
     scrollbar-width: none;
 }
 
-.centre-nav-scroll-track::-webkit-scrollbar { display: none; }
+.centre-nav-scroll-track::-webkit-scrollbar {
+    display: none;
+}
 
 .centre-nav-item {
     padding: 1.25rem 0;
@@ -285,8 +385,15 @@
     border-bottom-color: var(--centre-accent);
 }
 
-.centre-section { padding: 5.5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-.centre-section-alt { background: #08111d; }
+/* 7. Section Layouts */
+.centre-section {
+    padding: 5.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.centre-section-alt {
+    background: #08111d;
+}
 
 .section-eyebrow {
     display: block;
@@ -313,6 +420,101 @@
     margin-bottom: 3.5rem;
 }
 
+/* 8. Statutory Mandate Section */
+.mandate-dossier-card {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    border-left: 6px solid var(--centre-accent);
+}
+
+@media (max-width: 992px) {
+    .mandate-dossier-card {
+        grid-template-columns: 1fr;
+        padding: 2.25rem;
+        gap: 2rem;
+    }
+}
+
+.mandate-pillars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.mandate-pillar-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.25rem;
+    border-left: 3px solid var(--centre-accent);
+}
+
+.mandate-pillar-item h4 {
+    margin: 0 0 0.35rem 0;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.mandate-pillar-item p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* 9. 3D Infrastructure Blueprint & Facilities Cards */
+.infrastructure-hero-stage {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 3.5rem;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 3rem;
+    align-items: center;
+    perspective: 1200px;
+}
+
+@media (max-width: 992px) {
+    .infrastructure-hero-stage {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.infra-blueprint-box {
+    width: 100%;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px dashed rgba(var(--centre-rgb), 0.35);
+    border-radius: 14px;
+}
+
+.infra-blueprint-svg {
+    width: 220px;
+    height: 220px;
+    filter: drop-shadow(0 10px 20px var(--centre-glow));
+    animation: blueprintFloat 8s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes blueprintFloat {
+    0%, 100% { transform: rotateX(25deg) rotateZ(-15deg) translateY(0); }
+    50% { transform: rotateX(20deg) rotateZ(-10deg) translateY(-10px); }
+}
+
 .facilities-grid-layout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -333,6 +535,28 @@
 .facility-terminal-card:hover {
     transform: translateY(-5px);
     border-color: var(--centre-accent);
+}
+
+.facility-icon-stage {
+    height: 70px;
+    width: 70px;
+    margin-bottom: 1.5rem;
+    perspective: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.facility-icon-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 5px 15px var(--centre-glow));
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.facility-terminal-card:hover .facility-icon-svg {
+    transform: rotateY(18deg) translateY(-4px) scale(1.05);
 }
 
 .facility-terminal-card h3 {
@@ -358,7 +582,12 @@
     padding-top: 1rem;
 }
 
-.facility-cert-badge { font-size: 0.78rem; font-weight: 800; color: var(--centre-accent); }
+.facility-cert-badge {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--centre-accent);
+}
+
 .facility-access-tag {
     font-size: 0.72rem;
     font-weight: 700;
@@ -368,6 +597,97 @@
     color: #cbd5e1;
 }
 
+/* 10. Requisition & Booking Form */
+.booking-dossier-card {
+    background: #0c1626;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid var(--centre-accent);
+}
+
+.booking-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .booking-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.9rem 1.25rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--centre-accent);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 3px var(--centre-glow);
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem top 50%;
+    background-size: 0.65rem auto;
+}
+
+select.form-control option {
+    background: #0c1626;
+    color: #ffffff;
+}
+
+.booking-submit-wrap {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.booking-status-msg {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #00ffa3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.booking-status-msg.show {
+    opacity: 1;
+}
+
+/* 11. Precision Equipment Registry */
 .equipment-registry-table {
     width: 100%;
     border-collapse: collapse;
@@ -400,7 +720,12 @@
     color: #ffffff;
 }
 
-.equipment-title { color: #ffffff; font-weight: 700; display: block; margin-bottom: 0.2rem; }
+.equipment-title {
+    color: #ffffff;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.2rem;
+}
 
 .status-indicator-active {
     display: inline-block;
@@ -413,6 +738,7 @@
     border: 1px solid #008751;
 }
 
+/* 12. Strategic Projects & Publications */
 .projects-matrix-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -476,9 +802,15 @@
     color: #cbd5e1;
 }
 
-.project-meta-row strong { color: var(--centre-accent); }
+.project-meta-row strong {
+    color: var(--centre-accent);
+}
 
-.publications-list-wrap { display: flex; flex-direction: column; gap: 1.25rem; }
+.publications-list-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
 
 .publication-item-row {
     background: #0c1626;
@@ -493,7 +825,9 @@
 }
 
 @media (max-width: 768px) {
-    .publication-item-row { grid-template-columns: 1fr; }
+    .publication-item-row {
+        grid-template-columns: 1fr;
+    }
 }
 
 .publication-item-row:hover {
@@ -519,11 +853,21 @@
     line-height: 1.4;
 }
 
-.publication-authors { color: #94a3b8; font-size: 0.88rem; margin-bottom: 0.4rem; }
-.publication-journal { color: #cbd5e1; font-size: 0.82rem; font-style: italic; }
+.publication-authors {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+}
 
+.publication-journal {
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    font-style: italic;
+}
+
+/* 13. Institutional FAQ Accordion */
 .faq-accordion-container {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -538,7 +882,9 @@
     transition: border-color 0.25s ease;
 }
 
-.faq-item.active { border-color: var(--centre-accent); }
+.faq-item.active {
+    border-color: var(--centre-accent);
+}
 
 .faq-question-btn {
     width: 100%;
@@ -556,7 +902,9 @@
     transition: color 0.2s ease;
 }
 
-.faq-question-btn:hover { color: var(--centre-accent); }
+.faq-question-btn:hover {
+    color: var(--centre-accent);
+}
 
 .faq-toggle-icon {
     font-size: 1.4rem;
@@ -564,7 +912,9 @@
     transition: transform 0.3s ease;
 }
 
-.faq-item.active .faq-toggle-icon { transform: rotate(45deg); }
+.faq-item.active .faq-toggle-icon {
+    transform: rotate(45deg);
+}
 
 .faq-answer-pane {
     max-height: 0;
@@ -574,7 +924,7 @@
 }
 
 .faq-item.active .faq-answer-pane {
-    max-height: 300px;
+    max-height: 350px;
     padding: 0 2rem 1.75rem 2rem;
 }
 
@@ -585,6 +935,7 @@
     margin: 0;
 }
 
+/* 14. Directorate Suite */
 .directorate-dossier-card {
     background: #0c1626;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -597,12 +948,16 @@
 }
 
 @media (max-width: 992px) {
-    .directorate-dossier-card { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
+    .directorate-dossier-card {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2rem;
+    }
 }
 
 .directorate-avatar-wrap {
     width: 100%;
-    height: 380px;
+    height: 360px;
     background: #040d17;
     border-radius: 16px;
     border: 2px solid var(--centre-accent);
@@ -614,7 +969,10 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-.directorate-avatar-wrap svg { width: 140px; height: 140px; }
+.directorate-avatar-wrap svg {
+    width: 130px;
+    height: 130px;
+}
 
 .directorate-badge-ribbon {
     position: absolute;
@@ -677,35 +1035,6 @@
     text-decoration: none;
 }
 
-.meta-col a:hover { color: var(--centre-accent); }
-
-.patents-showcase-box {
-    background: linear-gradient(135deg, #0c1626 0%, #06111f 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 3.5rem 2rem;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.patents-showcase-box h3 {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 0 0 0.85rem 0;
-}
-
-.patents-showcase-box p {
-    color: #94a3b8;
-    max-width: 650px;
-    margin: 0 auto 2rem auto;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-.patents-showcase-actions {
-    display: flex;
-    gap: 1.25rem;
-    justify-content: center;
-    flex-wrap: wrap;
+.meta-col a:hover {
+    color: var(--centre-accent);
 }
