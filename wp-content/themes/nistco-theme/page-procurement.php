@@ -16,8 +16,8 @@ $tenders = [
         'centre'       => 'parc',
         'centre_name'  => 'PARC (Physics)',
         'title'        => 'Engineering, Procurement, and Construction of 500kW Dual-Axis Solar PV Field Validation Array',
-        'deadline'     => '2026-11-16 12:00 PM WAT',
-        'days_left'    => '28 Days Remaining',
+        'deadline_iso' => '2026-11-16T12:00:00',
+        'deadline_txt' => '16 Nov 2026, 12:00 PM WAT',
         'status'       => 'Active Bid Window',
         'bpp_lot'      => 'Lot Works-01',
         'budget_class' => 'Category A - Capital Appropriation',
@@ -30,8 +30,8 @@ $tenders = [
         'centre'       => 'aepc',
         'centre_name'  => 'AEPC (Prototype)',
         'title'        => 'Supply and Installation of 5-Axis Simultaneous CNC Machining Centre and Tooling Spindles',
-        'deadline'     => '2026-11-09 12:00 PM WAT',
-        'days_left'    => '21 Days Remaining',
+        'deadline_iso' => '2026-11-09T12:00:00',
+        'deadline_txt' => '09 Nov 2026, 12:00 PM WAT',
         'status'       => 'Active Bid Window',
         'bpp_lot'      => 'Lot Goods-03',
         'budget_class' => 'Category A - Capital Specialized Equipment',
@@ -44,8 +44,8 @@ $tenders = [
         'centre'       => 'carc',
         'centre_name'  => 'CARC (Chemistry)',
         'title'        => 'Procurement of High-Resolution Gas Chromatography-Mass Spectrometry (GC-MS) System',
-        'deadline'     => '2026-10-30 02:00 PM WAT',
-        'days_left'    => '11 Days Remaining',
+        'deadline_iso' => '2026-10-30T14:00:00',
+        'deadline_txt' => '30 Oct 2026, 02:00 PM WAT',
         'status'       => 'Active Bid Window',
         'bpp_lot'      => 'Lot Goods-07',
         'budget_class' => 'Category B - Laboratory Diagnostics',
@@ -58,8 +58,8 @@ $tenders = [
         'centre'       => 'amsarc',
         'centre_name'  => 'AMSARC (Applied Math)',
         'title'        => 'Consultancy Services for Tier-3 High-Performance Computing (HPC) Architecture & Cluster Clustering',
-        'deadline'     => '2026-11-02 12:00 PM WAT',
-        'days_left'    => '14 Days Remaining',
+        'deadline_iso' => '2026-11-02T12:00:00',
+        'deadline_txt' => '02 Nov 2026, 12:00 PM WAT',
         'status'       => 'Active Bid Window',
         'bpp_lot'      => 'Lot Cons-01',
         'budget_class' => 'Category C - Specialized Technical Services',
@@ -72,8 +72,8 @@ $tenders = [
         'centre'       => 'ntc',
         'centre_name'  => 'NTC (Nuclear)',
         'title'        => 'Retrofit and Radiological Shielding Reinforcement for SSDL Secondary Standard Laboratories',
-        'deadline'     => '2026-10-05 (Closed)',
-        'days_left'    => 'Bids Closed',
+        'deadline_iso' => '2026-10-05T12:00:00',
+        'deadline_txt' => '05 Oct 2026 (Closed)',
         'status'       => 'Under Technical Evaluation',
         'bpp_lot'      => 'Lot Works-02',
         'budget_class' => 'Statutory Facility Upgrade',
@@ -86,8 +86,8 @@ $tenders = [
         'centre'       => 'barc',
         'centre_name'  => 'BARC (Biotech)',
         'title'        => 'Supply of Bio-Fermentation Pilot Vessels (500L/1000L) with Automated DO/pH Regulators',
-        'deadline'     => '2026-09-15 (Awarded)',
-        'days_left'    => 'Contract Disclosed',
+        'deadline_iso' => '2026-09-15T12:00:00',
+        'deadline_txt' => '15 Sep 2026 (Awarded)',
         'status'       => 'Contract Awarded',
         'bpp_lot'      => 'Lot Goods-01',
         'budget_class' => 'Executed Statutory Budget',
@@ -97,288 +97,21 @@ $tenders = [
 ?>
 
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/ventures-engine.css' ); ?>">
-
-<style>
-    :root {
-        --proc-gold: #d4af37;
-        --proc-gold-bright: #f59e0b;
-        --proc-gold-glow: rgba(212, 175, 55, 0.28);
-        --proc-navy-deep: #03070d;
-        --proc-navy-card: #091322;
-        --proc-green: #008751;
-        --proc-green-glow: #00d285;
-    }
-
-    .proc-hero {
-        padding: 5rem 0 3.5rem 0;
-        background: radial-gradient(circle at 85% 15%, var(--proc-gold-glow) 0%, transparent 55%),
-                    radial-gradient(circle at 10% 85%, rgba(0, 135, 81, 0.25) 0%, transparent 50%),
-                    var(--proc-navy-deep);
-        border-bottom: 2px solid var(--proc-gold);
-        position: relative;
-    }
-
-    .proc-gold-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.35rem 0.85rem;
-        background: rgba(212, 175, 55, 0.12);
-        color: var(--proc-gold);
-        border: 1px solid var(--proc-gold);
-        border-radius: 6px;
-        font-size: 0.74rem;
-        font-weight: 800;
-        letter-spacing: 0.8px;
-        text-transform: uppercase;
-        box-shadow: 0 0 14px rgba(212, 175, 55, 0.2);
-    }
-
-    .proc-gold-badge span {
-        color: var(--proc-gold-bright);
-        font-size: 0.85rem;
-    }
-
-    /* Statutory Criteria HUD */
-    .bpp-compliance-strip {
-        margin-top: 2.5rem;
-        background: rgba(4, 10, 18, 0.75);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        border-left: 4px solid var(--proc-gold);
-        border-radius: 12px;
-        padding: 1.5rem 2rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .compliance-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-
-    .compliance-label {
-        font-size: 0.72rem;
-        color: var(--proc-gold);
-        text-transform: uppercase;
-        font-weight: 800;
-        letter-spacing: 0.6px;
-    }
-
-    .compliance-val {
-        font-size: 0.88rem;
-        color: #f1f5f9;
-        font-weight: 700;
-    }
-
-    .compliance-desc {
-        font-size: 0.75rem;
-        color: #94a3b8;
-    }
-
-    /* Tender Cards Layout */
-    .tender-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-        margin-bottom: 5rem;
-    }
-
-    .tender-card {
-        background: var(--proc-navy-card);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-top: 3px solid var(--proc-gold);
-        border-radius: 14px;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: relative;
-        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .tender-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--proc-gold);
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.2);
-    }
-
-    .tender-card-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 1rem;
-        margin-bottom: 1.25rem;
-    }
-
-    .tender-category-pill {
-        display: inline-block;
-        font-size: 0.72rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        padding: 0.2rem 0.6rem;
-        border-radius: 4px;
-        letter-spacing: 0.5px;
-    }
-
-    .cat-works { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
-    .cat-goods { background: rgba(0, 210, 133, 0.15); color: #00d285; border: 1px solid rgba(0, 210, 133, 0.35); }
-    .cat-consulting { background: rgba(212, 175, 55, 0.15); color: var(--proc-gold); border: 1px solid rgba(212, 175, 55, 0.4); }
-
-    .tender-status-badge {
-        font-size: 0.74rem;
-        font-weight: 800;
-        padding: 0.25rem 0.65rem;
-        border-radius: 6px;
-        font-family: ui-monospace, monospace;
-    }
-
-    .status-active { background: rgba(0, 210, 133, 0.15); color: #00d285; border: 1px solid #00d285; }
-    .status-eval { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid #f59e0b; }
-    .status-awarded { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid #94a3b8; }
-
-    .tender-title {
-        font-size: 1.2rem;
-        font-weight: 800;
-        color: #ffffff;
-        line-height: 1.4;
-        margin: 0.75rem 0;
-    }
-
-    .tender-scope {
-        font-size: 0.86rem;
-        color: #94a3b8;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-    }
-
-    .tender-meta-box {
-        background: rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        font-size: 0.8rem;
-    }
-
-    .tender-meta-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .tender-meta-row span { color: #64748b; }
-    .tender-meta-row strong { color: #cbd5e1; font-family: ui-monospace, monospace; }
-
-    .btn-tender-bid {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        background: linear-gradient(135deg, var(--proc-gold) 0%, #b8860b 100%);
-        color: #060d17;
-        border-radius: 8px;
-        font-size: 0.84rem;
-        font-weight: 800;
-        text-decoration: none;
-        letter-spacing: 0.4px;
-        box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        margin-top: 1.25rem;
-    }
-
-    .btn-tender-bid:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 22px rgba(212, 175, 55, 0.45);
-        color: #000000;
-    }
-
-    .btn-tender-docs {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.4rem;
-        padding: 0.75rem 1.25rem;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(212, 175, 55, 0.4);
-        color: var(--proc-gold);
-        border-radius: 8px;
-        font-size: 0.84rem;
-        font-weight: 800;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        margin-top: 1.25rem;
-    }
-
-    .btn-tender-docs:hover {
-        background: rgba(212, 175, 55, 0.12);
-        border-color: var(--proc-gold);
-    }
-
-    /* Statutory Checklist Modal / Collapsible Section */
-    .bpp-checklist-box {
-        background: var(--proc-navy-card);
-        border: 2px solid var(--proc-gold);
-        border-radius: 14px;
-        padding: 2.5rem;
-        margin-bottom: 5rem;
-    }
-
-    .bpp-checklist-title {
-        font-size: 1.25rem;
-        font-weight: 900;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
-        gap: 0.65rem;
-        margin-top: 0;
-        margin-bottom: 1.25rem;
-    }
-
-    .bpp-checklist-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .checklist-item {
-        display: flex;
-        gap: 0.85rem;
-        align-items: flex-start;
-        font-size: 0.85rem;
-        color: #94a3b8;
-        line-height: 1.55;
-    }
-
-    .checklist-icon {
-        color: var(--proc-gold);
-        font-weight: 900;
-        font-size: 1rem;
-        flex-shrink: 0;
-    }
-</style>
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/procurement.css' ); ?>">
 
 <main class="ventures-dashboard-main">
     <header class="proc-hero">
         <div class="ventures-container">
-            <span class="proc-gold-badge">
+            <span class="proc-gold-badge-3d">
                 <span>⚖️</span> Public Procurement Act (PPA 2007) • BPP Registered
             </span>
             <h1 class="ventures-title">Procurement, Tenders & Contract Registry</h1>
             <p class="ventures-subtitle">
-                Official statutory portal for Federal Government capital appropriations, specialized laboratory tenders, research works, and public contract disclosures across NASTCO and its six research centres.
+                Official statutory repository for Federal Government capital appropriations, specialized laboratory tenders, research works, and public contract disclosures across NASTCO and its six research centres.
             </p>
 
-            <!-- BPP Compliance Standards HUD -->
-            <div class="bpp-compliance-strip">
+            <!-- 3D BPP Compliance Standards HUD -->
+            <div class="bpp-compliance-strip-3d">
                 <div class="compliance-item">
                     <span class="compliance-label">Procuring Entity</span>
                     <span class="compliance-val">NASTCO Headquarters</span>
@@ -391,7 +124,7 @@ $tenders = [
                 </div>
                 <div class="compliance-item">
                     <span class="compliance-label">Submission Protocol</span>
-                    <span class="compliance-val">Tamper-Proof Double Envelope</span>
+                    <span class="compliance-val">Electronic & Double Envelope</span>
                     <span class="compliance-desc">Separate Technical & Financial Bids</span>
                 </div>
                 <div class="compliance-item">
@@ -401,7 +134,7 @@ $tenders = [
                 </div>
             </div>
 
-            <!-- Division & Category Filtering Cluster -->
+            <!-- Centre Filter Pills -->
             <div class="filter-pills-cluster" style="margin-top: 2.5rem;">
                 <button class="filter-pill active" onclick="filterTenders('all')">All Opportunities</button>
                 <button class="filter-pill" onclick="filterTenders('parc')">PARC (Physics)</button>
@@ -419,17 +152,13 @@ $tenders = [
         <div class="tender-grid" id="tendersGrid">
             <?php foreach ( $tenders as $item ) : ?>
                 <?php
-                    $status_class = 'status-active';
-                    if ( $item['status'] === 'Under Technical Evaluation' ) $status_class = 'status-eval';
-                    if ( $item['status'] === 'Contract Awarded' ) $status_class = 'status-awarded';
-
                     $cat_class = 'cat-goods';
                     if ( $item['category'] === 'Works' ) $cat_class = 'cat-works';
                     if ( $item['category'] === 'Consulting' ) $cat_class = 'cat-consulting';
                 ?>
-                <article class="tender-card" data-centre="<?php echo esc_attr( $item['centre'] ); ?>">
+                <article class="tender-card-3d" data-centre="<?php echo esc_attr( $item['centre'] ); ?>">
                     <div>
-                        <div class="tender-card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
                             <div>
                                 <span class="tender-category-pill <?php echo esc_attr( $cat_class ); ?>">
                                     <?php echo esc_html( $item['category'] ); ?>
@@ -438,46 +167,62 @@ $tenders = [
                                     <?php echo esc_html( $item['centre_name'] ); ?>
                                 </span>
                             </div>
-                            <span class="tender-status-badge <?php echo esc_attr( $status_class ); ?>">
+                            <span class="centre-tag" style="background: rgba(212, 175, 55, 0.15); color: var(--proc-gold); border: 1px solid var(--proc-gold);">
                                 <?php echo esc_html( $item['status'] ); ?>
                             </span>
                         </div>
 
-                        <div style="font-family: ui-monospace, monospace; font-size: 0.76rem; color: var(--proc-gold); font-weight: 800;">
+                        <div style="font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--proc-gold); font-weight: 800;">
                             <?php echo esc_html( $item['tender_ref'] ); ?> • <?php echo esc_html( $item['bpp_lot'] ); ?>
                         </div>
 
-                        <h2 class="tender-title"><?php echo esc_html( $item['title'] ); ?></h2>
-                        <p class="tender-scope"><?php echo esc_html( $item['scope'] ); ?></p>
+                        <h2 style="font-size: 1.22rem; font-weight: 900; color: #ffffff; line-height: 1.4; margin: 0.75rem 0;">
+                            <?php echo esc_html( $item['title'] ); ?>
+                        </h2>
+                        <p style="font-size: 0.86rem; color: #94a3b8; line-height: 1.6; margin-bottom: 1.25rem;">
+                            <?php echo esc_html( $item['scope'] ); ?>
+                        </p>
                     </div>
 
                     <div>
-                        <div class="tender-meta-box">
-                            <div class="tender-meta-row">
-                                <span>Appropriation:</span>
-                                <strong><?php echo esc_html( $item['budget_class'] ); ?></strong>
+                        <!-- Live Ticking Countdown Clock Component -->
+                        <div class="live-countdown-hud">
+                            <span class="countdown-label">
+                                <span class="pulse-dot"></span>
+                                Live Closing:
+                            </span>
+                            <span class="live-timer-digits" data-deadline="<?php echo esc_attr( $item['deadline_iso'] ); ?>">
+                                Calculating...
+                            </span>
+                        </div>
+
+                        <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; padding: 0.9rem; font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #64748b;">Statutory Appropriation:</span>
+                                <strong style="color: #cbd5e1;"><?php echo esc_html( $item['budget_class'] ); ?></strong>
                             </div>
-                            <div class="tender-meta-row">
-                                <span>Deadline / Expiry:</span>
-                                <strong style="color: #ffffff;"><?php echo esc_html( $item['deadline'] ); ?></strong>
-                            </div>
-                            <div class="tender-meta-row">
-                                <span>Window Status:</span>
-                                <strong style="color: var(--proc-gold);"><?php echo esc_html( $item['days_left'] ); ?></strong>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #64748b;">Deadline:</span>
+                                <strong style="color: #ffffff; font-family: ui-monospace, monospace;"><?php echo esc_html( $item['deadline_txt'] ); ?></strong>
                             </div>
                         </div>
 
                         <?php if ( $item['status'] === 'Active Bid Window' ) : ?>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-                                <a href="#eligibility" class="btn-tender-docs">
+                            <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 0.75rem; margin-top: 1.25rem;">
+                                <a href="#eligibility" class="btn-tender-docs-3d">
                                     <span>Download RFP</span>
                                 </a>
-                                <a href="mailto:tenders@nastco.gov.ng?subject=Bid%20Submission%20Intent%20<?php echo rawurlencode( $item['tender_ref'] ); ?>" class="btn-tender-bid">
+                                <button type="button" 
+                                        class="btn-tender-bid-3d btn-open-bid-modal"
+                                        data-tender-ref="<?php echo esc_attr( $item['tender_ref'] ); ?>"
+                                        data-tender-lot="<?php echo esc_attr( $item['bpp_lot'] ); ?>"
+                                        data-tender-title="<?php echo esc_attr( $item['title'] ); ?>">
                                     <span>Submit Bid Dossier</span>
-                                </a>
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </button>
                             </div>
                         <?php else : ?>
-                            <a href="#eligibility" class="btn-tender-docs" style="width: 100%; box-sizing: border-box;">
+                            <a href="#eligibility" class="btn-tender-docs-3d" style="width: 100%; box-sizing: border-box; margin-top: 1.25rem;">
                                 <span>View Evaluation / Award Notice</span>
                             </a>
                         <?php endif; ?>
@@ -486,76 +231,103 @@ $tenders = [
             <?php endforeach; ?>
         </div>
 
-        <!-- Statutory Mandatory Eligibility Checklist -->
-        <section class="bpp-checklist-box" id="eligibility">
-            <h3 class="bpp-checklist-title">
-                <span style="color: var(--proc-gold);">⚖️</span> Statutory Mandatory Eligibility Requirements (PPA 2007)
-            </h3>
-            <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.6; margin-bottom: 2rem;">
-                In strict compliance with the directives of the Bureau of Public Procurement (BPP), all prospective contractors, suppliers, and service consultants must assemble verifiable copies of the following statutory documents within their sealed Technical Bid Envelope:
-            </p>
-            <ul class="bpp-checklist-grid">
-                <li class="checklist-item">
-                    <span class="checklist-icon">✓</span>
-                    <div>
-                        <strong style="color: #ffffff; display: block;">Corporate Affairs Commission (CAC)</strong>
-                        Certificate of Incorporation / Registration with Forms CAC 1.1 or CAC 2 and 7.
-                    </div>
-                </li>
-                <li class="checklist-item">
-                    <span class="checklist-icon">✓</span>
-                    <div>
-                        <strong style="color: #ffffff; display: block;">Federal Tax Clearance Certificate (TCC)</strong>
-                        Valid Tax Clearance for the past three consecutive years (2023, 2024, 2025).
-                    </div>
-                </li>
-                <li class="checklist-item">
-                    <span class="checklist-icon">✓</span>
-                    <div>
-                        <strong style="color: #ffffff; display: block;">PENCOM Compliance Certificate</strong>
-                        Valid National Pension Commission compliance certificate under PRA 2014.
-                    </div>
-                </li>
-                <li class="checklist-item">
-                    <span class="checklist-icon">✓</span>
-                    <div>
-                        <strong style="color: #ffffff; display: block;">Industrial Training Fund (ITF)</strong>
-                        Valid Compliance Certificate under the Industrial Training Fund Amendment Act.
-                    </div>
-                </li>
-                <li class="checklist-item">
-                    <span class="checklist-icon">✓</span>
-                    <div>
-                        <strong style="color: #ffffff; display: block;">NSITF Compliance Certificate</strong>
-                        Valid Nigeria Social Insurance Trust Fund Employee Compensation compliance cert.
-                    </div>
-                </li>
-                <li class="checklist-item">
-                    <span class="checklist-icon">✓</span>
-                    <div>
-                        <strong style="color: #ffffff; display: block;">BPP National Database Registration</strong>
-                        Interim Registration Report (IRR) validating active listing on the BPP database.
-                    </div>
-                </li>
-            </ul>
+        <!-- Statutory Eligibility Checklist -->
+        <section class="bpp-compliance-strip-3d" id="eligibility" style="border-left: 5px solid var(--proc-gold); margin-bottom: 5rem;">
+            <div style="grid-column: 1 / -1;">
+                <h3 style="font-size: 1.3rem; font-weight: 900; color: #ffffff; display: flex; align-items: center; gap: 0.65rem; margin-top: 0;">
+                    <span style="color: var(--proc-gold);">⚖️</span> Statutory Mandatory Eligibility Requirements (PPA 2007)
+                </h3>
+                <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.6;">
+                    In strict compliance with the Bureau of Public Procurement (BPP), all bidders must upload authentic verified credentials:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem;">
+                    <div><strong style="color: var(--proc-gold);">✓ CAC Certificate</strong> with Form CAC 1.1 / 2 & 7.</div>
+                    <div><strong style="color: var(--proc-gold);">✓ Tax Clearance (TCC)</strong> for 2023, 2024, 2025.</div>
+                    <div><strong style="color: var(--proc-gold);">✓ PENCOM Compliance</strong> under PRA 2014.</div>
+                    <div><strong style="color: var(--proc-gold);">✓ ITF Compliance</strong> (Industrial Training Fund).</div>
+                    <div><strong style="color: var(--proc-gold);">✓ NSITF Certificate</strong> (Employee Compensation).</div>
+                    <div><strong style="color: var(--proc-gold);">✓ BPP National Database</strong> (Interim Registration Report).</div>
+                </div>
+            </div>
         </section>
     </div>
 </main>
 
-<script>
-function filterTenders(centre) {
-    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+<!-- Interactive Electronic Bid Dossier Modal -->
+<div class="dossier-modal-backdrop" id="bidDossierModal" role="dialog" aria-modal="true" aria-labelledby="modalDisplayTitle">
+    <div class="dossier-modal-card">
+        <button type="button" class="modal-close-btn" id="closeBidModalBtn" aria-label="Close modal">&times;</button>
+        
+        <div class="modal-header-strip">
+            <span class="proc-gold-badge-3d" style="font-size: 0.7rem; padding: 0.25rem 0.65rem;">Tamper-Proof Electronic Submission</span>
+            <h2 id="modalDisplayTitle" style="font-size: 1.2rem; font-weight: 900; color: #ffffff; margin: 0.6rem 0 0.2rem 0;">Tender Title</h2>
+            <div id="modalDisplayRef" style="font-family: ui-monospace, monospace; color: var(--proc-gold); font-size: 0.82rem; font-weight: 800;">NASTCO/PROC/2026/X</div>
+        </div>
 
-    const cards = document.querySelectorAll('#tendersGrid .tender-card');
-    cards.forEach(c => {
-        if (centre === 'all' || c.getAttribute('data-centre') === centre) {
-            c.style.display = 'flex';
-        } else {
-            c.style.display = 'none';
-        }
-    });
-}
-</script>
+        <form id="electronicBidForm">
+            <input type="hidden" id="modalTenderRef" name="tender_ref">
+            
+            <div class="modal-form-grid">
+                <div class="form-group-3d">
+                    <label for="bidCompanyName">Company Name (As on CAC)</label>
+                    <input type="text" id="bidCompanyName" class="form-control-3d" required placeholder="e.g. Zenith Dynamics Engineering Ltd">
+                </div>
+                <div class="form-group-3d">
+                    <label for="bidCacRc">CAC RC / BN Number</label>
+                    <input type="text" id="bidCacRc" class="form-control-3d" required placeholder="RC-1948291">
+                </div>
+                <div class="form-group-3d">
+                    <label for="bidBppIrr">BPP IRR Number</label>
+                    <input type="text" id="bidBppIrr" class="form-control-3d" required placeholder="BPP/IRR/2026/0948">
+                </div>
+                <div class="form-group-3d">
+                    <label for="bidAmountNgn">Commercial Bid Total (₦ NGN)</label>
+                    <input type="number" id="bidAmountNgn" class="form-control-3d" required placeholder="e.g. 85000000">
+                </div>
+                <div class="form-group-3d">
+                    <label for="bidContactEmail">Liaison Email</label>
+                    <input type="email" id="bidContactEmail" class="form-control-3d" required placeholder="tenders@company.com">
+                </div>
+                <div class="form-group-3d">
+                    <label for="bidContactPhone">Liaison Phone Number</label>
+                    <input type="tel" id="bidContactPhone" class="form-control-3d" required placeholder="+234 803 000 0000">
+                </div>
+            </div>
+
+            <div class="form-group-3d" style="margin-top: 1.25rem;">
+                <label for="bidTechnicalSummary">Technical Capability & Compliance Dossier Summary</label>
+                <textarea id="bidTechnicalSummary" rows="3" class="form-control-3d" placeholder="Outline relevant past projects, certified personnel, equipment ownership, and delivery methodology..."></textarea>
+            </div>
+
+            <div class="statutory-declaration">
+                <label style="display: flex; gap: 0.5rem; align-items: flex-start; cursor: pointer;">
+                    <input type="checkbox" required style="margin-top: 0.2rem; accent-color: var(--proc-gold);">
+                    <span>I solemnly affirm under penalty of perjury and statutory disqualification under the Public Procurement Act 2007 that all submitted documents and certifications are authentic, valid, and unencumbered.</span>
+                </label>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+                <button type="submit" id="btnSubmitDossier" class="btn-tender-bid-3d" style="width: 100%; font-size: 0.95rem;">
+                    <span>Seal & Transmit Electronic Bid</span>
+                </button>
+            </div>
+        </form>
+
+        <!-- Dynamic Success Feedback -->
+        <div class="submit-feedback-box" id="bidSubmitFeedback">
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🛡️</div>
+            <h3 style="color: #00d285; margin: 0 0 0.5rem 0; font-size: 1.3rem;">Electronic Bid Dossier Sealed</h3>
+            <p style="font-size: 0.88rem; color: #cbd5e1; margin-bottom: 1rem;">
+                Your submission has been securely hashed and registered in the NASTCO Tenders Repository.
+            </p>
+            <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--proc-gold); border-radius: 8px; padding: 0.75rem; display: inline-block;">
+                <span style="font-size: 0.74rem; color: var(--proc-gold); text-transform: uppercase; font-weight: 800; display: block;">Statutory Submission Receipt:</span>
+                <strong id="receiptDossierCode" style="font-family: ui-monospace, monospace; font-size: 1.1rem; color: #ffffff;">BPP-NASTCO-CONFIRMED</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="<?php echo esc_url( get_template_directory_uri() . '/assets/js/procurement-engine.js' ); ?>"></script>
 
 <?php get_footer(); ?>

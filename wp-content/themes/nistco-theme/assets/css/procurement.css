@@ -1,0 +1,351 @@
+/**
+ * NASTCO 3D Prestige Procurement & Tenders Stylesheet
+ * Architecture: Deep Navy (#03070d), Sovereign Green (#008751), Prestige Gold (#d4af37)
+ */
+
+:root {
+    --proc-gold: #d4af37;
+    --proc-gold-bright: #f59e0b;
+    --proc-gold-dark: #997819;
+    --proc-gold-glow: rgba(212, 175, 55, 0.35);
+    --proc-navy-deep: #03070d;
+    --proc-navy-card: #08111e;
+    --proc-navy-surface: #0e1b2e;
+    --proc-green: #008751;
+    --proc-green-glow: #00d285;
+}
+
+/* 3D Hero Architecture */
+.proc-hero {
+    padding: 4.5rem 0 3.5rem 0;
+    background: radial-gradient(circle at 85% 15%, var(--proc-gold-glow) 0%, transparent 50%),
+                radial-gradient(circle at 10% 85%, rgba(0, 135, 81, 0.2) 0%, transparent 45%),
+                var(--proc-navy-deep);
+    border-bottom: 2px solid var(--proc-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+.proc-gold-badge-3d {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(145deg, #182333, #09101b);
+    color: var(--proc-gold);
+    border: 1px solid var(--proc-gold);
+    border-radius: 8px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 12px var(--proc-gold-glow);
+}
+
+/* 3D Compliance HUD */
+.bpp-compliance-strip-3d {
+    margin-top: 2.5rem;
+    background: linear-gradient(145deg, #0b1524, #050a12);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-left: 5px solid var(--proc-gold);
+    border-radius: 14px;
+    padding: 1.75rem 2.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.75rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.compliance-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.compliance-label {
+    font-size: 0.72rem;
+    color: var(--proc-gold);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.compliance-val {
+    font-size: 0.92rem;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.compliance-desc {
+    font-size: 0.76rem;
+    color: #94a3b8;
+}
+
+/* 3D Tender Cards with Perspective Depth */
+.tender-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.25rem;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    perspective: 1000px;
+}
+
+.tender-card-3d {
+    background: linear-gradient(160deg, #0c1728 0%, #060c15 100%);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-top: 3px solid var(--proc-gold);
+    border-radius: 16px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tender-card-3d:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: var(--proc-gold);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 25px var(--proc-gold-glow);
+}
+
+/* Centre Accent Badges */
+.tender-category-pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.cat-works { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+.cat-goods { background: rgba(0, 210, 133, 0.15); color: #00d285; border: 1px solid rgba(0, 210, 133, 0.4); }
+.cat-consulting { background: rgba(212, 175, 55, 0.15); color: var(--proc-gold); border: 1px solid rgba(212, 175, 55, 0.5); }
+
+/* Live Ticking Countdown HUD */
+.live-countdown-hud {
+    background: linear-gradient(145deg, #04080e, #09121f);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    margin: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+}
+
+.countdown-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.countdown-label .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00d285;
+    box-shadow: 0 0 8px #00d285;
+    animation: nistcoPulse 2s infinite;
+}
+
+.live-timer-digits {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--proc-gold-bright);
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* 3D Action Buttons */
+.btn-tender-bid-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.4rem;
+    background: linear-gradient(135deg, #e6c555 0%, #d4af37 50%, #997819 100%);
+    color: #04080e;
+    border-radius: 9px;
+    font-size: 0.85rem;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    border: 1px solid #fce788;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 14px var(--proc-gold-glow);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-tender-bid-3d:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.6);
+    color: #000000;
+}
+
+.btn-tender-bid-3d:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-tender-docs-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1.25rem;
+    background: linear-gradient(145deg, #101c2e, #09111c);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--proc-gold);
+    border-radius: 9px;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-tender-docs-3d:hover {
+    background: linear-gradient(145deg, #16263f, #0c1828);
+    border-color: var(--proc-gold);
+    color: #ffffff;
+}
+
+/* 3D Interactive Bid Submission Modal */
+.dossier-modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(3, 7, 13, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.dossier-modal-backdrop.active {
+    display: flex;
+}
+
+.dossier-modal-card {
+    background: linear-gradient(160deg, #0e1b2e 0%, #050a12 100%);
+    border: 2px solid var(--proc-gold);
+    border-radius: 18px;
+    max-width: 740px;
+    width: 100%;
+    padding: 2.5rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--proc-gold-glow);
+    position: relative;
+    color: #e2e8f0;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #94a3b8;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #ffffff;
+    border-color: var(--proc-gold);
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.modal-header-strip {
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    padding-bottom: 1.25rem;
+}
+
+.modal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .modal-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group-3d label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--proc-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control-3d {
+    background: #04080e;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    font-size: 0.88rem;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control-3d:focus {
+    border-color: var(--proc-gold);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px var(--proc-gold-glow);
+}
+
+.statutory-declaration {
+    margin-top: 1.5rem;
+    background: rgba(0, 135, 81, 0.08);
+    border: 1px solid rgba(0, 135, 81, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+}
+
+.submit-feedback-box {
+    display: none;
+    background: rgba(0, 210, 133, 0.12);
+    border: 1px solid #00d285;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+}

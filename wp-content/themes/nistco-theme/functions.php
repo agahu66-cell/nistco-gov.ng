@@ -213,3 +213,19 @@ require_once get_template_directory() . '/inc-venture-api.php';
 // NISTCO Commercial Ventures Engine & Statutory Royalty Ledger
 require_once get_template_directory() . '/inc-venture-db.php';
 require_once get_template_directory() . '/inc-venture-api.php';
+
+/**
+ * NASTCO Procurement Module & Assets Registration
+ */
+require_once get_template_directory() . '/inc-procurement-api.php';
+
+add_action( 'wp_enqueue_scripts', function() {
+    if ( is_page_template( 'page-procurement.php' ) || is_page( 'procurement' ) ) {
+        wp_enqueue_style( 'nastco-procurement-css', get_template_directory_uri() . '/assets/css/procurement.css', [], '1.2.0' );
+        wp_enqueue_script( 'nastco-procurement-engine', get_template_directory_uri() . '/assets/js/procurement-engine.js', [], '1.2.0', true );
+        wp_localize_script( 'nastco-procurement-engine', 'nastcoProcVars', [
+            'nonce'    => wp_create_nonce( 'wp_rest' ),
+            'root_url' => esc_url_raw( rest_url() )
+        ] );
+    }
+} );
