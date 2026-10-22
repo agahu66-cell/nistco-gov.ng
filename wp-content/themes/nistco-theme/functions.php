@@ -229,3 +229,155 @@ add_action( 'wp_enqueue_scripts', function() {
         ] );
     }
 } );
+
+/**
+ * NASTCO Front Page Assets Registration
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    if ( is_front_page() || is_home() ) {
+        wp_enqueue_style( 'nastco-front-page-css', get_template_directory_uri() . '/assets/css/front-page.css', [], '1.3.0' );
+        wp_enqueue_script( 'nastco-front-page-js', get_template_directory_uri() . '/assets/js/front-page.js', [], '1.3.0', true );
+    }
+} );
+
+/**
+ * NASTCO Front Page Assets Registration
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    if ( is_front_page() || is_home() ) {
+        wp_enqueue_style( 'nastco-front-page-css', get_template_directory_uri() . '/assets/css/front-page.css', [], '1.3.0' );
+        wp_enqueue_script( 'nastco-front-page-js', get_template_directory_uri() . '/assets/js/front-page.js', [], '1.3.0', true );
+    }
+} );
+
+/**
+ * NASTCO About Page Assets
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    if ( is_page_template( 'page-about.php' ) || is_page( 'about' ) || is_page( 'about-us' ) ) {
+        wp_enqueue_style( 'nastco-about-css', get_template_directory_uri() . '/assets/css/about.css', [], '1.4.0' );
+        wp_enqueue_script( 'nastco-about-js', get_template_directory_uri() . '/assets/js/about.js', [], '1.4.0', true );
+    }
+} );
+
+/* ==========================================================================
+   NASTCO: Termii API Secure Direct Dispatch Webhook
+   ========================================================================== */
+add_action('rest_api_init', function () {
+    register_rest_route('nastco/v1', '/secure-dispatch', array(
+        'methods' => 'POST',
+        'callback' => 'nastco_handle_termii_dispatch',
+        'permission_callback' => '__return_true'
+    ));
+});
+
+function nastco_handle_termii_dispatch($request) {
+    $params = $request->get_json_params();
+    $org = sanitize_text_field($params['organization']);
+    $email = sanitize_email($params['email']);
+    $dept = sanitize_text_field($params['department']);
+    $message = sanitize_textarea_field($params['message']);
+    $is_priority = rest_sanitize_boolean($params['priority']);
+
+    // 🔴 TRIGGER TERMII ONLY IF HIGH-PRIORITY OVERRIDE IS ENGAGED
+    if ($is_priority) {
+        $termii_url = 'https://api.ng.termii.com/api/sms/send';
+        
+        // TODO: Replace with your actual live Termii API configuration
+        $api_key = 'YOUR_TERMII_API_KEY'; 
+        $dg_phone = '2348000000000'; // Target mobile number (format: 234...)
+
+        $sms_message = "🔴 URGENT DISPATCH: {$org} ({$dept})\nContact: {$email}\nMsg: " . substr($message, 0, 90) . "...";
+
+        $body = array(
+            "to" => $dg_phone,
+            "from" => "NASTCO", // Registered Termii Sender ID
+            "sms" => $sms_message,
+            "type" => "plain",
+            "api_key" => $api_key,
+            "channel" => "generic",
+        );
+
+        $response = wp_remote_post($termii_url, array(
+            'body' => json_encode($body),
+            'headers' => array('Content-Type' => 'application/json')
+        ));
+
+        if (is_wp_error($response)) {
+            return new WP_REST_Response(array('status' => 'error', 'message' => 'Termii API routing failed.'), 500);
+        }
+    }
+
+    // Log the transmission (can be extended to save to DB)
+    return new WP_REST_Response(array('status' => 'success', 'message' => 'Secure transmission executed.'), 200);
+}
+
+
+// Register Tactical Navigation Menu
+function nastco_register_menus() {
+    register_nav_menus( array(
+        'primary' => __( 'Primary Operations Menu', 'nistco' ),
+    ) );
+}
+add_action( 'after_setup_theme', 'nastco_register_menus' );
+
+// Load Tactical Nav Walker
+require_once get_template_directory() . '/inc/nav-walker.php';
+
+// Register Directorate Taxonomy for Strategic Resources
+function nastco_register_directorate_taxonomy() {
+    $labels = array(
+        'name'          => __( 'Directorates', 'nistco' ),
+        'singular_name' => __( 'Directorate', 'nistco' ),
+        'search_items'  => __( 'Search Directorates', 'nistco' ),
+        'all_items'     => __( 'All Directorates', 'nistco' ),
+        'edit_item'     => __( 'Edit Directorate', 'nistco' ),
+        'update_item'   => __( 'Update Directorate', 'nistco' ),
+        'add_new_item'  => __( 'Add New Directorate', 'nistco' ),
+        'menu_name'     => __( 'Directorates', 'nistco' ),
+    );
+
+    register_taxonomy( 'directorate', array( 'nastco_resource' ), array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'directorate' ),
+        'show_in_rest'      => true,
+    ) );
+}
+add_action( 'init', 'nastco_register_directorate_taxonomy', 0 );
+
+// Register NASTCO Journal CPT & Taxonomy
+function nastco_register_journal_engine() {
+    // 1. Research Field Taxonomy
+    register_taxonomy( 'research_field', array( 'nastco_journal' ), array(
+        'hierarchical'      => true,
+        'labels'            => array(
+            'name'          => 'Research Fields',
+            'singular_name' => 'Research Field',
+        ),
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'field' ),
+        'show_in_rest'      => true,
+    ) );
+
+    // 2. Journal Custom Post Type
+    register_post_type( 'nastco_journal', array(
+        'labels'            => array(
+            'name'          => 'Journal Articles',
+            'singular_name' => 'Journal Article',
+            'add_new_item'  => 'Add New Article',
+        ),
+        'public'            => true,
+        'has_archive'       => true,
+        'menu_icon'         => 'dashicons-welcome-learn-more',
+        'supports'          => array( 'title', 'editor', 'excerpt', 'custom-fields', 'author' ),
+        'rewrite'           => array( 'slug' => 'journal/article' ),
+        'show_in_rest'      => true,
+    ) );
+}
+add_action( 'init', 'nastco_register_journal_engine', 0 );
