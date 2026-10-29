@@ -1,0 +1,339 @@
+<?php
+/**
+ * Template Name: About NASTCO (Global Standard)
+ * Description: Connects Timeline dots to card colors, counter-rotates atomic rings, 
+ *              and implements a colorful horizontal marquee for Stakeholders.
+ *
+ * @package NASTCO
+ */
+get_header();
+?>
+
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/ventures-engine.css' ); ?>">
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/front-page.css' ); ?>">
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/about.css' ); ?>">
+
+<main id="main-content">
+
+    <!-- 1. 3D HERO MASTHEAD -->
+    <section class="hero-master-3d">
+        <div class="ventures-container" style="position: relative; z-index: 2;">
+            <div class="hero-grid-2col">
+                <div>
+                    <div class="hero-badge-pill-3d"><span>🏛️</span> Institutional Overview</div>
+                    <h1 class="hero-title-3d">About NASTCO</h1>
+                    <p class="ventures-subtitle" style="font-size: 1.15rem; max-width: 640px; color: #cbd5e1; line-height: 1.7;">
+                        Nigeria’s sovereign epicenter for high-impact scientific research, industrial prototyping, and patent commercialization. Operating under the statutory 40/35/25 distribution model.
+                    </p>
+                    <div class="hero-action-buttons">
+                        <a href="#directorates" class="btn-gold-3d">Explore Directorates</a>
+                        <a href="#blueprint" class="btn-secondary-3d">Strategic Blueprint</a>
+                        <a href="#governance" class="btn-secondary-3d">Governance Structure</a>
+                    </div>
+                </div>
+                
+                <div class="hero-stage-3d">
+                    <div class="hero-cube-card" id="heroCubeCard">
+                        <div class="hero-border-wrapper"><div class="hero-border-spinner"></div><div class="hero-border-inner"></div></div>
+                        <div class="hero-cube-content">
+                            <span class="floating-chip-tag chip-1">Est. 1993</span>
+                            <span class="floating-chip-tag chip-2">Transformed 2026</span>
+                            
+                            <div class="engineering-gear-3d">
+                                <div class="gear-inner-ring"></div>
+                                <div class="atomic-core-container">
+                                    <div class="ring-wrapper rw-x"><div class="atomic-ring ring-1"><div class="electron"></div></div></div>
+                                    <div class="ring-wrapper rw-y"><div class="atomic-ring ring-2"><div class="electron"></div></div></div>
+                                    <div class="ring-wrapper rw-z"><div class="atomic-ring ring-3"><div class="electron"></div></div></div>
+                                    <div class="central-icon-slider">
+                                        <div class="icon-track"><span>💻</span><span>🧬</span><span>⚗️</span><span>☀️</span><span>⚙️</span><span>☢️</span><span>💻</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.25); padding-top: 1.25rem;">
+                                <h3 style="font-size: 1.25rem; font-weight: 900; color: #ffffff;">Sovereign Intelligence</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INSTITUTIONAL KPI CARDS -->
+    <section class="hero-counter-strip">
+        <div class="ventures-container">
+            <div class="counter-grid-3d">
+                <div class="kpi-card-variant kpi-card-cyan"><span class="counter-number-val" data-target="6">0</span><span class="counter-title-label">Specialized Centres</span></div>
+                <div class="kpi-card-variant kpi-card-gold"><span class="counter-number-val" data-target="2000" data-suffix="+">0+</span><span class="counter-title-label">Hectares Landmass</span></div>
+                <div class="kpi-card-variant kpi-card-green"><span class="counter-number-val" data-target="1500" data-suffix="+">0+</span><span class="counter-title-label">Elite Scientific Cadre</span></div>
+                <div class="kpi-card-variant kpi-card-violet"><span class="counter-number-val" data-target="33" data-suffix=" Yrs">0</span><span class="counter-title-label">Institutional Heritage</span></div>
+                <div class="kpi-card-variant kpi-card-crimson"><span class="counter-number-val" data-target="100" data-suffix="%">0%</span><span class="counter-title-label">Operational Sovereignty</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PRESIDENTIAL ANCHOR -->
+    <section class="presidential-section">
+        <div class="ventures-container">
+            <div class="presidential-card-3d">
+                <div class="presidential-portrait-box" style="text-align:center;">
+                    <div class="portrait-photo-frame-3d">
+                        <?php $pres_img = get_template_directory() . '/assets/images/president-portrait.jpg'; if ( file_exists( $pres_img ) ) : ?>
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/president-portrait.jpg' ); ?>" alt="President Tinubu">
+                        <?php else : ?>
+                            <div class="portrait-fallback-emblem">🦅</div>
+                        <?php endif; ?>
+                    </div>
+                    <h3 class="official-name-display" style="background: linear-gradient(135deg, #ffffff, var(--fp-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">H.E. Bola Ahmed Tinubu, GCFR</h3>
+                    <p class="official-title-display">President & Commander-in-Chief</p>
+                </div>
+                <div>
+                    <div class="presidential-quote-tag"><span style="color: var(--fp-gold-bright);">★</span> The Presidential Mandate</div>
+                    <h2 class="presidential-headline">"Industrialization Through Applied Science"</h2>
+                    <p class="presidential-body">Established to bridge the gap between theoretical research and national industrial application, NASTCO executes the Federal Government's mandate to engineer, patent, and commercialize sovereign technology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EVOLUTION LEDGER (Dots inherit card color via classes) -->
+    <section class="evolution-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">The Evolution Ledger</h2></div>
+            <div class="timeline-container">
+                <div class="timeline-node node-cyan">
+                    <div class="timeline-card card-cyan">
+                        <span class="timeline-date">1993 - Inception</span>
+                        <h3 style="color:#fff; font-size:1.3rem; margin:0 0 0.5rem 0;">Establishment of SHESTCO</h3>
+                        <p style="color:#94a3b8; margin:0;">Founded as the Sheda Science and Technology Complex (SHESTCO) under the Ministry of Science and Technology.</p>
+                    </div>
+                </div>
+                <div class="timeline-node node-green">
+                    <div class="timeline-card card-green">
+                        <span class="timeline-date">2010s - Expansion</span>
+                        <h3 style="color:#fff; font-size:1.3rem; margin:0 0 0.5rem 0;">Advanced Equipment Integration</h3>
+                        <p style="color:#94a3b8; margin:0;">Commissioning of the Gamma Irradiation Facility (GIF) and advanced biotechnology laboratories.</p>
+                    </div>
+                </div>
+                <div class="timeline-node node-gold">
+                    <div class="timeline-card card-gold">
+                        <span class="timeline-date">2026 - Transformation</span>
+                        <h3 style="color:#fff; font-size:1.3rem; margin:0 0 0.5rem 0;">Transition to NASTCO</h3>
+                        <p style="color:#cbd5e1; margin:0;">Statutory rebranding to NASTCO. Implementation of the 40/35/25 royalty model, TRL scaling, and active IP ventures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. STATUTORY STAKEHOLDERS (Horizontal Marquee) -->
+    <section class="stakeholders-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Statutory Stakeholders & Strategic Off-Takers</h2></div>
+        </div>
+        <div class="infinite-marquee-container">
+            <div class="infinite-track" id="stakeholderTrack">
+                <div class="stakeholder-card cyan">
+                    <div class="gov-avatar" style="color:#38bdf8;">🏛️</div>
+                    <div><h3 style="color:#fff; margin:0 0 0.2rem;">FMIST</h3><p style="color:#94a3b8; font-size:0.8rem; margin:0;">Federal Ministry of Innovation, Science & Technology.</p></div>
+                </div>
+                <div class="stakeholder-card crimson">
+                    <div class="gov-avatar" style="color:#fb7185;">⚖️</div>
+                    <div><h3 style="color:#fff; margin:0 0 0.2rem;">BPP</h3><p style="color:#94a3b8; font-size:0.8rem; margin:0;">Bureau of Public Procurement. PPA 2007 enforcement.</p></div>
+                </div>
+                <div class="stakeholder-card violet">
+                    <div class="gov-avatar" style="color:#a78bfa;">📜</div>
+                    <div><h3 style="color:#fff; margin:0 0 0.2rem;">NOTAP</h3><p style="color:#94a3b8; font-size:0.8rem; margin:0;">National Office for Technology Acquisition & Promotion.</p></div>
+                </div>
+                <div class="stakeholder-card gold">
+                    <div class="gov-avatar" style="color:var(--fp-gold);">🏭</div>
+                    <div><h3 style="color:#fff; margin:0 0 0.2rem;">Indorama Eleme</h3><p style="color:#94a3b8; font-size:0.8rem; margin:0;">Petrochemical off-taking CARC zeolite catalyst patents.</p></div>
+                </div>
+                <div class="stakeholder-card green">
+                    <div class="gov-avatar" style="color:#00d285;">🛡️</div>
+                    <div><h3 style="color:#fff; margin:0 0 0.2rem;">DICON & Defense</h3><p style="color:#94a3b8; font-size:0.8rem; margin:0;">Defense Industries Corporation. AEPC CNC prototyping.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. INSTITUTIONAL FEATURES -->
+    <section class="features-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Institutional Features</h2></div>
+            <div class="features-grid">
+                <div class="feature-bento card-violet"><div class="feature-icon">🛡️</div><div><h3 style="color:#fff; margin:0 0 0.5rem;">Sovereign Patent Protection</h3><p style="color:#94a3b8; font-size:0.85rem; margin:0;">Global IP rights enforcement and NOTAP guidelines compliance.</p></div></div>
+                <div class="feature-bento card-cyan"><div class="feature-icon">📈</div><div><h3 style="color:#fff; margin:0 0 0.5rem;">TRL 1–9 Scaling</h3><p style="color:#94a3b8; font-size:0.85rem; margin:0;">Systematic research advancement to proven industrial deployment.</p></div></div>
+                <div class="feature-bento card-crimson"><div class="feature-icon">⚖️</div><div><h3 style="color:#fff; margin:0 0 0.5rem;">PPA 2007 Compliance</h3><p style="color:#94a3b8; font-size:0.85rem; margin:0;">A+ BPP Rating ensuring absolute transparency in capital procurement.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW 3D CAMPUS MAP -->
+    <section class="campus-map-section">
+        <div class="ventures-container">
+            <div style="text-align: center;">
+                <span class="hero-badge-pill-3d" style="border-color:#38bdf8; color:#38bdf8; margin-bottom:0.5rem;">2,000+ Hectare Complex</span>
+                <h2 class="ventures-title" style="font-size: 2.2rem; margin-top:0;">Interactive Campus Blueprint</h2>
+                <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Hover over the holographic grid to locate and inspect the physical orientation of our six specialized research facilities.</p>
+            </div>
+            <div class="isometric-stage">
+                <div class="isometric-grid">
+                    <div class="iso-building bldg-amsarc" data-centre="AMSARC • Simulation Core"><div class="base-layer"><span style="transform: rotateZ(45deg) rotateX(-60deg);">💻</span></div></div>
+                    <div class="iso-building bldg-barc" data-centre="BARC • Bio-Reactors"><div class="base-layer"><span style="transform: rotateZ(45deg) rotateX(-60deg);">🧬</span></div></div>
+                    <div class="iso-building bldg-carc" data-centre="CARC • Pyrolysis Labs"><div class="base-layer"><span style="transform: rotateZ(45deg) rotateX(-60deg);">⚗️</span></div></div>
+                    <div class="iso-building bldg-parc" data-centre="PARC • 500kW Solar Field"><div class="base-layer"><span style="transform: rotateZ(45deg) rotateX(-60deg);">☀️</span></div></div>
+                    <div class="iso-building bldg-aepc" data-centre="AEPC • CNC Prototyping"><div class="base-layer"><span style="transform: rotateZ(45deg) rotateX(-60deg);">⚙️</span></div></div>
+                    <div class="iso-building bldg-ntc" data-centre="NTC • Nuclear Dosimetry"><div class="base-layer"><span style="transform: rotateZ(45deg) rotateX(-60deg);">☢️</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 7. STRATEGIC BLUEPRINT -->
+    <section id="blueprint" class="blueprint-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Strategic Blueprint</h2></div>
+            <div class="blueprint-grid">
+                <div class="blueprint-card cyan"><div class="bp-icon-container"><span>🌐</span></div><h3 style="color:#fff;">Industrial Tech Transfer</h3><p style="color:#94a3b8; font-size:0.85rem;">Bridging specialized research and active private-sector manufacturing.</p></div>
+                <div class="blueprint-card gold"><div class="bp-icon-container"><span>💰</span></div><h3 style="color:#fff;">Commercial IP Royalties</h3><p style="color:#94a3b8; font-size:0.85rem;">Driving the 40/35/25 framework to financially reward laboratories.</p></div>
+                <div class="blueprint-card green"><div class="bp-icon-container"><span>⚙️</span></div><h3 style="color:#fff;">Sovereign Prototyping</h3><p style="color:#94a3b8; font-size:0.85rem;">In-house engineering of defense, agricultural, and energy components.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GOVERNANCE -->
+    <section id="governance" class="executive-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Governance & Statutory Oversight</h2></div>
+            <div class="exec-grid">
+                <div class="portrait-card-3d portrait-gold"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Federal Executive Council</h3><p style="color:var(--fp-gold); font-size:0.8rem; font-weight:800; text-transform:uppercase;">Statutory Authority</p></div>
+                <div class="portrait-card-3d portrait-green"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Honourable Minister</h3><p style="color:#00d285; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Supervisory Mandate (FMIST)</p></div>
+                <div class="portrait-card-3d portrait-cyan"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Permanent Fin. Secretary</h3><p style="color:#38bdf8; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Fiscal Appropriation</p></div>
+                <div class="portrait-card-3d portrait-violet"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">NASTCO Board Chairman</h3><p style="color:#a78bfa; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Strategic Leadership</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. EXECUTIVE MANAGEMENT CADRE -->
+    <section class="executive-section" style="background: var(--bg-tier-2);">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Executive Management Cadre</h2></div>
+            <div style="max-width: 350px; margin: 3rem auto;">
+                <div class="portrait-card-3d portrait-gold"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Director-General / CEO</h3><p style="color:var(--fp-gold); font-size:0.8rem; font-weight:800; text-transform:uppercase;">Chief Executive</p></div>
+            </div>
+            <h3 style="text-align:center; color:#fff; margin:4rem 0 2rem;">The Three Core Directorates</h3>
+            <div class="exec-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="portrait-card-3d portrait-cyan"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Director of Administration</h3><p style="color:#38bdf8; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Administration Directorate</p></div>
+                <div class="portrait-card-3d portrait-green"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Director of Commercialization</h3><p style="color:#00d285; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Commercialization & Ventures</p></div>
+                <div class="portrait-card-3d portrait-crimson"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">Director of Finance</h3><p style="color:#fb7185; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Finance Directorate</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. DIRECTORATE CADRE CARDS -->
+    <section id="directorates" class="executive-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Research Centre Directorates</h2></div>
+            <div class="exec-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+                <div class="portrait-card-3d portrait-cyan"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">AMSARC Director</h3><p style="color:#38bdf8; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Simulation & AI</p></div>
+                <div class="portrait-card-3d portrait-green"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">BARC Director</h3><p style="color:#00d285; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Biotechnology</p></div>
+                <div class="portrait-card-3d portrait-gold"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">CARC Director</h3><p style="color:var(--fp-gold); font-size:0.8rem; font-weight:800; text-transform:uppercase;">Chemistry</p></div>
+                <div class="portrait-card-3d portrait-violet"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">PARC Director</h3><p style="color:#a78bfa; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Physics & Lasers</p></div>
+                <div class="portrait-card-3d portrait-cyan"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">AEPC Director</h3><p style="color:#06b6d4; font-size:0.8rem; font-weight:800; text-transform:uppercase;">CNC Prototyping</p></div>
+                <div class="portrait-card-3d portrait-crimson"><div class="portrait-photo-frame-3d"><div class="portrait-fallback-emblem">👤</div></div><h3 style="color:#fff; margin:0 0 0.25rem;">NTC Director</h3><p style="color:#f43f5e; font-size:0.8rem; font-weight:800; text-transform:uppercase;">Nuclear Technology</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. 3D PUBLICATIONS CAROUSEL -->
+    <section class="publications-section">
+        <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Recent Peer-Reviewed Publications</h2></div>
+        <div class="pub-carousel-container">
+            <div class="pub-carousel-track" id="pubCarouselTrack">
+                <div class="pub-3d-card"><div style="font-size:2.5rem; margin-bottom:1rem;">📄</div><span style="color:var(--fp-gold); font-size:0.75rem; font-weight:800;">PARC • Nature Photonics</span><h4 style="color:#fff; margin:0.5rem 0;">Bifacial Yield in Perovskite-Silicon Cells</h4></div>
+                <div class="pub-3d-card" style="border-top-color:#00d285;"><div style="font-size:2.5rem; margin-bottom:1rem;">📄</div><span style="color:#00d285; font-size:0.75rem; font-weight:800;">BARC • Bioresource Tech</span><h4 style="color:#fff; margin:0.5rem 0;">Thermotolerant Cassava Ethanol Strains</h4></div>
+                <div class="pub-3d-card" style="border-top-color:#38bdf8;"><div style="font-size:2.5rem; margin-bottom:1rem;">📄</div><span style="color:#38bdf8; font-size:0.75rem; font-weight:800;">AMSARC • Applied Mathematics</span><h4 style="color:#fff; margin:0.5rem 0;">PINNs in Supersonic Aerodynamics</h4></div>
+                <div class="pub-3d-card" style="border-top-color:#f59e0b;"><div style="font-size:2.5rem; margin-bottom:1rem;">📄</div><span style="color:#f59e0b; font-size:0.75rem; font-weight:800;">CARC • Petrochemical Eng</span><h4 style="color:#fff; margin:0.5rem 0;">Zeolite Catalysts for Heavy Residuals</h4></div>
+            </div>
+        </div>
+        <div class="pub-nav-controls">
+            <button class="rating-arrow-btn" id="pubPrevBtn">◀</button>
+            <button class="rating-arrow-btn" id="pubNextBtn">▶</button>
+        </div>
+    </section>
+
+    <!-- 12. FAQ SECTION -->
+    <section class="faq-section">
+        <div class="ventures-container">
+            <div style="text-align: center;"><h2 class="ventures-title" style="font-size: 2.2rem;">Frequently Asked Questions</h2></div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What is the difference between SHESTCO and NASTCO? <span class="faq-icon">+</span></div>
+                    <div class="faq-answer">SHESTCO was the original institution established in 1993. In 2026, the complex underwent a sovereign transformation into NASTCO to reflect its mandate of commercialization and IP patenting.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How does the 40/35/25 Royalty Distribution work? <span class="faq-icon">+</span></div>
+                    <div class="faq-answer">40% goes directly to the inventors, 35% is reinvested into the originating Research Centre, and 25% is retained by NASTCO Central Administration for complex upkeep.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Are NASTCO Tenders open to private contractors? <span class="faq-icon">+</span></div>
+                    <div class="faq-answer">Yes. All NASTCO procurement adheres strictly to the Public Procurement Act (PPA 2007) and BPP guidelines via our electronic dossier system.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. 3D CONTACT FORM & LOGO -->
+    <section id="contact" class="contact-section">
+        <div class="ventures-container">
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-logo-box">
+                        <?php 
+                            $logo_path = get_template_directory() . '/assets/images/nastco-logo-3d.png';
+                            if ( file_exists( $logo_path ) ) : 
+                        ?>
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nastco-logo-3d.png' ); ?>" alt="NASTCO Logo">
+                        <?php else : ?>
+                            <span style="font-size: 4rem;">🦅</span>
+                        <?php endif; ?>
+                    </div>
+                    <h2 style="font-size: 2.2rem; font-weight: 900; color: #fff;">Connect with NASTCO</h2>
+                    <p style="color: #94a3b8; line-height: 1.6;">For industrial licensing, research collaboration, or statutory inquiries, route your message directly to the Executive Secretariat.</p>
+                </div>
+
+                <div class="contact-form-3d">
+                    <form id="nastcoContactForm">
+                        <div class="priority-toggle-wrapper">
+                            <label class="switch"><input type="checkbox" id="priorityToggle"><span class="slider"></span></label>
+                            <span class="priority-label">Engage Priority Direct Dispatch (DG/CSO Alert)</span>
+                        </div>
+                        <div class="form-group"><input type="text" id="fieldOrg" class="form-control" placeholder="Full Organization Name" required></div>
+                        <div class="form-group"><input type="email" id="fieldEmail" class="form-control" placeholder="Official Email Address" required></div>
+                        <div class="form-group">
+                            <select id="fieldDept" class="form-control" required>
+                                <option value="" disabled selected>Select Directorate / Department</option>
+                                <option value="Office of the DG">Office of the DG / CEO</option>
+                                <option value="Commercialization">Commercialization & Ventures</option>
+                                <option value="Administration">Administration & Finance</option>
+                                <option value="Research Centres">Research Centres (AMSARC, BARC...)</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><textarea id="fieldMsg" class="form-control" rows="5" placeholder="State the nature of your inquiry..." required></textarea></div>
+                        <button type="submit" id="submitDispatchBtn" class="btn-gold-3d" style="width: 100%;"><span>Secure Transmission</span></button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="<?php echo esc_url( get_template_directory_uri() . '/assets/js/about.js' ); ?>"></script>
+
+<?php get_footer(); ?>

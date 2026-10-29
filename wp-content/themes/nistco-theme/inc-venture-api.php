@@ -80,45 +80,40 @@ function nastco_rest_export_royalties_looker( WP_REST_Request $request ) {
     $ventures_table = $wpdb->prefix . 'nistco_ventures';
 
     $sql = "
-        SELECT 
-            r.transaction_ref,
-            r.transaction_date,
+        SELECT
+            r.id,
             r.centre_slug,
             UPPER(r.centre_slug) AS centre_code,
             v.venture_code,
             v.title AS venture_title,
             v.partner_entity,
-            r.gross_revenue,
-            r.statutory_pool,
-            r.inventor_cut AS inventor_allocation_40,
-            r.centre_cut AS centre_allocation_35,
-            r.nistco_cut AS institutional_reinvestment_25,
-            r.distribution_status,
-            r.disbursement_date
+            r.gross_receipt,
+            r.statutory_royalty_amount,
+            r.inventor_share AS inventor_allocation_40,
+            r.centre_share AS centre_allocation_35,
+            r.nistco_institutional_share AS institutional_reinvestment_25,
+            r.settlement_status
         FROM {$ledger_table} r
         LEFT JOIN {$ventures_table} v ON r.venture_id = v.id
-        ORDER BY r.transaction_date DESC
+        ORDER BY r.id DESC
     ";
 
     $records = $wpdb->get_results( $sql, ARRAY_A );
 
-    // Format output as a normalized array suitable for Google Apps Script & Looker Studio
     $feed = [];
-    foreach ( $records as $row ) {
+    foreach ( (array) $records as $row ) {
         $feed[] = [
-            'Reference'       => $row['transaction_ref'],
-            'Date'            => $row['transaction_date'],
+            'Reference'       => 'ROY-' . str_pad( $row['id'], 5, '0', STR_PAD_LEFT ),
             'Centre'          => $row['centre_code'],
-            'Venture Code'    => $row['venture_code'],
-            'Venture Title'   => $row['venture_title'],
-            'Partner Entity'  => $row['partner_entity'],
-            'Gross NGN'       => (float) $row['gross_revenue'],
-            'Statutory Pool'  => (float) $row['statutory_pool'],
+            'Venture Code'    => $row['venture_code'] ?? 'N/A',
+            'Venture Title'   => $row['venture_title'] ?? 'Direct Centre Royalty',
+            'Partner Entity'  => $row['partner_entity'] ?? 'Institutional',
+            'Gross NGN'       => (float) $row['gross_receipt'],
+            'Statutory Pool'  => (float) $row['statutory_royalty_amount'],
             'Inventor 40%'    => (float) $row['inventor_allocation_40'],
             'Centre 35%'      => (float) $row['centre_allocation_35'],
             'NASTCO 25%'      => (float) $row['institutional_reinvestment_25'],
-            'Status'          => ucfirst( $row['distribution_status'] ),
-            'Disbursed Date'  => $row['disbursement_date'] ?: 'Pending',
+            'Status'          => ucfirst( $row['settlement_status'] ),
         ];
     }
 
@@ -126,6 +121,6 @@ function nastco_rest_export_royalties_looker( WP_REST_Request $request ) {
         'generated_at'   => current_time( 'mysql' ),
         'total_records'  => count( $feed ),
         'schema_version' => '1.2.0',
-        'data'           => $feed
+        'data'           => $feed,
     ], 200 );
 }

@@ -1,177 +1,82 @@
 <?php
 /**
- * Universal Portal Search Engine
- * Handles full-text queries across Research Centres, Publications, Tenders, Gazettes, and News.
- * File: search.php
- *
- * @package ShestcoTheme
- * @version 2.5.0
+ * NASTCO Search Results Node
+ * Displays queried intelligence and data assets.
  */
+get_header(); ?>
 
-get_header();
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/nastco-core.css' ); ?>">
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/assets/css/search.css' ); ?>">
 
-$theme_uri     = get_template_directory_uri();
-$search_query  = get_search_query();
-$total_results = (int) $wp_query->found_posts;
-?>
+<!-- Forced Tactical Slate Background Override -->
+<main id="main-content" style="background-color: #020617; min-height: 100vh; background-image: linear-gradient(rgba(0, 210, 133, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 133, 0.04) 1px, transparent 1px); background-size: 40px 40px;">
 
-<main class="site-main mc-homepage">
-
-    <!-- =========================================================================
-         1. HERO SECTION: ACTIVE SEARCH BEAM & KINETIC SENSOR MATRIX
-         ========================================================================= -->
-    <section class="mc-hero-section mc-search-hero">
-        <div class="mc-hero-ambient-1"></div>
-        <div class="mc-hero-ambient-2"></div>
-        <div class="mc-hero-pattern"></div>
-
-        <div class="container mc-hero-container">
-            <div class="mc-hero-grid">
-
-                <div class="mc-hero-content">
-                    <nav aria-label="Breadcrumb" class="about-breadcrumb">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-                        <span>&rsaquo;</span>
-                        <span class="breadcrumb-current">Portal Search</span>
-                    </nav>
-
-                    <div class="mc-hero-badges">
-                        <span class="mc-pill mc-pill-gold">Institutional Search Engine</span>
-                        <span class="mc-pill mc-pill-green"><?php echo esc_html( $total_results ); ?> Matching
-                            Records</span>
-                    </div>
-
-                    <h1 class="mc-hero-title">
-                        Search Results: &ldquo;<?php echo esc_html( $search_query ); ?>&rdquo;
-                    </h1>
-
-                    <p class="mc-hero-subtitle">
-                        Cross-referencing research centre profiles, scientific repository publications, NOTAP commercial
-                        patents, and public procurement solicitations.
-                    </p>
-
-                    <!-- Search Input Bar -->
-                    <div class="inno-search-box" style="margin-top: 1.5rem; max-width: 650px;">
-                        <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>"
-                            style="width: 100%; display: flex; position: relative;">
-                            <span class="search-icon" style="top: 50%; transform: translateY(-50%);">🔍</span>
-                            <input type="text" name="s" value="<?php echo esc_attr( $search_query ); ?>"
-                                placeholder="Search across all records..." required
-                                style="width: 100%; background: #ffffff;">
-                            <button type="submit" class="mc-btn mc-btn-primary"
-                                style="position: absolute; right: 4px; top: 4px; bottom: 4px; padding: 0 1.25rem; border-radius: 6px;">Search</button>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Right Column: ACTIVE MOTION SVG (3D Kinetic Search Matrix) -->
-                <div class="about-3d-viewport">
-                    <div class="about-3d-stage">
-                        <svg class="mc-active-svg-canvas" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <!-- Dual Concentric Range Rings -->
-                            <circle cx="160" cy="160" r="130" fill="none" stroke="#86efac" stroke-width="2"
-                                stroke-dasharray="10 6" class="svg-rot-cw-slow" />
-                            <circle cx="160" cy="160" r="95" fill="none" stroke="rgba(253,224,71,0.5)"
-                                stroke-width="1.5" stroke-dasharray="6 4" class="svg-rot-ccw-mid" />
-
-                            <!-- Search Crosshair Beams -->
-                            <g class="svg-radar-arm">
-                                <line x1="160" y1="160" x2="280" y2="100" stroke="#fde047" stroke-width="2.5" />
-                                <polygon points="280,100 260,90 265,110" fill="#fde047" />
-                            </g>
-
-                            <!-- Quantum Pulse Center -->
-                            <g class="svg-pulse-core">
-                                <circle cx="160" cy="160" r="24" fill="#042416" stroke="#86efac" stroke-width="3" />
-                                <text x="160" y="167" text-anchor="middle" font-size="18" fill="#86efac">🔍</text>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-
+    <!-- 1. HERO SECTION -->
+    <section class="search-hero cn-reveal-group">
+        <div class="ventures-container">
+            
+            <div class="ops-badge-3d cn-cascade" style="border-color:#38bdf8; color:#38bdf8; background:rgba(56, 189, 248, 0.1);">
+                <span>🔍</span> Query Terminal
             </div>
+
+            <h1 class="ventures-title text-3d-deep cn-cascade" style="font-size:3rem; color:#fff;">
+                System Query: <span style="color:#00d285; text-shadow:0 0 20px rgba(0,210,133,0.4);"><?php echo get_search_query(); ?></span>
+            </h1>
+            
+            <!-- Secondary Search Bar -->
+            <form role="search" method="get" class="terminal-search-form cn-cascade" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <input type="search" class="terminal-search-input" placeholder="Execute new query..." value="<?php echo get_search_query(); ?>" name="s" required />
+                <button type="submit" class="terminal-search-btn">Scan Records</button>
+            </form>
+            
         </div>
     </section>
 
-    <!-- =========================================================================
-         2. SEARCH RESULTS STREAM
-         ========================================================================= -->
-    <section class="mc-section mc-bg-white">
-        <div class="container" style="max-width: 1160px; margin: 0 auto;">
+    <!-- 2. DATA CARDS GRID -->
+    <section class="search-results-section">
+        <div class="ventures-container">
+            <div class="search-grid cn-reveal-group" style="transform-style: preserve-3d;">
+                
+                <?php if ( have_posts() ) : ?>
+                    <?php while ( have_posts() ) : the_post(); 
+                        $post_type_label = get_post_type() === 'nastco_resource' ? 'Data Asset' : (get_post_type() === 'page' ? 'Core Node' : 'Intelligence');
+                    ?>
+                        
+                        <div class="result-card cn-cascade">
+                            <div class="result-meta">
+                                Classification: <span class="highlight"><?php echo esc_html($post_type_label); ?></span>
+                            </div>
+                            <h3 class="result-title"><?php the_title(); ?></h3>
+                            <div class="result-excerpt">
+                                <?php echo wp_trim_words( get_the_excerpt() ?: get_the_content(), 20, '...' ); ?>
+                            </div>
+                            <a href="<?php the_permalink(); ?>" class="btn-read-more">Access Record</a>
+                        </div>
 
-            <?php if ( have_posts() ) : ?>
-            <div class="mc-pubs-grid">
-                <?php while ( have_posts() ) : the_post(); 
-                    $post_type = get_post_type();
-                    $type_label = 'Institutional Article';
-                    $type_icon  = '📄';
-
-                    if ( 'publication' === $post_type ) {
-                        $type_label = 'Scientific Publication';
-                        $type_icon  = '📚';
-                    } elseif ( 'procurement_tender' === $post_type ) {
-                        $type_label = 'Public BPP Tender';
-                        $type_icon  = '📋';
-                    } elseif ( 'research_centre' === $post_type ) {
-                        $type_label = 'Research Centre';
-                        $type_icon  = '🔬';
-                    }
-                ?>
-                <article class="mc-pub-card reveal-on-scroll">
-                    <div class="mc-pub-pills">
-                        <span class="mc-pub-year"><?php echo esc_html( $type_icon . ' ' . $type_label ); ?></span>
-                        <span class="mc-pub-centre"><?php echo esc_html( get_the_date( 'M j, Y' ) ); ?></span>
+                    <?php endwhile; ?>
+                    
+                    <!-- Basic Pagination -->
+                    <div style="grid-column: 1 / -1; display: flex; justify-content: space-between; margin-top: 2rem; transform: translateZ(20px);">
+                        <?php previous_posts_link( '<span style="color:#38bdf8; font-weight:bold;">← Previous Sector</span>' ); ?>
+                        <?php next_posts_link( '<span style="color:#38bdf8; font-weight:bold;">Next Sector →</span>' ); ?>
                     </div>
 
-                    <h3 class="mc-pub-title">
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </h3>
-
-                    <p class="mc-pub-excerpt">
-                        <?php echo wp_trim_words( get_the_excerpt(), 22 ); ?>
-                    </p>
-
-                    <div class="mc-pub-footer">
-                        <a href="<?php the_permalink(); ?>" class="mc-btn-cite"
-                            style="text-decoration: none !important;">
-                            Access Record &rarr;
-                        </a>
+                <?php else : ?>
+                    
+                    <div class="no-results-terminal cn-cascade">
+                        <h3>⚠️ DATA NOT FOUND</h3>
+                        <p>The queried designation "<?php echo get_search_query(); ?>" does not match any secure protocols, personnel files, or data assets on the NASTCO server.</p>
+                        <p style="margin-top:1rem; opacity:0.6;">Check operational clearance or verify query syntax.</p>
                     </div>
-                </article>
-                <?php endwhile; ?>
-            </div>
 
-            <!-- Pagination -->
-            <div style="margin-top: 3.5rem; display: flex; justify-content: center;">
-                <?php
-                echo paginate_links( array(
-                    'prev_text' => '&larr; Previous',
-                    'next_text' => 'Next &rarr;',
-                    'type'      => 'list',
-                ) );
-                ?>
-            </div>
+                <?php endif; ?>
 
-            <?php else : ?>
-            <div class="inno-no-results-card">
-                <span class="no-results-icon">🔍</span>
-                <h3>No Matching Records Found</h3>
-                <p>We could not find any records matching "<strong><?php echo esc_html( $search_query ); ?></strong>".
-                    Try checking for spelling errors or searching for broader terms like <em>Biotechnology</em>,
-                    <em>NMR</em>, <em>Tenders</em>, or <em>Patents</em>.
-                </p>
-                <div style="margin-top: 1.5rem;">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="mc-btn mc-btn-primary">Return to
-                        Homepage</a>
-                </div>
             </div>
-            <?php endif; ?>
-
         </div>
     </section>
 
 </main>
 
-<?php
-get_footer();
+<script src="<?php echo esc_url( get_template_directory_uri() . '/assets/js/nastco-core.js' ); ?>"></script>
+
+<?php get_footer(); ?>

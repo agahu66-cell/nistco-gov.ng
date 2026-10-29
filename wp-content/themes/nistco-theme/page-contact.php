@@ -1,400 +1,366 @@
 <?php
 /**
- * Template Name: Contact & Campus Directorate
- * Description: Official contact directory, executive registry dispatches, interactive campus navigation coordinates, and active radar telemetry.
- * File: page-contact.php
- *
- * @package ShestcoTheme
- * @version 2.5.0
+ * Template Name: Secure Comms Terminal
+ * Template Post Type: page
  */
+get_header(); ?>
 
-get_header();
+<style>
+/* ==========================================================================
+   SECURE COMMS TERMINAL (3D COLORFUL EDITION - REFINED SHADOWS)
+   ========================================================================== */
+.comms-container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 4rem 2rem 8rem 2rem; 
+    min-height: 75vh; 
+    perspective: 1500px; 
+}
 
-$theme_uri = get_template_directory_uri();
-?>
+.comms-header { 
+    margin-bottom: 4rem; 
+    border-bottom: 2px solid rgba(56, 189, 248, 0.3); 
+    padding-bottom: 2rem; 
+    text-align: center;
+}
 
-<main class="site-main mc-homepage">
+.contact-main-logo {
+    max-width: 180px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 10px 15px rgba(0, 210, 133, 0.3)); /* Softened Shadow */
+    transform: translateZ(20px);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+.contact-main-logo:hover { 
+    transform: translateZ(40px) scale(1.05); 
+    filter: drop-shadow(0 15px 25px rgba(0, 210, 133, 0.4));
+}
 
-    <!-- =========================================================================
-         1. HERO SECTION: 3D TELEMETRY & ACTIVE RADAR MATRIX
-         ========================================================================= -->
-    <section class="mc-hero-section mc-contact-hero">
-        <div class="mc-hero-ambient-1"></div>
-        <div class="mc-hero-ambient-2"></div>
-        <div class="mc-hero-pattern"></div>
+.telemetry-tag { 
+    font-family: 'Courier New', monospace; 
+    font-size: 0.9rem; 
+    font-weight: 900;
+    letter-spacing: 2px; 
+    display: block; 
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #f43f5e, #f59e0b, #00d285);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Softened Shadow */
+}
 
-        <div class="container mc-hero-container">
-            <div class="mc-hero-grid">
+.comms-title { 
+    font-size: 3.5rem; 
+    font-weight: 900; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    margin: 0 0 1rem 0;
+    background: linear-gradient(to right, #00d285, #38bdf8, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.8), 4px 4px 10px rgba(56,189,248,0.3); /* Softened */
+}
 
-                <!-- Left Column: Official Dispatch Header & Metadata -->
-                <div class="mc-hero-content">
-                    <nav aria-label="Breadcrumb" class="about-breadcrumb">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-                        <span>&rsaquo;</span>
-                        <span class="breadcrumb-current">Contact &amp; Directorate Registry</span>
-                    </nav>
+.comms-subtitle { 
+    color: #cbd5e1; 
+    font-size: 1.1rem; 
+    max-width: 750px; 
+    line-height: 1.7; 
+    margin: 0 auto; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
 
-                    <div class="mc-hero-badges">
-                        <span class="mc-pill mc-pill-green">Federal Technology Sanctuary</span>
-                        <span class="mc-pill mc-pill-gold">Abuja-Lokoja Tech Corridor</span>
+.comms-matrix { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3.5rem; }
+
+/* Base 3D Colorful Card (Used for Right Form Panel) */
+.tactical-3d-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 4px solid #38bdf8;
+    border-bottom: 4px solid #8b5cf6;
+    border-radius: 16px;
+    /* Reduced Box Shadow */
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.4), 
+        inset 0 1px 10px rgba(255,255,255,0.05), 
+        inset 0 -1px 10px rgba(139, 92, 246, 0.15);
+    backdrop-filter: blur(20px);
+    transform: rotateX(2deg) rotateY(-2deg) translateZ(0);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+}
+
+.tactical-3d-card:hover {
+    transform: rotateX(0deg) rotateY(0deg) translateY(-8px) translateZ(15px);
+    box-shadow: 
+        0 15px 30px rgba(0,0,0,0.5), 
+        inset 0 2px 15px rgba(255,255,255,0.1), 
+        inset 0 -2px 15px rgba(139, 92, 246, 0.25);
+}
+
+/* === PRESTIGE UPLINK CARD (Left Panel) === */
+.tactical-3d-card.status-panel {
+    background: linear-gradient(135deg, rgba(40, 30, 10, 0.85) 0%, rgba(15, 10, 2, 0.95) 100%);
+    border: 1px solid rgba(191, 149, 63, 0.3);
+    border-top: 4px solid #bf953f; 
+    border-bottom: 4px solid #aa771c; 
+    /* Reduced Prestige Box Shadow */
+    box-shadow: 
+        0 10px 25px rgba(0,0,0,0.5), 
+        inset 0 1px 10px rgba(252, 246, 186, 0.1), 
+        inset 0 -1px 10px rgba(191, 149, 63, 0.15);
+    padding: 2.5rem; 
+    height: fit-content; 
+    font-family: 'Courier New', monospace; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2rem; 
+}
+.tactical-3d-card.status-panel:hover {
+    box-shadow: 
+        0 15px 35px rgba(0,0,0,0.6), 
+        0 0 20px rgba(191, 149, 63, 0.15),
+        inset 0 2px 15px rgba(252, 246, 186, 0.15), 
+        inset 0 -2px 15px rgba(191, 149, 63, 0.25);
+}
+
+/* Prestige Typography & Pulse */
+.status-indicator { 
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+    font-size: 1.2rem;
+    font-weight: 900; 
+    letter-spacing: 2px; 
+    background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 2px 5px rgba(191, 149, 63, 0.3); /* Softened */
+    animation: gold-shimmer 4s linear infinite;
+}
+@keyframes gold-shimmer { to { background-position: 200% center; } }
+
+.pulse-ring { 
+    width: 14px; 
+    height: 14px; 
+    border-radius: 50%; 
+    background: #fcf6ba; 
+    box-shadow: 0 0 15px #bf953f; 
+    animation: pulse-prestige 2s infinite; 
+}
+@keyframes pulse-prestige { 
+    0% { box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.6); } 
+    70% { box-shadow: 0 0 0 10px rgba(191, 149, 63, 0); } 
+    100% { box-shadow: 0 0 0 0 rgba(191, 149, 63, 0); } 
+}
+
+.log-feed { 
+    font-size: 0.85rem; 
+    color: #cbd5e1; 
+    line-height: 2; 
+    background: rgba(0,0,0,0.3); /* Lighter background */
+    padding: 1rem; 
+    border-radius: 8px; 
+    border-left: 3px solid #bf953f; 
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.3); /* Softened */
+}
+.log-line span { color: #fcf6ba; margin-right: 0.5rem; font-weight: bold; } 
+.log-line.warn span { color: #f59e0b; }
+
+/* Sub Logo matches Gold/Prestige theme */
+.contact-sub-logo { 
+    width: 100%; 
+    border-radius: 12px; 
+    filter: drop-shadow(0 10px 15px rgba(191, 149, 63, 0.3)); /* Softened Shadow */
+    transform: translateZ(10px); 
+    transition: filter 0.3s ease; 
+}
+.contact-sub-logo:hover { filter: drop-shadow(0 15px 25px rgba(191, 149, 63, 0.5)); }
+
+.tactical-form-box { padding: 3.5rem 3rem; }
+.input-group { margin-bottom: 2.2rem; position: relative; }
+.input-label { display: block; font-family: 'Courier New', monospace; font-size: 0.9rem; color: #38bdf8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); }
+.input-label span { color: #f43f5e; }
+
+.tactical-input { width: 100%; background: rgba(2, 6, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 2px solid #38bdf8; border-radius: 8px; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 1.1rem; padding: 1rem 1.2rem; box-sizing: border-box; box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+.tactical-input:focus { border-color: #00d285; border-bottom-color: #00d285; box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 5px 15px rgba(0, 210, 133, 0.3); outline: none; background: rgba(2, 6, 23, 0.8); transform: translateZ(10px); }
+textarea.tactical-input { min-height: 160px; resize: vertical; }
+
+.tactical-input.is-invalid { border-color: #f43f5e; border-bottom-color: #f43f5e; box-shadow: inset 0 3px 8px rgba(0,0,0,0.3), 0 5px 15px rgba(244, 63, 94, 0.3); }
+.validation-msg { display: none; font-family: 'Courier New', monospace; font-size: 0.85rem; color: #f43f5e; margin-top: 0.8rem; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); }
+.input-group.error .validation-msg { display: block; }
+
+.submit-btn { width: 100%; background: linear-gradient(90deg, #00d285, #38bdf8); border: none; color: #020617; font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; padding: 1.2rem; border-radius: 8px; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 210, 133, 0.3), inset 0 2px 5px rgba(255,255,255,0.2); transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); margin-top: 1.5rem; transform: translateZ(10px); }
+.submit-btn:hover { background: linear-gradient(90deg, #38bdf8, #8b5cf6); color: #ffffff; box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4), inset 0 2px 10px rgba(255,255,255,0.3); transform: translateZ(20px) translateY(-2px); }
+.submit-btn.processing { background: linear-gradient(90deg, #f59e0b, #f43f5e); color: #ffffff; cursor: not-allowed; transform: translateZ(5px); box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3); }
+
+@media (max-width: 960px) { .comms-matrix { grid-template-columns: 1fr; gap: 2rem; } .tactical-3d-card { transform: none; } .tactical-3d-card:hover { transform: translateY(-3px); } }
+</style>
+
+<main id="main-content" style="background-color: #020617; background-image: linear-gradient(rgba(0, 210, 133, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 210, 133, 0.04) 1px, transparent 1px); background-size: 40px 40px;">
+    <div class="comms-container">
+        
+        <header class="comms-header">
+            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nastco-logo.png' ); ?>" alt="NASTCO Official Brand" class="contact-main-logo" onerror="this.style.display='none'">
+            <span class="telemetry-tag">SECTOR 07: SECURE UPLINK</span>
+            <h1 class="comms-title">Secure Communications Node</h1>
+            <p class="comms-subtitle">Establish a direct, encrypted pipeline to NASTCO command. All payloads are sanitized, validated, and logged prior to dispatch.</p>
+        </header>
+
+        <div class="comms-matrix">
+            
+            <aside class="tactical-3d-card status-panel">
+                <div class="status-indicator">
+                    <div class="pulse-ring"></div>
+                    <span>UPLINK STABLE</span>
+                </div>
+                
+                <div class="log-feed" id="liveTerminalLog">
+                    <div class="log-line"><span><?php echo date('H:i:s'); ?></span> INITIALIZING HANDSHAKE</div>
+                    <div class="log-line"><span><?php echo date('H:i:s', strtotime('+1 second')); ?></span> ENCRYPTION KEYS VERIFIED</div>
+                    <div class="log-line"><span><?php echo date('H:i:s', strtotime('+2 seconds')); ?></span> AWAITING OPERATIVE PAYLOAD</div>
+                </div>
+
+                <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nastco1-logo.png' ); ?>" alt="NASTCO Secondary Brand" class="contact-sub-logo" onerror="this.style.display='none'">
+            </aside>
+
+            <div class="tactical-3d-card tactical-form-box">
+                <form id="nastcoSecureForm" novalidate>
+                    
+                    <div class="input-group" id="group-callsign">
+                        <label class="input-label" for="callsign">Operative Callsign / Name <span>*</span></label>
+                        <input type="text" id="callsign" class="tactical-input" placeholder="e.g. Dr. A. Ibrahim" required>
+                        <div class="validation-msg">ERROR: Callsign must exceed 2 characters.</div>
                     </div>
 
-                    <h1 class="mc-hero-title">
-                        Official Enquiries, Registry &amp; Campus Directorate
-                    </h1>
-
-                    <p class="mc-hero-subtitle">
-                        Engage the Executive Secretariat, schedule advanced research facility residencies, structure
-                        intellectual property licensing with NOTAP desks, or lodge formal inter-ministerial
-                        correspondence.
-                    </p>
-
-                    <div class="about-nav-pill-group">
-                        <span class="jump-label">Jump To:</span>
-                        <a href="#dispatch-form" class="about-nav-pill">✉️ Dispatch Form</a>
-                        <a href="#directorate-contacts" class="about-nav-pill">🏛️ Directorate Registry</a>
-                        <a href="#campus-location" class="about-nav-pill">📍 Location &amp; Access</a>
-                        <a href="#servicom-desk" class="about-nav-pill">⚖️ SERVICOM Desk</a>
+                    <div class="input-group" id="group-clearance">
+                        <label class="input-label" for="clearance">Clearance Code / Email <span>*</span></label>
+                        <input type="email" id="clearance" class="tactical-input" placeholder="operative@nastco.gov.ng" required>
+                        <div class="validation-msg">ERROR: Invalid email clearance format.</div>
                     </div>
-                </div>
 
-                <!-- Right Column: ACTIVE MOTION SVG (Campus Radar & Vector Telemetry) -->
-                <div class="about-3d-viewport">
-                    <div class="about-3d-stage">
-                        <svg class="mc-active-svg-canvas" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <defs>
-                                <radialGradient id="radarScanGrad" cx="50%" cy="50%" r="50%">
-                                    <stop offset="0%" stop-color="#86efac" stop-opacity="0.6" />
-                                    <stop offset="60%" stop-color="#0d5c3a" stop-opacity="0.25" />
-                                    <stop offset="100%" stop-color="#042416" stop-opacity="0" />
-                                </radialGradient>
-                            </defs>
-
-                            <!-- Concentric Radar Range Rings -->
-                            <circle cx="160" cy="160" r="140" fill="none" stroke="#86efac" stroke-width="1.5"
-                                stroke-dasharray="6 6" class="svg-rot-cw-slow" />
-                            <circle cx="160" cy="160" r="105" fill="none" stroke="rgba(253,224,71,0.4)"
-                                stroke-width="1.5" stroke-dasharray="4 4" class="svg-rot-ccw-mid" />
-                            <circle cx="160" cy="160" r="70" fill="none" stroke="#86efac" stroke-width="1.5" />
-                            <circle cx="160" cy="160" r="35" fill="none" stroke="rgba(255,255,255,0.3)"
-                                stroke-width="1" />
-
-                            <!-- Crosshair Telemetry Axes -->
-                            <line x1="20" y1="160" x2="300" y2="160" stroke="rgba(134,239,172,0.2)" stroke-width="1" />
-                            <line x1="160" y1="20" x2="160" y2="300" stroke="rgba(134,239,172,0.2)" stroke-width="1" />
-
-                            <!-- Active Radar Sweep Arm -->
-                            <g class="svg-radar-arm">
-                                <path d="M 160,160 L 290,120 A 140,140 0 0,0 160,20 Z" fill="url(#radarScanGrad)" />
-                                <line x1="160" y1="160" x2="290" y2="120" stroke="#fde047" stroke-width="2.5" />
-                            </g>
-
-                            <!-- Active Telemetry Target Beacons -->
-                            <circle cx="160" cy="160" r="10" fill="#fde047" class="svg-pulse-core" />
-                            <circle cx="230" cy="100" r="6" fill="#86efac" class="svg-pulse-core" />
-                            <circle cx="95" cy="225" r="5" fill="#38bdf8" class="svg-pulse-core" />
-                        </svg>
+                    <div class="input-group" id="group-routing">
+                        <label class="input-label" for="routing">Destination Routing Node <span>*</span></label>
+                        <select id="routing" class="tactical-input" required>
+                            <option value="" disabled selected>SELECT DIRECTORATE</option>
+                            <option value="CMD">Central Command HQ</option>
+                            <option value="AMSARC">AMSARC - Applied Math</option>
+                            <option value="BARC">BARC - Bio Research</option>
+                            <option value="CARC">CARC - Chemistry</option>
+                            <option value="PARC">PARC - Physics</option>
+                            <option value="AEPC">AEPC - Advanced Engineering</option>
+                            <option value="NTC">NTC - Nuclear Tech</option>
+                        </select>
+                        <div class="validation-msg">ERROR: Destination node must be specified.</div>
                     </div>
-                </div>
 
-            </div>
-        </div>
-
-        <!-- Docked Telemetry Factlet Ribbon -->
-        <div class="about-factlet-bar">
-            <div class="container about-factlet-container">
-                <div class="factlet-item">
-                    <span class="factlet-kicker">Geographic Coordinates</span>
-                    <strong class="factlet-value">8°51'42"N 7°00'18"E (Sheda)</strong>
-                </div>
-                <div class="factlet-item">
-                    <span class="factlet-kicker">Central Dispatch Hours</span>
-                    <strong class="factlet-value">Mon – Fri: 08:00 – 16:00 WAT</strong>
-                </div>
-                <div class="factlet-item">
-                    <span class="factlet-kicker">Emergency Lab Response</span>
-                    <strong class="factlet-value">24/7 Monitored Facilities</strong>
-                </div>
-                <div class="factlet-item">
-                    <span class="factlet-kicker">Postal Address</span>
-                    <strong class="factlet-value">PMB 186, Garki, Abuja, Nigeria</strong>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         2. INTERACTIVE DISPATCH FORM & REGISTRY INFORMATION
-         ========================================================================= -->
-    <section id="dispatch-form" class="mc-section mc-bg-white">
-        <div class="container" style="max-width: 1160px; margin: 0 auto;">
-            <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 3.5rem; align-items: flex-start;">
-
-                <!-- Left Column: Registry Guidance -->
-                <div class="reveal-on-scroll">
-                    <span class="mc-section-kicker">Official Communication Desk</span>
-                    <h2 class="mc-section-title">Submit Official Correspondence</h2>
-                    <p class="mc-section-lead" style="margin-bottom: 1.75rem;">
-                        Official administrative communications, research fellowship inquiries, and commercialization
-                        proposals are routed directly to the designated directorate secretary.
-                    </p>
-
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div class="mc-partner-card"
-                            style="align-items: flex-start; text-align: left; padding: 1.25rem;">
-                            <strong
-                                style="color: var(--mc-dark); font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">Office
-                                of the Director-General / CEO</strong>
-                            <span
-                                style="font-size: 0.85rem; color: var(--mc-green); font-weight: 700;">dg@shestco.gov.ng</span>
-                            <span style="font-size: 0.78rem; color: var(--mc-text-muted);">Apex Institutional &amp;
-                                Inter-Ministerial Policy Desk</span>
-                        </div>
-
-                        <div class="mc-partner-card"
-                            style="align-items: flex-start; text-align: left; padding: 1.25rem;">
-                            <strong
-                                style="color: var(--mc-dark); font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">Directorate
-                                of Technology Transfer &amp; Patents</strong>
-                            <span
-                                style="font-size: 0.85rem; color: var(--mc-green); font-weight: 700;">commercialization@shestco.gov.ng</span>
-                            <span style="font-size: 0.78rem; color: var(--mc-text-muted);">NOTAP Licensing, Industry
-                                Joint Ventures &amp; Pilot Off-Take</span>
-                        </div>
-
-                        <div class="mc-partner-card"
-                            style="align-items: flex-start; text-align: left; padding: 1.25rem;">
-                            <strong
-                                style="color: var(--mc-dark); font-size: 0.95rem; display: block; margin-bottom: 0.25rem;">Directorate
-                                of Research &amp; Residencies</strong>
-                            <span
-                                style="font-size: 0.85rem; color: var(--mc-green); font-weight: 700;">fellowships@shestco.gov.ng</span>
-                            <span style="font-size: 0.78rem; color: var(--mc-text-muted);">Postdoctoral Fellowships,
-                                NMR/HPC Time &amp; Lab Access</span>
-                        </div>
+                    <div class="input-group" id="group-payload">
+                        <label class="input-label" for="payload">Encrypted Payload / Message <span>*</span></label>
+                        <textarea id="payload" class="tactical-input" placeholder="Enter transmission data..." required></textarea>
+                        <div class="validation-msg">ERROR: Payload must contain at least 15 characters.</div>
                     </div>
-                </div>
 
-                <!-- Right Column: Interactive Dispatch Form Card -->
-                <div class="mc-form-card reveal-on-scroll delay-100">
-                    <h3 style="color: var(--mc-dark); font-size: 1.35rem; font-weight: 800; margin: 0 0 0.5rem 0;">
-                        Direct Official Inquiry</h3>
-                    <p style="font-size: 0.88rem; color: var(--mc-text-muted); margin: 0 0 1.5rem 0;">
-                        Fields marked with <span style="color: #dc2626;">*</span> are mandatory for statutory dispatch
-                        logging.
-                    </p>
-
-                    <form action="#" method="post" class="mc-form-grid">
-                        <?php wp_nonce_field( 'shestco_contact_dispatch_nonce', 'contact_nonce' ); ?>
-
-                        <div class="mc-input-group">
-                            <label for="contact_name">Official / Full Name <span
-                                    style="color: #dc2626;">*</span></label>
-                            <input type="text" id="contact_name" name="contact_name" required
-                                placeholder="Prof. / Dr. / Full Name">
-                        </div>
-
-                        <div class="mc-input-group">
-                            <label for="contact_email">Corporate / Institutional Email <span
-                                    style="color: #dc2626;">*</span></label>
-                            <input type="email" id="contact_email" name="contact_email" required
-                                placeholder="name@institution.gov.ng">
-                        </div>
-
-                        <div class="mc-input-group">
-                            <label for="contact_phone">Official Telephone Number <span
-                                    style="color: #dc2626;">*</span></label>
-                            <input type="tel" id="contact_phone" name="contact_phone" required
-                                placeholder="+234 800 000 0000">
-                        </div>
-
-                        <div class="mc-input-group">
-                            <label for="contact_org">Institution / Organization Name</label>
-                            <input type="text" id="contact_org" name="contact_org"
-                                placeholder="University, Agency, or Enterprise">
-                        </div>
-
-                        <div class="mc-input-group mc-form-full">
-                            <label for="contact_portfolio">Portfolio / Departmental Routing <span
-                                    style="color: #dc2626;">*</span></label>
-                            <select id="contact_portfolio" name="contact_portfolio" required>
-                                <option value="Directorate of Research & Facilities">Directorate of Research &amp;
-                                    Facilities (Lab Access)</option>
-                                <option value="Technology Transfer & Patents (NOTAP)">Technology Transfer &amp; Patents
-                                    (Commercial Licensing)</option>
-                                <option value="Public Procurement & Tenders Desk">Public Procurement &amp; Tenders Desk
-                                    (BPP Inquiries)</option>
-                                <option value="Works, Services & ICT Operations">Works, Services &amp; ICT Operations
-                                </option>
-                                <option value="SERVICOM Grievance & Service Redress">SERVICOM Grievance &amp; Service
-                                    Redress</option>
-                                <option value="Office of the Director-General">Office of the Director-General / CEO
-                                </option>
-                            </select>
-                        </div>
-
-                        <div class="mc-input-group mc-form-full">
-                            <label for="contact_message">Dispatch Details / Inquiry Scope <span
-                                    style="color: #dc2626;">*</span></label>
-                            <textarea id="contact_message" name="contact_message" rows="4" required
-                                placeholder="Provide a concise summary of your official inquiry, facility request, or technical proposal..."></textarea>
-                        </div>
-
-                        <div class="mc-form-full"
-                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem;">
-                            <span style="font-size: 0.75rem; color: var(--mc-text-muted);">🔒 Dispatched via encrypted
-                                government SSL protocol.</span>
-                            <button type="submit" class="mc-btn mc-btn-primary">
-                                <span>Transmit Official Dispatch &rarr;</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================================
-         3. DIRECTORATE REGISTRY DIRECTORY
-         ========================================================================= -->
-    <section id="directorate-contacts" class="mc-section mc-bg-parchment mc-border-top mc-border-bottom">
-        <div class="container" style="max-width: 1160px; margin: 0 auto;">
-
-            <div class="mc-section-header mc-text-center">
-                <span class="mc-section-kicker">Institutional Registry</span>
-                <h2 class="mc-section-title">Directorate Communication Desks</h2>
-                <p class="mc-section-lead">
-                    Direct communication lines for operational divisions, laboratory instrument booking, and corporate
-                    administration.
-                </p>
-            </div>
-
-            <div class="mc-centres-grid">
-
-                <div class="mc-centre-card reveal-on-scroll">
-                    <div class="mc-centre-icon-wrap">🧬</div>
-                    <span class="mc-centre-code">BARC Directorate</span>
-                    <h3 class="mc-centre-title">Biotechnology Centre</h3>
-                    <p class="mc-centre-desc">Plant micropropagation booking, tissue culture demonstration orders, and
-                        genomics sequencing requests.</p>
-                    <div class="mc-pub-footer">
-                        <a href="mailto:biotech@shestco.gov.ng" class="mc-btn-cite" style="text-decoration: none;">✉️
-                            biotech@shestco.gov.ng</a>
-                    </div>
-                </div>
-
-                <div class="mc-centre-card reveal-on-scroll delay-100">
-                    <div class="mc-centre-icon-wrap">💻</div>
-                    <span class="mc-centre-code">AMSARC Directorate</span>
-                    <h3 class="mc-centre-title">Simulation Sciences</h3>
-                    <p class="mc-centre-desc">HPC cluster compute allocations, CFD modeling consultations, and
-                        cryptographic algorithm integration.</p>
-                    <div class="mc-pub-footer">
-                        <a href="mailto:simulation@shestco.gov.ng" class="mc-btn-cite" style="text-decoration: none;">✉️
-                            simulation@shestco.gov.ng</a>
-                    </div>
-                </div>
-
-                <div class="mc-centre-card reveal-on-scroll delay-200">
-                    <div class="mc-centre-icon-wrap">🧪</div>
-                    <span class="mc-centre-code">CARC Directorate</span>
-                    <h3 class="mc-centre-title">Chemical Sciences</h3>
-                    <p class="mc-centre-desc">High-field NMR spectrometer time, 500L pilot synthesis bookings, and resin
-                        polymer testing.</p>
-                    <div class="mc-pub-footer">
-                        <a href="mailto:chemistry@shestco.gov.ng" class="mc-btn-cite" style="text-decoration: none;">✉️
-                            chemistry@shestco.gov.ng</a>
-                    </div>
-                </div>
-
-                <div class="mc-centre-card reveal-on-scroll delay-300">
-                    <div class="mc-centre-icon-wrap">🔬</div>
-                    <span class="mc-centre-code">PARC Directorate</span>
-                    <h3 class="mc-centre-title">Physical Sciences</h3>
-                    <p class="mc-centre-desc">Semiconductor thin-film characterization, solar simulator calibration, and
-                        crystallography analysis.</p>
-                    <div class="mc-pub-footer">
-                        <a href="mailto:physics@shestco.gov.ng" class="mc-btn-cite" style="text-decoration: none;">✉️
-                            physics@shestco.gov.ng</a>
-                    </div>
-                </div>
-
-                <div class="mc-centre-card reveal-on-scroll delay-100" style="border-top-color: #ca8a04;">
-                    <div class="mc-centre-icon-wrap">⚛️</div>
-                    <span class="mc-centre-code" style="color: #ca8a04;">NTC Directorate</span>
-                    <h3 class="mc-centre-title">Nuclear Technology</h3>
-                    <p class="mc-centre-desc">Industrial gamma irradiation schedules, radiation dosimetry calibration,
-                        and NDT industrial testing.</p>
-                    <div class="mc-pub-footer">
-                        <a href="mailto:nuclear@shestco.gov.ng" class="mc-btn-cite" style="text-decoration: none;">✉️
-                            nuclear@shestco.gov.ng</a>
-                    </div>
-                </div>
-
-                <div class="mc-centre-card reveal-on-scroll delay-200" style="border-top-color: #0284c7;">
-                    <div class="mc-centre-icon-wrap">⚙️</div>
-                    <span class="mc-centre-code" style="color: #0284c7;">ENGINEERING</span>
-                    <h3 class="mc-centre-title">Precision Workshop &amp; ICT</h3>
-                    <p class="mc-centre-desc">5-axis CNC mechanical fabrication, instrument calibration, enterprise
-                        data, and solar microgrid utilities.</p>
-                    <div class="mc-pub-footer">
-                        <a href="mailto:works@shestco.gov.ng" class="mc-btn-cite" style="text-decoration: none;">✉️
-                            works@shestco.gov.ng</a>
-                    </div>
-                </div>
-
+                    <button type="submit" id="submitBtn" class="submit-btn">INITIATE TRANSMISSION</button>
+                </form>
             </div>
 
         </div>
-    </section>
-
-    <!-- =========================================================================
-         4. CAMPUS PHYSICAL LOCATION, DIRECTIONS & MAP EMBED
-         ========================================================================= -->
-    <section id="campus-location" class="mc-section mc-bg-white">
-        <div class="container" style="max-width: 1160px; margin: 0 auto;">
-
-            <div class="mc-section-header mc-text-center">
-                <span class="mc-section-kicker">Geographic Sanctuary</span>
-                <h2 class="mc-section-title">2,000-Hectare Campus Coordinates</h2>
-                <p class="mc-section-lead">
-                    Strategically located along the major technology transit corridor in Sheda, Federal Capital
-                    Territory, Abuja.
-                </p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
-                <div class="mc-form-card" style="padding: 0; overflow: hidden; height: 380px;">
-                    <iframe title="NISTCO Campus Map Location"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15769.754714656093!2d7.0018!3d8.8617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e76c123456789%3A0xabcdef0123456789!2sSheda%20Science%20and%20Technology%20Complex!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-
-                <div class="reveal-on-scroll delay-100">
-                    <h3 style="color: var(--mc-dark); font-size: 1.25rem; font-weight: 800; margin: 0 0 1rem 0;">Visitor
-                        Access &amp; Logistics</h3>
-                    <ul class="inno-phase-deliverables"
-                        style="border-top: none; padding-top: 0; font-size: 0.92rem; gap: 0.85rem;">
-                        <li><strong>From Nnamdi Azikiwe International Airport:</strong> ~45 minutes via the Outer
-                            Southern Expressway / Abuja-Lokoja Highway.</li>
-                        <li><strong>From Abuja Central Business District:</strong> ~50 km southwest along the A2 highway
-                            corridor.</li>
-                        <li><strong>On-Campus Security Protocol:</strong> Visitors must present valid institutional
-                            identification at the Main Gate Reception.</li>
-                        <li><strong>Visiting Researcher Lodging:</strong> Dedicated on-campus residential guest suites
-                            are available for TETFund grantees and doctoral fellows upon advance booking.</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
+    </div>
 </main>
 
-<?php
-get_footer();
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('nastcoSecureForm');
+    const terminalLog = document.getElementById('liveTerminalLog');
+    
+    function appendLog(message, isWarn = false) {
+        const time = new Date().toLocaleTimeString('en-US', { hour12: false });
+        const div = document.createElement('div');
+        div.className = 'log-line' + (isWarn ? ' warn' : '');
+        div.innerHTML = `<span>${time}</span> ${message}`;
+        terminalLog.appendChild(div);
+        terminalLog.scrollTop = terminalLog.scrollHeight;
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        let isValid = true;
+        const callsign = document.getElementById('callsign');
+        const clearance = document.getElementById('clearance');
+        const routing = document.getElementById('routing');
+        const payload = document.getElementById('payload');
+        const btn = document.getElementById('submitBtn');
+
+        document.querySelectorAll('.input-group').forEach(el => el.classList.remove('error'));
+        document.querySelectorAll('.tactical-input').forEach(el => el.classList.remove('is-invalid'));
+
+        if (callsign.value.trim().length < 3) {
+            document.getElementById('group-callsign').classList.add('error');
+            callsign.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(clearance.value.trim())) {
+            document.getElementById('group-clearance').classList.add('error');
+            clearance.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (routing.value === "") {
+            document.getElementById('group-routing').classList.add('error');
+            routing.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (payload.value.trim().length < 15) {
+            document.getElementById('group-payload').classList.add('error');
+            payload.classList.add('is-invalid');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            appendLog('PAYLOAD REJECTED: VALIDATION FAILURE', true);
+            return;
+        }
+
+        appendLog('VALIDATION CLEARED. ENCRYPTING PAYLOAD...');
+        btn.classList.add('processing');
+        btn.textContent = 'ENCRYPTING...';
+        btn.disabled = true;
+
+                const formData = new FormData();
+        formData.append('action', 'nastco_send_secure_sms');
+        formData.append('callsign', callsign.value.trim());
+        formData.append('routing', routing.value);
+        formData.append('payload', payload.value.trim());
+
+        fetch('/wp-admin/admin-ajax.php', { method: 'POST', body: formData })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                appendLog('TRANSMISSION SUCCESS: ' + data.data.message);
+                btn.textContent = 'TRANSMISSION COMPLETE';
+                btn.classList.remove('processing');
+                btn.style.background = 'linear-gradient(90deg, #00d285, #059669)';
+                btn.style.color = '#ffffff';
+                form.reset();
+            } else {
+                appendLog('TRANSMISSION FAILED: ' + data.data.message, true);
+                btn.textContent = 'RETRY TRANSMISSION';
+                btn.classList.remove('processing');
+                btn.disabled = false;
+            }
+        })
+        .catch(err => {
+            appendLog('CRITICAL ERROR: SERVER UPLINK SEVERED', true);
+            btn.textContent = 'RETRY TRANSMISSION';
+            btn.classList.remove('processing');
+            btn.disabled = false;
+        });
+    });
+});
+</script>
+
+<?php get_footer(); ?>
