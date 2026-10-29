@@ -1,0 +1,138 @@
+/**
+ * NASTCO Strategic Resources Database
+ * Palette: Slate Grays, Crisp Whites, Emerald Green Accents
+ */
+
+.resource-hero { padding: 10rem 0 5rem 0; text-align: center; background: radial-gradient(circle at 50% 0%, rgba(0, 135, 81, 0.15), transparent 70%); perspective: 2500px; transform-style: preserve-3d; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* CATEGORY FILTERS */
+.resource-filters { display: flex; justify-content: center; gap: 1rem; margin: 3rem 0; flex-wrap: wrap; transform-style: preserve-3d; }
+.filter-btn {
+    background: rgba(31, 41, 55, 0.6); border: 1px solid rgba(255,255,255,0.1);
+    color: #cbd5e1; padding: 0.75rem 1.5rem; border-radius: 50px;
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    cursor: pointer; transition: all 0.4s ease; backdrop-filter: blur(10px);
+}
+.filter-btn.active, .filter-btn:hover {
+    background: rgba(0, 210, 133, 0.15); color: #00d285; border-color: #00d285;
+    box-shadow: 0 5px 15px rgba(0, 210, 133, 0.2); transform: translateY(-3px);
+}
+
+.resource-section { padding: 4rem 0 8rem 0; background: transparent; perspective: 2500px; transform-style: preserve-3d; }
+
+/* 3D DATA CARD GRID */
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2.5rem; transform-style: preserve-3d; }
+
+.data-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px; padding: 2rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transform: translateZ(20px); transform-style: preserve-3d; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex; flex-direction: column; justify-content: space-between;
+}
+.data-card:hover {
+    border-left-color: #00d285;
+    transform: translateY(-8px) translateZ(50px) rotateX(2deg);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(0, 210, 133, 0.1);
+}
+
+.card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; transform: translateZ(15px); }
+.file-type { font-size: 0.7rem; font-weight: 850; color: #00d285; background: rgba(0, 210, 133, 0.1); padding: 0.3rem 0.8rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; }
+.file-size { font-family: 'Courier New', monospace; font-size: 0.8rem; color: #94a3b8; }
+
+.card-title { font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; transform: translateZ(30px); line-height: 1.4; }
+.card-desc { font-size: 0.9rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 2rem; transform: translateZ(20px); flex-grow: 1; }
+
+/* CARD ACTION BUTTON */
+.btn-download {
+    display: inline-block; text-align: center; width: 100%;
+    background: transparent; color: #fff;
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 6px;
+    padding: 0.8rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+    text-decoration: none; transition: all 0.4s ease; transform: translateZ(25px);
+}
+.data-card:hover .btn-download {
+    background: #008751; border-color: #008751; color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 135, 81, 0.4);
+}
+
+@media (max-width: 768px) {
+    .resource-hero { padding: 6rem 0 3rem 0; }
+    .resource-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .data-card { padding: 1.5rem; }
+    .data-card:hover { transform: translateY(-5px) translateZ(30px); } /* Safe mobile hover */
+}
+
+/* ==========================================================================
+   DYNAMIC JAVASCRIPT FILTER CLASSES
+   ========================================================================== */
+.data-card.filter-hidden {
+    opacity: 0 !important;
+    transform: translateZ(0) scale(0.9) !important;
+    pointer-events: none;
+}
+.data-card.filter-hide-complete {
+    display: none !important;
+}
+
+/* FIX: Eliminate the pitch-black void and inject a tactical data grid background */
+body, #main-content {
+    background-color: #020617 !important; /* Extremely dark slate, not pure black */
+}
+
+.resource-section { 
+    background-color: #020617 !important; 
+    /* Subtle 3D glowing emerald grid to map the data room */
+    background-image: 
+        linear-gradient(rgba(0, 210, 133, 0.04) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(0, 210, 133, 0.04) 1px, transparent 1px) !important;
+    background-size: 40px 40px !important;
+}
+
+/* ==========================================================================
+   STRICT MOBILE RESPONSIVENESS OVERRIDES (Max Width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Force the inline 3.5rem title to scale down */
+    .ventures-title { 
+        font-size: 2.2rem !important; 
+        line-height: 1.2 !important; 
+        padding: 0 1rem;
+    }
+    
+    /* 2. Scale description text */
+    .section-desc { 
+        font-size: 0.95rem !important; 
+        padding: 0 1rem; 
+    }
+    
+    /* 3. Wrap and condense category filter buttons */
+    .resource-filters { 
+        gap: 0.6rem; 
+        padding: 0 1rem; 
+    }
+    .filter-btn { 
+        padding: 0.6rem 1.2rem; 
+        font-size: 0.75rem; 
+        flex-grow: 1; /* Allows buttons to fill space neatly */
+    }
+    
+    /* 4. Constrain grid and card spacing */
+    .resource-grid { 
+        grid-template-columns: 1fr !important; 
+        gap: 1.5rem !important; 
+        padding: 0 1rem;
+    }
+    .data-card { 
+        padding: 1.5rem !important; 
+        transform: translateZ(10px) !important; 
+    }
+    
+    /* 5. Prevent all horizontal scrolling lock-ups */
+    body, #main-content { 
+        overflow-x: hidden !important; 
+    }
+}

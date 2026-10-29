@@ -811,3 +811,140 @@ function nastco_project_shortcode_handler($atts) {
     <?php
     return ob_get_clean();
 }
+/* ==========================================================================
+   NASTCO PROJECT TRACKING: ELEMENTOR INTEGRATION
+   ========================================================================== */
+function nastco_register_elementor_widget( $widgets_manager ) {
+    require_once( get_stylesheet_directory() . '/nastco-elementor-widget.php' );
+    $widgets_manager->register( new \Elementor_Nastco_Project_Widget() );
+}
+add_action( 'elementor/widgets/register', 'nastco_register_elementor_widget' );
+
+// NISTCO Venture Commerce & Royalty Telemetry API
+require_once get_template_directory() . '/inc-venture-api.php';
+
+/**
+ * ==========================================================================
+ * NASTCO TERMII SMS / WHATSAPP DISPATCH TELEMETRY ENDPOINT
+ * ==========================================================================
+ */
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'nastco/v1', '/dispatch', array(
+        'methods'             => 'POST',
+        'callback'            => 'nastco_handle_form_dispatch',
+        'permission_callback' => '__return_true',
+    ));
+});
+
+function nastco_handle_form_dispatch( $request ) {
+    $params = $request->get_json_params();
+
+    $name    = sanitize_text_field( $params['name'] ?? '' );
+    $email   = sanitize_email( $params['email'] ?? '' );
+    $phone   = sanitize_text_field( $params['phone'] ?? '' );
+    $subject = sanitize_text_field( $params['subject'] ?? '' );
+    $message = sanitize_textarea_field( $params['message'] ?? '' );
+
+    if ( empty( $name ) || empty( $phone ) || empty( $message ) ) {
+        return new WP_REST_Response( array( 'success' => false, 'message' => 'Required fields missing.' ), 400 );
+    }
+
+    $sms_message = sprintf(
+        '[NASTCO DISPATCH] From: %s (%s). Subject: %s. Msg: %s',
+        $name, $phone, $subject, substr( $message, 0, 120 )
+    );
+
+    $termii_api_key  = defined( 'TERMII_API_KEY' ) ? TERMII_API_KEY : 'YOUR_TERMII_API_KEY';
+    $sender_id       = defined( 'TERMII_SENDER_ID' ) ? TERMII_SENDER_ID : 'NASTCO';
+    $executive_phone = '2348000000000'; // Target executive mobile number
+
+    $payload = array(
+        'api_key' => $termii_api_key,
+        'to'      => $executive_phone,
+        'from'    => $sender_id,
+        'sms'     => $sms_message,
+        'type'    => 'plain',
+        'channel' => 'generic',
+    );
+
+    $response = wp_remote_post( 'https://v3.api.termii.com/api/sms/send', array(
+        'body'    => json_encode( $payload ),
+        'headers' => array( 'Content-Type' => 'application/json' ),
+        'timeout' => 15,
+    ));
+
+    if ( is_wp_error( $response ) ) {
+        return new WP_REST_Response( array( 'success' => false, 'message' => 'Telemetry gateway timeout.' ), 500 );
+    }
+
+    $body = json_decode( wp_remote_retrieve_body( $response ), true );
+
+    return new WP_REST_Response( array(
+        'success' => true,
+        'message' => 'Secure transmission dispatched via Termii.',
+        'data'    => $body
+    ), 200 );
+}
+
+// Enqueue dispatch frontend script
+add_action( 'wp_enqueue_scripts', function() {
+    $theme_dir = get_template_directory();
+    $theme_uri = get_template_directory_uri();
+    if ( file_exists( $theme_dir . '/assets/js/dispatch.js' ) ) {
+        wp_enqueue_script(
+            'nastco-dispatch-js',
+            $theme_uri . '/assets/js/dispatch.js',
+            array(),
+            filemtime( $theme_dir . '/assets/js/dispatch.js' ),
+            true
+        );
+    }
+}, 20 );
+
+/**
+ * Enqueue Refined 3D Sovereign Header Assets Globally
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    $theme_dir = get_template_directory();
+    $theme_uri = get_template_directory_uri();
+
+    if ( file_exists( $theme_dir . '/assets/css/header-3d.css' ) ) {
+        wp_enqueue_style(
+            'nastco-header-3d',
+            $theme_uri . '/assets/css/header-3d.css',
+            array(),
+            filemtime( $theme_dir . '/assets/css/header-3d.css' )
+        );
+    }
+
+    if ( file_exists( $theme_dir . '/assets/js/header-3d.js' ) ) {
+        wp_enqueue_script(
+            'nastco-header-3d-js',
+            $theme_uri . '/assets/js/header-3d.js',
+            array(),
+            filemtime( $theme_dir . '/assets/js/header-3d.js' ),
+            true
+        );
+    }
+}, 15 );
+
+/**
+ * Enqueue Refined 3D Sovereign Footer Stylesheet
+ */
+add_action( 'wp_enqueue_scripts', function() {
+    $theme_dir = get_template_directory();
+    $theme_uri = get_template_directory_uri();
+
+    if ( file_exists( $theme_dir . '/assets/css/footer-3d.css' ) ) {
+        wp_enqueue_style(
+            'nastco-footer-3d',
+            $theme_uri . '/assets/css/footer-3d.css',
+            array( 'nastco-header-3d' ),
+            filemtime( $theme_dir . '/assets/css/footer-3d.css' )
+        );
+    }
+}, 16 );
+
+require_once get_template_directory() . '/inc/force-assets-loader.php';
+
+require_once get_template_directory() . '/inc/dispatch-endpoint.php';

@@ -1,0 +1,262 @@
+/* ==========================================================================
+   NASTCO Refined 3D Sovereign Footer Architecture
+   ========================================================================== */
+.nastco-footer-3d {
+    background: radial-gradient(circle at 50% 0%, #0f172a 0%, #040914 100%);
+    color: #cbd5e1;
+    border-top: 1px solid rgba(212, 175, 55, 0.28);
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.75);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-3d-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 3.5vw, 2.25rem);
+    box-sizing: border-box;
+}
+
+/* --- Top 3D Compliance Ribbon --- */
+.footer-compliance-ribbon {
+    background: rgba(6, 13, 26, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 1.75rem 0;
+}
+
+.compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.compliance-card-3d {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 1.15rem;
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.55) 0%, rgba(15, 23, 42, 0.9) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 3px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.compliance-card-3d.gold-accent {
+    border-bottom-color: #d4af37;
+}
+
+.compliance-card-3d:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px -8px rgba(56, 189, 248, 0.25);
+}
+
+.comp-icon {
+    font-size: 1.65rem;
+    flex-shrink: 0;
+}
+
+.compliance-card-3d strong {
+    display: block;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.compliance-card-3d small {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.73rem;
+    margin-top: 0.15rem;
+}
+
+/* --- Main 4-Column Grid --- */
+.footer-main-3d {
+    padding: 4rem 0 3.5rem;
+}
+
+.footer-columns-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1.25fr 1fr 1.15fr;
+    gap: 2.5rem;
+}
+
+.footer-brand-link {
+    margin-bottom: 1rem;
+    display: inline-flex;
+}
+
+.footer-mandate-desc {
+    color: #94a3b8;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    margin: 0.85rem 0 1.25rem;
+}
+
+.footer-campus-box-3d {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-left: 3px solid #d4af37;
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+}
+
+.campus-coord-title {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.footer-campus-box-3d p {
+    margin: 0;
+    font-size: 0.78rem;
+    color: #cbd5e1;
+    line-height: 1.45;
+}
+
+.footer-col-heading {
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+}
+
+.footer-col-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 42px;
+    height: 2px;
+    background: #d4af37;
+}
+
+.footer-3d-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.footer-3d-list li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    background: rgba(30, 41, 59, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+    font-size: 0.81rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.footer-3d-list li a:hover {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.35);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+.footer-3d-list li a strong {
+    color: #ffffff;
+}
+
+/* --- Col 4: Telemetry Box --- */
+.telemetry-panel-3d {
+    background: linear-gradient(160deg, rgba(15, 23, 42, 0.9) 0%, rgba(6, 13, 26, 0.95) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 3px solid #00d285;
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.telemetry-panel-row {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.75rem;
+}
+
+.panel-status-text {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #00d285;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.panel-desc {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.55;
+    margin: 0 0 1.2rem;
+}
+
+.footer-dispatch-btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom-bar {
+    background: #02060d;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.15rem 0;
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+.bottom-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.bottom-bar-inner strong {
+    color: #e2e8f0;
+}
+
+.bottom-bar-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1100px) {
+    .compliance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .footer-columns-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .compliance-grid,
+    .footer-columns-grid {
+        grid-template-columns: 1fr;
+    }
+}

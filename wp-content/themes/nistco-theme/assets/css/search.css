@@ -1,0 +1,61 @@
+/**
+ * NASTCO Search Terminal Node
+ * Palette: Deep Slate, Emerald Green, Electric Blue highlights
+ */
+
+.search-hero { padding: 8rem 0 4rem 0; text-align: center; perspective: 2500px; transform-style: preserve-3d; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* TERMINAL SEARCH CONSOLE */
+.terminal-search-form { display: flex; max-width: 700px; margin: 3rem auto 0 auto; transform-style: preserve-3d; transform: translateZ(40px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); border-radius: 8px; }
+.terminal-search-input {
+    flex-grow: 1; padding: 1.5rem 2rem; background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(0, 210, 133, 0.3); border-right: none; border-radius: 8px 0 0 8px;
+    color: #fff; font-family: 'Courier New', monospace; font-size: 1.1rem;
+    backdrop-filter: blur(10px); transition: all 0.3s ease;
+}
+.terminal-search-input:focus { outline: none; border-color: #00d285; background: rgba(15, 23, 42, 0.95); box-shadow: inset 0 0 20px rgba(0, 210, 133, 0.15); }
+.terminal-search-input::placeholder { color: rgba(255,255,255,0.3); }
+.terminal-search-btn {
+    padding: 0 2.5rem; background: #008751; border: 1px solid #008751; border-radius: 0 8px 8px 0;
+    color: #fff; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease;
+}
+.terminal-search-btn:hover { background: #fff; color: #008751; box-shadow: 0 0 20px rgba(0, 210, 133, 0.4); }
+
+.search-results-section { padding: 5rem 0 8rem 0; perspective: 2500px; transform-style: preserve-3d; }
+.search-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 3rem; transform-style: preserve-3d; }
+
+/* SEARCH RESULT CARDS */
+.result-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.9) 0%, rgba(17, 24, 39, 0.95) 100%);
+    backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); border-left: 4px solid #38bdf8; /* Electric Blue for standard search results */
+    border-radius: 12px; padding: 2.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transform: translateZ(20px); transform-style: preserve-3d; transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex; flex-direction: column;
+}
+.result-card:hover { border-left-color: #00d285; transform: translateY(-8px) translateZ(50px) rotateX(2deg); box-shadow: 0 25px 50px rgba(0,0,0,0.7), inset 0 0 20px rgba(0, 210, 133, 0.1); }
+
+.result-meta { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; transform: translateZ(15px); }
+.result-meta .highlight { color: #38bdf8; font-weight: 800; }
+.result-card:hover .result-meta .highlight { color: #00d285; }
+
+.result-title { font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 1rem; transform: translateZ(30px); line-height: 1.3; }
+.result-excerpt { font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 2rem; transform: translateZ(20px); flex-grow: 1; }
+
+.btn-read-more { display: inline-flex; align-items: center; color: #38bdf8; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; transition: all 0.3s; transform: translateZ(25px); }
+.btn-read-more::after { content: '→'; margin-left: 8px; transition: transform 0.3s; }
+.result-card:hover .btn-read-more { color: #00d285; }
+.result-card:hover .btn-read-more::after { transform: translateX(5px); }
+
+/* ZERO MATCHES TERMINAL */
+.no-results-terminal { grid-column: 1 / -1; background: rgba(251, 113, 133, 0.05); border: 1px solid rgba(251, 113, 133, 0.3); border-radius: 12px; padding: 4rem; text-align: center; transform: translateZ(20px); box-shadow: inset 0 0 30px rgba(251, 113, 133, 0.05); }
+.no-results-terminal h3 { color: #fb7185; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 1rem; }
+.no-results-terminal p { color: #94a3b8; font-family: 'Courier New', monospace; }
+
+@media (max-width: 768px) {
+    .search-hero { padding: 6rem 1rem 3rem 1rem; }
+    .terminal-search-form { flex-direction: column; transform: translateZ(20px); }
+    .terminal-search-input { border-radius: 8px 8px 0 0; border-right: 1px solid rgba(0, 210, 133, 0.3); }
+    .terminal-search-btn { border-radius: 0 0 8px 8px; padding: 1.5rem; }
+    .search-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .result-card:hover { transform: translateY(-5px) translateZ(30px); }
+}

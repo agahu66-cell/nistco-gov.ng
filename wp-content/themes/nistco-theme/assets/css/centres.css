@@ -1,0 +1,151 @@
+/**
+ * NASTCO Research Centres Hub (Elite HUD Remodel)
+ * Features: Alternating Z-Pattern, Holographic Terminals, Cyber-Grid Floors, Advanced Orbital Physics
+ */
+
+/* 1. ULTRA-GLASS CENTRE CARDS (Restored 2-Column Grid) */
+.centre-ledger-section { padding: 6rem 0; overflow: hidden; position: relative; transform-style: preserve-3d; }
+.centre-card-wrap { perspective: 1500px; display: flex; justify-content: center; transform-style: preserve-3d; }
+
+.centre-ultra-card { 
+    background: rgba(10, 15, 25, 0.6); backdrop-filter: blur(25px); 
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; 
+    padding: 4rem; display: grid; gap: 4rem; align-items: center; 
+    max-width: 1200px; width: 100%; position: relative; z-index: 2; 
+    transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 0 30px rgba(255,255,255,0.02);
+}
+.centre-card-wrap:hover .centre-ultra-card { box-shadow: 0 40px 80px rgba(0,0,0,0.9), inset 0 0 40px rgba(255,255,255,0.05); }
+
+/* Sweeping Light Reflection */
+.centre-ultra-card::before {
+    content: ""; position: absolute; inset: 0; border-radius: 24px;
+    background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.1) 25%, transparent 30%);
+    background-size: 200% 100%; animation: glassSweep 8s infinite linear; z-index: -1; pointer-events: none;
+}
+@keyframes glassSweep { 0% { background-position: 150% 0; } 100% { background-position: -50% 0; } }
+.centre-ultra-card > * { transform: translateZ(40px); transform-style: preserve-3d; }
+
+/* Alternating Z-Pattern Layouts */
+.layout-standard { grid-template-columns: 1fr 1.6fr; }
+.layout-reverse { grid-template-columns: 1.6fr 1fr; }
+.layout-reverse .hud-left { order: 2; }
+.layout-reverse .hud-right { order: 1; }
+
+/* 2. 3D FLOATING NEON ORBS & CYBER-GRID FLOOR */
+.hud-left { display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; transform-style: preserve-3d; }
+.cyber-grid-floor {
+    position: absolute; top: 120px; left: 50%; margin-left: -150px;
+    width: 300px; height: 300px;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px; transform: rotateX(70deg) translateZ(-50px);
+    border-radius: 50%; opacity: 0.5; pointer-events: none;
+    box-shadow: inset 0 0 50px rgba(0,0,0,1);
+}
+
+.neon-orb { 
+    width: 200px; height: 200px; border-radius: 50%; 
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), rgba(0,0,0,0.8));
+    border: 2px solid; display: flex; align-items: center; justify-content: center; 
+    font-size: 5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    position: relative; transform-style: preserve-3d; transform: translateZ(50px); margin-bottom: 2rem;
+}
+
+/* Global Clockwise Ring */
+.neon-orb::after {
+    content: ''; position: absolute; inset: -15px; border-radius: 50%;
+    border: 2px dashed; opacity: 0.5; animation: spinOrb 15s linear infinite;
+    transform: translateZ(-10px);
+}
+@keyframes spinOrb { 100% { transform: translateZ(-10px) rotate(360deg); } }
+
+/* Counter-Clockwise Ring Override (For AEPC) */
+.ring-ccw::after { animation: spinOrbCCW 15s linear infinite !important; }
+@keyframes spinOrbCCW { 100% { transform: translateZ(-10px) rotate(-360deg); } }
+
+/* 3. BESPOKE PHYSICS ANIMATIONS */
+/* Flat Wheels */
+.anim-spin-cw .centre-icon { display: inline-block; animation: spinCW 12s linear infinite; transform-style: preserve-3d; }
+.anim-spin-ccw .centre-icon { display: inline-block; animation: spinCCW 12s linear infinite; transform-style: preserve-3d; }
+@keyframes spinCW { 0% { transform: translateZ(20px) rotate(0deg); } 100% { transform: translateZ(20px) rotate(360deg); } }
+@keyframes spinCCW { 0% { transform: translateZ(20px) rotate(0deg); } 100% { transform: translateZ(20px) rotate(-360deg); } }
+
+/* Diagonal Fixed Roll (For BARC) */
+.anim-roll-diagonal .centre-icon { display: inline-block; animation: rollDiagonal 12s linear infinite; transform-style: preserve-3d; }
+@keyframes rollDiagonal { 
+    0% { transform: translateZ(20px) rotateX(45deg) rotateY(25deg) rotateZ(0deg); } 
+    100% { transform: translateZ(20px) rotateX(45deg) rotateY(25deg) rotateZ(360deg); } 
+}
+
+/* Cybernetic Matrix Code */
+.anim-code .centre-icon { position: relative; z-index: 5; display: inline-block; transform: translateZ(20px); }
+.code-particle { position: absolute; color: #38bdf8; font-size: 1.5rem; font-weight: 900; font-family: 'Courier New', monospace; opacity: 0; z-index: 10; animation: floatCode 2s infinite linear; text-shadow: 0 0 10px #38bdf8; }
+.c1 { left: 40%; top: 35%; animation-delay: 0s; font-size: 1.2rem; } .c2 { left: 50%; top: 30%; animation-delay: 0.6s; font-size: 1rem; } .c3 { left: 55%; top: 40%; animation-delay: 1.2s; font-size: 1.5rem; } .c4 { left: 45%; top: 45%; animation-delay: 1.8s; font-size: 1.8rem; }
+@keyframes floatCode { 0% { transform: translateY(0) translateZ(30px) scale(0.5); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 0.8; } 100% { transform: translateY(-70px) translateZ(50px) scale(1.2); opacity: 0; } }
+
+/* Pyrolytic Flame & Smoke */
+.anim-fire .centre-icon { position: relative; z-index: 5; display: inline-block; transform: translateZ(20px); }
+.carc-flame { position: absolute; left: 50%; top: 25%; margin-left: -10px; width: 20px; height: 20px; background: #f59e0b; border-radius: 50% 0 50% 50%; transform: rotate(-45deg) translateZ(35px); box-shadow: 0 0 20px #f59e0b; animation: flickerFlame 0.15s infinite alternate; z-index: 4; }
+.carc-smoke { position: absolute; left: 50%; top: 20%; margin-left: -15px; width: 30px; height: 30px; background: rgba(200, 200, 200, 0.3); border-radius: 50%; filter: blur(6px); z-index: 6; animation: riseSmoke 3s infinite linear; }
+.s1 { animation-delay: 0s; } .s2 { animation-delay: 1.5s; left: 45%; width: 40px; height: 40px; }
+@keyframes flickerFlame { 0% { transform: rotate(-45deg) scale(0.9) translateZ(35px); background: #f59e0b; } 100% { transform: rotate(-45deg) scale(1.2) translateZ(35px); background: #ef4444; box-shadow: 0 0 25px #ef4444; } }
+@keyframes riseSmoke { 0% { transform: translateY(0) scale(0.5) translateZ(30px) rotate(0deg); opacity: 0.6; } 100% { transform: translateY(-90px) scale(2.5) translateZ(50px) rotate(45deg); opacity: 0; } }
+
+/* 4. HOLOGRAPHIC DATA LEDGERS (HUD-RIGHT) */
+.hud-right { transform-style: preserve-3d; }
+.telemetry-ribbon { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; transform: translateZ(20px); transform-style: preserve-3d; }
+.telemetry-card { flex: 1; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid; border-radius: 10px; padding: 1.25rem; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transform-style: preserve-3d; transform: translateZ(10px); }
+.telemetry-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #94a3b8; display: block; margin-bottom: 0.25rem; }
+.telemetry-value { font-size: 1.2rem; font-weight: 900; color: #fff; transform: translateZ(10px); display: inline-block; }
+
+.data-box { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; transform-style: preserve-3d; transform: translateZ(30px); transition: transform 0.3s, box-shadow 0.3s; }
+.data-box:hover { transform: translateZ(50px); background: rgba(0,0,0,0.7); box-shadow: 0 20px 40px rgba(0,0,0,0.8); border-color: rgba(255,255,255,0.2); }
+.data-box h4 { margin: 0 0 1rem 0; color: #fff; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; transform: translateZ(10px); }
+
+/* Terminal Table */
+.instrumentation-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; font-family: 'Courier New', monospace; transform-style: preserve-3d; }
+.instrumentation-table th { color: #94a3b8; padding: 0.75rem; text-align: left; border-bottom: 1px dashed rgba(255,255,255,0.2); font-weight: normal; text-transform: uppercase; }
+.instrumentation-table td { padding: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: #cbd5e1; }
+.instrumentation-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.mega-data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; transform-style: preserve-3d; }
+
+/* Color Mapping */
+.th-cyan .neon-orb { border-color: #38bdf8; box-shadow: 0 0 50px rgba(56,189,248,0.3); } .th-cyan .neon-orb::after { border-color: #38bdf8; } .th-cyan .telemetry-card { border-left-color: #38bdf8; } .th-cyan .cyber-grid-floor { background-image: linear-gradient(rgba(56,189,248,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.2) 1px, transparent 1px); }
+.th-green .neon-orb { border-color: #00d285; box-shadow: 0 0 50px rgba(0,210,133,0.3); } .th-green .neon-orb::after { border-color: #00d285; } .th-green .telemetry-card { border-left-color: #00d285; } .th-green .cyber-grid-floor { background-image: linear-gradient(rgba(0,210,133,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0,210,133,0.2) 1px, transparent 1px); }
+.th-gold .neon-orb { border-color: var(--fp-gold); box-shadow: 0 0 50px rgba(212,175,55,0.3); } .th-gold .neon-orb::after { border-color: var(--fp-gold); } .th-gold .telemetry-card { border-left-color: var(--fp-gold); } .th-gold .cyber-grid-floor { background-image: linear-gradient(rgba(212,175,55,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.2) 1px, transparent 1px); }
+.th-violet .neon-orb { border-color: #a78bfa; box-shadow: 0 0 50px rgba(167,139,250,0.3); } .th-violet .neon-orb::after { border-color: #a78bfa; } .th-violet .telemetry-card { border-left-color: #a78bfa; } .th-violet .cyber-grid-floor { background-image: linear-gradient(rgba(167,139,250,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(167,139,250,0.2) 1px, transparent 1px); }
+.th-teal .neon-orb { border-color: #06b6d4; box-shadow: 0 0 50px rgba(6,182,212,0.3); } .th-teal .neon-orb::after { border-color: #06b6d4; } .th-teal .telemetry-card { border-left-color: #06b6d4; } .th-teal .cyber-grid-floor { background-image: linear-gradient(rgba(6,182,212,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.2) 1px, transparent 1px); }
+.th-crimson .neon-orb { border-color: #fb7185; box-shadow: 0 0 50px rgba(251,113,133,0.3); } .th-crimson .neon-orb::after { border-color: #fb7185; } .th-crimson .telemetry-card { border-left-color: #fb7185; } .th-crimson .cyber-grid-floor { background-image: linear-gradient(rgba(251,113,133,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(251,113,133,0.2) 1px, transparent 1px); }
+
+/* Mobile */
+@media (max-width: 992px) { 
+    .centre-ultra-card { grid-template-columns: 1fr; padding: 2.5rem; gap: 3rem; }
+    .layout-reverse .hud-left, .layout-reverse .hud-right { order: unset; }
+    .mega-data-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   5. REVERSE ORBITAL PHYSICS & COUNTDOWN
+   ========================================================================== */
+
+/* Opposite Diagonal Roll (For BARC) */
+.anim-roll-diagonal-reverse .centre-icon { 
+    display: inline-block; 
+    animation: rollDiagonalReverse 12s linear infinite; 
+    transform-style: preserve-3d; 
+}
+@keyframes rollDiagonalReverse { 
+    0% { transform: translateZ(20px) rotateX(45deg) rotateY(25deg) rotateZ(0deg); } 
+    100% { transform: translateZ(20px) rotateX(45deg) rotateY(25deg) rotateZ(-360deg); } 
+}
+
+/* 3D Countdown Section */
+.countdown-section { background: var(--bg-tier-2); padding: 3rem 0; border-bottom: 2px solid rgba(212,175,55,0.2); transform-style: preserve-3d; position: relative; z-index: 10; }
+.countdown-container { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; transform: translateZ(30px); transform-style: preserve-3d; }
+.countdown-box { background: linear-gradient(145deg, #0d1a2e, #050a12); border: 1px solid rgba(212,175,55,0.4); border-radius: 12px; padding: 1rem; min-width: 80px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.6); transition: transform 0.3s; transform: translateZ(0); }
+.countdown-box:hover { transform: translateZ(15px); border-color: var(--fp-gold-bright); box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
+.cd-num { display: block; font-size: 2.2rem; font-weight: 900; color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.5); transform: translateZ(10px); }
+.cd-label { display: block; font-size: 0.75rem; color: var(--fp-gold); text-transform: uppercase; letter-spacing: 1px; margin-top: 0.25rem; font-weight: 800; transform: translateZ(5px); }

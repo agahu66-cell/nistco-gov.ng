@@ -1,0 +1,94 @@
+/**
+ * NASTCO Department Ledger Stylesheet (Ultra-Glass 3D)
+ * Used by: AMSARC, BARC, CARC, PARC, AEPC, NTC single pages.
+ */
+:root { 
+    --fp-gold: #d4af37; --fp-gold-bright: #f59e0b; 
+    --bg-tier-2: #050a14; --bg-tier-3: #08111e; --bg-tier-4: #040812; 
+}
+
+/* 1. DEPARTMENT HERO */
+.dept-hero { padding: 10rem 0 6rem 0; background: radial-gradient(circle at 50% 100%, rgba(56,189,248,0.15), transparent 60%); border-bottom: 2px solid rgba(255,255,255,0.05); text-align: center; perspective: 1200px; overflow: hidden; }
+.dept-title { font-size: 4rem; font-weight: 900; color: #fff; margin: 0.5rem 0; text-shadow: 0 10px 20px rgba(0,0,0,0.8); }
+.dept-full-name { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; display: block; }
+.dept-mandate-text { font-size: 1.15rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 3rem auto; line-height: 1.7; transform: translateZ(20px); }
+
+/* Quick Action Nav */
+.dept-quick-nav { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 2.5rem; transform: translateZ(30px); }
+
+/* Telemetry Ribbon */
+.telemetry-ribbon { display: flex; justify-content: center; gap: 2rem; margin-top: 4rem; flex-wrap: wrap; }
+.telemetry-card { background: rgba(5,10,18,0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; min-width: 200px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-top: 3px solid; transition: transform 0.3s; transform-style: preserve-3d; }
+.telemetry-card:hover { transform: translateY(-10px) translateZ(20px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+.telemetry-label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; display: block; margin-bottom: 0.5rem; }
+.telemetry-value { font-size: 1.25rem; font-weight: 900; color: #fff; }
+.telemetry-sub { font-size: 0.7rem; color: #64748b; display: block; margin-top: 0.25rem; }
+
+/* 2. SHARED SECTION STYLES */
+.dept-section { padding: 6rem 0; border-bottom: 2px solid rgba(255,255,255,0.05); position: relative; perspective: 1500px; }
+.section-header { text-align: center; margin-bottom: 4rem; transform-style: preserve-3d; }
+.section-label-pill { display: inline-block; padding: 0.4rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #fff; }
+
+/* Section Grids (60/40 Split) */
+.dept-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: stretch; transform-style: preserve-3d; }
+@media (max-width: 992px) { .dept-split-grid { grid-template-columns: 1fr; } }
+
+/* Ultra-Glass Info Card */
+.glass-info-card { background: rgba(10, 15, 25, 0.5); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 3rem; box-shadow: 0 20px 50px rgba(0,0,0,0.6); position: relative; overflow: hidden; transform-style: preserve-3d; }
+.glass-info-card::before { content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent); transform: skewX(-25deg); animation: lightSweep 8s infinite; pointer-events: none; }
+.glass-info-card h3 { font-size: 2rem; color: #fff; margin-bottom: 1rem; transform: translateZ(30px); }
+.glass-info-card p { font-size: 1.05rem; color: #cbd5e1; line-height: 1.7; transform: translateZ(20px); margin-bottom: 1.5rem; }
+
+/* 3. CORE FACILITIES (Bento Cards) */
+.facility-bento-grid { display: flex; flex-direction: column; gap: 1.5rem; transform-style: preserve-3d; }
+.facility-card { background: linear-gradient(145deg, #0d1a2e, #050a12); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid; border-radius: 16px; padding: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: transform 0.4s ease; transform-style: preserve-3d; }
+.facility-card:hover { transform: translateX(15px) translateZ(20px); border-color: rgba(255,255,255,0.2); border-left-color: inherit; }
+.facility-card h4 { font-size: 1.25rem; color: #fff; margin: 0 0 0.5rem 0; transform: translateZ(20px); }
+.facility-card p { font-size: 0.95rem; color: #94a3b8; margin: 0 0 1.25rem 0; line-height: 1.6; transform: translateZ(10px); }
+.fac-meta { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; background: rgba(0,0,0,0.5); padding: 0.4rem 0.8rem; border-radius: 6px; transform: translateZ(15px); }
+
+/* 4. FACILITY BOOKING FORM (3D Glassmorphic) */
+.booking-form-wrap { background: linear-gradient(160deg, #091524, #03060c); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 3rem; box-shadow: 0 25px 50px rgba(0,0,0,0.8); transform-style: preserve-3d; }
+.form-group { margin-bottom: 1.5rem; transform: translateZ(15px); }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: #cbd5e1; margin-bottom: 0.5rem; }
+.form-control, .form-select { width: 100%; background: #050a12; border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 1rem 1.25rem; border-radius: 10px; font-family: inherit; font-size: 1rem; transition: all 0.3s; }
+.form-control:focus, .form-select:focus { outline: none; border-color: var(--fp-gold); box-shadow: 0 0 15px rgba(212,175,55,0.2); }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23cbd5e1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em; }
+
+/* 5. INSTRUMENTATION TABLE */
+.dept-table-wrapper { width: 100%; overflow-x: auto; background: rgba(5,10,18,0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); transform: translateZ(20px); }
+.dept-table { width: 100%; border-collapse: collapse; min-width: 800px; text-align: left; }
+.dept-table th { background: rgba(0,0,0,0.8); color: #fff; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.dept-table td { padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: #cbd5e1; font-size: 0.95rem; vertical-align: middle; }
+.dept-table tr:hover { background: rgba(255,255,255,0.02); }
+.status-pill { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 50px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; background: rgba(0,210,133,0.1); color: #00d285; border: 1px solid #00d285; }
+
+/* 6. PROJECTS & PUBLICATIONS CARDS */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; transform-style: preserve-3d; }
+.project-card { background: linear-gradient(160deg, #0d1a2e, #050a12); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 2rem; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: transform 0.4s; transform-style: preserve-3d; position: relative; }
+.project-card:hover { transform: translateY(-10px) translateZ(20px); border-color: rgba(255,255,255,0.2); box-shadow: 0 25px 50px rgba(0,0,0,0.8); }
+.project-phase { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; display: flex; align-items: center; gap: 0.4rem; color: #fff; }
+.project-phase::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 10px currentColor; }
+.pub-card { display: flex; gap: 1.5rem; background: rgba(10,15,25,0.5); border-left: 4px solid; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; transition: transform 0.3s; transform-style: preserve-3d; }
+.pub-card:hover { transform: translateX(10px) translateZ(10px); background: rgba(10,15,25,0.8); }
+.pub-icon { font-size: 2.5rem; flex-shrink: 0; }
+.pub-meta { font-size: 0.8rem; color: #64748b; margin-top: 0.5rem; font-family: monospace; }
+
+/* 7. DIRECTORATE PROFILE */
+.directorate-card { display: flex; gap: 3rem; background: linear-gradient(145deg, #091a2e, #040c17); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.6); align-items: center; max-width: 900px; margin: 0 auto; transform-style: preserve-3d; }
+.director-photo { width: 160px; height: 160px; border-radius: 50%; background: #03060c; border: 4px solid; display: flex; align-items: center; justify-content: center; font-size: 5rem; flex-shrink: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transform: translateZ(30px); }
+.director-data { transform: translateZ(20px); }
+
+/* Theme Colors (Applied via classes) */
+.theme-cyan .hero-badge-pill-3d { border-color: #38bdf8; color: #38bdf8; box-shadow: 0 0 20px rgba(56,189,248,0.3); }
+.theme-cyan .telemetry-card { border-top-color: #38bdf8; } .theme-cyan .telemetry-value { color: #38bdf8; }
+.theme-cyan .facility-card { border-left-color: #38bdf8; } .theme-cyan .fac-meta { color: #38bdf8; }
+.theme-cyan .btn-primary-3d { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; }
+.theme-cyan .project-phase { color: #38bdf8; } .theme-cyan .pub-card { border-left-color: #38bdf8; }
+.theme-cyan .director-photo { border-color: #38bdf8; } .theme-cyan .director-title { color: #38bdf8; }
+
+/* Mobile */
+@media (max-width: 992px) {
+    .directorate-card { flex-direction: column; text-align: center; gap: 2rem; padding: 2rem; }
+    .pub-card { flex-direction: column; gap: 1rem; }
+}

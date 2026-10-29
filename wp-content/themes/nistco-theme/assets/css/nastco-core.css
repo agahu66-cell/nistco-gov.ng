@@ -1,0 +1,585 @@
+/**
+ * ============================================================================
+ * NASTCO CORE STYLESHEET (Global Standard)
+ * Contains: Variables, Buttons, 3D Typography, FAQs, Cinematic Reveals
+ * ============================================================================
+ */
+
+/* --- 1. GLOBAL VARIABLES --- */
+:root { 
+    --fp-gold: #d4af37; --fp-gold-bright: #f59e0b; 
+    --bg-tier-2: #050a14; --bg-tier-3: #08111e; --bg-tier-4: #040812; --bg-tier-5: #091322; 
+}
+body { background: #03060c; color: #cbd5e1; font-family: 'Inter', sans-serif; overflow-x: hidden; margin: 0; }
+.ventures-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; perspective: 1500px; transform-style: preserve-3d; }
+a { text-decoration: none; }
+
+/* --- 2. 3D TYPOGRAPHY --- */
+.ventures-title { font-size: 3.5rem; font-weight: 900; color: #fff; margin-bottom: 1rem; line-height: 1.1; }
+.section-desc { text-align: center; color: #94a3b8; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.1rem; line-height: 1.7; }
+.text-3d-pop { transform: translateZ(40px); display: block; transform-style: preserve-3d; text-shadow: 0 10px 20px rgba(0,0,0,0.6); }
+.text-3d-deep { transform: translateZ(60px); display: block; transform-style: preserve-3d; text-shadow: 0 15px 30px rgba(0,0,0,0.8); }
+.text-3d-subtle { transform: translateZ(20px); display: block; transform-style: preserve-3d; }
+
+/* --- 3. GLOBAL BUTTONS --- */
+.section-cta-wrap { text-align: center; margin-top: 3.5rem; perspective: 1000px; }
+.btn-gold-3d { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: linear-gradient(135deg, var(--fp-gold), var(--fp-gold-bright)); color: #000; font-weight: 800; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(212,175,55,0.4); transition: transform 0.3s; border: none; cursor: pointer; }
+.btn-gold-3d:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(212,175,55,0.6); }
+.btn-secondary-3d { display: inline-flex; align-items: center; justify-content: center; padding: 1rem 2rem; background: rgba(255,255,255,0.05); color: #fff; font-weight: 800; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); transition: all 0.3s; }
+.btn-secondary-3d:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px) translateZ(10px); border-color: rgba(255,255,255,0.4); }
+.btn-desc { display: inline-block; margin-top: 0.75rem; padding: 0.4rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; font-size: 0.7rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 1px; backdrop-filter: blur(4px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+
+/* --- 4. FAQS ACCORDION (Shared) --- */
+.faq-section { background: var(--bg-tier-5); padding: 6rem 0; border-bottom: 2px solid var(--fp-gold); perspective: 1200px; }
+.faq-container { max-width: 800px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 1.25rem; transform-style: preserve-3d; }
+.faq-item { background: linear-gradient(145deg, #101c2e, #070e1a); border: 1px solid rgba(255,255,255,0.05); border-left: 4px solid; border-radius: 10px; overflow: hidden; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); transform-style: preserve-3d; transform: translateZ(0); }
+.faq-item:hover { transform: translateZ(20px) translateX(10px); box-shadow: -10px 15px 30px rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.2); }
+.faq-item.active { box-shadow: 0 10px 30px rgba(0,0,0,0.7); transform: translateZ(30px); }
+.faq-cyan { border-left-color: #38bdf8; } .faq-green { border-left-color: #00d285; } .faq-gold { border-left-color: var(--fp-gold); }
+.faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 800; color: #fff; user-select: none; transform: translateZ(15px); }
+.faq-icon { font-size: 1.2rem; transition: transform 0.3s; }
+.faq-item.active .faq-icon { transform: rotate(45deg); }
+.faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: #94a3b8; line-height: 1.6; transform: translateZ(5px); }
+.faq-item.active .faq-answer { padding: 0 1.5rem 1.5rem 1.5rem; max-height: 500px; }
+
+/* --- 5. CINEMATIC REVEALS (Shared) --- */
+.cn-reveal, .fp-reveal-base { opacity: 0; transform: translateY(50px) scale(0.95); transition: all 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+.cn-active, .fp-reveal-active { opacity: 1; transform: translateY(0) scale(1); }
+
+/* ==========================================================================
+   6. CASCADING FLOW PHYSICS
+   ========================================================================== */
+.cn-cascade { 
+    opacity: 0; 
+    transform: translateY(60px) scale(0.95); 
+    transition: all 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+}
+.cn-cascade.cn-active { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+}
+
+/* ULTRA-SLOW VOLUMETRIC CASCADE OVERRIDE */
+.cn-cascade { 
+    opacity: 0; 
+    transform: translateY(80px) scale(0.92); 
+    filter: blur(15px);
+    transition: all 3.5s cubic-bezier(0.16, 1, 0.3, 1) !important; 
+    will-change: transform, opacity, filter;
+}
+.cn-cascade.cn-active { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+    filter: blur(0);
+}
+
+/* ==========================================================================
+   NASTCO GLOBAL HEADER & TACTICAL MOBILE MENU
+   ========================================================================== */
+.site-header { 
+    position: fixed; width: 100%; top: 0; z-index: 9999; 
+    background: rgba(2, 6, 23, 0.85); backdrop-filter: blur(15px); 
+    border-bottom: 1px solid rgba(0, 210, 133, 0.2); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+.nav-container { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding: 1rem 2rem; max-width: 1400px; margin: 0 auto; 
+}
+.nav-brand { 
+    color: #fff; font-weight: 900; font-size: 1.5rem; letter-spacing: 3px; 
+    text-decoration: none; text-shadow: 0 0 15px rgba(0, 210, 133, 0.4); 
+}
+.nav-brand span { color: #00d285; }
+
+.nav-links { display: flex; gap: 2.5rem; align-items: center; margin: 0; padding: 0; list-style: none; }
+.nav-links a { 
+    color: #cbd5e1; text-decoration: none; font-weight: 800; text-transform: uppercase; 
+    letter-spacing: 1.5px; font-size: 0.85rem; transition: all 0.3s ease; 
+}
+.nav-links a:hover, .nav-links a.active { color: #00d285; text-shadow: 0 0 10px rgba(0, 210, 133, 0.3); }
+
+/* MOBILE HAMBURGER TOGGLE */
+.mobile-toggle { 
+    display: none; background: transparent; border: none; 
+    color: #00d285; font-size: 1.8rem; cursor: pointer; padding: 0; 
+}
+
+@media (max-width: 768px) {
+    .nav-container { padding: 1rem; }
+    .mobile-toggle { display: block; }
+    
+    /* Tactical Slide-Out Drawer */
+    .nav-links { 
+        position: fixed; top: 65px; right: 0; width: 100%; height: calc(100vh - 65px); 
+        background: #020617; flex-direction: column; justify-content: flex-start; 
+        padding: 4rem 2rem; transform: translateX(100%); 
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+        border-top: 1px solid rgba(0, 210, 133, 0.2); 
+    }
+    .nav-links.active-menu { transform: translateX(0); }
+    .nav-links a { 
+        font-size: 1.5rem; width: 100%; display: block; border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+        padding-bottom: 1.5rem; margin-bottom: 1.5rem; 
+    }
+}
+
+/* ==========================================================================
+
+/* ==========================================================================
+   NASTCO GLOBAL FOOTER & RESEARCH CENTRES
+   ========================================================================== */
+.site-footer {
+    background: #020617;
+    border-top: 1px solid rgba(0, 210, 133, 0.2);
+    padding: 4rem 2rem 2rem 2rem;
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.footer-brand h2 {
+    color: #fff; font-weight: 900; letter-spacing: 3px; margin-bottom: 1rem;
+}
+.footer-brand span { color: #00d285; }
+.footer-brand p {
+    color: #94a3b8; font-size: 0.9rem; line-height: 1.6; max-width: 300px;
+}
+
+/* Centre Icon Grid */
+.footer-centres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+.centre-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    text-decoration: none;
+}
+.centre-card:hover {
+    background: rgba(0, 210, 133, 0.05);
+    border-color: rgba(0, 210, 133, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 210, 133, 0.1);
+}
+.centre-icon {
+    font-size: 1.8rem;
+    background: rgba(255,255,255,0.03);
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.centre-card:hover .centre-icon {
+    border-color: rgba(0, 210, 133, 0.4);
+}
+.centre-info { display: flex; flex-direction: column; }
+.centre-abbr { color: #fff; font-weight: 800; font-size: 0.95rem; letter-spacing: 1px; }
+.centre-full { color: #64748b; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+/* Status Bar */
+.footer-bottom {
+    max-width: 1400px; margin: 3rem auto 0 auto;
+    padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex; justify-content: space-between;
+    color: #64748b; font-size: 0.75rem; font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-brand p { max-width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* ==========================================================================
+   TACTICAL SOVEREIGN NAVIGATION SYSTEM
+   ========================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(2, 6, 23, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 210, 133, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Brand Identity */
+.nav-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.nav-brand {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.nav-brand span {
+    color: #00d285;
+    text-shadow: 0 0 12px rgba(0, 210, 133, 0.6);
+}
+
+.nav-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(0, 210, 133, 0.08);
+    border: 1px solid rgba(0, 210, 133, 0.3);
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: #00d285;
+    letter-spacing: 1px;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #00d285;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00d285;
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+/* Desktop Navigation Links */
+.nav-menu-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.5rem 0.2rem;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link-item:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.nav-link-item.active {
+    color: #00d285;
+    text-shadow: 0 0 12px rgba(0, 210, 133, 0.4);
+}
+
+.nav-link-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #00d285;
+    box-shadow: 0 0 8px #00d285;
+}
+
+.nav-sector-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.nav-link-item:hover .nav-sector-code,
+.nav-link-item.active .nav-sector-code {
+    color: #38bdf8;
+}
+
+/* Mobile Toggle Button */
+.mobile-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(0, 210, 133, 0.3);
+    border-radius: 6px;
+    padding: 0.45rem 0.75rem;
+    color: #00d285;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle:hover {
+    background: rgba(0, 210, 133, 0.1);
+    box-shadow: 0 0 10px rgba(0, 210, 133, 0.3);
+}
+
+/* Mobile Responsive Drawer */
+@media (max-width: 900px) {
+    .nav-status-pill { display: none; }
+    .mobile-toggle { display: block; }
+
+    .nav-menu-wrapper {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        max-width: 380px;
+        height: calc(100vh - 60px);
+        background: rgba(2, 6, 23, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid rgba(0, 210, 133, 0.2);
+        padding: 3rem 2rem;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: -15px 0 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-menu-wrapper.is-open {
+        transform: translateX(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 1rem;
+    }
+
+    .nav-link-item {
+        font-size: 1.15rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav-link-item.active::after {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   TACTICAL DROPDOWN MENUS (SUB-MENUS)
+   ========================================================================== */
+.dropdown-chevron {
+    font-size: 0.6rem;
+    margin-left: 6px;
+    vertical-align: middle;
+    color: #00d285;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+.nav-links li:hover > a .dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+/* Desktop Dropdown Physics */
+.tactical-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 240px;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 210, 133, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 0;
+    margin: 0;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1000;
+}
+.nav-links li:hover > .tactical-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.tactical-dropdown li {
+    width: 100%;
+}
+.tactical-dropdown .nav-link-item {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.tactical-dropdown li:last-child .nav-link-item {
+    border-bottom: none;
+}
+.tactical-dropdown .nav-link-item:hover {
+    background: rgba(0, 210, 133, 0.08);
+    padding-left: 2rem; /* Indent on hover */
+}
+.tactical-dropdown .nav-link-item::after { display: none; } /* Remove active underline from sub-items */
+
+/* Mobile Drawer Dropdown Adjustments */
+@media (max-width: 900px) {
+    .tactical-dropdown {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        border-left: 2px solid rgba(0, 210, 133, 0.3);
+        padding: 0;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        display: block; /* Keep visible in drawer for quick tactical access */
+    }
+    .tactical-dropdown .nav-link-item {
+        font-size: 1rem;
+        padding: 0.5rem 0 0.5rem 1rem;
+        border-bottom: none;
+    }
+    .tactical-dropdown .nav-link-item:hover {
+        padding-left: 1.5rem;
+        background: transparent;
+    }
+}
+
+/* ==========================================================================
+   NASTCO GLOBAL FOOTER & RESEARCH CENTRES
+   ========================================================================== */
+.site-footer {
+    background: #020617;
+    border-top: 1px solid rgba(0, 210, 133, 0.2);
+    padding: 4rem 2rem 2rem 2rem;
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.footer-brand h2 {
+    color: #fff; font-weight: 900; letter-spacing: 3px; margin-bottom: 1rem;
+}
+.footer-brand span { color: #00d285; }
+.footer-brand p {
+    color: #94a3b8; font-size: 0.9rem; line-height: 1.6; max-width: 300px;
+}
+
+/* Centre Icon Grid */
+.footer-centres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+.centre-card {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    text-decoration: none;
+}
+.centre-card:hover {
+    background: rgba(0, 210, 133, 0.05);
+    border-color: rgba(0, 210, 133, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 210, 133, 0.1);
+}
+.centre-icon {
+    font-size: 1.8rem;
+    background: rgba(255,255,255,0.03);
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.05);
+    flex-shrink: 0;
+}
+.centre-card:hover .centre-icon {
+    border-color: rgba(0, 210, 133, 0.4);
+}
+.centre-info { display: flex; flex-direction: column; justify-content: center; }
+.centre-abbr { color: #fff; font-weight: 800; font-size: 0.95rem; letter-spacing: 1px; }
+.centre-full { color: #64748b; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; line-height: 1.3; }
+
+/* Status Bar */
+.footer-bottom {
+    max-width: 1400px; margin: 3rem auto 0 auto;
+    padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex; justify-content: space-between;
+    color: #64748b; font-size: 0.75rem; font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-brand p { max-width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+}

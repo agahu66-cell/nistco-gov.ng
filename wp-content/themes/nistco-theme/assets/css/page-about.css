@@ -1,0 +1,498 @@
+/* ==========================================================================
+   NASTCO Institutional Mandate & Governance — Self-Contained 3D Architecture
+   ========================================================================== */
+.nastco-about-wrapper {
+    background: radial-gradient(circle at 50% 0%, #102244 0%, #050b16 55%, #02050b 100%);
+    color: #f8fafc;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding-bottom: 5.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.nastco-about-wrapper *,
+.nastco-about-wrapper *::before,
+.nastco-about-wrapper *::after {
+    box-sizing: border-box;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2.25rem);
+}
+
+.about-hero-section {
+    padding: clamp(2.75rem, 5vw, 4.5rem) 0 2rem;
+}
+
+/* --- Masthead --- */
+.about-hero-header {
+    text-align: center;
+    max-width: 940px;
+    margin: 0 auto clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.about-badge-3d {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1.15rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(6, 13, 26, 0.99) 100%);
+    border-top: 1px solid rgba(250, 204, 21, 0.6);
+    border-bottom: 3px solid #ca8a04;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.85), 0 0 18px rgba(250, 204, 21, 0.25);
+    font-size: clamp(0.68rem, 1.4vw, 0.76rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #facc15;
+    margin-bottom: 1.25rem;
+}
+
+.pulse-dot-green {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+    display: inline-block;
+    animation: abtPulse 2s infinite;
+}
+
+@keyframes abtPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.65; }
+}
+
+.about-title {
+    font-size: clamp(1.95rem, 4.3vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.13;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin: 0 0 1.15rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35),
+                 0 3px 6px rgba(0, 0, 0, 0.85),
+                 0 8px 22px rgba(0, 0, 0, 0.95);
+}
+
+.text-gold-3d {
+    background: linear-gradient(180deg, #fef9c3 0%, #facc15 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 3px 10px rgba(250, 204, 21, 0.35));
+}
+
+.about-subtitle {
+    font-size: clamp(0.95rem, 1.55vw, 1.1rem);
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin: 0 auto 2rem;
+    max-width: 820px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* --- 6 Jewel-Tone Color Themes --- */
+.color-theme-cyan {
+    background: linear-gradient(150deg, rgba(14, 116, 144, 0.44) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(56, 189, 248, 0.55) !important;
+    border-bottom: 4px solid #38bdf8 !important;
+}
+.color-theme-emerald {
+    background: linear-gradient(150deg, rgba(4, 120, 87, 0.44) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(52, 211, 153, 0.55) !important;
+    border-bottom: 4px solid #10b981 !important;
+}
+.color-theme-gold {
+    background: linear-gradient(150deg, rgba(180, 83, 9, 0.44) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(250, 204, 21, 0.55) !important;
+    border-bottom: 4px solid #facc15 !important;
+}
+.color-theme-violet {
+    background: linear-gradient(150deg, rgba(109, 40, 217, 0.44) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(167, 139, 250, 0.55) !important;
+    border-bottom: 4px solid #a78bfa !important;
+}
+.color-theme-cobalt {
+    background: linear-gradient(150deg, rgba(29, 78, 216, 0.44) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(96, 165, 250, 0.55) !important;
+    border-bottom: 4px solid #3b82f6 !important;
+}
+.color-theme-crimson {
+    background: linear-gradient(150deg, rgba(190, 18, 60, 0.44) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(251, 113, 133, 0.55) !important;
+    border-bottom: 4px solid #f43f5e !important;
+}
+
+/* --- Executive KPI Strip --- */
+.about-kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+}
+
+.akpi-card-3d {
+    padding: 1.4rem 1.25rem;
+    border-radius: 18px;
+    text-align: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.88);
+}
+
+.akpi-num {
+    display: block;
+    font-size: clamp(1.6rem, 2.5vw, 2.15rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.akpi-lbl {
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #cbd5e1;
+}
+
+/* --- Section Headers --- */
+.abt-sec-head {
+    margin: 3.5rem 0 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.abt-eyebrow {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #38bdf8;
+    margin-bottom: 0.4rem;
+}
+
+.abt-sec-title {
+    font-size: clamp(1.55rem, 2.7vw, 2.25rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0 0 0.4rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.abt-sec-desc {
+    color: #cbd5e1;
+    font-size: 0.96rem;
+    margin: 0;
+    max-width: 780px;
+}
+
+/* --- 3-Column Statutory Mandate Cards --- */
+.mandate-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.85rem;
+    margin-bottom: 3.5rem;
+}
+
+.mandate-card-3d {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem !important;
+    border-radius: 22px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.9),
+                inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+    transition: transform 0.25s ease !important;
+}
+
+.mandate-card-3d:hover {
+    transform: translateY(-6px) !important;
+}
+
+.m-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.1rem;
+}
+
+.m-icon {
+    font-size: 1.85rem;
+    background: rgba(30, 41, 59, 0.85);
+    padding: 0.45rem 0.65rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.m-pill {
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    background: rgba(250, 204, 21, 0.18);
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.mandate-card-3d h3 {
+    font-size: 1.22rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0 0 0.7rem;
+    line-height: 1.32;
+}
+
+.mandate-card-3d p {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin: 0 0 1.25rem;
+    flex-grow: 1;
+}
+
+.m-footer-tag {
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #34d399;
+}
+
+/* --- Campus Sectors Zoning Grid (4 Sectors) --- */
+.campus-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 4rem;
+}
+
+.sector-card-3d {
+    padding: 1.65rem;
+    border-radius: 18px;
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
+    border-right: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.85);
+}
+
+.sector-code {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    color: #facc15;
+    background: rgba(4, 9, 20, 0.75);
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    margin-bottom: 0.8rem;
+}
+
+.sector-card-3d h4 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0 0 0.5rem;
+}
+
+.sector-card-3d p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.58;
+    margin: 0;
+}
+
+/* --- Statutory 40/35/25 Governance Ledger Banner --- */
+.statutory-split-banner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 2.25rem;
+    align-items: center;
+    padding: clamp(1.75rem, 3.5vw, 2.75rem);
+    border-radius: 24px;
+    margin-bottom: 4rem;
+    box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.95);
+}
+
+.split-bars-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.split-bar-card {
+    background: rgba(4, 9, 20, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 5px solid #facc15;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+}
+.split-bar-card.cyan { border-left-color: #38bdf8; }
+.split-bar-card.emerald { border-left-color: #10b981; }
+
+.split-pct {
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #facc15;
+    font-family: monospace;
+    min-width: 68px;
+}
+.split-bar-card.cyan .split-pct { color: #38bdf8; }
+.split-bar-card.emerald .split-pct { color: #34d399; }
+
+.split-bar-card strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 0.15rem;
+}
+
+.split-bar-card small {
+    color: #94a3b8;
+    font-size: 0.78rem;
+}
+
+/* --- Interactive Executive Dispatch Console --- */
+.dispatch-console-3d {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 2.25rem;
+    padding: clamp(1.75rem, 3.5vw, 3rem);
+    border-radius: 24px;
+    box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.95);
+}
+
+.dispatch-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dispatch-info-list li {
+    background: rgba(4, 9, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0.9rem 1.15rem;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.dispatch-info-list li strong {
+    display: block;
+    color: #facc15;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.dispatch-form-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(4, 9, 20, 0.78);
+    padding: 1.75rem;
+    border-radius: 18px;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.dispatch-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.dispatch-form-3d input,
+.dispatch-form-3d select,
+.dispatch-form-3d textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.dispatch-form-3d input:focus,
+.dispatch-form-3d select:focus,
+.dispatch-form-3d textarea:focus {
+    border-color: #facc15;
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+
+.btn-dispatch-3d {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #facc15 0%, #eab308 55%, #ca8a04 100%) !important;
+    color: #040914 !important;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: none;
+    border-top: 1px solid #fef08a !important;
+    border-bottom: 4px solid #78350f !important;
+    box-shadow: 0 12px 24px -6px rgba(250, 204, 21, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    cursor: pointer;
+    transition: transform 0.18s ease, filter 0.18s ease;
+}
+
+.btn-dispatch-3d:hover {
+    transform: translateY(-3px) scale(1.01);
+    filter: brightness(1.08);
+}
+
+.dispatch-response-box {
+    margin-top: 0.75rem;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: none;
+}
+
+.dispatch-response-box.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
+    color: #34d399;
+}
+
+@media (max-width: 980px) {
+    .statutory-split-banner,
+    .dispatch-console-3d {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .dispatch-form-row {
+        grid-template-columns: 1fr;
+    }
+}

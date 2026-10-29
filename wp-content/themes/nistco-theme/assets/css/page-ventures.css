@@ -1,0 +1,688 @@
+/* ==========================================================================
+   SOVEREIGN VENTURE MARKETPLACE • IP COMMERCIALISATION (Refined 3D Suite)
+   ========================================================================== */
+.nastco-ventures-wrapper {
+    background: radial-gradient(circle at 50% 0%, #101f3c 0%, #050b16 55%, #02060d 100%);
+    color: #f8fafc;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding-bottom: 5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.nastco-ventures-wrapper *,
+.nastco-ventures-wrapper *::before,
+.nastco-ventures-wrapper *::after {
+    box-sizing: border-box;
+}
+
+.ventures-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2.25rem);
+}
+
+.ventures-hero-section {
+    padding: clamp(2.75rem, 5vw, 4.5rem) 0;
+}
+
+/* --- Refined Masthead & Sovereign Telemetry Strip --- */
+.ventures-hero-header {
+    text-align: center;
+    max-width: 920px;
+    margin: 0 auto clamp(2rem, 4vw, 3rem);
+}
+
+.ventures-badge-3d {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(6, 13, 26, 0.98) 100%);
+    border-top: 1px solid rgba(254, 240, 138, 0.55);
+    border-bottom: 3px solid #ca8a04;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 15px rgba(250, 204, 21, 0.2);
+    font-size: clamp(0.68rem, 1.4vw, 0.76rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #facc15;
+    margin-bottom: 1.25rem;
+}
+
+.pulse-dot-green {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+    display: inline-block;
+    animation: venturePulse 2s infinite;
+}
+
+@keyframes venturePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.25); opacity: 0.65; }
+}
+
+.ventures-title {
+    font-size: clamp(1.9rem, 4.2vw, 3.35rem);
+    font-weight: 900;
+    line-height: 1.14;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin: 0 0 1.15rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35),
+                 0 3px 6px rgba(0, 0, 0, 0.85),
+                 0 8px 22px rgba(0, 0, 0, 0.95);
+}
+
+.text-gold-gradient {
+    background: linear-gradient(180deg, #fef9c3 0%, #facc15 50%, #d97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 3px 8px rgba(250, 204, 21, 0.35));
+}
+
+.ventures-subtitle {
+    font-size: clamp(0.95rem, 1.55vw, 1.1rem);
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin: 0 auto 2rem;
+    max-width: 780px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* --- Executive KPI Summary Bar --- */
+.ventures-kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+}
+
+.vkpi-pill-3d {
+    background: linear-gradient(160deg, rgba(15, 23, 42, 0.9) 0%, rgba(6, 13, 26, 0.96) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 4px solid #38bdf8;
+    border-radius: 16px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.85);
+}
+.vkpi-pill-3d.gold { border-bottom-color: #facc15; }
+.vkpi-pill-3d.emerald { border-bottom-color: #10b981; }
+.vkpi-pill-3d.violet { border-bottom-color: #a78bfa; }
+
+.vkpi-val {
+    display: block;
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.vkpi-lbl {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+}
+
+/* --- Interactive Search & Directorate Filter Bar --- */
+.ventures-control-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.25rem;
+    margin-bottom: 2.75rem;
+    box-shadow: 0 18px 40px -15px rgba(0, 0, 0, 0.85);
+}
+
+.ventures-search-wrap {
+    position: relative;
+    max-width: 540px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.ventures-search-input {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    background: rgba(4, 9, 20, 0.92);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 600;
+    outline: none;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ventures-search-input:focus {
+    border-color: #facc15;
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+
+.ventures-filter-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.filter-tab {
+    appearance: none;
+    cursor: pointer;
+    padding: 0.55rem 1.15rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid #02060d;
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+    background: linear-gradient(135deg, #facc15 0%, #eab308 60%, #ca8a04 100%);
+    color: #040914 !important;
+    border-top: 1px solid #fef08a;
+    border-bottom: 3px solid #78350f;
+    box-shadow: 0 8px 18px -4px rgba(250, 204, 21, 0.5);
+    transform: translateY(-2px);
+}
+
+/* --- 6 Jewel-Tone Color Themes --- */
+.color-theme-gold {
+    background: linear-gradient(150deg, rgba(180, 83, 9, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(250, 204, 21, 0.5) !important;
+    border-bottom: 4px solid #facc15 !important;
+}
+.color-theme-violet {
+    background: linear-gradient(150deg, rgba(109, 40, 217, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(167, 139, 250, 0.5) !important;
+    border-bottom: 4px solid #a78bfa !important;
+}
+.color-theme-cyan {
+    background: linear-gradient(150deg, rgba(14, 116, 144, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(56, 189, 248, 0.5) !important;
+    border-bottom: 4px solid #38bdf8 !important;
+}
+.color-theme-emerald {
+    background: linear-gradient(150deg, rgba(4, 120, 87, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(52, 211, 153, 0.5) !important;
+    border-bottom: 4px solid #10b981 !important;
+}
+.color-theme-crimson {
+    background: linear-gradient(150deg, rgba(190, 18, 60, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(251, 113, 133, 0.5) !important;
+    border-bottom: 4px solid #f43f5e !important;
+}
+.color-theme-cobalt {
+    background: linear-gradient(150deg, rgba(29, 78, 216, 0.4) 0%, rgba(15, 23, 42, 0.95) 60%, rgba(6, 13, 26, 0.99) 100%) !important;
+    border-top: 1px solid rgba(96, 165, 250, 0.5) !important;
+    border-bottom: 4px solid #3b82f6 !important;
+}
+
+/* --- Patent Cards Grid --- */
+.ventures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.85rem;
+    margin-bottom: 4.5rem;
+}
+
+.venture-patent-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.9rem !important;
+    border-radius: 22px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: 0 22px 48px -12px rgba(0, 0, 0, 0.9),
+                inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease !important;
+}
+
+.venture-patent-card:hover {
+    transform: translateY(-6px) !important;
+}
+
+.v-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.v-badge {
+    font-size: 0.72rem;
+    font-weight: 900;
+    padding: 0.28rem 0.7rem;
+    border-radius: 7px;
+    background: rgba(250, 204, 21, 0.18);
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.45);
+    letter-spacing: 0.04em;
+}
+
+.v-trl {
+    font-size: 0.74rem;
+    font-weight: 900;
+    color: #34d399;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    background: rgba(16, 185, 129, 0.14);
+    padding: 0.24rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.venture-patent-card h3 {
+    font-size: clamp(1.12rem, 1.5vw, 1.26rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0 0 0.7rem;
+    line-height: 1.32;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.venture-patent-card p {
+    font-size: 0.89rem;
+    color: #cbd5e1;
+    line-height: 1.62;
+    margin: 0 0 1.25rem;
+    flex-grow: 1;
+}
+
+/* Patent Commercial Specs Mini-Pills */
+.v-specs-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 12px;
+    background: rgba(4, 9, 20, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.75rem;
+}
+
+.v-specs-strip div span {
+    display: block;
+    color: #94a3b8;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.v-specs-strip div strong {
+    color: #f8fafc;
+    font-weight: 800;
+}
+
+.v-offtaker-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+/* --- Tactile 3D Request License Button --- */
+.btn-request-license-3d {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.72rem 1.2rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #facc15 0%, #eab308 55%, #ca8a04 100%) !important;
+    color: #040914 !important;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-top: 1px solid #fef08a !important;
+    border-bottom: 4px solid #78350f !important;
+    box-shadow: 0 10px 20px -5px rgba(250, 204, 21, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-request-license-3d:hover {
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.08);
+    box-shadow: 0 14px 26px -5px rgba(250, 204, 21, 0.75),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.btn-request-license-3d:active {
+    transform: translateY(1px);
+    border-bottom-width: 2px !important;
+}
+
+.btn-request-license-3d.full-width {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* --- Statutory Fiscal Transparency & Countdown Box --- */
+.ventures-royalty-calc-box {
+    border-radius: 24px;
+    padding: clamp(1.5rem, 3.5vw, 2.75rem);
+    border-left: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.95) !important;
+}
+
+.fiscal-countdown-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.35rem;
+    margin-bottom: 1.85rem;
+    background: rgba(4, 9, 20, 0.82);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    border-radius: 16px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+
+.fc-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.fc-badge {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #38bdf8;
+}
+
+.fc-timer-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+}
+
+.fc-timer-label {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #cbd5e1;
+    letter-spacing: 0.05em;
+}
+
+.fc-digits {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.fc-unit {
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.95) 0%, rgba(9, 14, 26, 0.98) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom: 3px solid #facc15;
+    padding: 0.35rem 0.65rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 54px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.75);
+}
+
+.fc-unit span {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #facc15;
+    font-family: monospace;
+    line-height: 1.1;
+}
+
+.fc-unit small {
+    display: block;
+    font-size: 0.58rem;
+    font-weight: 800;
+    color: #94a3b8;
+    margin-top: 0.1rem;
+}
+
+.fc-sep {
+    font-weight: 900;
+    color: #facc15;
+    font-size: 1.1rem;
+}
+
+.calc-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2.25rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calc-copy h2 {
+    font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+    color: #ffffff;
+    margin: 0 0 0.6rem;
+}
+
+.calc-copy p {
+    color: #cbd5e1;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.calc-input-group {
+    background: rgba(4, 9, 20, 0.78);
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.calc-input-group label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #facc15;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.calc-input-group input[type="number"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(250, 204, 21, 0.55);
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 900;
+    font-family: monospace;
+}
+
+.royalty-slider-3d {
+    width: 100%;
+    accent-color: #facc15;
+    cursor: pointer;
+    height: 8px;
+    border-radius: 999px;
+}
+
+.calc-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.calc-result-card {
+    border-radius: 18px;
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 16px 35px -10px rgba(0, 0, 0, 0.85);
+    transition: transform 0.25s ease;
+}
+
+.calc-result-card:hover {
+    transform: translateY(-4px);
+}
+
+.calc-pct {
+    display: block;
+    font-size: clamp(2rem, 3.2vw, 2.5rem);
+    font-weight: 900;
+    color: #facc15;
+    margin-bottom: 0.35rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+}
+.calc-result-card.color-theme-cyan .calc-pct { color: #38bdf8; }
+.calc-result-card.color-theme-emerald .calc-pct { color: #34d399; }
+
+.calc-result-card strong {
+    display: block;
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    font-family: monospace;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.calc-result-card small {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- License Modal --- */
+.license-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 13, 0.88);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.license-modal-backdrop.active {
+    display: flex;
+}
+
+.license-modal-3d {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 22px;
+    padding: 2.25rem;
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.license-form-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-top: 1.25rem;
+}
+
+.license-form-3d input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    background: rgba(4, 9, 20, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.92rem;
+}
+
+.license-status-msg {
+    margin-top: 1rem;
+    padding: 0.85rem;
+    border-radius: 10px;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid #10b981;
+    color: #34d399;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+@media (max-width: 960px) {
+    .calc-header {
+        grid-template-columns: 1fr;
+    }
+    .fiscal-countdown-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 680px) {
+    .ventures-grid {
+        grid-template-columns: 1fr;
+    }
+    .v-offtaker-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-request-license-3d {
+        width: 100%;
+    }
+}
