@@ -948,3 +948,5 @@ add_action( 'wp_enqueue_scripts', function() {
 require_once get_template_directory() . '/inc/force-assets-loader.php';
 
 require_once get_template_directory() . '/inc/dispatch-endpoint.php';
+
+require_once get_template_directory() . '/inc/live-ledger-api.php';

@@ -399,4 +399,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+
+<?php get_template_part( 'template-parts/front-page/07-executive-financial-dashboard' ); ?>
 <?php get_footer(); ?>
